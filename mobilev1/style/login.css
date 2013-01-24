@@ -1,0 +1,47 @@
+/****
+ * Login Page CSS
+ *
+ ****/
+ 
+ 
+ .loginbox.twocolumns .loginpanel,
+ .loginbox.twocolumns .signuppanel  {
+	 float: none;
+	 width: 100%;
+	 border-right:none;
+	 margin-bottom: 0px;
+	 padding-bottom: 0px;
+ }
+ 
+.loginbox .signuppanel .subcontent ol,
+.form-label{
+	display: none;
+}
+
+.loginbox .loginform .form-input {
+	float: none;
+	width: 100%;
+	text-align: center;
+}
+
+.loginbox .loginform .form-input input{
+	display: block;
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid rgba(51, 51, 51, 0.35);
+	width: 50%;
+
+}
+
+.loginbox .loginform input#username{
+	-webkit-border-top-left-radius: 0.5em;
+	-webkit-border-top-right-radius: 0.5em;
+}
+
+.loginbox .loginform input#password{
+	-webkit-border-bottom-left-radius: 0.5em;
+	-webkit-border-bottom-right-radius: 0.5em;
+	margin-top: -3px;
+	margin-bottom: 2em;
+}

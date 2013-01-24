@@ -38,7 +38,9 @@ $THEME->name = 'mobilev1';
 $THEME->parents = array('base');
 
 $THEME->sheets = array(
-    'mobilev1'   /** Must come first: Page layout **/
+    'pagelayout',   /** Must come first: Page layout **/
+    'mobilev1',
+    'login'
 
 );
 
