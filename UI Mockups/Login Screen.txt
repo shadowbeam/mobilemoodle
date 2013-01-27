@@ -1,0 +1,180 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1282" measuredH="629" mockupW="1254" mockupH="606">
+  <controls>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::Label" x="28" y="23" w="-1" h="-1" measuredW="273" measuredH="36" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13576743</color>
+        <size>28</size>
+        <text>Login%20Screen%20Mockup</text>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Paragraph" x="28" y="74" w="279" h="58" measuredW="200" measuredH="80" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>false</bold>
+        <size>12</size>
+        <text>This%20is%20a%20mockup%20of%20the%20login%20screen%20for%20a%20VLE%20app.</text>
+      </controlProperties>
+    </control>
+    <control controlID="70" controlTypeID="__group__" x="40" y="119" w="282" h="510" measuredW="282" measuredH="510" zOrder="2" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="0" y="0" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="70"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="27" y="98" w="225" h="39" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="70">
+          <controlProperties>
+            <borderColor>7775663</borderColor>
+            <color>7775663</color>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="59" y="215" w="162" h="-1" measuredW="73" measuredH="27" zOrder="2" locked="false" isInGroup="70">
+          <controlProperties>
+            <align>center</align>
+            <text>username</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="59" y="237" w="162" h="-1" measuredW="71" measuredH="27" zOrder="3" locked="false" isInGroup="70">
+          <controlProperties>
+            <align>center</align>
+            <text>password</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="59" y="278" w="162" h="27" measuredW="54" measuredH="27" zOrder="4" locked="false" isInGroup="70">
+          <controlProperties>
+            <text>Login</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::PieChart" x="109" y="146" w="59" h="64" measuredW="180" measuredH="180" zOrder="5" locked="false" isInGroup="70"/>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::Link" x="87" y="320" w="-1" h="-1" measuredW="102" measuredH="19" zOrder="6" locked="false" isInGroup="70">
+          <controlProperties>
+            <text>forgot%20password%3F</text>
+          </controlProperties>
+        </control>
+        <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="107" y="107" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="7" locked="false" isInGroup="70">
+          <controlProperties>
+            <text>MobileVLE</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="71" controlTypeID="__group__" x="363" y="119" w="282" h="510" measuredW="282" measuredH="510" zOrder="3" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="0" y="0" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="71"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="27" y="98" w="225" h="39" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="71">
+          <controlProperties>
+            <borderColor>7775663</borderColor>
+            <color>7775663</color>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="59" y="215" w="162" h="-1" measuredW="73" measuredH="27" zOrder="2" locked="false" isInGroup="71">
+          <controlProperties>
+            <align>center</align>
+            <text>username</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="59" y="237" w="162" h="-1" measuredW="71" measuredH="27" zOrder="3" locked="false" isInGroup="71">
+          <controlProperties>
+            <align>center</align>
+            <text>password</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="59" y="278" w="162" h="27" measuredW="54" measuredH="27" zOrder="4" locked="false" isInGroup="71">
+          <controlProperties>
+            <text>Login</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::Link" x="87" y="320" w="-1" h="-1" measuredW="102" measuredH="19" zOrder="5" locked="false" isInGroup="71">
+          <controlProperties>
+            <text>forgot%20password%3F</text>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="107" y="107" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="6" locked="false" isInGroup="71">
+          <controlProperties>
+            <text>MobileVLE</text>
+          </controlProperties>
+        </control>
+        <control controlID="7" controlTypeID="com.balsamiq.mockups::TextArea" x="59" y="149" w="162" h="58" measuredW="200" measuredH="140" zOrder="7" locked="false" isInGroup="71">
+          <controlProperties>
+            <align>center</align>
+            <borderColor>13576743</borderColor>
+            <color>16777215</color>
+            <text>%20%0Aincorrect%20username</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::iPhone" x="1000" y="119" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::Canvas" x="1027" y="217" w="225" h="39" measuredW="100" measuredH="70" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>7775663</borderColor>
+        <color>7775663</color>
+      </controlProperties>
+    </control>
+    <control controlID="90" controlTypeID="com.balsamiq.mockups::Label" x="1107" y="226" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>MobileVLE</text>
+      </controlProperties>
+    </control>
+    <control controlID="92" controlTypeID="com.balsamiq.mockups::iPhoneKeyboard" x="1027" y="386" w="-1" h="-1" measuredW="227" measuredH="160" zOrder="13" locked="false" isInGroup="-1"/>
+    <control controlID="93" controlTypeID="com.balsamiq.mockups::iPhone" x="680" y="119" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="4" locked="false" isInGroup="-1"/>
+    <control controlID="95" controlTypeID="com.balsamiq.mockups::Canvas" x="707" y="217" w="225" h="39" measuredW="100" measuredH="70" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>7775663</borderColor>
+        <color>7775663</color>
+      </controlProperties>
+    </control>
+    <control controlID="99" controlTypeID="com.balsamiq.mockups::Link" x="807" y="439" w="-1" h="-1" measuredW="27" measuredH="19" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>login</text>
+      </controlProperties>
+    </control>
+    <control controlID="100" controlTypeID="com.balsamiq.mockups::Label" x="787" y="226" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>MobileVLE</text>
+      </controlProperties>
+    </control>
+    <control controlID="101" controlTypeID="com.balsamiq.mockups::TextArea" x="739" y="268" w="162" h="58" measuredW="200" measuredH="140" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <borderColor>16767334</borderColor>
+        <color>16777215</color>
+        <text>Enter%20email%20address%20or%20username%20to%20have%20your%20password%20reset</text>
+      </controlProperties>
+    </control>
+    <control controlID="102" controlTypeID="__group__" x="739" y="334" w="162" h="90" measuredW="162" measuredH="90" zOrder="6" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="0" w="162" h="-1" measuredW="45" measuredH="27" zOrder="0" locked="false" isInGroup="102">
+          <controlProperties>
+            <align>center</align>
+            <text>email</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="22" w="162" h="-1" measuredW="73" measuredH="27" zOrder="1" locked="false" isInGroup="102">
+          <controlProperties>
+            <align>center</align>
+            <text>username</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="0" y="63" w="162" h="27" measuredW="58" measuredH="27" zOrder="2" locked="false" isInGroup="102">
+          <controlProperties>
+            <text>Reset</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="104" controlTypeID="com.balsamiq.mockups::TextInput" x="1058" y="270" w="162" h="-1" measuredW="17" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <borderColor>0</borderColor>
+        <text>%7C</text>
+      </controlProperties>
+    </control>
+    <control controlID="105" controlTypeID="com.balsamiq.mockups::TextInput" x="1058" y="292" w="162" h="-1" measuredW="71" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>password</text>
+      </controlProperties>
+    </control>
+    <control controlID="106" controlTypeID="com.balsamiq.mockups::Button" x="1058" y="333" w="162" h="27" measuredW="54" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Login</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

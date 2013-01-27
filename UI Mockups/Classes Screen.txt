@@ -1,0 +1,253 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1923" measuredH="652" mockupW="1895" mockupH="629">
+  <controls>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Paragraph" x="28" y="74" w="279" h="58" measuredW="200" measuredH="80" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>false</bold>
+        <size>12</size>
+        <text>This%20is%20a%20mockup%20of%20the%20classes%20section%20of%20the%20app.</text>
+      </controlProperties>
+    </control>
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::iPhone" x="1000" y="119" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="11" locked="false" isInGroup="-1"/>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::Canvas" x="1027" y="217" w="225" h="39" measuredW="100" measuredH="70" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>7775663</borderColor>
+        <color>7775663</color>
+      </controlProperties>
+    </control>
+    <control controlID="90" controlTypeID="com.balsamiq.mockups::Label" x="1107" y="226" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>MobileVLE</text>
+      </controlProperties>
+    </control>
+    <control controlID="108" controlTypeID="com.balsamiq.mockups::iPhone" x="40" y="119" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="109" controlTypeID="com.balsamiq.mockups::Canvas" x="67" y="217" w="225" h="39" measuredW="100" measuredH="70" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>7775663</borderColor>
+        <color>7775663</color>
+      </controlProperties>
+    </control>
+    <control controlID="115" controlTypeID="com.balsamiq.mockups::Label" x="147" y="226" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>MobileVLE</text>
+      </controlProperties>
+    </control>
+    <control controlID="119" controlTypeID="com.balsamiq.mockups::RoundButton" x="712" y="220" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0</backgroundAlpha>
+        <borderColor>7775663</borderColor>
+        <icon>ListIcon%7Csmall</icon>
+        <shape>roundRect</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="122" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="69" y="297" w="-1" h="-1" measuredW="215" measuredH="213" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>CL101%09Lorem%20ipsum%20dolor%20%0ACL200%09Aliquam%20tincidunt%20%0ACL300%09Vestibulum%20auctor%0ACL400%09Nunc%20dignissim%20ri%0ACL500%09Cras%20ornare%20trist%0ACL600%09Vivamus%20vestibulum%0ACl700%09Praesent%20placerat%20ri...</text>
+      </controlProperties>
+    </control>
+    <control controlID="124" controlTypeID="com.balsamiq.mockups::HRule" x="73" y="287" w="210" h="-1" measuredW="100" measuredH="10" zOrder="16" locked="false" isInGroup="-1"/>
+    <control controlID="125" controlTypeID="com.balsamiq.mockups::Label" x="504" y="266" w="-1" h="-1" measuredW="50" measuredH="21" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <text>Classes</text>
+      </controlProperties>
+    </control>
+    <control controlID="126" controlTypeID="com.balsamiq.mockups::Link" x="123" y="517" w="-1" h="-1" measuredW="100" measuredH="19" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>previous%20classes</text>
+      </controlProperties>
+    </control>
+    <control controlID="127" controlTypeID="com.balsamiq.mockups::iPhone" x="363" y="119" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>allWhite</bgPattern>
+        <orientation>portrait</orientation>
+      </controlProperties>
+    </control>
+    <control controlID="136" controlTypeID="com.balsamiq.mockups::Canvas" x="495" y="217" w="119" h="39" measuredW="100" measuredH="70" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>7775663</borderColor>
+        <color>7775663</color>
+      </controlProperties>
+    </control>
+    <control controlID="137" controlTypeID="com.balsamiq.mockups::Label" x="572" y="226" w="42" h="-1" measuredW="63" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>MobileVLE</text>
+      </controlProperties>
+    </control>
+    <control controlID="139" controlTypeID="com.balsamiq.mockups::RoundButton" x="67" y="220" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0</backgroundAlpha>
+        <borderColor>7775663</borderColor>
+        <icon>ListIcon%7Csmall</icon>
+        <shape>roundRect</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="140" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="504" y="297" w="110" h="-1" measuredW="215" measuredH="213" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>CL101%09Lorem%20ipsum%20dolor%20%0ACL200%09Aliquam%20tincidunt%20%0ACL300%09Vestibulum%20auctor%0ACL400%09Nunc%20dignissim%20ri%0ACL500%09Cras%20ornare%20trist%0ACL600%09Vivamus%20vestibulum%0ACl700%09Praesent%20placerat%20ri...</text>
+      </controlProperties>
+    </control>
+    <control controlID="141" controlTypeID="com.balsamiq.mockups::HRule" x="495" y="287" w="119" h="-1" measuredW="100" measuredH="10" zOrder="21" locked="false" isInGroup="-1"/>
+    <control controlID="142" controlTypeID="com.balsamiq.mockups::Label" x="73" y="266" w="-1" h="-1" measuredW="50" measuredH="21" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <text>Classes</text>
+      </controlProperties>
+    </control>
+    <control controlID="144" controlTypeID="com.balsamiq.mockups::List" x="391" y="218" w="104" h="328" measuredW="100" measuredH="310" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <alternateRowColor>12303802</alternateRowColor>
+        <borderStyle>none</borderStyle>
+        <color>12303802</color>
+        <hasHeader>false</hasHeader>
+        <rowHeight>38</rowHeight>
+        <selectedIndex>1</selectedIndex>
+        <text>%20%20%20%20%20%20Home%0A%20%20%20%20%20%20Classes%0A%20%20%20%20%20%20Messages%0A%20%20%20%20%20%20Calendar%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20Settings%0A%20%20%20%20%20%20Logout%0A%20%20%20%20%20%20Help</text>
+        <value>0</value>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="145" controlTypeID="com.balsamiq.mockups::iPhone" x="680" y="119" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="8" locked="false" isInGroup="-1"/>
+    <control controlID="146" controlTypeID="com.balsamiq.mockups::Canvas" x="709" y="217" w="225" h="39" measuredW="100" measuredH="70" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>7775663</borderColor>
+        <color>7775663</color>
+      </controlProperties>
+    </control>
+    <control controlID="149" controlTypeID="com.balsamiq.mockups::Label" x="759" y="226" w="124" h="-1" measuredW="148" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>CL101%20Lorem%20ipsum%20dolor%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="155" controlTypeID="com.balsamiq.mockups::Accordion" x="716" y="297" w="210" h="249" measuredW="150" measuredH="294" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Lectures%0A-%20L1%20%20Intro%0A-%20L2%20Lorem%0A-%20L3%20Ipusm%0A-%20L4%20Dolor%0ATutorials%0A-%20Sub-Item%202.1%0A-%20Sub-Item%202.2%0APracticals%0AReading</text>
+      </controlProperties>
+    </control>
+    <control controlID="159" controlTypeID="com.balsamiq.mockups::Accordion" x="1036" y="262" w="210" h="284" measuredW="150" measuredH="348" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>5</selectedIndex>
+        <text>Lectures%0A-%20L1%20%20Intro%0A-%20L2%20Lorem%0A-%20L3%20Ipusm%0A-%20L4%20Dolor%0ATutorials%0A-%20Sub-Item%202.1%0A-%20Sub-Item%202.2%0A-%20Sub-Item%202.3%0A-%20Sub-Item%202.4%0A-%20Sub-Item%202.5%0APracticals%0AReading%0AExam%20Questions</text>
+      </controlProperties>
+    </control>
+    <control controlID="162" controlTypeID="com.balsamiq.mockups::iPhone" x="1321" y="119" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="26" locked="false" isInGroup="-1"/>
+    <control controlID="166" controlTypeID="com.balsamiq.mockups::Label" x="1355" y="266" w="-1" h="-1" measuredW="47" measuredH="21" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <text>L1%20Intro</text>
+      </controlProperties>
+    </control>
+    <control controlID="167" controlTypeID="com.balsamiq.mockups::HRule" x="1355" y="287" w="210" h="-1" measuredW="100" measuredH="10" zOrder="29" locked="false" isInGroup="-1"/>
+    <control controlID="168" controlTypeID="com.balsamiq.mockups::TextArea" x="1355" y="297" w="210" h="249" measuredW="200" measuredH="140" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <text>Lorem%20ipsum%20dolor%20sit%20amet%2C%20consectetur%20adipiscing%20elit.%20Phasellus%20ac%20mattis%20justo.%20Suspendisse%20enim%20mi%2C%20auctor%20at%20scelerisque%20eget%2C%20lacinia%20vel%20magna.%20Vivamus%20non%20ipsum%20sapien%2C%20sit%20amet%20vestibulum%20sem.%20Quisque%20in%20ullamcorper%20massa.%20%0A%20%0AFusce%20eu%20augue%20est%2C%20in%20imperdiet%20eros.%20Donec%20felis%20tortor%2C%20feugiat%20eu%20rhoncus%20a%2C%20lobortis%20eget%20erat.%20Phasellus%20tempus%20consectetur%20arcu%20in%20placerat.%20Suspendisse%20commodo%20laoreet%20mollis.%20Ut%20leo%20tortor%2C%20mollis%20eu%20auctor%20sed%2C%20facilisis%20et%20elit.%20Mauris%20purus%20neque%2C%20scelerisque%20ut%20tincidunt%20convallis%2C%20commodo%20vitae%20odio.%20Nunc%20vulputate%20orci%20quam%2C%20sed%20fringilla%20nisi.%20Pellentesque%20aliquam%20tellus%20vel%20tellus%20tempor%20ultricies.%20Integer%20molestie%20diam%20non%20mauris%20fringilla%20vel%20commodo%20erat%20convallis.%0A%20%0AUt%20eget%20urna%20eros%2C%20et%20adipiscing%20odio.%20Vivamus%20ut%20posuere%20quam.%20Praesent%20interdum%20ultrices%20sem%2C%20eget%20eleifend%20urna%20sollicitudin%20et.%20In%20congue%2C%20neque%20at%20pellentesque%20placerat%2C%20dolor%20urna%20condimentum%20velit%2C%20at%20fringilla%20risus%20nunc%20eu%20sem.%20Aliquam%20erat%20volutpat.%20Nunc%20nec%20nibh%20eget%20lorem%20vestibulum%20pellentesque.%20Cras%20eleifend%20porttitor%20magna%20ut%20lacinia.%20Morbi%20id%20turpis%20ligula%2C%20in%20malesuada%20diam.%20Pellentesque%20habitant%20morbi%20tristique%20senectus%20et%20netus%20et%20malesuada%20fames%20ac%20turpis%20egestas.%20Sed%20sem%20nunc%2C%20mollis%20eu%20egestas%20ut%2C%20laoreet%20at%20urna.%20Mauris%20molestie%20ultrices%20eros%2C%20vel%20fringilla%20justo%20sagittis%20ac.%20Vestibulum%20ante%20ipsum%20primis%20in%20faucibus%20orci%20luctus%20et%20ultrices%20posuere%20cubilia%20Curae%3B%20In%20fringilla%2C%20augue%20ac%20commodo%20pretium%2C%20lacus%20magna%20luctus%20arcu%2C%20eget%20rutrum%20arcu%20turpis%20eu%20justo.%20Nunc%20leo%20est%2C%20feugiat%20et%20fermentum%20eget%2C%20semper%20nec%20leo.%20Quisque%20sit%20amet%20nibh%20sit%20amet%20neque%20cursus%20imperdiet%20at%20nec%20est.%0A%20%0ADonec%20dapibus%20rhoncus%20mi%2C%20a%20pharetra%20augue%20auctor%20eget.%20In%20in%20dolor%20est%2C%20eget%20mattis%20augue.%20Etiam%20ut%20dolor%20vel%20sapien%20ultricies%20faucibus%20vitae%20eu%20ante.%20Etiam%20feugiat%20fringilla%20lacus%20vestibulum%20porta.%20Vivamus%20metus%20turpis%2C%20auctor%20ac%20fermentum%20non%2C%20vehicula%20sed%20eros.%20Proin%20in%20imperdiet%20urna.%20Pellentesque%20lobortis%20laoreet%20justo%20molestie%20pharetra.%20Quisque%20semper%20arcu%20eu%20ante%20elementum%20ullamcorper.%20Aliquam%20erat%20volutpat.%20Nullam%20malesuada%20ipsum%20ut%20eros%20accumsan%20eget%20varius%20nibh%20varius.%20Phasellus%20eu%20nunc%20sem.%20Nam%20cursus%20enim%20in%20ligula%20pharetra%20sodales%20vel%20eu%20dui.%0A%20%0ASuspendisse%20sagittis%20rhoncus%20blandit.%20Donec%20nec%20feugiat%20magna.%20Vestibulum%20eu%20neque%20neque%2C%20vitae%20vestibulum%20sem.%20Mauris%20cursus%20rhoncus%20elit%20et%20gravida.%20In%20eleifend%2C%20tortor%20et%20rhoncus%20adipiscing%2C%20quam%20lacus%20elementum%20nisi%2C%20tincidunt%20bibendum%20diam%20dolor%20fringilla%20lectus.%20Aliquam%20in%20ultrices%20libero.%20Pellentesque%20ac%20ipsum%20massa%2C%20ac%20viverra%20nulla.%20Nullam%20vehicula%20accumsan%20eros%2C%20in%20vehicula%20nunc%20venenatis%20vel.%20Maecenas%20non%20dui%20mauris.%20Maecenas%20dolor%20lorem%2C%20dignissim%20sed%20tristique%20vel%2C%20aliquet%20quis%20magna.%20Duis%20consectetur%2C%20lectus%20id%20lobortis%20ultrices%2C%20eros%20nisl%20interdum%20lorem%2C%20non%20euismod%20velit%20risus%20quis%20nisl.</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="169" controlTypeID="com.balsamiq.mockups::StickyNote" x="1306" y="517" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>HTML%20Content%0ADisplayed%20within%20the%20app</text>
+      </controlProperties>
+    </control>
+    <control controlID="170" controlTypeID="__group__" x="28" y="23" w="210" h="36" measuredW="210" measuredH="36" zOrder="1" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="-1" h="-1" measuredW="210" measuredH="36" zOrder="0" locked="false" isInGroup="170">
+          <controlProperties>
+            <color>13576743</color>
+            <size>28</size>
+            <text>Classes%20Mockup</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="171" controlTypeID="com.balsamiq.mockups::iPhone" x="1641" y="119" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="32" locked="false" isInGroup="-1"/>
+    <control controlID="172" controlTypeID="__group__" x="1348" y="217" w="225" h="39" measuredW="225" measuredH="39" zOrder="27" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="225" h="39" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="172">
+          <controlProperties>
+            <borderColor>7775663</borderColor>
+            <color>7775663</color>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="80" y="9" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="1" locked="false" isInGroup="172">
+          <controlProperties>
+            <text>MobileVLE</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="174" controlTypeID="com.balsamiq.mockups::Button" x="715" y="264" w="-1" h="-1" measuredW="66" measuredH="27" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Forums</text>
+      </controlProperties>
+    </control>
+    <control controlID="175" controlTypeID="com.balsamiq.mockups::Button" x="849" y="265" w="-1" h="-1" measuredW="77" measuredH="27" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Calendar</text>
+      </controlProperties>
+    </control>
+    <control controlID="176" controlTypeID="com.balsamiq.mockups::Button" x="783" y="265" w="65" h="27" measuredW="65" measuredH="27" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Grades</text>
+      </controlProperties>
+    </control>
+    <control controlID="177" controlTypeID="com.balsamiq.mockups::IconLabel" x="395" y="303" w="-1" h="-1" measuredW="88" measuredH="24" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmailIcon%7Csmall</icon>
+        <labelPosition>right</labelPosition>
+        <text>Messages</text>
+      </controlProperties>
+    </control>
+    <control controlID="178" controlTypeID="com.balsamiq.mockups::IconLabel" x="395" y="266" w="-1" h="-1" measuredW="76" measuredH="24" zOrder="37" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>BookIcon%7Csmall</icon>
+        <labelPosition>right</labelPosition>
+        <text>Classes</text>
+      </controlProperties>
+    </control>
+    <control controlID="179" controlTypeID="com.balsamiq.mockups::IconLabel" x="395" y="342" w="-1" h="-1" measuredW="82" measuredH="24" zOrder="38" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>CalendarIcon%7Csmall</icon>
+        <labelPosition>right</labelPosition>
+        <text>Calendar</text>
+      </controlProperties>
+    </control>
+    <control controlID="180" controlTypeID="com.balsamiq.mockups::IconLabel" x="396" y="419" w="99" h="-1" measuredW="78" measuredH="24" zOrder="39" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>GearIcon%7Csmall</icon>
+        <labelPosition>right</labelPosition>
+        <text>Settings</text>
+      </controlProperties>
+    </control>
+    <control controlID="181" controlTypeID="com.balsamiq.mockups::IconLabel" x="396" y="456" w="99" h="-1" measuredW="68" measuredH="24" zOrder="40" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>ExportIcon%7Csmall</icon>
+        <labelPosition>right</labelPosition>
+        <text>Logout</text>
+      </controlProperties>
+    </control>
+    <control controlID="182" controlTypeID="com.balsamiq.mockups::IconLabel" x="396" y="493" w="99" h="-1" measuredW="54" measuredH="24" zOrder="41" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>Help2Icon%7Csmall</icon>
+        <labelPosition>right</labelPosition>
+        <text>Help</text>
+      </controlProperties>
+    </control>
+    <control controlID="183" controlTypeID="com.balsamiq.mockups::IconLabel" x="396" y="228" w="-1" h="-1" measuredW="61" measuredH="24" zOrder="42" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>HomeMobileIcon%7Csmall</icon>
+        <labelPosition>right</labelPosition>
+        <text>Home</text>
+      </controlProperties>
+    </control>
+    <control controlID="184" controlTypeID="com.balsamiq.mockups::StickyNote" x="1618" y="525" w="185" h="127" measuredW="109" measuredH="123" zOrder="43" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Other%20forms%20of%20content%20should%20open%20in%20a%20new%20window%20or%20a%20different%20app%20that%20can%20handle%20the%20format.%20This%20will%20be%20device%20specific</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
