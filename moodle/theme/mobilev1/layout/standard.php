@@ -22,9 +22,7 @@ echo $OUTPUT->doctype(); ?>
            
             <div class="headermenu"><?php
                 echo $OUTPUT->login_info();
-                if (!empty($PAGE->layout_options['langmenu'])) {
-                    echo $OUTPUT->lang_menu();
-                }
+            
                 echo $PAGE->headingmenu
             ?></div>
             

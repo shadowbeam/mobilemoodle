@@ -1,3 +1,10 @@
+/* @override 
+	http://localhost:8888/moodle/theme/yui_combo.php?3.7.3/build/cssreset/reset.css&3.7.3/build/cssfonts/fonts.css&3.7.3/build/cssgrids/grids.css&3.7.3/build/cssbase/base.css */
+
+body{
+	font-family:  Arial, sans-serif;
+}
+
 a {
     text-decoration: none;
 }
@@ -112,3 +119,44 @@ h2.headingblock {
     border-width: 0;
     text-decoration: none;
 }
+
+
+/* @group Input  */
+
+input{
+	width: 30%;
+	min-width: 10em;
+	border: 2px solid #888888;
+	padding: 0.5em;
+	
+}
+
+input[type="text"],
+input[type="password"]{
+	text-align: center;
+	-moz-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.26);
+	-webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.26);
+	box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.26);
+	padding: 1em;
+}
+
+input[type="submit"]{
+	-webkit-border-radius: 0.25em;
+	border: 2px solid rgba(51, 51, 51, 0.47);
+	background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0) 83.4%) #007abf;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.1)), color-stop(0.834, rgba(255, 255, 255, 0))) #007abf;
+	border-bottom-style: solid;
+	font-size: 14px;
+}
+
+input[type="submit"]:active{
+	cursor: url;
+}
+
+input[type="submit"]:hover{
+	background: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%) #007abf;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.1))) #007abf;
+	cursor: url;
+}
+
+/* @end */

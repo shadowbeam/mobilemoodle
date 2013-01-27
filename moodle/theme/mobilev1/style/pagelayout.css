@@ -1,3 +1,6 @@
+/* @override 
+	http://localhost:8888/moodle/theme/styles_debug.php?sheet=pagelayout&theme=mobilev1&type=theme */
+
 /****
  * Overrides of the base theme
  *
@@ -44,16 +47,5 @@
 	top: 0;
 }
 
-/**
-* Input
-*/
-input{
-	height: 2em;
-	width: 30%;
-}
 
-input[type="submit"]{
-	background-color: #8e8f8e;
-	
-}
 

@@ -40,9 +40,13 @@ $THEME->parents = array('base');
 $THEME->sheets = array(
     'pagelayout',   /** Must come first: Page layout **/
     'mobilev1',
-    'login'
+    'login',
+    'jquery.mobile-1.3.0-beta.1.css',
+    'jqm-docs'
 
 );
+
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
 $THEME->editor_sheets = array('editor');
 
@@ -121,5 +125,10 @@ $THEME->layouts = array(
 
 
 /** List of javascript files that need to included on each page */
-$THEME->javascripts = array();
+$THEME->javascripts = array(
+	'jquery.js',
+	'jquery.mobile-1.3.0-beta.1',
+	
+	
+);
 $THEME->javascripts_footer = array();

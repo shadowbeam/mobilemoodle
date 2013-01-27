@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,16 +16,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme version info
+ * Strings for component 'moodle', language 'en_ar', branch 'MOODLE_25_STABLE'
  *
- * @package    theme
- * @subpackage mobile
- * @copyright 2013 Allan Watson
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   moodle
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2012112900; // The current module version (Date: YYYYMMDDXX)
-$plugin->requires  = 2012112900; // Requires this Moodle version
-$plugin->component = 'theme_mobilev1'; // Full name of the plugin (used for diagnostics)
+$string['loggedinasguest'] = 'Guest';
+$string['loggedinas'] = '{$a}';
+$string['firsttime'] = '';

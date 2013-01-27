@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,14 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_base', language 'en', branch 'MOODLE_20_STABLE'
+ * Theme version info
  *
- * @package   mobile
+ * @package    theme
+ * @subpackage mobile
  * @copyright 2013 Allan Watson
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'mobilev1';
-$string['region-side-post'] = 'Right';
-$string['region-side-pre'] = 'Left';
-$string['choosereadme'] = 'A mobile optimised theme';
+defined('MOODLE_INTERNAL') || die;
+
+$plugin->version   = 2013012700; // The current module version (Date: YYYYMMDDXX)
+$plugin->requires  = 2012112900; // Requires this Moodle version
+$plugin->component = 'theme_mobilev1'; // Full name of the plugin (used for diagnostics)
