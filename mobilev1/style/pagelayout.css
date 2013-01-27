@@ -49,4 +49,11 @@
 */
 input{
 	height: 2em;
+	width: 30%;
 }
+
+input[type="submit"]{
+	background-color: #8e8f8e;
+	
+}
+
