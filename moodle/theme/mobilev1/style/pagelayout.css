@@ -28,7 +28,7 @@
  ****/
  
  
-#page-content #region-main-box {float:none;left:0px;position:relative;width:100%;}
+
 #page-content #region-main {margin-right:0px;margin-left:0px;overflow:hidden;}
 #page-content #region-main-wrap {float:none;position:relative;right:0;width:100%;}
 #page-content {clear:both;float:none;overflow:hidden;position:relative;width:100%;min-width:0px;}
@@ -38,13 +38,10 @@
 	font-size: 1.5em;
 	text-align: center;
 }
-#page-header .headermenu{
-	margin: 10px;
+
+
+#page-header .headernav{
 	font-size: 0.8em;
-	text-align: right;
-	position: absolute;
-	right: 0;
-	top: 0;
 }
 
 

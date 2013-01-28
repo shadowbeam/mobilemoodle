@@ -6,33 +6,42 @@ echo $OUTPUT->doctype(); ?>
 
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $PAGE->title ?></title>
     <?php echo $OUTPUT->standard_head_html() ?>
 </head>
 
 
-<body id="<?php p($PAGE->bodyid); ?>" class="<?php p($PAGE->bodyclasses); ?>">
-<?php echo $OUTPUT->standard_top_of_body_html() ?>
-<div id="page">
+<body class="<?php p($PAGE->bodyclasses); ?>">
 
-<?php if ($PAGE->heading || (empty($PAGE->layout_options['nonavbar']) && $PAGE->has_navbar())) { ?>
-    <div id="page-header">
+<?php echo $OUTPUT->standard_top_of_body_html() ?>
+
+
+<div id="<?php p($PAGE->bodyid); ?>" data-role="page" class="general">
+	
+	<!--  header -->
+    <div id="page-header" data-role="header" position="fixed">
     
         <?php if ($PAGE->heading) { ?>
            
-            <div class="headermenu"><?php
+            <div class="headernav">    
+                <a class="ui-btn-left" data-icon="home" href="<?php p($CFG->wwwroot) ?>" data-iconpos="notext" data-ajax="false"><?php p(get_string('home')); ?></a>
+            </div>
+            
+            <div class="headerprofile"><?php
                 echo $OUTPUT->login_info();
             
                 echo $PAGE->headingmenu
             ?></div>
-            
+
              <h1 class="headermain"><?php echo $PAGE->heading ?></h1>
         <?php } ?>
         
     </div>
-<?php } ?>
 
-<div id="page-content">
+
+<div id="page-body" data-role="content">
     <div id="region-main-box">
             <div id="region-main-wrap">
                 <div id="region-main">
@@ -44,6 +53,34 @@ echo $OUTPUT->doctype(); ?>
  
          </div>
     </div>
+    
+                    <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
+                    <div id="region-pre" class="block-region">
+                        <div class="region-content">
+                                <?php
+                            if (!right_to_left()) {
+                                echo $OUTPUT->blocks_for_region('side-pre');
+                            } elseif ($hassidepost) {
+                                echo $OUTPUT->blocks_for_region('side-post');
+                        } ?>
+    
+                        </div>
+                    </div>
+                    <?php } ?>
+    
+                    <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
+                    <div id="region-post" class="block-region">
+                        <div class="region-content">
+                               <?php
+                           if (!right_to_left()) {
+                               echo $OUTPUT->blocks_for_region('side-post');
+                           } elseif ($hassidepre) {
+                               echo $OUTPUT->blocks_for_region('side-pre');
+                        } ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+    
 </div>
 
 <?php if (empty($PAGE->layout_options['nofooter'])) { ?>

@@ -39,12 +39,19 @@ $THEME->parents = array('base');
 
 $THEME->sheets = array(
     'pagelayout',   /** Must come first: Page layout **/
-    'mobilev1',
-    'login',
-    'jquery.mobile-1.3.0-beta.1.css',
-    'jqm-docs'
-
-);
+   'jqm',
+    //'mobilev1',
+    'login'
+    );
+    
+    // Exclude parent sheets
+    $THEME->parents_exclude_sheets = array(
+        'base' => array(
+            'pagelayout'
+        )
+    );
+    
+    
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
@@ -124,11 +131,9 @@ $THEME->layouts = array(
 );
 
 
-/** List of javascript files that need to included on each page */
+// Add the required JavaScript to the page
 $THEME->javascripts = array(
-	'jquery.js',
-	'jquery.mobile-1.3.0-beta.1',
-	
-	
+    'jquery',
+    'jquery.mobile-1.3.0-beta'
 );
 $THEME->javascripts_footer = array();

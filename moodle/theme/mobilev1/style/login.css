@@ -21,33 +21,45 @@
 .loginbox .loginform .form-input {
 	float: none;
 	width: 100%;
-	text-align: center;
+	
+	margin-bottom: 1em;
 }
 
 .loginbox .loginform .form-input input{
-	display: block;
+/*	display: block;
 	clear: both;
 	margin-left: auto;
 	margin-right: auto;
-	width: 60%;
+	width: 60%;*/
+	width: 100%;
+	text-align: center;
 
+
+}
+
+.rememberpass #rememberusername{
+	display: inline-block;
+	width: auto;
 }
 
 .loginbox .loginform input#username{
-	-webkit-border-top-left-radius: 0.5em;
+/*	-webkit-border-top-left-radius: 0.5em;
 	-webkit-border-top-right-radius: 0.5em;
 	-moz-box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);
 	-webkit-box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);
-	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);
+	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);*/
 }
 
 .loginbox .loginform input#password{
-	-webkit-border-bottom-left-radius: 0.5em;
+/*	-webkit-border-bottom-left-radius: 0.5em;
 	-webkit-border-bottom-right-radius: 0.5em;
 	margin-top: -5px;
-	margin-bottom: 2em;
+
 	
 	-moz-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);
 	-webkit-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);
-	box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);
+	box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);*/
+}
+
+.loginbox .loginpanel .desc {display: none;
 }
