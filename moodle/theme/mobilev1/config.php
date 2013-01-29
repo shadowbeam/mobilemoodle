@@ -39,15 +39,31 @@ $THEME->parents = array('base');
 
 $THEME->sheets = array(
     'pagelayout',   /** Must come first: Page layout **/
-   'jqm',
+    'jqm',
     //'mobilev1',
-    'login'
+    'login',
+    'frontpage'
     );
     
     // Exclude parent sheets
     $THEME->parents_exclude_sheets = array(
         'base' => array(
-            'pagelayout'
+            'pagelayout',
+            'admin',
+            'blocks',
+            'calendar',
+            'core',
+            'filemanager',
+            'course',
+            'grade',
+            'question',
+            'dock',
+            'message',
+            'user',
+            'editor'
+            
+            
+            
         )
     );
     
@@ -134,6 +150,7 @@ $THEME->layouts = array(
 // Add the required JavaScript to the page
 $THEME->javascripts = array(
     'jquery',
-    'jquery.mobile-1.3.0-beta'
+    'jquery.mobile-1.3.0-beta',
+    'mobilejs'
 );
 $THEME->javascripts_footer = array();

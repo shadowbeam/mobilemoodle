@@ -26,41 +26,6 @@ echo $OUTPUT->doctype(); ?>
 
 
 <div id="<?php p($PAGE->bodyid); ?>" data-role="page" class="general">
-
-<div data-role="panel" id="panel-wrapper" data-position="left" data-display="reveal">
-
-<?php echo "<a href=\"$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout').'</a>';
- ?>
-
-<?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
-                <div id="region-pre" class="block-region">
-                    <div class="region-content">
-                            <?php
-                        if (!right_to_left()) {
-                            echo $OUTPUT->blocks_for_region('side-pre');
-                        } elseif ($hassidepost) {
-                            echo $OUTPUT->blocks_for_region('side-post');
-                    } ?>
-
-                    </div>
-                </div>
-                <?php } ?>
-
-                <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
-                <div id="region-post" class="block-region">
-                    <div class="region-content">
-                           <?php
-                       if (!right_to_left()) {
-                           echo $OUTPUT->blocks_for_region('side-post');
-                       } elseif ($hassidepre) {
-                           echo $OUTPUT->blocks_for_region('side-pre');
-                    } ?>
-                    </div>
-                </div>
-                <?php } ?>
-
-
-</div><!--panel-->
 	
 	<!--  header -->
     <div id="page-header" data-role="header" position="fixed">
@@ -68,18 +33,14 @@ echo $OUTPUT->doctype(); ?>
         <?php if ($PAGE->heading) { ?>
            
             <div class="headernav">    
-            <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
-            
-                <a class="ui-btn-left" data-role="button" href="#panel-wrapper" data-ajax="false">Menu</a>
-                <?php } ?>
-              <?php  echo $OUTPUT->login_info(); ?>
+                <a class="ui-btn-left" data-icon="home" href="<?php p($CFG->wwwroot) ?>" data-iconpos="notext" data-ajax="false"><?php p(get_string('home')); ?></a>
             </div>
             
             <div class="headerprofile"><?php
+                echo $OUTPUT->login_info();
+            
                 echo $PAGE->headingmenu
             ?></div>
-            
-           
 
              <h1 class="headermain"><?php echo $PAGE->heading ?></h1>
         <?php } ?>
@@ -88,9 +49,7 @@ echo $OUTPUT->doctype(); ?>
 
 
 <div id="page-body" data-role="content">
-
-
-    <div  id="region-main-box">
+    <div id="region-main-box">
             <div id="region-main-wrap">
                 <div id="region-main">
                     <div class="region-content">
@@ -108,8 +67,33 @@ echo $OUTPUT->doctype(); ?>
          </div>
     </div>
     
-                      
-
+                    <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
+                    <div id="region-pre" class="block-region">
+                        <div class="region-content">
+                                <?php
+                            if (!right_to_left()) {
+                                echo $OUTPUT->blocks_for_region('side-pre');
+                            } elseif ($hassidepost) {
+                                echo $OUTPUT->blocks_for_region('side-post');
+                        } ?>
+    
+                        </div>
+                    </div>
+                    <?php } ?>
+    
+                    <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
+                    <div id="region-post" class="block-region">
+                        <div class="region-content">
+                               <?php
+                           if (!right_to_left()) {
+                               echo $OUTPUT->blocks_for_region('side-post');
+                           } elseif ($hassidepre) {
+                               echo $OUTPUT->blocks_for_region('side-pre');
+                        } ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+    
 </div>
 
 <?php if (empty($PAGE->layout_options['nofooter'])) { ?>

@@ -1,0 +1,6 @@
+#page-site-index .summary,
+#page-site-index .skip-block,
+#page-site-index .heading-block header
+{
+	display: none;
+}

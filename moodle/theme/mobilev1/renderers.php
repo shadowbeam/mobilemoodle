@@ -8,6 +8,8 @@
   
 class theme_mobilev1_core_renderer extends core_renderer {
  
+ 
+ 
 /**
      * Return the standard string that says whether you are logged in (and switched
      * roles/logged in as another user).
@@ -84,10 +86,8 @@ class theme_mobilev1_core_renderer extends core_renderer {
 				$userpic = new user_picture($USER);
             	
                 $loggedinas =  $username;
-                
-                if ($withlinks) {
-                    $loggedinas .= " (<a href=\"$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout').'</a>)';
-                }
+                //TODO add a profile picture icon
+           
             }
         } else {
 //            $loggedinas = get_string('loggedinnot', 'moodle');
@@ -96,7 +96,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
             }
         }
 
-        $loggedinas = '<div class="logininfo">'.$loggedinas.'</div>';
+        $loggedinas = '<div class="logininfo ui-btn-right">'.$loggedinas.'</div>';
 
         if (isset($SESSION->justloggedin)) {
             unset($SESSION->justloggedin);
