@@ -112,7 +112,7 @@ $THEME->layouts = array(
         'file' => 'standard.php',
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
-        'options' => array('langmenu'=>true),
+        'options' => array('langmenu'=>false),
     ),
     'mypublic' => array(
         'file' => 'standard.php',
@@ -122,27 +122,27 @@ $THEME->layouts = array(
     'login' => array(
         'file' => 'standard.php',
         'regions' => array(),
-        'options' => array('langmenu'=>true),
+        'options' => array('langmenu'=>false),
     ),
     'popup' => array(
         'file' => 'standard.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true),
+        'options' => array('nofooter'=>false),
     ),
     'frametop' => array(
         'file' => 'standard.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true),
+        'options' => array('nofooter'=>false),
     ),
     'maintenance' => array(
         'file' => 'standard.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>true),
+        'options' => array('nofooter'=>false, 'nonavbar'=>true),
     ),
     'print' => array(
         'file' => 'standard.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>false),
+        'options' => array('nofooter'=>false, 'nonavbar'=>false),
     ),
 );
 

@@ -66,7 +66,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
                 } else {
                     $username .= " from {$idprovider->name}";
                 }
-            }
+            } 
             if (isguestuser()) {
               //  $loggedinas = $realuserinfo.get_string('loggedinasguest');
                 if (!$loginpage && $withlinks) {
