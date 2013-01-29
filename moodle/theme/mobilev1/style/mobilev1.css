@@ -1,0 +1,210 @@
+/* @override 
+	http://localhost:8888/moodle/theme/yui_combo.php?3.7.3/build/cssreset/reset.css&3.7.3/build/cssfonts/fonts.css&3.7.3/build/cssgrids/grids.css&3.7.3/build/cssbase/base.css */
+
+body{
+	font-family:  Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+ 
+.addcoursebutton .singlebutton {
+    text-align: center;
+}
+ 
+h1.headermain {
+    color: #fff;
+}
+ 
+h2.main {
+    border-bottom: 3px solid #013D6A;
+    color: #013D6A;
+    text-align: center;
+}
+ 
+h2.headingblock {
+    font-size: 18pt;
+    margin-top: 0;
+    background-color: #013D6A;
+    color: #FFF;
+    text-align: center;
+}
+ 
+#page-header {
+    background-color: #013D6A;
+}
+ 
+#page-header .headermenu {
+    color: #FFF;
+}
+ 
+#page-header .headermenu a {
+    color: #FDFF2A;
+}
+ 
+.navbar {
+    padding-left: 1em;
+}
+ 
+.breadcrumb li {
+    color: #FFF;
+}
+ 
+.breadcrumb li a {
+    color: #FFF;
+}
+ 
+.block {
+    background-color: #013D6A;
+}
+ 
+.block .header .title {
+    color: #FFF;
+}
+ 
+.block .header .title .block_action input {
+    background-color: #FFF;
+}
+ 
+.block .content {
+    border: 1px solid #000;
+    padding: 5px;
+    background-color: #FFF;
+}
+ 
+.block .content .block_tree p {
+    font-size: 80%;
+}
+ 
+.block_settings_navigation_tree .content .footer {
+    text-align: center;
+}
+ 
+.block_settings_navigation_tree .content .footer .adminsearchform {
+    margin-left: 5%;
+    width: 90%;
+    font-size: 9pt;
+}
+ 
+.block_settings_navigation_tree .content .footer .adminsearchform #adminsearchquery {
+    width: 95%;
+}
+ 
+.block_calendar_month .content .calendar-controls a {
+    color: #013D6A;
+    font-weight: bold;
+}
+ 
+.block_calendar_month .content .minicalendar td {
+    border-color: #FFF;
+}
+ 
+.block_calendar_month .content .minicalendar .day {
+    color: #FFF;
+    background-color: #013D6A;
+}
+ 
+.block_calendar_month .content .minicalendar .day a {
+    color: #FFF000;
+}
+ 
+.block_calendar_month .content .minicalendar .weekdays th {
+    border-width: 0;
+    font-weight: bold;
+    color: #013D6A;
+}
+ 
+.block_calendar_month .content .minicalendar .weekdays abbr {
+    border-width: 0;
+    text-decoration: none;
+}
+
+/* @group Header */
+
+
+
+/* @end*/
+
+
+
+/* @group Logo */
+
+.logo{
+	display:block;
+	width:100px;
+	height:100px;
+	border-radius:66px;
+	border: 4px double #878887;
+	font-size: 20px;
+	color:#666;
+	line-height: 100px;
+	text-align:center;
+	text-decoration:none;
+	text-shadow:0 1px 0 #fff;
+	background:#ddd;
+	margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+	
+.stylish:hover{border:4px double #bbb;color:#aaa;text-decoration:none;background:#e6e6e6}
+
+/* @end */
+
+
+/* @group Input  */
+
+
+input{
+	
+	min-width: 10em;
+	border: 2px solid #888888;
+	padding: 0.5em;
+	
+}
+
+input[type="text"],
+input[type="password"]{
+	text-align: center;
+	-moz-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.26);
+	-webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.26);
+	box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.26);
+	padding: 1em;
+}
+
+input[type="submit"]{
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.28), 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.28), 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.28), 0 1px 2px rgba(0,0,0,.2);
+	font-size: 14px;
+	line-height: 100%;
+}
+
+input[type="submit"]:active{
+	position: relative;
+	top: 1px;
+}
+
+input[type="submit"]:hover{
+
+	
+	text-decoration: none;
+	
+}
+
+/* @end */
+
+
+
+

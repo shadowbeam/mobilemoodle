@@ -1,0 +1,68 @@
+/****
+ * Login Page CSS
+ *
+ ****/
+ 
+ 
+ #page-login-index .loginbox.twocolumns .loginpanel,
+ #page-login-index .loginbox.twocolumns .signuppanel  {
+	 float: none;
+	 width: 100%;
+	 border-right:none;
+	 margin-bottom: 0px;
+	 padding-bottom: 0px;
+ }
+
+/*JQM override*/
+div.ui-input-text { padding: 0 0 0 0; } 
+
+#page-login-index .loginbox .loginform .form-input {
+	float: none;
+	width: 100%;
+	
+	margin-bottom: 1em;
+}
+
+#page-login-index .loginbox .loginform .form-input input{
+/*	display: block;
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;*/
+	
+	text-align: center;
+
+
+}
+
+#page-login-index .rememberpass #rememberusername{
+	display: inline-block;
+	width: auto;
+}
+
+.loginbox .loginform input#username{
+/*	-webkit-border-top-left-radius: 0.5em;
+	-webkit-border-top-right-radius: 0.5em;
+	-moz-box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);
+	-webkit-box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);
+	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);*/
+}
+
+.loginbox .loginform input#password{
+
+/*	-webkit-border-bottom-left-radius: 0.5em;
+	-webkit-border-bottom-right-radius: 0.5em;
+
+
+	
+	-moz-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);
+	-webkit-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);
+	box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);*/
+}
+
+#page-login-index .loginbox .loginpanel .desc,
+#page-login-index .signuppanel,
+#page-login-index .skiplinks,
+#page-login-index .loginbox .signuppanel .subcontent ol,
+#page-login-index .form-label
+ {display: none;}
