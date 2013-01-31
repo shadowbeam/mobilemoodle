@@ -20,4 +20,23 @@ $('div#page-site-index').live('pagebeforecreate',function(event, ui){
 	$('.unlist').attr("data-role", "listview").attr("data-inset", "true").attr("data-filter", "true");
 	
 });
+ 
 
+/* Course 
+
+$('div#page-course-view-weeks').live('pagebeforecreate',function(event, ui){
+		
+	//change available courses to listview with filter
+	//$('ul.weeks').attr("data-role", "listview");
+
+//	$('.content ul.section').attr("data-role", "listview").attr("data-inset", "true");
+	
+//	$('li.section').attr("data-role", "collapsible");
+//	$('.course-content').attr("data-role", "collapsible-set");
+	
+	$('.section li img.activityicon').addClass("ui-li-icon");
+	   
+	  $('.course-content ul.section, .sitetopic ul.section').attr("data-role", "listview").attr("data-inset", "true");
+
+
+});*/
