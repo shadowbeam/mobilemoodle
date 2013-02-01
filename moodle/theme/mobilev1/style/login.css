@@ -12,6 +12,12 @@
 	 margin-bottom: 0px;
 	 padding-bottom: 0px;
  }
+ 
+  #page-login-index .loginbox{
+  	margin: auto;
+  	max-width: 450px;;
+  }
+ 
 
 /*JQM override*/
 div.ui-input-text { padding: 0 0 0 0; } 
@@ -23,7 +29,8 @@ div.ui-input-text { padding: 0 0 0 0; }
 	margin-bottom: 1em;
 }
 
-#page-login-index .loginbox .loginform .form-input input{
+#page-login-index .loginbox .loginform .form-input input,
+#page-login-index h2{
 /*	display: block;
 	clear: both;
 	margin-left: auto;
@@ -39,6 +46,14 @@ div.ui-input-text { padding: 0 0 0 0; }
 	display: inline-block;
 	width: auto;
 }
+
+
+#page-login-index .forgetpass{
+	text-align: center;
+	padding-bottom: 2em;
+	padding-top: 2em;
+}
+
 
 .loginbox .loginform input#username{
 /*	-webkit-border-top-left-radius: 0.5em;
@@ -66,3 +81,6 @@ div.ui-input-text { padding: 0 0 0 0; }
 #page-login-index .loginbox .signuppanel .subcontent ol,
 #page-login-index .form-label
  {display: none;}
+ 
+ 
+

@@ -1,0 +1,21 @@
+#page-course-view-weeks .ui-link-inherit{
+	margin-left: 0;
+	margin-right: 0;
+	position: relative;
+	min-height: auto;
+	padding: 0 60px 0 45px;
+}
+
+
+#page-course-view-weeks .weeks img.ui-li-thumb{
+	position: relative;
+	margin: 10px;
+}
+
+#page-course-view-weeks .instancename{
+	line-height: 50px;
+}
+
+#page-course-view-weeks img{
+	max-width: 100%!important;
+}
