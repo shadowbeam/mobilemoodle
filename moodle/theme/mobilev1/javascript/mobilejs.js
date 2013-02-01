@@ -21,13 +21,39 @@ $('div#page-site-index').live('pagebeforecreate',function(event, ui){
 	//change available courses to listview with filter
 	$('.unlist').attr("data-role", "listview").attr("data-inset", "true").attr("data-filter", "true");
 	
-	
 
 
 });
  
 
 /* Course */
+
+
+$('div#page-course-view-topics').live('pagebeforecreate',function(event, ui){
+
+
+var innertopix= $('ul.topics').html();
+	
+	$('ul.topics').wrap('<div class="topics"/>').remove();
+	$('div.topics').html(innertopix);//.attr('data-role', 'collapsible-set', 'data-corners', 'true')
+
+$('li.label').attr('data-role','list-divider').attr('data-theme', 'a');	
+
+$('div.content h3').unwrap();
+	
+	
+	$('.left.side, .right.side').remove();
+	$('.sectionname').unwrap();
+	//unwrap links
+	$('.mod-indent .activityinstance a').unwrap().unwrap();
+	
+
+	$('.course-content li.section.main').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','d');
+	
+		
+	$('ul.section').attr('data-role', 'listview');
+
+});
 
 
 $('div#page-course-view-weeks').live('pagebeforecreate',function(event, ui){
@@ -46,6 +72,7 @@ $('div#page-course-view-weeks').live('pagebeforecreate',function(event, ui){
 
 //$('.modtype_resource a').attr('data-rel', 'dialog');
 
+$('li.label').attr('data-role','list-divider').attr('data-theme', 'a');	
 
 	$('.modtype_resource a').click(function(event,ui) {
   		//event.preventDefault();
@@ -67,7 +94,7 @@ $('div#page-course-view-weeks').live('pagebeforecreate',function(event, ui){
 	$('.mod-indent .activityinstance a').unwrap().unwrap();
 	
 
-	$('.weeks li.section.main').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','d');
+	$('.course-content li.section.main').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','d');
 	
 		
 	$('ul.section').attr('data-role', 'listview');

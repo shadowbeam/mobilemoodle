@@ -1,4 +1,5 @@
-#page-course-view-weeks .ui-link-inherit{
+body.path-course-view .course-content .ui-link-inherit,
+body.course .course-content .ui-link-inherit{
 	margin-left: 0;
 	margin-right: 0;
 	position: relative;
@@ -7,15 +8,19 @@
 }
 
 
-#page-course-view-weeks .weeks img.ui-li-thumb{
+body.path-course-view .course-content img.ui-li-thumb,
+body.course .course-content img.ui-li-thumb{
 	position: relative;
 	margin: 10px;
 }
 
-#page-course-view-weeks .instancename{
+body.path-course-view .course-content .instancename,
+body.course .course-content .instancename{
 	line-height: 50px;
 }
 
-#page-course-view-weeks img{
+body.path-course-view .course-content img,
+body.course .course-content img{
 	max-width: 100%!important;
 }
+
