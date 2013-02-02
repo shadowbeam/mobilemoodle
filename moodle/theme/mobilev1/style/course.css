@@ -4,7 +4,7 @@ body.course .course-content .ui-link-inherit{
 	margin-right: 0;
 	position: relative;
 	min-height: auto;
-	padding: 0 60px 0 45px;
+	padding: 0 60px 0 10px;
 }
 
 
@@ -24,3 +24,27 @@ body.course .course-content img{
 	max-width: 100%!important;
 }
 
+body.path-course-view .accesshide{
+	display: none;
+}
+
+
+
+@media all and (min-width: 35em){
+
+	body.path-course-view li.section.ui-block-a,
+	body.course li.section.ui-block-a {
+		padding-right: 10px;
+	}
+	
+	body.path-course-view li.section.ui-block-b,
+	body.course li.section.ui-block-b {
+		padding-left: 10px;
+	}
+	
+	body.path-course-view #section-0,
+	body.course #section-0{
+		width: 100%;
+	}
+
+}

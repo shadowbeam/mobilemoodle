@@ -28,82 +28,46 @@ $('div#page-site-index').live('pagebeforecreate',function(event, ui){
 
 /* Course */
 
+$('body.path-course, body.course').live('pagebeforecreate',function(event, ui){
 
-$('div#page-course-view-topics').live('pagebeforecreate',function(event, ui){
+var innercontent;
 
+if($('ul.topics').length > 0){
+	innercontent = $('ul.topics').html();
+	$('ul.topics').wrap('<div class="courseformat"/>').remove();
+}
 
-var innertopix= $('ul.topics').html();
-	
-	$('ul.topics').wrap('<div class="topics"/>').remove();
-	$('div.topics').html(innertopix);//.attr('data-role', 'collapsible-set', 'data-corners', 'true')
+else if ($('ul.weeks').length > 0) {
+	innercontent = $('ul.weeks').html();
+	$('ul.weeks').wrap('<div class="courseformat"/>').remove();
+}
 
-$('li.label').attr('data-role','list-divider').attr('data-theme', 'a');	
+	$('div.courseformat').html(innercontent).addClass('ui-grid-a ui-responsive');
 
-$('div.content h3').unwrap();
-	
-	
-	$('.left.side, .right.side').remove();
+	//create labels
+	$('li.label').attr('data-role','list-divider').attr('data-theme', 'a');	
+
+	//unwrap h3s so they become collapsible headers
 	$('.sectionname').unwrap();
+	
+	//remove unneeded sides
+	$('.left.side, .right.side').remove();
+	
 	//unwrap links
 	$('.mod-indent .activityinstance a').unwrap().unwrap();
 	
-
+	//create the collapsible headers
 	$('.course-content li.section.main').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','d');
-	
 		
-	$('ul.section').attr('data-role', 'listview');
-
-});
-
-
-$('div#page-course-view-weeks').live('pagebeforecreate',function(event, ui){
+	
+	$('.course-content li.section.main:even').addClass('ui-block-b');
+	$('.course-content li.section.main:odd').addClass('ui-block-a');
 		
-	//change available courses to listview with filter
-	//$('ul.weeks').attr("data-role", "listview");
-
-//	$('.content ul.section').attr("data-role", "listview").attr("data-inset", "true");
-	
-//	$('li.section').attr("data-role", "collapsible");
-//	$('.course-content').attr("data-role", "collapsible-set");
-	
-//	$('.section li img.activityicon').addClass("ui-li-icon");
-	   
-//	  $('.course-content ul.section, .sitetopic ul.section').attr("data-role", "listview").attr("data-inset", "true");
-
-//$('.modtype_resource a').attr('data-rel', 'dialog');
-
-$('li.label').attr('data-role','list-divider').attr('data-theme', 'a');	
-
-	$('.modtype_resource a').click(function(event,ui) {
-  		//event.preventDefault();
-  		//event.stopImmediatePropagation();
-	});
-	
-	//causes a bug
-	var innerweeks= $('ul.weeks').html();
-	
-	$('ul.weeks').wrap('<div class="weeks"/>').remove();
-	$('div.weeks').html(innerweeks);//.attr('data-role', 'collapsible-set', 'data-corners', 'true')
-
-
-	
-	
-	$('.left.side, .right.side').remove();
-	$('.sectionname').unwrap();
-	//unwrap links
-	$('.mod-indent .activityinstance a').unwrap().unwrap();
-	
-
-	$('.course-content li.section.main').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','d');
-	
-		
+	//assign listviews
 	$('ul.section').attr('data-role', 'listview');
 	
-	//$('ul.section').listview(); /*errors with beta 1.3*/
-//	$('li.activity').attr('data-role','button');
+	//force section 0 full width
+	$('#section-0').addClass('ui-grid-solo');
 	
 
 });
-
-/* Resources */
-
