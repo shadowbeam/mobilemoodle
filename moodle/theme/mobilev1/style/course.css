@@ -7,6 +7,16 @@ body.course .course-content .ui-link-inherit{
 	padding: 0 60px 0 10px;
 }
 
+body.path-course-view .course-content li.section,
+body.course .course-content li.section
+{
+	list-style-type: none;
+}
+
+li.activity.label*{
+	color: #ffffff!important;
+}
+
 
 body.path-course-view .course-content img.ui-li-thumb,
 body.course .course-content img.ui-li-thumb{
@@ -19,17 +29,25 @@ body.course .course-content .instancename{
 	line-height: 50px;
 }
 
-body.path-course-view .course-content img,
-body.course .course-content img{
-	max-width: 100%!important;
-}
 
 body.path-course-view .accesshide{
 	display: none;
 }
 
+object{
+	max-width: 100%;
+}
 
+body.path-course-view  .summary img,
+body.course  .summary img{
+	max-width: 100%!important;
+	margin: 1em auto;
+	clear: both;
+	display: block;
+	float: none!important;/*override inline styles*/
+}
 
+/*For tablets*/
 @media all and (min-width: 35em){
 
 	body.path-course-view li.section.ui-block-a,
@@ -45,6 +63,7 @@ body.path-course-view .accesshide{
 	body.path-course-view #section-0,
 	body.course #section-0{
 		width: 100%;
+		padding: 0;
 	}
 
 }
