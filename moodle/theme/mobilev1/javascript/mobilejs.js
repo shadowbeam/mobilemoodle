@@ -71,3 +71,14 @@ else if ($('ul.weeks').length > 0) {
 	
 
 });
+
+
+/* Profile */
+
+$('#page-user-editadvanced').live('pagebeforecreate',function(event, ui){
+
+	$('fieldset').attr('data-role','collapsible');
+	
+	
+
+});

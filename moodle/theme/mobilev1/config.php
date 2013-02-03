@@ -43,7 +43,8 @@ $THEME->sheets = array(
     //'mobilev1',
     'login',
     'frontpage',
-    'course'
+    'course',
+    'profile'
     );
     
     // Exclude parent sheets
@@ -61,7 +62,8 @@ $THEME->sheets = array(
             'dock',
             'message',
             'user',
-            'editor'
+            'editor',
+       
             
             
             

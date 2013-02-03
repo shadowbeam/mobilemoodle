@@ -1,0 +1,31 @@
+
+.userprofile .descriptionbox table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.userprofile .userprofilebox,
+.userprofile h2{
+	text-align: center;
+}
+
+.userprofile .descriptionbox table td,
+.userprofile .descriptionbox table th{
+	border: none;
+	
+}
+
+#page-user-editadvanced fieldset#moodle{
+	width: 100%
+}
+
+/*#page-user-editadvanced legend{
+	background-color: #000;
+	display: block;
+	width: 100%;
+	color: #fff;
+	padding: 0.5em 0 .5em 0;
+	text-indent: 1em;
+	text-shadow: 0 /*{a-bar-shadow-x}*!/ -1px /*{a-bar-shadow-y}*!/ 1px /*{a-bar-shadow-radius}*!/ #000 /*{a-bar-shadow-color}*!/;
+	font-size: 17px;
+}*/
