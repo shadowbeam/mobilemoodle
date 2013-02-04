@@ -1,5 +1,5 @@
-body.path-course-view .course-content .ui-link-inherit,
-body.course .course-content .ui-link-inherit{
+#page-course-view-weeks .course-content .ui-link-inherit,
+#page-course-view-topics .course-content .ui-link-inherit{
 	margin-left: 0;
 	margin-right: 0;
 	position: relative;
@@ -7,8 +7,8 @@ body.course .course-content .ui-link-inherit{
 	padding: 0 60px 0 10px;
 }
 
-body.path-course-view .course-content li.section,
-body.course .course-content li.section
+#page-course-view-weeks .course-content li.section,
+#page-course-view-topics .course-content li.section
 {
 	list-style-type: none;
 }
@@ -18,19 +18,19 @@ li.activity.label*{
 }
 
 
-body.path-course-view .course-content img.ui-li-thumb,
-body.course .course-content img.ui-li-thumb{
+#page-course-view-weeks .course-content img.ui-li-thumb,
+#page-course-view-topics .course-content img.ui-li-thumb{
 	position: relative;
 	margin: 10px;
 }
 
-body.path-course-view .course-content .instancename,
-body.course .course-content .instancename{
+#page-course-view-weeks .course-content .instancename,
+#page-course-view-topics .course-content .instancename{
 	line-height: 50px;
 }
 
 
-body.path-course-view .accesshide{
+#page-course-view-weeks .accesshide{
 	display: none;
 }
 
@@ -38,8 +38,8 @@ object{
 	max-width: 100%;
 }
 
-body.path-course-view  .summary img,
-body.course  .summary img{
+#page-course-view-weeks  .summary img,
+#page-course-view-topics  .summary img{
 	max-width: 100%!important;
 	margin: 1em auto;
 	clear: both;
@@ -50,18 +50,18 @@ body.course  .summary img{
 /*For tablets*/
 @media all and (min-width: 35em){
 
-	body.path-course-view li.section.ui-block-a,
-	body.course li.section.ui-block-a {
+	#page-course-view-weeks li.section.ui-block-a,
+	#page-course-view-topics li.section.ui-block-a {
 		padding-right: 10px;
 	}
 	
-	body.path-course-view li.section.ui-block-b,
-	body.course li.section.ui-block-b {
+	#page-course-view-weeks li.section.ui-block-b,
+	#page-course-view-topics li.section.ui-block-b {
 		padding-left: 10px;
 	}
 	
-	body.path-course-view #section-0,
-	body.course #section-0{
+	#page-course-view-weeks #section-0,
+	#page-course-view-topics #section-0{
 		width: 100%;
 		padding: 0;
 	}

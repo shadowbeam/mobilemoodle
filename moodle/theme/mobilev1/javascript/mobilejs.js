@@ -28,7 +28,7 @@ $('div#page-site-index').live('pagebeforecreate',function(event, ui){
 
 /* Course */
 
-$('body.path-course, body.course').live('pagebeforecreate',function(event, ui){
+$('#page-course-view-topics, #page-course-view-weeks').live('pagebeforecreate',function(event, ui){
 
 var innercontent;
 
@@ -50,6 +50,8 @@ else if ($('ul.weeks').length > 0) {
 	//unwrap h3s so they become collapsible headers
 	$('.sectionname').unwrap();
 	
+	$('.section .content h3').unwrap();
+
 	//remove unneeded sides
 	$('.left.side, .right.side').remove();
 	
