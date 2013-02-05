@@ -39,7 +39,7 @@ $THEME->parents = array('base');
 
 $THEME->sheets = array(
     'pagelayout',   /** Must come first: Page layout **/
-    'jqm',
+    'jqmrc',
     //'mobilev1',
     'login',
     'frontpage',
@@ -64,13 +64,11 @@ $THEME->sheets = array(
             'user',
             'editor',
        
-            
-            
-            
         )
     );
-    
-    
+
+	//disable dock
+$THEME->enable_dock = false;
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
@@ -153,9 +151,11 @@ $THEME->layouts = array(
 // Add the required JavaScript to the page
 $THEME->javascripts = array(
     'jquery',
+	'mobilejs',
 //'jquery-1.7.1.min',
-    'jquery.mobile-1.3.0-beta',
 //   'jquery.mobile-1.1.1',
-    'mobilejs'
+    'jquery.mobile-1.3.0-rc.1.min'
+
+    
 );
 $THEME->javascripts_footer = array();

@@ -1,3 +1,8 @@
+//must bind the global settings before jquerymobile is loaded
+$(document).bind("mobileinit", function(){
+	$.mobile.defaultPageTransition = "slide";
+});
+
 
 /*Login Page*/
 
@@ -71,12 +76,6 @@ else if ($('ul.weeks').length > 0) {
 	//force section 0 full width
 	$('#section-0').addClass('ui-grid-solo');
 	
-	
-	//preventing resource links being clickable
-	$('.modtype_resource a').click(function(event,ui) {
-	  		//event.preventDefault();
-	  		//event.stopImmediatePropagation();
-		});
 
 });
 

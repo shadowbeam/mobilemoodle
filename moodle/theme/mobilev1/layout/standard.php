@@ -14,6 +14,7 @@ echo $OUTPUT->doctype(); ?>
     <script>
 	    $(document).bind("mobileinit", function() {
 	      $.mobile.touchOverflowEnabled = true;
+		  $.mobile.defaultPageTransition = 'slide';
 	    });
     </script>
     
@@ -22,12 +23,15 @@ echo $OUTPUT->doctype(); ?>
 
 <body class="<?php p($PAGE->bodyclasses); ?>">
 
-<?php echo $OUTPUT->standard_top_of_body_html() ?>
+
+<!-- <?php echo $OUTPUT->standard_top_of_body_html() ?> //is this needed?-->
 
 
 <div id="<?php p($PAGE->bodyid); ?>" data-role="page" class="general">
 
+<!-- Panel -->
 <div data-role="panel" id="panel-wrapper" data-position="left" data-display="reveal">
+
 
 <?php echo "<a href=\"$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout').'</a>';
  ?>
@@ -78,9 +82,7 @@ echo $OUTPUT->doctype(); ?>
             <div class="headerprofile"><?php
                 echo $PAGE->headingmenu
             ?></div>
-            
-           
-
+   
              <h1 class="headermain"><?php echo $PAGE->heading ?></h1>
         <?php } ?>
         
@@ -112,16 +114,6 @@ echo $OUTPUT->doctype(); ?>
 
 </div>
 
-<?php if (empty($PAGE->layout_options['nofooter'])) { ?>
-    <div id="page-footer" class="clearfix">
-        <p class="helplink"><?php echo page_doc_link(get_string('moodledocslink')) ?></p>
-        <?php
-        echo $OUTPUT->login_info();
-        echo $OUTPUT->home_link();
-        echo $OUTPUT->standard_footer_html();
-        ?>
-    </div>
-    <?php } ?>
 </div>
 <?php echo $OUTPUT->standard_end_of_body_html() ?>
 </body>

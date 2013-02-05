@@ -121,6 +121,61 @@ class theme_mobilev1_core_renderer extends core_renderer {
 
         return $loggedinas;
     } 
+    
+    
+    /**
+     * 
+     */
+    public function block_controls($controls) {
+            return '';
+        
+
+    }
+    
+    
+      public function block(block_contents $bc, $region) {
+            $bc = clone($bc); // Avoid messing up the object passed in.
+            
+            $bc->collapsible = block_contents::NOT_HIDEABLE;
+            
+            //$skiptitle = strip_tags($bc->title);
+//            if ($bc->blockinstanceid && !empty($skiptitle)) {
+//                $bc->attributes['aria-labelledby'] = 'instance-'.$bc->blockinstanceid.'-header';
+//            } else if (!empty($bc->arialabel)) {
+//                $bc->attributes['aria-label'] = $bc->arialabel;
+//            }
+//            if ($bc->collapsible == block_contents::HIDDEN) {
+//                $bc->add_class('hidden');
+//            }
+//            if (!empty($bc->controls)) {
+//                $bc->add_class('block_with_controls');
+//            }
+    
+//    
+//            if (empty($skiptitle)) {
+//                $output = '';
+//                $skipdest = '';
+//            } else {
+//                $output = html_writer::tag('a', get_string('skipa', 'access', $skiptitle), array('href' => '#sb-' . $bc->skipid, 'class' => 'skip-block'));
+//                $skipdest = html_writer::tag('span', '', array('id' => 'sb-' . $bc->skipid, 'class' => 'skip-block-to'));
+//            }
+
+    
+            $output .= html_writer::start_tag('div', $bc->attributes);
+    
+            $output .= $this->block_header($bc);
+            $output .= $this->block_content($bc);
+    
+            $output .= html_writer::end_tag('div');
+    
+            $output .= $this->block_annotation($bc);
+    
+            $output .= $skipdest;
+    
+            $this->init_block_hider_js($bc);
+            return $output;
+        }
+    
  
 }
 
