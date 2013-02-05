@@ -33,8 +33,15 @@ echo $OUTPUT->doctype(); ?>
 <div data-role="panel" id="panel-wrapper" data-position="left" data-display="reveal">
 
 
-<?php echo "<a href=\"$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout').'</a>';
- ?>
+<?php
+if (isloggedin()) { ?>
+   <a data-role="button" data-transition="pop" href="<?php echo $CFG->wwwroot.'/login/logout.php'; ?>">
+<?php echo get_string('logout'); ?></a>
+   
+   <?php } ?>
+
+
+
 
 <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
                 <div id="region-pre" class="block-region">
@@ -93,8 +100,7 @@ echo $OUTPUT->doctype(); ?>
 
 
     <div  id="region-main-box">
-            <div id="region-main-wrap">
-                <div id="region-main">
+
                     <div class="region-content">
                     
                         <?php 
@@ -104,8 +110,7 @@ echo $OUTPUT->doctype(); ?>
                         echo core_renderer::MAIN_CONTENT_TOKEN ?>
                         
                     </div>
-                </div>
-            </div>
+
  
          </div>
     </div>
