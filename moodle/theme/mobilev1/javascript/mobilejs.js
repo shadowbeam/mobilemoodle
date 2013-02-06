@@ -16,6 +16,12 @@ $('div#page-login-index').live('pagebeforecreate',function(event, ui){
 });
 
 
+$('div#pannel-wrapper').live('pagebeforecreate',function(event, ui){
+	
+	$('li.contains_branch').attr('data-role', 'collapsible');
+});
+
+
 /* Front Page */
 
 $('div#page-site-index').live('pagebeforecreate',function(event, ui){
@@ -85,7 +91,6 @@ else if ($('ul.weeks').length > 0) {
 $('#page-user-editadvanced').live('pagebeforecreate',function(event, ui){
 
 	$('fieldset').attr('data-role','collapsible');
-	
-	
+
 
 });

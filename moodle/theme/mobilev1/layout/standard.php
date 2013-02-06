@@ -33,9 +33,10 @@ echo $OUTPUT->doctype(); ?>
 <div data-role="panel" id="panel-wrapper" data-position="left" data-display="reveal">
 
 
+<!-- Logout -->
 <?php
 if (isloggedin()) { ?>
-   <a data-role="button" data-transition="pop" href="<?php echo $CFG->wwwroot.'/login/logout.php'; ?>">
+   <a data-role="button" data-transition="pop"  href="<?php echo $CFG->wwwroot.'/login/logout.php'; ?>">
 <?php echo get_string('logout'); ?></a>
    
    <?php } ?>
