@@ -11,18 +11,25 @@ echo $OUTPUT->doctype(); ?>
     <title><?php echo $PAGE->title ?></title>
     <?php echo $OUTPUT->standard_head_html() ?>
     
-    <script>
-	    $(document).bind("mobileinit", function() {
-	      $.mobile.touchOverflowEnabled = true;
-		  $.mobile.defaultPageTransition = 'slide';
+    <script>    
+	    window.addEventListener("load",function() {
+	      // Set a timeout...
+	      setTimeout(function(){
+	        // Hide the address bar!
+	        window.scrollTo(0, 1);
+	      }, 0);
 	    });
+	    
     </script>
+    
+    
     
 </head>
 
 
 <body class="<?php p($PAGE->bodyclasses); ?>">
 
+<?php $settings = optional_param('mobilev1_settings', false, PARAM_BOOL); ?>
 
 <!-- <?php echo $OUTPUT->standard_top_of_body_html() ?> //is this needed?-->
 
@@ -33,18 +40,30 @@ echo $OUTPUT->doctype(); ?>
 <div data-role="panel" id="panel-wrapper" data-position="left" data-display="reveal">
 
 
-<!-- Logout -->
+
+<!-- If Logged in -->
 <?php
 if (isloggedin()) { ?>
-   <a data-role="button" data-transition="pop"  href="<?php echo $CFG->wwwroot.'/login/logout.php'; ?>">
+
+   <a data-role="button" data-transition="pop" href="<?php echo $CFG->wwwroot.'/login/logout.php'; ?>">
 <?php echo get_string('logout'); ?></a>
+
    
-   <?php } ?>
+	<?php if(!$settings){ ?>
+	<?php $urlsettings = new moodle_url($PAGE->url, array('mobilev1_settings' => 'true'));?>
+	
+	<a data-role="button" href="<?php echo $urlsettings->out(); ?>">
+	<?php p(get_string('settings')); ?></a>
+	
+   <?php }//ifsettings 
+   }//ifflogged ?>
 
-
-
+<!-- /If Logged in -->
 
 <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
+               
+               
+               
                 <div id="region-pre" class="block-region">
                     <div class="region-content">
                             <?php
@@ -104,11 +123,20 @@ if (isloggedin()) { ?>
 
                     <div class="region-content">
                     
-                        <?php 
-                        
-                        
-                        
-                        echo core_renderer::MAIN_CONTENT_TOKEN ?>
+                    
+                    <?php 
+                    /* For the settings page */
+                    if($settings){?>
+                    
+                    <ul data-role="listview" class="settingsul">
+                    
+                        <?php $renderer = $PAGE->get_renderer('theme_mobilev1');
+                        echo $renderer->settings_tree($PAGE->settingsnav); 
+                           
+                        ?>
+                    </ul>
+                    
+                   <?php   }  echo $OUTPUT->main_content(); ?>
                         
                     </div>
 

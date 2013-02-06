@@ -1,5 +1,73 @@
 <?php
 
+class theme_mobilev1_renderer extends plugin_renderer_base {
+
+    /**
+     * Produces the settings tree
+     *
+     * @param settings_navigation $navigation
+     * @return string
+     */
+    public function settings_tree(settings_navigation $navigation) {
+        $content = $this->navigation_node($navigation, array('class' => 'settings'));
+
+        return $content;
+    }
+    
+        /**
+         * Produces the navigation tree
+         *
+         * @param global_navigation $navigation
+         * @return string
+         */
+        public function navigation_tree(global_navigation $navigation) {
+            return $this->navigation_node($navigation, array());
+        }
+    
+        /**
+         * Protected method to render a navigaiton node
+         *
+         * @param navigation_node $node
+         * @param array $attrs
+         * @return type
+         */
+        protected function navigation_node(navigation_node $node, $attrs = array()) {
+            $items = $node->children;
+    
+            // exit if empty, we don't want an empty ul element
+            if ($items->count() == 0) {
+                return '';
+            }
+    
+            // array of nested li elements
+            $lis = array();
+            foreach ($items as $item) {
+                if (!$item->display) {
+                    continue;
+                }
+    
+                $isbranch = ($item->children->count() > 0 || $item->nodetype == navigation_node::NODETYPE_BRANCH);
+                $item->hideicon = true;
+    
+                $content = $this->output->render($item);
+                $content .= $this->navigation_node($item);
+    
+                if ($isbranch && !(is_string($item->action) || empty($item->action))) {
+                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'class' => (string)$item->key));
+                } else if($isbranch) {
+                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider'));
+                } else {
+                    $content = html_writer::tag('li', $content, array('class' => (string)$item->text));
+                }
+                $lis[] = $content;
+            }
+            if (!count($lis)) {
+                return '';
+            }
+            return implode("\n", $lis);
+        }
+    
+}
 
 
  /*
@@ -7,7 +75,6 @@
   * core_renderer : This is the renderer that we are overriding.
   *
   */
-  
 
   include_once($CFG->dirroot . '/course/renderer.php');
 
