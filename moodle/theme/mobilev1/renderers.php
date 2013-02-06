@@ -1,10 +1,32 @@
 <?php
 
+
+
  /*
   * theme_THEMENAME_core_renderer	
   * core_renderer : This is the renderer that we are overriding.
   *
   */
+  
+
+  include_once($CFG->dirroot . '/course/renderer.php');
+
+class theme_mobilev1_core_course_renderer extends core_course_renderer {
+/*
+    public function course_category_tree(array $structure) {
+
+        echo 'It works!';
+
+    }
+	
+
+	
+	public function course_info_box(stdClass $course){
+		echo 'It works!';
+	}
+*/
+}
+
   
 class theme_mobilev1_core_renderer extends core_renderer {
  
@@ -128,7 +150,6 @@ class theme_mobilev1_core_renderer extends core_renderer {
      */
     public function block_controls($controls) {
             return '';
-        
 
     }
     
@@ -162,20 +183,23 @@ class theme_mobilev1_core_renderer extends core_renderer {
 
     
             $output .= html_writer::start_tag('div', $bc->attributes);
-    
+		
             $output .= $this->block_header($bc);
+			
             $output .= $this->block_content($bc);
     
             $output .= html_writer::end_tag('div');
     
             $output .= $this->block_annotation($bc);
     
-            $output .= $skipdest;
+  //          $output .= $skipdest;
     
             $this->init_block_hider_js($bc);
             return $output;
         }
     
+	
+	
  
 }
 
