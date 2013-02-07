@@ -81,4 +81,10 @@ html div.ui-panel-inner{
 	padding: 0;
 }
 
+/* protect list from overflowing panel*/
+.ui-panel-display-reveal .ui-panel-inner > .ui-listview{
+	
+	margin: 0;
+}
+
 

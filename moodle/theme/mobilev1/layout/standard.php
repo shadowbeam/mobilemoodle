@@ -38,7 +38,12 @@ echo $OUTPUT->doctype(); ?>
 		<!-- Panel -->
 		<div data-role="panel" id="panel-wrapper" data-position="left"
 			data-display="reveal">
+					<ul data-role="listview" class="settingsul">
 
+<?php $renderer = $PAGE->get_renderer('theme_mobilev1');
+echo $renderer->navigation_tree($PAGE->navigation );
+?>
+</ul>
 
 
 			<!-- If Logged in -->
@@ -59,26 +64,6 @@ if (isloggedin()) { ?>
 
 			<?php }//ifsettings 
    }//ifflogged ?>
-
-
-			<!-- /If Logged in -->
-
-			<?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
-
-
-
-			<div id="region-pre" class="block-region">
-				<div class="region-content">
-					<?php
-					if (!right_to_left()) {
-                            echo $OUTPUT->blocks_for_region('side-pre');
-                        } elseif ($hassidepost) {
-                       //     echo $OUTPUT->blocks_for_region('side-post');
-                    } ?>
-
-				</div>
-			</div>
-			<?php } ?>
 
 
 
