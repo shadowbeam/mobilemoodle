@@ -170,7 +170,8 @@ protected function navigation_node($items, $attrs=array(), $expansionlimit=null,
             
             
             if($item->has_children()){
-          		  $liattrs['data-role'] ='list-divider';
+          		//  $liattrs['data-role'] ='list-divider';
+          		  $liattrs['data-theme'] ='b';
                   $content .=  	$this->navigation_node($item->children, array(), $expansionlimit, $options, $depth+1);
             }
 

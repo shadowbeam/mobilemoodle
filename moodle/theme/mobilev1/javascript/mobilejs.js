@@ -1,8 +1,19 @@
 //must bind the global settings before jquerymobile is loaded
 $(document).bind("mobileinit", function(){
 	$.mobile.defaultPageTransition = "slide";
+	
+	});
+
+$(document).on('pageinit',function(event, ui){
+
+	$("#page-header").swiperight(function() {
+			$('#panel-wrapper').panel( "open" );
+		});
+	    
+
 });
 
+	
 
 /*Login Page*/
 
