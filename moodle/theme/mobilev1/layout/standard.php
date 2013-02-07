@@ -58,7 +58,6 @@ if (isloggedin()) { ?>
    <?php }//ifsettings 
    }//ifflogged ?>
 
-<?php echo $OUTPUT->navbar(); ?>
 
 <!-- /If Logged in -->
 
@@ -79,19 +78,7 @@ if (isloggedin()) { ?>
                 </div>
                 <?php } ?>
 
-                <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
-                <div id="region-post" class="block-region">
-                    <div class="region-content">
-                           <?php
-                       if (!right_to_left()) {
-                           echo $OUTPUT->blocks_for_region('side-post');
-                       } elseif ($hassidepre) {
-                           echo $OUTPUT->blocks_for_region('side-pre');
-                    } ?>
-                    </div>
-                </div>
-                <?php } ?>
-
+              
 
 </div><!--panel-->
 	
