@@ -4,11 +4,14 @@ $(document).bind("mobileinit", function(){
 	
 	});
 
-$(document).on('pageinit',function(event, ui){
+/* Only working for initial load */
+$('.ui-page').live('pageinit',function(event, ui){
 
-	$("#page-header").swiperight(function() {
-			$('#panel-wrapper').panel( "open" );
-		});
+
+$('#page-header').live('swiperight', function (event, ui) {
+               $('#panel-wrapper').panel( "open" );
+            });
+
 	    
 
 });
@@ -29,7 +32,7 @@ $('div#page-login-index').live('pagebeforecreate',function(event, ui){
 
 $('div#pannel-wrapper').live('pagebeforecreate',function(event, ui){
 	
-	$('li.contains_branch').attr('data-role', 'collapsible');
+	$('li.contains_branch').attr('data-role', 'collapsible').attr('data-theme','c');
 });
 
 

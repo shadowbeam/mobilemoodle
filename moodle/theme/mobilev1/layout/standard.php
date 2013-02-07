@@ -71,7 +71,7 @@ if (isloggedin()) { ?>
 		<!--panel-->
 
 		<!--  header -->
-		<div id="page-header" data-role="header" position="fixed">
+		<div id="page-header" data-role="header" data-position="fixed">
 
 			<?php if ($PAGE->heading) { ?>
 
