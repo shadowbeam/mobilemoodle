@@ -42,12 +42,9 @@ echo $renderer->navigation_tree($PAGE->navigation );
 			<!-- If Logged in -->
 			<?php
 if (isloggedin()) {
-	global $USER;
-	$logout = "$CFG->wwwroot/login/logout.php?sesskey=$USER->sesskey";
 
 
-
-echo '<a data-role="button" data-ajax="false" data-transition="pop" href="' . $logout .'">' . get_string('logout') . "</a>";
+echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string('logout') . "</a>";
 ?>
 
 		
@@ -126,6 +123,24 @@ echo '<a data-role="button" data-ajax="false" data-transition="pop" href="' . $l
 
 
 			</div>
+			
+			<?php 
+			global $USER;
+			$logout = "$CFG->wwwroot/login/logout.php?sesskey=$USER->sesskey";
+			 ?>
+			
+			<div data-role="popup" id="logoutpopup" data-position-to="window">
+			<div data-role="header" data-them="a">
+			<h1 role="heading">Logout?</h1>
+			</div>				<p>Are you sure you want to logout?<p>
+				<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" data-corners="true">Cancel</a>
+			
+				<a href="<?php echo $logout ?>	" data-ajax="false" data-role="button" data-inline="true" data-transition="flow" data-theme="b" data-corners="true"  >Logout</a> 
+				
+			</div>
+			
+			
+					
 		</div>
 
 
@@ -133,5 +148,8 @@ echo '<a data-role="button" data-ajax="false" data-transition="pop" href="' . $l
 	</div>
 
 	</div>
+	
+
+	
 </body>
 </html>
