@@ -41,11 +41,16 @@ echo $renderer->navigation_tree($PAGE->navigation );
 
 			<!-- If Logged in -->
 			<?php
-if (isloggedin()) { ?>
+if (isloggedin()) {
+	global $USER;
+	$logout = "$CFG->wwwroot/login/logout.php?sesskey=$USER->sesskey";
 
-			<a data-role="button" data-transition="pop"
-				href="<?php echo "$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout') ?>
-			</a>
+
+
+echo '<a data-role="button" data-ajax="false" data-transition="pop" href="' . $logout .'">' . get_string('logout') . "</a>";
+?>
+
+		
 
 
 			<?php if(!$settings){ ?>

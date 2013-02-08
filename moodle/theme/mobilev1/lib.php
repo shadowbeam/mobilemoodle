@@ -22,4 +22,19 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+//public function mobilev1_logout_button() {
+//	global $USER;
+//	$sesskey = $USER->sesskey;
+//	$logout = '$CFG->wwwroot/login/logout.php?sesskey=' . $sesskey;
+//	
+//	
+//	
+//	$link = '<a data-role="button" data-transition="pop"
+//		href="' . $logout .'">' . get_string('logout') . "</a>";
+//	
+//	return $link;
+//
+//}
 
+
+?>
