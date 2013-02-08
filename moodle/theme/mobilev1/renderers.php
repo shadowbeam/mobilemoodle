@@ -336,20 +336,21 @@ class theme_mobilev1_core_renderer extends core_renderer {
                 }
             } else {
             	
-				$userpic = new user_picture($USER);
-            	
+				$userpic = new user_picture($USER, array('size'=>25));
                 $loggedinas =  $username;
-                //TODO add a profile picture icon
+                //TODO add a profile picture icon 
+                 $loggedinas = '<div class="user-info ui-btn-right">' . $this->render($userpic) .$loggedinas.'</div>';
            
             }
         } else {
 //            $loggedinas = get_string('loggedinnot', 'moodle');
             if (!$loginpage && $withlinks) {
-                $loggedinas .= " <a data-role='button' data-inline='true' href=\"$loginurl\">".get_string('login').'</a>';
+                $loggedinas .= " <a data-role='button' class='ui-btn-right' data-inline='true' href=\"$loginurl\">".get_string('login').'</a>';
             }
         }
 
-        $loggedinas = '<div class="logininfo ui-btn-right">'.$loggedinas.'</div>';
+	
+       
 
         if (isset($SESSION->justloggedin)) {
             unset($SESSION->justloggedin);

@@ -74,13 +74,17 @@ if (isloggedin()) { ?>
 				<a class="ui-btn-left" data-role="button" href="#panel-wrapper"
 					data-ajax="false">Menu</a>
 				<?php } ?>
-				<?php  echo $OUTPUT->login_info(); ?>
+				
+				<?php echo $OUTPUT->login_info(); ?>
+				
+			
 			</div>
 
 			<div class="headerprofile">
 				<?php
-				echo $PAGE->headingmenu
+				echo $PAGE->headingmenu;
 				?>
+				
 			</div>
 
 			<h1 class="headermain">

@@ -90,3 +90,22 @@ html div.ui-panel-inner{
 	margin: 0;
 }
 
+#page-site-index table, fieldset.coursesearchbox{
+display:none!important;
+}
+
+#page-header .user-info{
+	text-align: center;
+}
+#page-header .user-info a{
+	display: block;
+	
+}
+
+#page-header .user-info img{
+	width: 25px;
+	height: 25px;
+	background-color: rgba(255, 255, 255, 0.45);
+	border: 1px solid #252525;
+	-webkit-border-radius: 5px;
+}
