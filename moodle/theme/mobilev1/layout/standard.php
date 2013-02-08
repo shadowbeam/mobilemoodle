@@ -10,16 +10,7 @@ echo $OUTPUT->doctype(); ?>
 <title><?php echo $PAGE->title ?></title>
 <?php echo $OUTPUT->standard_head_html() ?>
 
-<script>    
-	    window.addEventListener("load",function() {
-	      // Set a timeout...
-	      setTimeout(function(){
-	        // Hide the address bar!
-	        window.scrollTo(0, 1);
-	      }, 0);
-	    });
-	    
-    </script>
+<meta name="apple-mobile-web-app-capable" content="yes">
 
 
 
@@ -40,6 +31,8 @@ echo $OUTPUT->doctype(); ?>
 			data-display="reveal">
 					<ul data-role="listview" class="settingsul">
 
+<li><a href="<?php echo $CFG->wwwroot; ?>">Courses</a></li>
+
 <?php $renderer = $PAGE->get_renderer('theme_mobilev1');
 echo $renderer->navigation_tree($PAGE->navigation );
 ?>
@@ -51,7 +44,7 @@ echo $renderer->navigation_tree($PAGE->navigation );
 if (isloggedin()) { ?>
 
 			<a data-role="button" data-transition="pop"
-				href="<?php echo $CFG->wwwroot.'/login/logout.php'; ?>"> <?php echo get_string('logout'); ?>
+				href="<?php echo "$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout') ?>
 			</a>
 
 
