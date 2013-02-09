@@ -25,7 +25,6 @@ div.ui-input-text { padding: 0 0 0 0; }
 #page-login-index .loginbox .loginform .form-input {
 	float: none;
 	width: 100%;
-	
 	margin-bottom: 1em;
 }
 
@@ -52,6 +51,17 @@ div.ui-input-text { padding: 0 0 0 0; }
 	text-align: center;
 	padding-bottom: 2em;
 	padding-top: 2em;
+}
+
+#page-login-index .loginerrors{
+	text-align: center;
+	border: 2px solid rgba(161, 43, 43, 0.68);
+	-webkit-border-radius: 5px;
+
+	padding: 1em;
+	font-weight: bold;
+	background-color: rgba(196, 109, 109, 0.21);
+
 }
 
 
