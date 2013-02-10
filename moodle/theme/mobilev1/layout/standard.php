@@ -27,11 +27,14 @@ echo $OUTPUT->doctype(); ?>
 	<div id="<?php p($PAGE->bodyid); ?>" data-role="page" class="general">
 
 		<!-- Panel -->
-		<div data-role="panel" id="panel-wrapper" data-position="left"
-			data-display="reveal">
+		<div data-role="panel" id="panel-wrapper" data-position="left"	data-display="reveal">
+			
+							<?php echo $OUTPUT->login_info(); ?>
+			
+			
 					<ul data-role="listview" class="settingsul">
 
-<li><a href="<?php echo $CFG->wwwroot; ?>">Courses</a></li>
+<!--<li><a href="<?php echo $CFG->wwwroot; ?>">Courses</a></li>-->
 
 <?php $renderer = $PAGE->get_renderer('theme_mobilev1');
 echo $renderer->navigation_tree($PAGE->navigation );
@@ -59,6 +62,9 @@ echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string(
 
 			<?php }//ifsettings 
    }//ifflogged ?>
+
+
+
 
 
 
@@ -118,6 +124,8 @@ echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string(
 					</ul>
 
 					<?php   }  echo $OUTPUT->main_content(); ?>
+					
+					
 
 				</div>
 

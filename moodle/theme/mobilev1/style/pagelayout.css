@@ -33,18 +33,10 @@
 #page-content #region-main-wrap {float:none;position:relative;right:0;width:100%;}
 #page-content {clear:both;float:none;overflow:hidden;position:relative;width:100%;min-width:0px;}
 
-#page-header h1.headermain{
-	float: none;
-	font-size: 1.5em;
-	text-align: center;
-}
 
 
-#page-header .headernav{
-	font-size: 0.8em;
-}
-
-.skip-bloc{
+.skip-bloc,
+.accesshide{
 	display: none;
 }
 
@@ -62,9 +54,13 @@ fieldset.clearfix{
 	width: 100%!important; //fix a page overflow
 }
 
+/* @group Panel */
+
 /*make the page not the panel do the overlay shadow*/
 .ui-panel-content-wrap-display-reveal,
-.ui-panel-content-wrap-open{
+.ui-panel-content-wrap-open,
+.ui-panel-content-fixed-toolbar-open
+{
 	-webkit-box-shadow:  -5px 0 5px rgba(0,0,0,.15);
 	-moz-box-shadow:  -5px 0 5px rgba(0,0,0,.15);
 	box-shadow:  -5px 0 5px rgba(0,0,0,.15);
@@ -86,6 +82,10 @@ html div.ui-panel-inner{
 	margin: 0;
 }
 
+/* @end */
+
+/* @group Courses */
+
 #page-body .block_course_overview .content{
 	margin: 0;
 }
@@ -93,6 +93,23 @@ html div.ui-panel-inner{
 #page-site-index table, fieldset.coursesearchbox{
 display:none!important;
 }
+
+/* @end */
+
+
+/* @group Header */
+
+#page-header h1.headermain{
+	float: none;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+
+#page-header .headernav{
+	font-size: 0.8em;
+}
+
 
 #page-header .user-info{
 	text-align: center;
@@ -109,3 +126,16 @@ display:none!important;
 	border: 1px solid #252525;
 	-webkit-border-radius: 5px;
 }
+
+/* @end */
+
+
+/* @group Popup */
+
+.ui-popup-screen.in{
+	background-color: #000;
+}
+
+
+/* @end */
+

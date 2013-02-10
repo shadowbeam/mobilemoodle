@@ -16,7 +16,14 @@ $('#page-header').live('swiperight', function (event, ui) {
 
 });
 
+/* General Page Fixes */
+	$(document).live('pagebeforecreate',function(event, ui){
+		$('ul li.activity a').unwrap().unwrap();
+		$('ul.section').attr("data-role", "listview").attr("data-inset", "true");
+	        $('.section li img.activityicon').addClass("ui-li-icon");
 	
+	
+	});
 
 /*Login Page*/
 
@@ -49,11 +56,12 @@ $('div#page-site-index').live('pagebeforecreate',function(event, ui){
 
 
 });
- 
+
 
 /* Course */
 
 $('#page-course-view-topics, #page-course-view-weeks').live('pagebeforecreate',function(event, ui){
+
 
 var innercontent;
 
