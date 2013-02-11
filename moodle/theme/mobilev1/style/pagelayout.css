@@ -91,7 +91,11 @@ html div.ui-panel-inner{
 }
 
 #page-site-index table, fieldset.coursesearchbox{
-display:none!important;
+	display:none!important;
+}
+
+#page-course-index .summary{
+	padding: 0 2em 1em 1em
 }
 
 /* @end */

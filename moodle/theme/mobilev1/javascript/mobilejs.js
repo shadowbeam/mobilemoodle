@@ -5,12 +5,11 @@ $(document).bind("mobileinit", function(){
 	});
 
 /* Only working for initial load */
-$('.ui-page').live('pageinit',function(event, ui){
+$('div').live('pagebeforecreate',function(event, ui){
 
-
-$('#page-header').live('swiperight', function (event, ui) {
-               $('#panel-wrapper').panel( "open" );
-            });
+$('.ui-header').live('swiperight', function (event, ui) {
+	$('#panel-wrapper').panel( "open" );
+});
 
 	    
 
@@ -42,9 +41,10 @@ $('div#pannel-wrapper').live('pagebeforecreate',function(event, ui){
 });
 
 
+
 /* Front Page */
 
-$('div#page-site-index').live('pagebeforecreate',function(event, ui){
+$('div#page-site-index,#page-course-index').live('pagebeforecreate',function(event, ui){
 		
 	//unwrap the course list
 	$('.unlist div.coursebox, .unlist div.info, .unlist h3.name').contents().unwrap();
@@ -52,8 +52,6 @@ $('div#page-site-index').live('pagebeforecreate',function(event, ui){
 	//change available courses to listview with filter
 	$('.unlist').attr("data-role", "listview").attr("data-inset", "true").attr("data-filter", "true");
 	
-
-
 });
 
 
@@ -102,7 +100,8 @@ else if ($('ul.weeks').length > 0) {
 	
 	//force section 0 full width
 	$('#section-0').addClass('ui-grid-solo');
-	
+//	$('.section a').attr('data-role', 'button');
+//	$('.section img.activityicon').addClass("ui-li-icon");
 
 });
 
