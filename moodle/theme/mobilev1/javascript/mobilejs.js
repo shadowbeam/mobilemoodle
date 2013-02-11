@@ -6,9 +6,15 @@ $(document).bind("mobileinit", function(){
 
 /* Only working for initial load */
 $('div').live('pagebeforecreate',function(event, ui){
-
+	$('ul li.activity a').unwrap().unwrap();
+	$('ul.section').attr("data-role", "listview").attr("data-inset", "true");
+	$('.section li img.activityicon').addClass("ui-li-icon");
+		    
+		    
 $('.ui-header').live('swiperight', function (event, ui) {
 	$('#panel-wrapper').panel( "open" );
+	
+		
 });
 
 	    
@@ -17,9 +23,7 @@ $('.ui-header').live('swiperight', function (event, ui) {
 
 /* General Page Fixes */
 	$(document).live('pagebeforecreate',function(event, ui){
-		$('ul li.activity a').unwrap().unwrap();
-		$('ul.section').attr("data-role", "listview").attr("data-inset", "true");
-	    $('.section li img.activityicon').addClass("ui-li-icon");
+	
 
 	});
 
