@@ -5,27 +5,30 @@ $(document).bind("mobileinit", function(){
 	});
 
 /* Only working for initial load */
+
 $('div').live('pagebeforecreate',function(event, ui){
 	$('ul li.activity a').unwrap().unwrap();
+ 
+});
+
+/*Course Index*/
+$('#course-page-index').live('pagebeforecreate',function(event, ui){
 	$('ul.section').attr("data-role", "listview").attr("data-inset", "true");
 	$('.section li img.activityicon').addClass("ui-li-icon");
-		    
-		    
-$('.ui-header').live('swiperight', function (event, ui) {
-	$('#panel-wrapper').panel( "open" );
-	
-		
 });
+
+$('.ui-page').live('pageinit',function(event, ui){
+
+
+$('#page-header').live('swiperight', function (event, ui) {
+               $('#panel-wrapper').panel( "open" );
+            });
 
 	    
 
 });
 
-/* General Page Fixes */
-	$(document).live('pagebeforecreate',function(event, ui){
 	
-
-	});
 
 /*Login Page*/
 
@@ -45,10 +48,9 @@ $('div#pannel-wrapper').live('pagebeforecreate',function(event, ui){
 });
 
 
-
 /* Front Page */
 
-$('div#page-site-index,#page-course-index').live('pagebeforecreate',function(event, ui){
+$('div#page-site-index, #page-course-index').live('pagebeforecreate',function(event, ui){
 		
 	//unwrap the course list
 	$('.unlist div.coursebox, .unlist div.info, .unlist h3.name').contents().unwrap();
@@ -56,13 +58,14 @@ $('div#page-site-index,#page-course-index').live('pagebeforecreate',function(eve
 	//change available courses to listview with filter
 	$('.unlist').attr("data-role", "listview").attr("data-inset", "true").attr("data-filter", "true");
 	
-});
 
+
+});
+ 
 
 /* Course */
 
 $('#page-course-view-topics, #page-course-view-weeks').live('pagebeforecreate',function(event, ui){
-
 
 var innercontent;
 
@@ -104,8 +107,7 @@ else if ($('ul.weeks').length > 0) {
 	
 	//force section 0 full width
 	$('#section-0').addClass('ui-grid-solo');
-//	$('.section a').attr('data-role', 'button');
-//	$('.section img.activityicon').addClass("ui-li-icon");
+	
 
 });
 
@@ -119,10 +121,5 @@ $('#page-user-editadvanced').live('pagebeforecreate',function(event, ui){
 
 });
 
-/* Assignments */
-$('#page-mod-assign-view').live('pagebeforecreate',function(event, ui){
-
-//		$('#my-table').attr('data-role', 'table').attr('data-mode','reflow');
 
 
-});
