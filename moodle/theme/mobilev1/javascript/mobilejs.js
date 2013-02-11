@@ -115,11 +115,43 @@ else if ($('ul.weeks').length > 0) {
 /* Profile */
 
 $('#page-user-editadvanced').live('pagebeforecreate',function(event, ui){
-
 	$('fieldset').attr('data-role','collapsible');
-
-
 });
+
+/* Forums */
+
+$('#page-mod-forum-view').live('pagebeforecreate',function(event, ui){
+$('tr.discussion').each(function(index) {
+	var rply = $(this).find('td.replies a').html();
+	$(this).find('td.topic a').append('<span class="reply-count">' + rply + '</span>');
+	
+	$(this).live('swiperight', function (event, ui) {
+		$(this).find('.picture, .author, .lastpost').addClass('displayinline');
+    });
+	
+	$(this).live('swipeleft', function (event, ui) {
+		$(this).find('.picture, .author, .lastpost').removeClass('displayinline');
+    });
+});
+	$('.forumheaderlist').attr('data-role', 'controlgroup');
+	  $('table.forumheaderlist thead tr').attr("data-role", "button");
+	$('table.forumheaderlist td.topic a').attr("data-role", "button").attr("data-icon", "arrow-r").attr("data-iconpos", "right");
+});
+
+    //forum discussion page only stuff
+    $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.forumtype-single, .forumtype-single div.generalpage, div#page-mod-forum-post').live('pagebeforecreate',function(event, ui){
+        //actual forum posting
+        $('.forumpost div.row.header').addClass("ui-li ui-li-divider ui-btn ui-bar-a");
+        $('.options div.commands').attr("data-role", "controlgroup").attr("data-type", "horizontal");
+        $('.options div.commands a').attr("data-role", "button").attr("data-ajax", "false").attr("data-inline", "true");
+        $('.forumpost div.author a').attr("data-inline", "true");
+        $('.options div.commands').contents().filter(function() {
+            return this.nodeType == 3; //Node.TEXT_NODE
+        }).remove();
+        //function above removes | in div.commands
+    });
+
+
 
 
 

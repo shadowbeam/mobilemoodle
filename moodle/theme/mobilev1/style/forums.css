@@ -1,0 +1,84 @@
+/**
+ * Forums CSS
+ * @author Allan Watson
+ * @theme mobilev1
+ * @editted 11/02/13
+ */
+ 
+#page-mod-forum-view  table.forumheaderlist thead{
+	display:none;
+ }
+
+#page-mod-forum-view table.forumheaderlist tr,
+#page-mod-forum-view table.forumheaderlist td,
+#page-mod-forum-view table.forumheaderlist
+{
+	display: block;
+ 	border:none;
+	border-style:none;
+	width: auto!important;
+}
+
+
+
+#page-mod-forum-view table.forumheaderlist td.topic{
+padding: 0px !important;
+clear: both;
+display: block;
+}
+ 
+ 
+ #page-mod-forum-view table.forumheaderlist td.author:before{
+ 	content: "Posted by ";
+ }
+ 
+  #page-mod-forum-view table.forumheaderlist td.lastpost:before{
+ 	content: "Last Post: ";
+ }
+ 
+ 
+ 
+#page-mod-forum-view table.forumheaderlist td.picture,
+#page-mod-forum-view table.forumheaderlist td.author,
+#page-mod-forum-view table.forumheaderlist td.lastpost{
+	display:none;
+ }
+ 
+    #page-mod-forum-view table.forumheaderlist td.replies{
+		display:none;
+	}
+
+		#page-mod-forum-view table.forumheaderlist td.lastpost{
+			float:right;
+		}
+		
+	/*clear the float from last post*/	
+	#page-mod-forum-view table.forumheaderlist tr.discussion,
+	.forumpost .row.maincontent.clearfix{
+	clear:both;
+	}
+
+ 
+ span.reply-count{
+	float:right;
+}
+
+.displayinline{
+	display:inline-block!important;
+}
+
+/* Discuss Controls*/
+div.discussioncontrols,
+.forumpost .row.maincontent .left{
+	display:none;
+}
+
+.forumpost{
+	overflow:hidden;
+}
+
+.forumpost .row.maincontent .content{
+	padding: 0.5em;
+}
+
+ 
