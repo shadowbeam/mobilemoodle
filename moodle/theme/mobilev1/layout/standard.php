@@ -125,7 +125,6 @@ echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string(
 
 					<?php   }  echo $OUTPUT->main_content(); ?>
 					
-					
 
 				</div>
 

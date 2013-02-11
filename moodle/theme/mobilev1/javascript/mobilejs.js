@@ -20,9 +20,8 @@ $('#page-header').live('swiperight', function (event, ui) {
 	$(document).live('pagebeforecreate',function(event, ui){
 		$('ul li.activity a').unwrap().unwrap();
 		$('ul.section').attr("data-role", "listview").attr("data-inset", "true");
-	        $('.section li img.activityicon').addClass("ui-li-icon");
-	
-	
+	    $('.section li img.activityicon').addClass("ui-li-icon");
+
 	});
 
 /*Login Page*/
@@ -113,6 +112,14 @@ else if ($('ul.weeks').length > 0) {
 $('#page-user-editadvanced').live('pagebeforecreate',function(event, ui){
 
 	$('fieldset').attr('data-role','collapsible');
+
+
+});
+
+/* Assignments */
+$('#page-mod-assign-view').live('pagebeforecreate',function(event, ui){
+
+//		$('#my-table').attr('data-role', 'table').attr('data-mode','reflow');
 
 
 });

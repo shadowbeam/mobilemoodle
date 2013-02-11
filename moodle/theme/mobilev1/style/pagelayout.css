@@ -139,3 +139,39 @@ display:none!important;
 
 /* @end */
 
+/* @group Tables Group */
+
+
+td.c0{
+	background-color: #cbcccb;
+	font-weight: bold;
+}
+
+
+
+
+@media 
+only screen and (max-width: 760px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block;
+		
+	}
+	
+	tr { border: 1px solid #676767; }
+
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #9b9b9b; 
+		position: relative;
+		width: auto!important;
+	}
+	
+	
+		
+	}
+
+/* @end */
