@@ -146,10 +146,13 @@ echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string(
 				
 			</div>
 			
-			
+			<div data-role="popup" id="freepopup">
+				<p>This is a completely basic popup, no options set.<p>
+			</div>
 					
 		</div>
-
+		
+		
 
 
 	</div>

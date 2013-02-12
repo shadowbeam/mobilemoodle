@@ -2,58 +2,6 @@
 
 class theme_mobilev1_renderer extends plugin_renderer_base {
 
-	/**
-     * Renders a help icon
-     *
-     * @param help_icon $helpicon
-     * @return string
-     */
-    protected function render_help_icon(help_icon $helpicon) {
-        global $CFG;
-
-        // first get the help image icon
-        $src = $this->pix_url('help');
-
-        $title = get_string($helpicon->identifier, $helpicon->component);
-
-        if (empty($helpicon->linktext)) {
-            $alt = $title;
-        } else {
-            $alt = get_string('helpwiththis');
-        }
-
-        $attributes = array('src'=>$src, 'alt'=>$alt, 'class'=>'iconhelp', 'data-role'=>'button', 'data-inline'=>'true');
-        $output = html_writer::empty_tag('img', $attributes);
-
-        // add the link text if given
-        if (!empty($helpicon->linktext)) {
-            // the spacing has to be done through CSS
-            $output .= $helpicon->linktext;
-        }
-
-        // now create the link around it
-        // TODO: Do we need to specify the theme in the help.php link?
-        $url = new moodle_url('/help.php', array('component' => $helpicon->component, 'identifier' => $helpicon->identifier, 'lang'=>current_language(), 'theme'=>'mymobile'));
-
-        // note: this title is displayed only if JS is disabled, otherwise the link will have the new ajax tooltip
-        $title = get_string('helpprefix2', '', trim($title, ". \t"));
-
-        $attributes = array('href'=>$url, 'title'=>$title);
-        $id = html_writer::random_id('helpicon');
-        $attributes['id'] = $id;
-        $attributes['rel'] = 'notexternal';
-        $attributes['data-rel'] = 'dialog';
-        $attributes['data-transition'] = 'flow';
-        $output = html_writer::tag('a', $output, $attributes);
-
-        // and finally span
-        return html_writer::tag('span', $output, array('class' => 'helplink2'));
-    }
-
-
-
-
-
 
     /**
      * Produces the settings tree
@@ -313,7 +261,6 @@ protected function navigation_node($items, $attrs=array(), $expansionlimit=null,
 }
 
 class theme_mobilev1_core_renderer extends core_renderer {
- 
  
  
 /**

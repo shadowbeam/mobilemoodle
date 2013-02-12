@@ -72,7 +72,8 @@ display: block;
 	
 	
 	/*clear fix for tr.discussion */
-	tr.discussion:after{
+	tr.discussion:after,
+	.topic.firstpost.starter:after{
 		content: " . ";
 		clear: both;
 	  display: block;
@@ -91,7 +92,7 @@ display: block;
 
 /* Discuss Controls*/
 div.discussioncontrols,
-.forumpost .row.maincontent .left{
+.forumpost .left{
 	display:none;
 }
 
@@ -104,16 +105,23 @@ div.discussioncontrols,
 	border: none;
 }
 
-.forumpost .author{
-	font-size: 12px;
+.forumpost .subject{
+	font-size: 18px;
 }
+
+
+
 .forumpost .row.maincontent{
 	border: 1px solid #cbcccb;
 }
 
+
+
 /* override the main post jumping down*/
-.row.maincontent.clearfix {
+.row.maincontent.clearfix ,
+.forumpost .row .options{
 	clear: none!important;
+	margin:0;
 }
 
 .forumpost .row{
@@ -125,6 +133,7 @@ div.discussioncontrols,
 	border-top-right-radius:1em; 
 }
 
+
 /* @group Commands */
 
 .forumpost .commands{
@@ -134,9 +143,20 @@ div.discussioncontrols,
 .forumpost .commands a{
 	border-top-left-radius: 0!important;
 	border-top-right-radius: 0!important;
+	border-top: none;
 }
 
 /* @end */
 
+/* make a title for the reply*/
+ #page-mod-forum-post .accesshide{
+	display:block;
+	margin: 1em 0 1em 0;
+}
 
+#mformforum legend.ftoggler,
+ #page-mod-forum-post .fdescription
+{
+	display:none;
+ }
  

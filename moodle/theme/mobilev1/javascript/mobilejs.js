@@ -1,12 +1,12 @@
 //must bind the global settings before jquerymobile is loaded
 $(document).bind("mobileinit", function(){
 	$.mobile.defaultPageTransition = "slide";
-	});
+});
 
 
 /* all pages */
 $('div').live('pagebeforecreate',function(event, ui){
-	$('ul li.activity a').unwrap().unwrap();
+	//$('ul li.activity a').unwrap().unwrap(); /* causes issues with back and forward */
 	//$('a.tooltip').attr('data-rel', 'dialog').attr('data-transition','pop');
  
 });
@@ -21,8 +21,8 @@ $('.ui-page').live('pageinit',function(event, ui){
 
 
 $('#page-header').live('swiperight', function (event, ui) {
-               $('#panel-wrapper').panel( "open" );
-            });
+     $('#panel-wrapper').panel( "open" );
+ });
 
 	    
 
@@ -96,14 +96,16 @@ else if ($('ul.weeks').length > 0) {
 	$('.mod-indent .activityinstance a').unwrap().unwrap();
 	
 	//create the collapsible headers
-	$('.course-content li.section.main').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','d');
+	$('.course-content li.section.main').not('[id="section-0"]').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','d');
 		
 	
-	$('.course-content li.section.main:even').addClass('ui-block-b');
-	$('.course-content li.section.main:odd').addClass('ui-block-a');
+	$('.course-content li.section.main:even').not('[id="section-0"]').addClass('ui-block-b');
+	$('.course-content li.section.main:odd').not('[id="section-0"]').addClass('ui-block-a');
 		
 	//assign listviews
 	$('ul.section').attr('data-role', 'listview');
+	$('#section-0 ul.section ').attr('data-inset', 'true');
+	
 	
 	//force section 0 full width
 	$('#section-0').addClass('ui-grid-solo');
@@ -141,15 +143,60 @@ $('tr.discussion').each(function(index) {
  //forum discussion page only stuff
 $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.forumtype-single, .forumtype-single div.generalpage, div#page-mod-forum-post').live('pagebeforecreate',function(event, ui){
         //actual forum posting
-        $('.forumpost div.row.header').addClass("ui-li ui-li-divider ui-btn ui-bar-b");
+        $('.forumpost div.row.header, h2.accesshide').addClass("ui-li ui-li-divider ui-btn ui-bar-b");
         $('.options div.commands').attr("data-role", "controlgroup").attr("data-type", "horizontal");
-        $('.options div.commands a').attr("data-role", "button").attr("data-inline", "true");
-        $('.forumpost div.author a').attr("data-inline", "true");
+        $('.options div.commands a').attr("data-role", "button").attr("data-inline", "true").attr('data-mini','true');
+		
+	/* Attempt to load the reply form in a popup*/
+		$( ".options .commands a" ).bind( "click", function(event, ui) {
+			event.preventDefault();
+			event.stopPropagation;
+		
+			var link = $(this).attr('href');
+		/*	
+			//Implementing scroll to show parent
+			
+			var currentloc = ($(location).attr('href'));
+			
+			
+			alert(link + " " + currentloc);
+			if(link == currentloc){
+				
+				var target = this.hash,
+				$target = $(target);
+      
+				$('html, body').stop().animate({
+					'scrollTop': $target.offset().top-40
+				}, 900, 'swing', function () {
+					window.location.hash = target;
+				});
+	
+
+			}
+		*/	
+			
+				//this ignores the hash and simply loads the page
+				$.mobile.changePage( link, { transition: "slideup"} );
+			
+			
+			//link.replace('#mformforum,','');
+			//$.mobile.loadPage(link);
+			
+			
+			
+
+			
+		});
+	
+		
+      //  $('.forumpost div.author a').attr("data-inline", "true");
       
       	//remove the text from the commands
         $('.options div.commands').contents().filter(function() {
             return this.nodeType == 3; 
         }).remove();
+		
+		$('#id_submitbutton').attr('data-theme', 'b');
         
     });
 
