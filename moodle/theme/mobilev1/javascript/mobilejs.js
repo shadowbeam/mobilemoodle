@@ -1,18 +1,18 @@
 //must bind the global settings before jquerymobile is loaded
 $(document).bind("mobileinit", function(){
 	$.mobile.defaultPageTransition = "slide";
-	
 	});
 
-/* Only working for initial load */
 
+/* all pages */
 $('div').live('pagebeforecreate',function(event, ui){
 	$('ul li.activity a').unwrap().unwrap();
+	//$('a.tooltip').attr('data-rel', 'dialog').attr('data-transition','pop');
  
 });
 
 /*Course Index*/
-$('#course-page-index').live('pagebeforecreate',function(event, ui){
+$('#course-page-index, #page-site-index').live('pagebeforecreate',function(event, ui){
 	$('ul.section').attr("data-role", "listview").attr("data-inset", "true");
 	$('.section li img.activityicon').addClass("ui-li-icon");
 });
@@ -30,7 +30,7 @@ $('#page-header').live('swiperight', function (event, ui) {
 
 	
 
-/*Login Page*/
+/* Login Page */
 
 $('div#page-login-index').live('pagebeforecreate',function(event, ui){
 	$('#login').append($('#signup'));
@@ -138,17 +138,19 @@ $('tr.discussion').each(function(index) {
 	$('table.forumheaderlist td.topic a').attr("data-role", "button").attr("data-icon", "arrow-r").attr("data-iconpos", "right");
 });
 
-    //forum discussion page only stuff
-    $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.forumtype-single, .forumtype-single div.generalpage, div#page-mod-forum-post').live('pagebeforecreate',function(event, ui){
+ //forum discussion page only stuff
+$('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.forumtype-single, .forumtype-single div.generalpage, div#page-mod-forum-post').live('pagebeforecreate',function(event, ui){
         //actual forum posting
-        $('.forumpost div.row.header').addClass("ui-li ui-li-divider ui-btn ui-bar-a");
+        $('.forumpost div.row.header').addClass("ui-li ui-li-divider ui-btn ui-bar-b");
         $('.options div.commands').attr("data-role", "controlgroup").attr("data-type", "horizontal");
-        $('.options div.commands a').attr("data-role", "button").attr("data-ajax", "false").attr("data-inline", "true");
+        $('.options div.commands a').attr("data-role", "button").attr("data-inline", "true");
         $('.forumpost div.author a').attr("data-inline", "true");
+      
+      	//remove the text from the commands
         $('.options div.commands').contents().filter(function() {
-            return this.nodeType == 3; //Node.TEXT_NODE
+            return this.nodeType == 3; 
         }).remove();
-        //function above removes | in div.commands
+        
     });
 
 

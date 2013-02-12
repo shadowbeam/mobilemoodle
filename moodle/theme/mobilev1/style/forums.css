@@ -55,9 +55,31 @@ display: block;
 	/*clear the float from last post*/	
 	#page-mod-forum-view table.forumheaderlist tr.discussion,
 	.forumpost .row.maincontent.clearfix{
-	clear:both;
+		clear:both;
 	}
-
+	
+	tr.discussion{
+		background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.26, #cbcccb), to(#7a7a7a));
+		background-image: -moz-linear-gradient(90deg, #cbcccb 26%, #7a7a7a 100%);
+		-moz-box-shadow: inset 0 40px 10px rgba(0, 0, 0, 0.61);
+		-webkit-box-shadow: inset 0 40px 10px rgba(0, 0, 0, 0.61);
+		box-shadow: inset 0 40px 10px rgba(0, 0, 0, 0.61);
+	}
+	
+#page-mod-forum-view tr.discussion td a{
+		color: rgb(43, 49, 54);
+	}
+	
+	
+	/*clear fix for tr.discussion */
+	tr.discussion:after{
+		content: " . ";
+		clear: both;
+	  display: block;
+	  height: 0;
+	  visibility: hidden;
+	  font-size: 0;
+}
  
  span.reply-count{
 	float:right;
@@ -73,12 +95,48 @@ div.discussioncontrols,
 	display:none;
 }
 
-.forumpost{
-	overflow:hidden;
+.row.maincontent .content{
+	padding: 1em;
 }
 
-.forumpost .row.maincontent .content{
-	padding: 0.5em;
+.forumpost{
+	overflow:hidden;
+	border: none;
 }
+
+.forumpost .author{
+	font-size: 12px;
+}
+.forumpost .row.maincontent{
+	border: 1px solid #cbcccb;
+}
+
+/* override the main post jumping down*/
+.row.maincontent.clearfix {
+	clear: none!important;
+}
+
+.forumpost .row{
+	width: auto;
+}
+
+.forumpost .row.header{
+	border-top-left-radius:1em;
+	border-top-right-radius:1em; 
+}
+
+/* @group Commands */
+
+.forumpost .commands{
+	margin: 0;
+}
+/*force buttons to have no top corners*/
+.forumpost .commands a{
+	border-top-left-radius: 0!important;
+	border-top-right-radius: 0!important;
+}
+
+/* @end */
+
 
  
