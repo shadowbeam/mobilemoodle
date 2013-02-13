@@ -77,42 +77,7 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
   *
   */
 
-  include_once($CFG->dirroot . '/course/renderer.php');
 
-class theme_mobilev1_core_course_renderer extends core_course_renderer {
-/*
-    public function course_category_tree(array $structure) {
-
-        echo 'It works!';
-
-    }
-	
-
-	
-	public function course_info_box(stdClass $course){
-		echo 'It works!';
-	}
-*/
-}  
-
-
-/**
- * Renderer for block navigation
- *
- * @package   block_navigation
- * @category  navigation
- * @copyright 2009 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
- 
- /**
-  * Renderer for mobilev1 navigation
-  *
-  * @package   theme
-  * @theme  mymobilev1
-  * @copyright 2013 Allan Watson
-  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-  */
 
 include_once($CFG->dirroot . '/blocks/navigation/renderer.php');
 
@@ -261,6 +226,8 @@ protected function navigation_node($items, $attrs=array(), $expansionlimit=null,
 }
 
 class theme_mobilev1_core_renderer extends core_renderer {
+ 
+ 
  
  
 /**
@@ -430,7 +397,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
             return $output;
         }
     
-    /*
+		/*
          * Return the navbar content so that it can be echoed out by the layout
          *
          * @return string XHTML navbar
@@ -459,8 +426,52 @@ class theme_mobilev1_core_renderer extends core_renderer {
             // XHTML
             return $navbarcontent;
         }
+		
+	 /**
+     * Creates a link back to the upper page in the hierarchy
+     *
+     * @return string
+     */
+    public function back_button() {
+ $items = $this->page->navbar->get_items();
+
+        // Iterate the navarray and remove unneccessary items
+        $itemcount = count($items);
 	
-	
- 
+        for ($i = 0; $i < $itemcount; $i++) {
+            $item = $items[$i];
+			
+			$item->hideicon = true;
+            if (!empty($item->action)) {
+				$htmlblocks[] = $item;
+            } 
+        }
+		
+		$last = count($htmlblocks);
+		
+		if($last >1)
+			$content = $this->render($htmlblocks[$last-2]);
+		else
+			$content = ''; 
+		
+		
+		return "<a data-role='button' data-corners='false' data-icon='arrow-l' href='" . (string)$item->action . "'>" . (string)$item->title . "</a>";
+		//return $content;
+        
+		
+		/*
+			if($itemcount > 1){
+				$item = $items[$itemcount - 2];
+				$navbarcontent =  $this->render($item);
+			}
+			else{
+				$navbarcontent = $itemcount;
+			}
+
+		$navbarcontent .= join('', $htmlblocks);
+        // XHTML
+        return $navbarcontent;        
+*/
+    }
 }
 

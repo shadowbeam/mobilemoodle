@@ -29,8 +29,8 @@ echo $OUTPUT->doctype(); ?>
 		<!-- Panel -->
 		<div data-role="panel" id="panel-wrapper" data-position="left"	data-display="reveal">
 			
-							<?php echo $OUTPUT->login_info(); ?>
-			
+							<?php //echo $OUTPUT->login_info(); ?>
+							<?php echo $OUTPUT->back_button(); ?>
 			
 					<ul data-role="listview" class="settingsul">
 

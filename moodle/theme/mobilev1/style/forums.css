@@ -2,12 +2,9 @@
  * Forums CSS
  * @author Allan Watson
  * @theme mobilev1
- * @editted 11/02/13
+ * @editted 13/02/13
  */
  
-#page-mod-forum-view  table.forumheaderlist thead{
-	display:none;
- }
 
 #page-mod-forum-view table.forumheaderlist tr,
 #page-mod-forum-view table.forumheaderlist td,
@@ -19,12 +16,10 @@
 	width: auto!important;
 }
 
-
-
 #page-mod-forum-view table.forumheaderlist td.topic{
-padding: 0px !important;
-clear: both;
-display: block;
+	padding: 0px !important;
+	clear: both;
+	display: block;
 }
  
  
@@ -35,21 +30,8 @@ display: block;
   #page-mod-forum-view table.forumheaderlist td.lastpost:before{
  	content: "Last Post: ";
  }
- 
- 
- 
-#page-mod-forum-view table.forumheaderlist td.picture,
-#page-mod-forum-view table.forumheaderlist td.author,
-#page-mod-forum-view table.forumheaderlist td.lastpost{
-	display:none;
- }
- 
-    #page-mod-forum-view table.forumheaderlist td.replies{
-		display:none;
-	}
-
-		#page-mod-forum-view table.forumheaderlist td.lastpost{
-			float:right;
+	#page-mod-forum-view table.forumheaderlist td.lastpost{
+	float:right;
 		}
 		
 	/*clear the float from last post*/	
@@ -86,15 +68,11 @@ display: block;
 	float:right;
 }
 
+/* class to force display inline */
 .displayinline{
 	display:inline-block!important;
 }
 
-/* Discuss Controls*/
-div.discussioncontrols,
-.forumpost .left{
-	display:none;
-}
 
 .row.maincontent .content{
 	padding: 1em;
@@ -103,6 +81,7 @@ div.discussioncontrols,
 .forumpost{
 	overflow:hidden;
 	border: none;
+
 }
 
 .forumpost .subject{
@@ -148,15 +127,39 @@ div.discussioncontrols,
 
 /* @end */
 
-/* make a title for the reply*/
- #page-mod-forum-post .accesshide{
-	display:block;
-	margin: 1em 0 1em 0;
-}
+#page-mod-forum-view table.forumheaderlist td.picture,
+#page-mod-forum-view table.forumheaderlist td.author,
+#page-mod-forum-view table.forumheaderlist td.lastpost,
+#page-mod-forum-view table.forumheaderlist td.replies, 
+#page-mod-forum-view  table.forumheaderlist thead,
+
+/*discuss controls*/
+div.discussioncontrols,
+.row.maincontent .left,
 
 #mformforum legend.ftoggler,
- #page-mod-forum-post .fdescription
+#page-mod-forum-post .fdescription,
+#mformforum label[for="id_subscribe"],
+#mformforum label.accesshide[for="menumessageformat"]
 {
 	display:none;
  }
  
+
+ 
+ /* Style */
+ 
+  #mformforum label{
+	font-weight: bold;
+ }
+ 
+ #mformforum textarea{
+	height:150px;
+	margin-bottom:1em;
+ }
+ 
+ /* make a title for the reply*/
+ #page-mod-forum-post h2.accesshide{
+	display:block;
+	margin: 1em 0 1em 0;
+}

@@ -39,6 +39,13 @@ $('div#page-login-index').live('pagebeforecreate',function(event, ui){
 	$('#loginbtn').attr('data-theme', 'b');
 	$('.twocolumns').addClass('ui-grid-b my-breakpoint');
 	
+	
+	
+	$("form").ajaxForm({url: $(this).attr('action'), type: 'post'});
+
+    
+	//front page form needs to force a refresh.
+	
 });
 
 
@@ -51,7 +58,8 @@ $('div#pannel-wrapper').live('pagebeforecreate',function(event, ui){
 /* Front Page */
 
 $('div#page-site-index, #page-course-index').live('pagebeforecreate',function(event, ui){
-		
+	
+	
 	//unwrap the course list
 	$('.unlist div.coursebox, .unlist div.info, .unlist h3.name').contents().unwrap();
 
@@ -141,7 +149,7 @@ $('tr.discussion').each(function(index) {
 });
 
  //forum discussion page only stuff
-$('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.forumtype-single, .forumtype-single div.generalpage, div#page-mod-forum-post').live('pagebeforecreate',function(event, ui){
+$('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.forumtype-single, .forumtype-single div.generalpage, div#page-mod-forum-post, #page-mod-forum-user').live('pagebeforecreate',function(event, ui){
         //actual forum posting
         $('.forumpost div.row.header, h2.accesshide').addClass("ui-li ui-li-divider ui-btn ui-bar-b");
         $('.options div.commands').attr("data-role", "controlgroup").attr("data-type", "horizontal");
