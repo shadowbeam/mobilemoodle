@@ -3,14 +3,6 @@ $(document).bind("mobileinit", function(){
 	$.mobile.defaultPageTransition = "slide";
 });
 
-
-/* all pages */
-$('div').live('pagebeforecreate',function(event, ui){
-	//$('ul li.activity a').unwrap().unwrap(); /* causes issues with back and forward */
-	//$('a.tooltip').attr('data-rel', 'dialog').attr('data-transition','pop');
- 
-});
-
 /*Course Index*/
 $('#course-page-index, #page-site-index').live('pagebeforecreate',function(event, ui){
 	$('ul.section').attr("data-role", "listview").attr("data-inset", "true");
@@ -20,7 +12,7 @@ $('#course-page-index, #page-site-index').live('pagebeforecreate',function(event
 $('.ui-page').live('pageinit',function(event, ui){
 
 
-$('#page-header').live('swiperight', function (event, ui) {
+$('#page-header').live('swipeleft', function (event, ui) {
      $('#panel-wrapper').panel( "open" );
  });
 
@@ -62,7 +54,11 @@ $('div#page-login-index').live('pagebeforecreate',function(event, ui){
 				//Query the jQuery object for the values
 				var loginland = $response.filter('#page-login-index').text();
 				
+<<<<<<< HEAD
 				alert(loginland);
+=======
+			//	alert(loginland);
+>>>>>>> Back button, Menu bar change, clickable collapsbile links, improved login ajax
 				
 				if(loginland == ""){ //if text is null change page
 					$.mobile.changePage( 'https://devweb2012.cis.strath.ac.uk/~xvb09137/moodle/index.php', { transition: "slideup"} ); //unhardcode
@@ -115,6 +111,8 @@ $('div#page-site-index, #page-course-index').live('pagebeforecreate',function(ev
 
 $('#page-course-view-topics, #page-course-view-weeks').live('pagebeforecreate',function(event, ui){
 
+
+
 var innercontent;
 
 if($('ul.topics').length > 0){
@@ -158,6 +156,14 @@ else if ($('ul.weeks').length > 0) {
 	//force section 0 full width
 	$('#section-0').addClass('ui-grid-solo');
 	
+	
+	$("h3.section-title:has(a)").bind( "click", function(event, ui) {
+			event.preventDefault();
+			event.stopPropagation;
+		var link = ($(this).find('span a').attr('href'));
+		$.mobile.changePage( link, { transition: "slide"} );
+
+	});
 
 });
 
@@ -249,6 +255,10 @@ $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.foru
     });
 
 
+/* Grades*/
+$('#page-course-user').live('pagebeforecreate',function(event, ui){
+	$('table.user-grade').attr('data-role', 'table');
+});
 
 
 

@@ -2,7 +2,6 @@
 
 class theme_mobilev1_renderer extends plugin_renderer_base {
 
-
     /**
      * Produces the settings tree
      *
@@ -449,13 +448,14 @@ class theme_mobilev1_core_renderer extends core_renderer {
 		
 		$last = count($htmlblocks);
 		
-		if($last >1)
-			$content = $this->render($htmlblocks[$last-2]);
+		if($last >1){
+			$content = $htmlblocks[$last-2];
+			return "<a data-role='button' data-rel='back' data-corners='true' class='ui-btn-left' data-icon='arrow-l' href='" . (string)$content->action  . "'>" . (string)$content->title . "</a>";
+		}
 		else
-			$content = ''; 
+			return ''; 
 		
 		
-		return "<a data-role='button' data-corners='false' data-icon='arrow-l' href='" . (string)$item->action . "'>" . (string)$item->title . "</a>";
 		//return $content;
         
 		

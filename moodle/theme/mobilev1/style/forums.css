@@ -140,7 +140,8 @@ div.discussioncontrols,
 #mformforum legend.ftoggler,
 #page-mod-forum-post .fdescription,
 #mformforum label[for="id_subscribe"],
-#mformforum label.accesshide[for="menumessageformat"]
+#mformforum label.accesshide[for="menumessageformat"],
+.fitem_ffilemanager
 {
 	display:none;
  }

@@ -26,7 +26,6 @@ echo $OUTPUT->doctype(); ?>
 
 		<!-- Panel -->
 		<div data-role="panel" id="panel-wrapper" data-position="right"	data-display="reveal">
-		
 			
 							<?php echo $OUTPUT->login_info(); ?>
 							
@@ -110,28 +109,21 @@ echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string(
 
 				<div class="region-content">
 
-					<!-- For settings page -->
-					<?php if($settings){?>
-						<ul data-role="listview">
-							<?php $renderer = $PAGE->get_renderer('theme_mobilev1');
-								echo $renderer->settings_tree($PAGE->settingsnav);	
-							?>
-						</ul>
-					<?php   } ?>
-					
-					<!-- For Course page -->
-					<?php if ($PAGE->pagetype == 'course-view-topics' || $mypagetype == 'course-view-weeks'){ ?>
-						<div class="course-info">
-							<h1><?php echo $PAGE->heading ?></h1>
-							<span><?php echo $PAGE->course->summary; ?></span>
-							
-							<a data-role='button' href='<?php $this->page->course->id; ?>'>Grades</a>
-							
-						</div>
-					<?php } ?>
-					
 
-				<?php	echo $OUTPUT->main_content(); ?>
+					<?php 
+					/* For the settings page */
+                    if($settings){?>
+
+					<ul data-role="listview" class="settingsul">
+
+						<?php $renderer = $PAGE->get_renderer('theme_mobilev1');
+						echo $renderer->settings_tree($PAGE->settingsnav);
+							
+						?>
+					</ul>
+
+					<?php   } 
+					echo $OUTPUT->main_content(); ?>
 					
 
 				</div>
