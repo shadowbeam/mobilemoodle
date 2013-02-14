@@ -39,9 +39,50 @@ $('div#page-login-index').live('pagebeforecreate',function(event, ui){
 	$('#loginbtn').attr('data-theme', 'b');
 	$('.twocolumns').addClass('ui-grid-b my-breakpoint');
 	
+	var form = $("#login");
 	
-	
-	$("form").ajaxForm({url: $(this).attr('action'), type: 'post'});
+/*	form.change( function() {
+    $.ajax( {
+      type: "POST",
+      url: form.attr( 'action' ),
+      data: form.serialize(),
+      success: function( response ) {
+        console.log( response );
+		alert('success');
+      }
+    } );
+  } );
+*/
+  
+    
+  $("#loginbtn").click(function(){
+
+var thedata = $("#login").serialize();
+
+$.ajax({
+    type: 'POST',
+    url: form.attr('action'),
+    cache: false,
+    data: thedata,
+    beforeSend:function(){
+		$.mobile.loading('show'); //show loading animation
+      
+    },
+    success:function(data){
+			$.mobile.changePage( 'https://devweb2012.cis.strath.ac.uk/~xvb09137/moodle', { transition: "slideup"} );
+    },
+    error:function(){
+            alert('error');
+    },
+	complete:function(){
+			$.mobile.loading('hide');
+    }
+});
+
+return false;
+
+});
+  
 
     
 	//front page form needs to force a refresh.
