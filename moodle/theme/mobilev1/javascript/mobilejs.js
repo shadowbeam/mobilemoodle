@@ -39,54 +39,53 @@ $('div#page-login-index').live('pagebeforecreate',function(event, ui){
 	$('#loginbtn').attr('data-theme', 'b');
 	$('.twocolumns').addClass('ui-grid-b my-breakpoint');
 	
-	var form = $("#login");
 	
-/*	form.change( function() {
-    $.ajax( {
-      type: "POST",
-      url: form.attr( 'action' ),
-      data: form.serialize(),
-      success: function( response ) {
-        console.log( response );
-		alert('success');
-      }
-    } );
-  } );
-*/
+	var form = $("#login");
   
     
   $("#loginbtn").click(function(){
 
-var thedata = $("#login").serialize();
+		var thedata = $("#login").serialize();
 
-$.ajax({
-    type: 'POST',
-    url: form.attr('action'),
-    cache: false,
-    data: thedata,
-    beforeSend:function(){
-		$.mobile.loading('show'); //show loading animation
-      
-    },
-    success:function(data){
-			$.mobile.changePage( 'https://devweb2012.cis.strath.ac.uk/~xvb09137/moodle', { transition: "slideup"} );
-    },
-    error:function(){
-            alert('error');
-    },
-	complete:function(){
-			$.mobile.loading('hide');
-    }
-});
+		$.ajax({
+			type: 'POST',
+			url: form.attr('action'),
+			cache: false,
+			data: thedata,
+			beforeSend:function(){
+				$.mobile.loading('show'); //show loading animation
+			  
+			},
+			success:function(data){
+				var $response=$(data); //convert response to DOM
+
+				//Query the jQuery object for the values
+				var loginland = $response.filter('#page-login-index').text();
+				
+				alert(loginland);
+				
+				if(loginland == ""){ //if text is null change page
+					$.mobile.changePage( 'https://devweb2012.cis.strath.ac.uk/~xvb09137/moodle/index.php', { transition: "slideup"} ); //unhardcode
+				}
+				else //otherwise submit form again
+					form.submit(); //TODO could try replacing DOM contents with
+					
+				
+			},
+			error:function(){
+					alert('Error Loading Page');
+			},
+			complete:function(){
+					$.mobile.loading('hide');
+			}
+		});
 
 return false;
 
 });
-  
-
-    
-	//front page form needs to force a refresh.
 	
+	//$('form').attr('data-ajax', 'false');//front page form needs to force a refresh.
+
 });
 
 
