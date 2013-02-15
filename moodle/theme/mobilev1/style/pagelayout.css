@@ -120,6 +120,12 @@ html div.ui-panel-inner{
 
 }
 
+#page-header {
+	border-bottom: 3px solid #0074bc;
+	-moz-box-shadow: 0 0 5px rgba(8, 8, 8, 0.49);
+	-webkit-box-shadow: 0 0 5px rgba(8, 8, 8, 0.49);
+	box-shadow: 0 0 5px rgba(8, 8, 8, 0.49);
+}
 
 #page-header .user-info{
 	text-align: center;

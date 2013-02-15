@@ -449,7 +449,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
 		
 		if($last >1){
 			$content = $htmlblocks[$last-2];
-			return "<a data-direction='reverse' data-transition='slide' data-rel='back' data-corners='true' class='ui-btn-left' data-icon='arrow-l' href='" . (string)$content->action  . "'>" . (string)$content->title . "</a>";
+			return "<a data-direction='reverse' data-transition='slide' data-rel='back' data-corners='true' class='ui-btn-left' data-icon='arrow-l' href='" . (string)$content->action  . "'><i class='icon-arrow-left'></i></a>";
 		}
 		else
 			return ''; 

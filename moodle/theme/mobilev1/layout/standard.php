@@ -28,7 +28,7 @@ echo $OUTPUT->doctype(); ?>
 		<div data-role="panel" id="panel-wrapper" data-position="right" data-theme="a"	data-display="reveal">
 		
 			
-							<?php echo $OUTPUT->login_info(); ?>
+							
 							
 			
 					<ul data-role="listview" data-theme='b' class="settingsul">
@@ -41,18 +41,18 @@ echo $renderer->navigation_tree($PAGE->navigation );
 
 			<!-- If Logged in -->
 			<?php
-if (isloggedin()) {
+if (isloggedin()) { ?>
+<a data-role="button" data-theme="b" data-inline="true" data-rel="popup" href="#logoutpopup">
 
+<?php echo  get_string('logout'); ?>
 
-echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string('logout') . "</a>";
-?>
-
+</a>
 	
 
 			<?php if(!$settings){ ?>
 			<?php $urlsettings = new moodle_url($PAGE->url, array('mobilev1_settings' => 'true'));?>
 
-			<a data-role="button" href="<?php echo $urlsettings->out(); ?>">
+			<a data-role="button" data-theme="b" data-inline="true" href="<?php echo $urlsettings->out(); ?>">
 				<?php p(get_string('settings')); ?>
 			</a>
 
@@ -73,11 +73,11 @@ echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string(
 			<?php if ($PAGE->heading) { ?>
 
 			<div class="headernav">
-				<?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
-					
+				<?php if (isloggedin()) { ?>
+						
 					<a class="ui-btn-right" data-role="button" href="#panel-wrapper"
 					data-ajax="false">Menu</a>
-				<?php } ?>
+				<?php } else { echo $OUTPUT->login_info();} ?>
 				
 				<?php echo $OUTPUT->back_button(); ?>
 				

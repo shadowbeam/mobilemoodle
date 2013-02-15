@@ -1,0 +1,53 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('mobilev1/fonts/icomoon.eot');
+	src:url('mobilev1/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('mobilev1/fonts/icomoon.woff') format('woff'),
+		url('mobilev1/fonts/icomoon.ttf') format('truetype'),
+		url('mobilev1/fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/** Use the following CSS code if you want to use data attributes for inserting your icons *!/
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}*/
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"]:before {
+*/
+.icon-cog:before, .icon-arrow-left:before, .icon-exit:before, .icon-home:before, .icon-file:before, .icon-menu:before {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-cog:before {
+	content: "\73";
+}
+.icon-arrow-left:before {
+	content: "\62";
+}
+.icon-exit:before {
+	content: "\6c";
+}
+.icon-home:before {
+	content: "\68";
+}
+.icon-file:before {
+	content: "\72";
+}
+.icon-menu:before {
+	content: "\6d";
+}
