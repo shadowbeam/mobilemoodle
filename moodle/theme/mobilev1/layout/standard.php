@@ -31,7 +31,7 @@ echo $OUTPUT->doctype(); ?>
 							<?php echo $OUTPUT->login_info(); ?>
 							
 			
-					<ul data-role="listview" class="settingsul">
+					<ul data-role="listview" data-theme='b' class="settingsul">
 
 <?php $renderer = $PAGE->get_renderer('theme_mobilev1');
 echo $renderer->navigation_tree($PAGE->navigation );

@@ -51,15 +51,16 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
     
                 $content = $this->output->render($item);
                 $content .= $this->navigation_node($item);
-    
-                if ($isbranch && !(is_string($item->action) || empty($item->action))) {
-                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'class' => (string)$item->key));
-                } else if($isbranch) {
-                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider'));
-                } else {
-                    $content = html_writer::tag('li', $content, array('class' => (string)$item->text));
-                }
-                $lis[] = $content;
+    			if($content != ''){
+	                if ($isbranch && !(is_string($item->action) || empty($item->action))) {
+	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'a', 'class' => (string)$item->key));
+	                } else if($isbranch) {
+	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'a'));
+	                } else {
+	                    $content = html_writer::tag('li', $content, array('class' => (string)$item->text));
+	                }
+	                $lis[] = $content;
+	            }
             }
             if (!count($lis)) {
                 return '';

@@ -45,7 +45,8 @@ $THEME->sheets = array(
     'frontpage',
     'course',
     'profile',
-	'forums'
+	'forums',
+	'moodle'
     );
     
     // Exclude parent sheets

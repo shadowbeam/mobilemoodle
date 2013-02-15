@@ -136,6 +136,10 @@ html div.ui-panel-inner{
 	-webkit-border-radius: 5px;
 }
 
+#page-header a{
+	margin-top: 0.6em;
+}
+
 /* @end */
 
 
