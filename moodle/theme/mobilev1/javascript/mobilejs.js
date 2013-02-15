@@ -54,11 +54,7 @@ $('div#page-login-index').live('pagebeforecreate',function(event, ui){
 				//Query the jQuery object for the values
 				var loginland = $response.filter('#page-login-index').text();
 				
-<<<<<<< HEAD
-				alert(loginland);
-=======
 			//	alert(loginland);
->>>>>>> Back button, Menu bar change, clickable collapsbile links, improved login ajax
 				
 				if(loginland == ""){ //if text is null change page
 					$.mobile.changePage( 'https://devweb2012.cis.strath.ac.uk/~xvb09137/moodle/index.php', { transition: "slideup"} ); //unhardcode
@@ -258,6 +254,12 @@ $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.foru
 /* Grades*/
 $('#page-course-user').live('pagebeforecreate',function(event, ui){
 	$('table.user-grade').attr('data-role', 'table');
+});
+
+
+/* Resource */
+$('#page-mod-resource-view').live('pagebeforecreate',function(event, ui){
+	$('#resourceobject').remove();
 });
 
 

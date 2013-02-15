@@ -64,17 +64,19 @@ fieldset.clearfix{
 .ui-panel-content-wrap-open,
 .ui-panel-content-fixed-toolbar-open
 {
-	-webkit-box-shadow:  -5px 0 5px rgba(0,0,0,.15);
-	-moz-box-shadow:  -5px 0 5px rgba(0,0,0,.15);
-	box-shadow:  -5px 0 5px rgba(0,0,0,.15);
+	-webkit-box-shadow:  5px 0 5px rgba(0,0,0,.15);
+	-moz-box-shadow:  5px 0 5px rgba(0,0,0,.15);
+	box-shadow:  5px 0 5px rgba(0,0,0,.15);
 }
 
-html .ui-panel-display-reveal{
+html .ui-panel-position-right.ui-panel-display-reveal
+{
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
 	
 } 
+
 
 html div.ui-panel-inner{
 	padding: 0;

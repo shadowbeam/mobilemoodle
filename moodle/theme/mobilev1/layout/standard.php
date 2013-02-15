@@ -33,8 +33,6 @@ echo $OUTPUT->doctype(); ?>
 			
 					<ul data-role="listview" class="settingsul">
 
-<!--<li><a href="<?php echo $CFG->wwwroot; ?>">Courses</a></li>-->
-
 <?php $renderer = $PAGE->get_renderer('theme_mobilev1');
 echo $renderer->navigation_tree($PAGE->navigation );
 ?>
@@ -70,7 +68,7 @@ echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string(
 		<!--panel-->
 
 		<!--  header -->
-		<div id="page-header" data-role="header" data-position="fixed">
+		<div id="page-header" data-role="header" data-position="">
 
 			<?php if ($PAGE->heading) { ?>
 
@@ -124,9 +122,8 @@ echo '<a data-role="button" data-rel="popup" href="#logoutpopup">' . get_string(
 						<div class="course-info">
 							<h1><?php echo $PAGE->heading ?></h1>
 							<span><?php echo $PAGE->course->summary; ?></span>
-							
 							<a data-role='button' href='<?php $this->page->course->id; ?>'>Grades</a>
-							
+							<?php echo $OUTPUT->blocks_for_region('side-post') ?>
 						</div>
 					<?php } ?>
 					

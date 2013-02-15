@@ -114,8 +114,6 @@ public function navigation_tree(global_navigation $navigation, $expansionlimit, 
 protected function navigation_node($items, $attrs=array(), $expansionlimit=null, array $options = array(), $depth=1) {
 
 
-
-
         // exit if empty, we don't want an empty ul element
         if (count($items)==0) {
             return '';
@@ -450,7 +448,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
 		
 		if($last >1){
 			$content = $htmlblocks[$last-2];
-			return "<a data-role='button' data-rel='back' data-corners='true' class='ui-btn-left' data-icon='arrow-l' href='" . (string)$content->action  . "'>" . (string)$content->title . "</a>";
+			return "<a data-role='button' data-direction='reverse' data-transition='slide' data-rel='back' data-corners='true' class='ui-btn-left' data-icon='arrow-l' href='" . (string)$content->action  . "'>" . (string)$content->title . "</a>";
 		}
 		else
 			return ''; 
