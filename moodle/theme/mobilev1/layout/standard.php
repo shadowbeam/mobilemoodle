@@ -28,7 +28,7 @@ echo $OUTPUT->doctype(); ?>
 		<div data-role="panel" id="panel-wrapper" data-position="right" data-theme="a"	data-display="reveal">
 		
 			
-						<?php echo $OUTPUT->login_info() ?>>
+						<?php echo $OUTPUT->login_info() ?>
 							
 							
 			
@@ -88,9 +88,7 @@ if (isloggedin()) { ?>
 			</div>
 
 			<div class="headerprofile">
-				<?php
-				echo $PAGE->headingmenu;
-				?>
+				<?php echo $PAGE->headingmenu; ?>
 				
 			</div>
 
@@ -120,15 +118,22 @@ if (isloggedin()) { ?>
 					
 					<!-- For Course page -->
 					<?php if ($PAGE->pagetype == 'course-view-topics' || $mypagetype == 'course-view-weeks'){ ?>
-						<div class="course-info">
+						<div class="course-info ui-grid-a">
+						
+						<div class="ui-block-a">
 							<h1><?php echo $PAGE->heading ?></h1>
 							<span><?php echo $PAGE->course->summary; ?></span>
 							
-							<a data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
+						</div>
+						
+						<div id="ui-block-b">							
+							<a data-inline="true" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
 							
-							<ul data-role="collapsible-set">
-								<?php echo $OUTPUT->blocks_for_region('side-post') ?>
-							</ul>
+								<div data-role="collapsible-set">
+									<?php echo $OUTPUT->blocks_for_region('side-post') ?>
+								</div>
+							</div>
+
 						</div>
 					<?php } ?>
 					
@@ -143,8 +148,7 @@ if (isloggedin()) { ?>
 			
 			<?php 
 			global $USER;
-			$logout = "$CFG->wwwroot/login/logout.php?sesskey=$USER->sesskey";
-			 ?>
+			$logout = "$CFG->wwwroot/login/logout.php?sesskey=$USER->sesskey"; ?>
 			
 			<div data-role="popup" id="logoutpopup" data-position-to="window">
 			<div data-role="header" data-them="a">

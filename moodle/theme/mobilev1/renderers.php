@@ -2,6 +2,71 @@
 
 class theme_mobilev1_renderer extends plugin_renderer_base {
 
+
+    /**
+     * Renders a block
+     *
+     * @param block_contents $bc
+     * @param string $region
+     * @return string
+     */
+    public function block(block_contents $bc, $region) {
+        // Avoid messing up the object passed in.
+        $bc = clone($bc);
+        // The mymobile theme does not support collapsible blocks.
+        $bc->collapsible = block_contents::NOT_HIDEABLE;
+        // There are no controls that are usable within the
+        $bc->controls = array();
+
+        // TODO: Do we still need to support accessibility here? Surely screen
+        // readers don't present themselves as mobile devices too often.
+        $skiptitle = strip_tags($bc->title);
+        if (empty($skiptitle)) {
+            $output = '';
+            $skipdest = '';
+        } else {
+            $output = html_writer::tag('a', get_string('skipa', 'access', $skiptitle), array('href' => '#sb-' . $bc->skipid, 'class' => 'skip-block'));
+            $skipdest = html_writer::tag('span', '', array('id' => 'sb-' . $bc->skipid, 'class' => 'skip-block-to'));
+        }
+        $testb = $bc->attributes['class'];
+        $testc = $bc->attributes['id'];
+        // TODO: Find a better solution to this hardcoded block checks.
+        if ($testb == "block_calendar_month2  block") {
+            $output  = html_writer::start_tag('span');
+        } else if ($testb == "block_course_overview  block") {
+            $output  = html_writer::start_tag('div');
+        } else {
+            if (!empty($this->page->theme->settings->colourswatch)) {
+                $showswatch = $this->page->theme->settings->colourswatch;
+            } else {
+                $showswatch = '';
+            }
+            if ($showswatch == 'light') {
+                $dtheme = 'd';
+            } else {
+                $dtheme = 'c';
+            }
+            if ($testc == "mod_quiz_navblock") {
+                $collap = 'false';
+            } else {
+                $collap = 'true';
+            }
+            $output  = html_writer::start_tag('div', array('data-role' => 'collapsible', 'data-collapsed' => $collap, 'data-content-theme' => $dtheme));
+        }
+
+        $output .= "<h1>" . $bc->title ."</h1>";
+        $output .= html_writer::start_tag('div', $bc->attributes);
+        $output .= $this->block_content($bc);
+        $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_tag('div');
+
+        $output .= $this->block_annotation($bc);
+
+        $output .= $skipdest;
+
+        return $output;
+    }
+
     /**
      * Produces the settings tree
      *
@@ -225,9 +290,8 @@ protected function navigation_node($items, $attrs=array(), $expansionlimit=null,
 
 class theme_mobilev1_core_renderer extends core_renderer {
  
- 
- 
- 
+   
+    
 /**
      * Return the standard string that says whether you are logged in (and switched
      * roles/logged in as another user).
@@ -342,57 +406,40 @@ class theme_mobilev1_core_renderer extends core_renderer {
     
     
     /**
-     * 
+     * No controls
      */
     public function block_controls($controls) {
             return '';
 
     }
     
+    /**
+     * Block Contents become collapsible
+     */
     
       public function block(block_contents $bc, $region) {
             $bc = clone($bc); // Avoid messing up the object passed in.
+            $attributes = $bc->attributes;
+            $attributes['data-role'] = 'collapsible';
             
             $bc->collapsible = block_contents::NOT_HIDEABLE;
+                
+            $output .= html_writer::start_tag('div', $attributes );
             
-            //$skiptitle = strip_tags($bc->title);
-//            if ($bc->blockinstanceid && !empty($skiptitle)) {
-//                $bc->attributes['aria-labelledby'] = 'instance-'.$bc->blockinstanceid.'-header';
-//            } else if (!empty($bc->arialabel)) {
-//                $bc->attributes['aria-label'] = $bc->arialabel;
-//            }
-//            if ($bc->collapsible == block_contents::HIDDEN) {
-//                $bc->add_class('hidden');
-//            }
-//            if (!empty($bc->controls)) {
-//                $bc->add_class('block_with_controls');
-//            }
-    
-//    
-//            if (empty($skiptitle)) {
-//                $output = '';
-//                $skipdest = '';
-//            } else {
-//                $output = html_writer::tag('a', get_string('skipa', 'access', $skiptitle), array('href' => '#sb-' . $bc->skipid, 'class' => 'skip-block'));
-//                $skipdest = html_writer::tag('span', '', array('id' => 'sb-' . $bc->skipid, 'class' => 'skip-block-to'));
-//            }
-
-    
-            $output .= html_writer::start_tag('div', $bc->attributes);
+            $output.= "<h3>$bc->title</h3>";
 		
-            $output .= $this->block_header($bc);
 			
             $output .= $this->block_content($bc);
     
             $output .= html_writer::end_tag('div');
     
             $output .= $this->block_annotation($bc);
-    
-  //          $output .= $skipdest;
-    
+        
             $this->init_block_hider_js($bc);
             return $output;
         }
+        
+        
     
 		/*
          * Return the navbar content so that it can be echoed out by the layout
