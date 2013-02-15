@@ -144,7 +144,20 @@ html div.ui-panel-inner{
 }
 
 #page-header a{
-	margin-top: 0.6em;
+	margin:  0.3em 0.3em 0 0.3em;
+	font-size: 25px;
+	text-decoration: none;
+	color: #b9c3ca;
+	text-shadow: 0 0 1px #000000;
+	width: 1.5em;
+	text-align: center;
+}
+
+#page-header a:hover,
+#page-header a:active,
+.ui-panel-content-wrap-open #page-header a:{
+	color: #0077bc;
+	text-shadow: 0 0 20px rgba(0, 119, 187, 0.52);
 }
 
 /* @end */

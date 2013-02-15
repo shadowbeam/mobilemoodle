@@ -75,8 +75,8 @@ if (isloggedin()) { ?>
 			<div class="headernav">
 				<?php if (isloggedin()) { ?>
 						
-					<a class="ui-btn-right" data-role="button" href="#panel-wrapper"
-					data-ajax="false">Menu</a>
+					<a class="icon-menu ui-btn-right" href="#panel-wrapper"
+					data-ajax="false"></a>
 				<?php } else { echo $OUTPUT->login_info();} ?>
 				
 				<?php echo $OUTPUT->back_button(); ?>
