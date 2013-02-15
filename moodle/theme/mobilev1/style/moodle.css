@@ -626,6 +626,7 @@ a.ui-link-inherit {
 .ui-icon-loading {
 	background: url([[pix:theme|ajax-loader]]);
 	background-size: 46px 46px;
+	
 }
 
 /* Button corner class

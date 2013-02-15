@@ -28,6 +28,7 @@ echo $OUTPUT->doctype(); ?>
 		<div data-role="panel" id="panel-wrapper" data-position="right" data-theme="a"	data-display="reveal">
 		
 			
+						<?php echo $OUTPUT->login_info() ?>>
 							
 							
 			
@@ -65,7 +66,7 @@ if (isloggedin()) { ?>
 
 
 		</div>
-		<!--panel-->
+		<!-- /panel-->
 
 		<!--  header -->
 		<div id="page-header" data-role="header" data-position="">
@@ -122,8 +123,12 @@ if (isloggedin()) { ?>
 						<div class="course-info">
 							<h1><?php echo $PAGE->heading ?></h1>
 							<span><?php echo $PAGE->course->summary; ?></span>
-							<a data-role='button' href='<?php $this->page->course->id; ?>'>Grades</a>
-							<?php echo $OUTPUT->blocks_for_region('side-post') ?>
+							
+							<a data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
+							
+							<ul data-role="collapsible-set">
+								<?php echo $OUTPUT->blocks_for_region('side-post') ?>
+							</ul>
 						</div>
 					<?php } ?>
 					

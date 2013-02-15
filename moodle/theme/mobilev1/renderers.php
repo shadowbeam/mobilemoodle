@@ -51,7 +51,7 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
     
                 $content = $this->output->render($item);
                 $content .= $this->navigation_node($item);
-    			if($content != ''){
+    			if($content != '' && $content != 'General'){
 	                if ($isbranch && !(is_string($item->action) || empty($item->action))) {
 	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b', 'class' => (string)$item->key));
 	                } else if($isbranch) {
@@ -254,11 +254,10 @@ class theme_mobilev1_core_renderer extends core_renderer {
         if (session_is_loggedinas()) {
             $realuser = session_get_realuser();
             $fullname = fullname($realuser, true);
-            if ($withlinks) {
-                $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\">$fullname</a>] ";
-            } else {
+ 
+     
                 $realuserinfo = " [$fullname] ";
-            }
+            
         } else {
             $realuserinfo = '';
         }
@@ -424,6 +423,33 @@ class theme_mobilev1_core_renderer extends core_renderer {
             // XHTML
             return $navbarcontent;
         }
+        
+        
+     /**
+      * Creates a grade button for the current course
+      * @return string
+      */
+      
+      public function grades_link() {
+      global $USER, $CFG;
+   		$context = $this->page->context;
+   		
+      	$coursecontext = $context->get_course_context();
+      	
+      	$categoryid = null;
+      	
+      	if ($coursecontext) { 
+      		$courseid = $coursecontext->instanceid;
+      	}
+      	$userid = $USER->id;
+      	
+      	$link = "$CFG->wwwroot/course/user.php?mode=grade&id=$courseid&user=$userid";
+      	
+      	return $link;
+      
+      }
+        
+        
 		
 	 /**
      * Creates a link back to the upper page in the hierarchy
