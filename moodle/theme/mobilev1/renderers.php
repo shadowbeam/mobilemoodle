@@ -53,11 +53,11 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
                 $content .= $this->navigation_node($item);
     			if($content != ''){
 	                if ($isbranch && !(is_string($item->action) || empty($item->action))) {
-	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'a', 'class' => (string)$item->key));
+	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b', 'class' => (string)$item->key));
 	                } else if($isbranch) {
-	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'a'));
+	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b'));
 	                } else {
-	                    $content = html_writer::tag('li', $content, array('class' => (string)$item->text));
+	                    $content = html_writer::tag('li', $content, array('data-theme' => 'a', 'class' => (string)$item->text));
 	                }
 	                $lis[] = $content;
 	            }
@@ -449,7 +449,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
 		
 		if($last >1){
 			$content = $htmlblocks[$last-2];
-			return "<a data-role='button' data-direction='reverse' data-transition='slide' data-rel='back' data-corners='true' class='ui-btn-left' data-icon='arrow-l' href='" . (string)$content->action  . "'>" . (string)$content->title . "</a>";
+			return "<a data-direction='reverse' data-transition='slide' data-rel='back' data-corners='true' class='ui-btn-left' data-icon='arrow-l' href='" . (string)$content->action  . "'>" . (string)$content->title . "</a>";
 		}
 		else
 			return ''; 

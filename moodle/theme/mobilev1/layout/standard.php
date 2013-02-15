@@ -25,7 +25,7 @@ echo $OUTPUT->doctype(); ?>
 	<div id="<?php p($PAGE->bodyid); ?>" data-role="page" class="general">
 
 		<!-- Panel -->
-		<div data-role="panel" id="panel-wrapper" data-position="right"	data-display="reveal">
+		<div data-role="panel" id="panel-wrapper" data-position="right" data-theme="a"	data-display="reveal">
 		
 			
 							<?php echo $OUTPUT->login_info(); ?>
