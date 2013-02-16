@@ -9,9 +9,9 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
      * @return string
      */
     public function settings_tree(settings_navigation $navigation) {
-        $content = $this->navigation_node($navigation, array('class' => 'settings'));
+        return $this->navigation_node($navigation, array('class' => 'settings', 'data-theme' => 'c'));
 
-        return $content;
+     
     }
     
         /**
@@ -21,7 +21,7 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
          * @return string
          */
         public function navigation_tree(global_navigation $navigation) {
-            return $this->navigation_node($navigation, array());
+            return $this->navigation_node($navigation, array('class' => 'nav', 'data-theme' => 'a'));
         }
     
         /**
@@ -33,7 +33,9 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
          */
         protected function navigation_node(navigation_node $node, $attrs = array()) {
             $items = $node->children;
-    
+            
+            $theme = $attrs['data-theme'];
+            
             // exit if empty, we don't want an empty ul element
             if ($items->count() == 0) {
                 return '';
@@ -50,14 +52,16 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
                 $item->hideicon = true;
     
                 $content = $this->output->render($item);
-                $content .= $this->navigation_node($item);
+                $content .= $this->navigation_node($item, $attrs);
+                
+                
     			if($content != '' && $content != 'General'){
 	                if ($isbranch && !(is_string($item->action) || empty($item->action))) {
 	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b', 'class' => (string)$item->key));
 	                } else if($isbranch) {
 	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b'));
 	                } else {
-	                    $content = html_writer::tag('li', $content, array('data-theme' => 'c', 'class' => (string)$item->text));
+	                    $content = html_writer::tag('li', $content, array('data-theme' => $theme, 'class' => (string)$item->text));
 	                }
 	                $lis[] = $content;
 	            }
