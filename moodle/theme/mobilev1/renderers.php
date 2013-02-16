@@ -429,7 +429,20 @@ class theme_mobilev1_core_renderer extends core_renderer {
       
       }
         
-        
+        /**
+         * Generates Settings Button
+         */
+     
+     public function settings_button() {
+     
+     	$urlsettings = new moodle_url($this->page->url, array('mobilev1_settings' => 'true'));
+     	 $urlsettings->out();
+     	 
+     	return '<a data-role="button" data-theme="b" data-inline="false" href="' . $urlsettings->out(). '">Settings<i class="icon-cog"></i></a>';
+         			
+     			
+     }
+     
 		
 	 /**
      * Creates a link back to the upper page in the hierarchy

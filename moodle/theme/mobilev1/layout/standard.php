@@ -43,21 +43,16 @@ echo $renderer->navigation_tree($PAGE->navigation );
 			<!-- If Logged in -->
 			<?php
 if (isloggedin()) { ?>
-<a data-role="button" data-theme="b" data-inline="true" data-rel="popup" href="#logoutpopup">
+<a data-role="button" data-theme="b" data-inline="false" data-rel="popup" href="#logoutpopup">
 
 <?php echo  get_string('logout'); ?>
-
+<i class="icon-exit"></i>
 </a>
 	
 
-			<?php if(!$settings){ ?>
-			<?php $urlsettings = new moodle_url($PAGE->url, array('mobilev1_settings' => 'true'));?>
-
-			<a data-role="button" data-theme="b" data-inline="true" href="<?php echo $urlsettings->out(); ?>">
-				<?php p(get_string('settings')); ?>
-			</a>
-
-			<?php }//ifsettings 
+			<?php if(!$settings){ 	
+				echo $OUTPUT -> settings_button(); 
+			}//ifsettings 
    }//ifflogged ?>
 
 
