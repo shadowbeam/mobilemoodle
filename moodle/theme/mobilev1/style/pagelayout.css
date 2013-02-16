@@ -36,7 +36,7 @@
 
 /* Hide the overflow content caused by the panel*/
 .ui-page-active.ui-page-panel{
-	overflow-y: hidden!important;
+	overflow-y: hidden!importantgi;
 }
 
 

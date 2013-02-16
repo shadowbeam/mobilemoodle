@@ -2,71 +2,6 @@
 
 class theme_mobilev1_renderer extends plugin_renderer_base {
 
-
-    /**
-     * Renders a block
-     *
-     * @param block_contents $bc
-     * @param string $region
-     * @return string
-     */
-    public function block(block_contents $bc, $region) {
-        // Avoid messing up the object passed in.
-        $bc = clone($bc);
-        // The mymobile theme does not support collapsible blocks.
-        $bc->collapsible = block_contents::NOT_HIDEABLE;
-        // There are no controls that are usable within the
-        $bc->controls = array();
-
-        // TODO: Do we still need to support accessibility here? Surely screen
-        // readers don't present themselves as mobile devices too often.
-        $skiptitle = strip_tags($bc->title);
-        if (empty($skiptitle)) {
-            $output = '';
-            $skipdest = '';
-        } else {
-            $output = html_writer::tag('a', get_string('skipa', 'access', $skiptitle), array('href' => '#sb-' . $bc->skipid, 'class' => 'skip-block'));
-            $skipdest = html_writer::tag('span', '', array('id' => 'sb-' . $bc->skipid, 'class' => 'skip-block-to'));
-        }
-        $testb = $bc->attributes['class'];
-        $testc = $bc->attributes['id'];
-        // TODO: Find a better solution to this hardcoded block checks.
-        if ($testb == "block_calendar_month2  block") {
-            $output  = html_writer::start_tag('span');
-        } else if ($testb == "block_course_overview  block") {
-            $output  = html_writer::start_tag('div');
-        } else {
-            if (!empty($this->page->theme->settings->colourswatch)) {
-                $showswatch = $this->page->theme->settings->colourswatch;
-            } else {
-                $showswatch = '';
-            }
-            if ($showswatch == 'light') {
-                $dtheme = 'd';
-            } else {
-                $dtheme = 'c';
-            }
-            if ($testc == "mod_quiz_navblock") {
-                $collap = 'false';
-            } else {
-                $collap = 'true';
-            }
-            $output  = html_writer::start_tag('div', array('data-role' => 'collapsible', 'data-collapsed' => $collap, 'data-content-theme' => $dtheme));
-        }
-
-        $output .= "<h1>" . $bc->title ."</h1>";
-        $output .= html_writer::start_tag('div', $bc->attributes);
-        $output .= $this->block_content($bc);
-        $output .= html_writer::end_tag('div');
-        $output .= html_writer::end_tag('div');
-
-        $output .= $this->block_annotation($bc);
-
-        $output .= $skipdest;
-
-        return $output;
-    }
-
     /**
      * Produces the settings tree
      *
@@ -122,7 +57,7 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
 	                } else if($isbranch) {
 	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b'));
 	                } else {
-	                    $content = html_writer::tag('li', $content, array('data-theme' => 'a', 'class' => (string)$item->text));
+	                    $content = html_writer::tag('li', $content, array('data-theme' => 'c', 'class' => (string)$item->text));
 	                }
 	                $lis[] = $content;
 	            }
@@ -135,12 +70,6 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
     
 }
 
-
- /*
-  * theme_THEMENAME_core_renderer	
-  * core_renderer : This is the renderer that we are overriding.
-  *
-  */
 
 
 

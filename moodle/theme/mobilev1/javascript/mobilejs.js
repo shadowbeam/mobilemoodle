@@ -24,7 +24,7 @@ $('#page-header').live('swipeleft', function (event, ui) {
 
 /* Login Page */
 
-$('div#page-login-index').live('pagebeforecreate',function(event, ui){
+$('#page-login-index').live('pagebeforecreate',function(event, ui){
 	$('#login').append($('#signup'));
 	$('#password').attr('placeholder','Password');
 	$('#username').attr('placeholder','Username');
