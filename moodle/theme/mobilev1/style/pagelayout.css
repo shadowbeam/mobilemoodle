@@ -155,6 +155,9 @@ a [class*="icon-"]{
 
 #page-header a{
 	margin:  0.3em 0.3em 0 0.3em;
+}
+
+#page-header a.mybtn{
 	font-size: 25px;
 	text-decoration: none;
 	color: #b9c3ca;
@@ -162,9 +165,9 @@ a [class*="icon-"]{
 	text-align: center;
 }
 
-#page-header a:hover,
-#page-header a:active,
-.ui-panel-content-wrap-open #page-header a{
+#page-header a.mybtn:hover,
+#page-header a.mybtn:active,
+.ui-panel-content-wrap-open #page-header a.mybtn{
 	color: #0077bc;
 	text-shadow: 0 0 20px rgba(0, 119, 187, 0.52);
 }

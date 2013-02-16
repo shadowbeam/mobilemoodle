@@ -46,7 +46,7 @@ if (isloggedin()) { ?>
 <a data-role="button" data-theme="b" data-inline="false" data-rel="popup" href="#logoutpopup">
 
 <?php echo  get_string('logout'); ?>
-<i class="icon-exit"></i>
+<i class="icon-exit mybtn"></i>
 </a>
 	
 
@@ -71,7 +71,7 @@ if (isloggedin()) { ?>
 			<div class="headernav">
 				<?php if (isloggedin()) { ?>
 						
-					<a class="icon-menu ui-btn-right" href="#panel-wrapper"
+					<a class="icon-menu mybtn ui-btn-right" href="#panel-wrapper"
 					data-ajax="false"></a>
 				<?php } else { echo $OUTPUT->login_info();} ?>
 				
