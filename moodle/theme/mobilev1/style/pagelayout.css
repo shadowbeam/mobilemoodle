@@ -179,6 +179,7 @@ a#back-button:focus{
 
 /* @end */
 
+
 /* @group Tables Group */
 
 
@@ -214,6 +215,40 @@ only screen and (max-width: 760px),
 	
 	
 }
-	
 
  /*@end */
+
+/* @group Icons  */
+
+.ui-icon-arrow-r:before{
+	content: ">";
+	
+}
+
+ .ui-icon-arrow-r{
+	font-size: 25px;
+	background-color: rgba(255, 255, 254, 0)!important;
+	margin-top: -18px!important;
+	border: none;
+	-moz-box-shadow: none!important;
+	-webkit-box-shadow: none!important;
+	box-shadow: none!important;
+}
+
+.up-btn-up-a .ui-icon-arrow-r{
+	color: rgba(210, 210, 210, 0.75)!important;
+}
+.up-btn-up-c .ui-icon-arrow-r{
+	color: rgba(119, 119, 119, 0.75)!important;
+}
+
+.ui-icon-plus,
+.ui-icon-minus{
+	font-size: 18px;
+}
+
+
+
+/* @end */ 
+ 
+ 

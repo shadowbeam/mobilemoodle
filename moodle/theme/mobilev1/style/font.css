@@ -25,7 +25,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
-.icon-cog:before, .icon-arrow-left:before, .icon-exit:before, .icon-home:before, .icon-file:before, .icon-menu:before, .icon-spinner:before,.ui-icon-loading:before {
+.icon-cog:before, .icon-arrow-left:before, .icon-exit:before, .icon-home:before, .icon-file:before, .icon-menu:before, .icon-spinner:before,.ui-icon-loading:before, .ui-icon-minus:before,  .ui-icon-plus:before, .icon-minus:before, .icon-close:before {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -51,6 +51,18 @@ you can use the generic selector below, but it's slower:
 .icon-menu:before {
 	content: "\6d";
 }
+
+.ui-icon-plus:before {
+	content: "\22";
+}
+.icon-minus:before,
+.ui-icon-minus:before {
+	content: "\23";
+}
+.icon-close:before {
+	content: "\24";
+}
+
 .icon-spinner:before,
 .ui-icon-loading:before {
 	content: "\21";
