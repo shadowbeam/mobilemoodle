@@ -1,7 +1,10 @@
 //must bind the global settings before jquerymobile is loaded
 $(document).bind("mobileinit", function(){
 	$.mobile.defaultPageTransition = "slide";
+	
 });
+ $(document).bind("vmouseover", function () { });
+
 
 /*Course Index*/
 $('#course-page-index, #page-site-index').live('pagebeforecreate',function(event, ui){

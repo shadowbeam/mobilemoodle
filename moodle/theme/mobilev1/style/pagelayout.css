@@ -34,11 +34,6 @@
 #page-content #region-main-wrap {float:none;position:relative;right:0;width:100%;}
 #page-content {clear:both;float:none;overflow:hidden;position:relative;width:100%;min-width:0px;}
 
-/* Hide the overflow content caused by the panel*/
-.ui-page-active.ui-page-panel{
-	overflow-y: hidden!importantgi;
-}
-
 
 
 .skip-bloc,
@@ -165,9 +160,9 @@ html div.ui-panel-inner{
 	text-align: center;
 }
 
-#page-header a.mybtn:hover,
-#page-header a.mybtn:active,
-.ui-panel-content-wrap-open #page-header a.mybtn{
+.ui-panel-content-wrap-open #page-header a.mybtn,
+a#back-button:active,
+a#back-button:focus{
 	color: #0077bc;
 	text-shadow: 0 0 20px rgba(0, 119, 187, 0.52);
 }

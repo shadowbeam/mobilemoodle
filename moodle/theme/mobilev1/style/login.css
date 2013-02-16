@@ -93,4 +93,9 @@ div.ui-input-text { padding: 0 0 0 0; }
  {display: none;}
  
  
+#page-login-index .loginpanel input#username{
+ 	padding-left: 0!important;
+ 	padding-right: 0!important;
+ }
+ 
 

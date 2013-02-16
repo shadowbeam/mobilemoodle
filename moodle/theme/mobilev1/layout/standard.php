@@ -6,7 +6,8 @@ echo $OUTPUT->doctype(); ?>
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
 <title><?php echo $PAGE->title ?></title>
 <?php echo $OUTPUT->standard_head_html() ?>
 
@@ -25,7 +26,7 @@ echo $OUTPUT->doctype(); ?>
 	<div id="<?php p($PAGE->bodyid); ?>" data-role="page" class="general">
 
 		<!-- Panel -->
-		<div data-role="panel" id="panel-wrapper" data-position="right" data-theme="a"	data-display="reveal">
+		<div data-role="panel" id="panel-wrapper" data-dismissible="false"  data-position="right" data-theme="a"	data-display="reveal">
 		
 			
 						<?php echo $OUTPUT->login_info() ?>
