@@ -92,7 +92,7 @@ html div.ui-panel-inner{
 	margin: 0;
 }
 
-a [class*="icon-"]{
+#panel-wrapper a [class*="icon-"]{
 	float: right;
 	padding-left: 0.5em;
 }
