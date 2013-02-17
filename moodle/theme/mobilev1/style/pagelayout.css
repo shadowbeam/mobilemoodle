@@ -222,7 +222,10 @@ only screen and (max-width: 760px),
 
 .ui-icon-arrow-r:before{
 	content: ">";
-	
+}
+
+.iconhelp:before{
+	content: "?";
 }
 
  .ui-icon-arrow-r{
@@ -245,6 +248,11 @@ only screen and (max-width: 760px),
 .ui-icon-plus,
 .ui-icon-minus{
 	font-size: 18px;
+}
+
+
+img.iconhelp{
+	background-image: none!important;
 }
 
 
