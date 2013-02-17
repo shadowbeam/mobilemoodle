@@ -306,11 +306,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ea9cc', end
  */
 
 li.ui-btn-up-c{
-	border-color:#888 ;
+/*	border-color:#888 ;
 	background: #eee;
 	font-weight: bold;
 	color: #222;
-	text-shadow: 0 1px 0 #fff;
+	text-shadow: 0 1px 0 #fff;*/
 }
 
 .ui-btn-up-c{
@@ -400,10 +400,16 @@ a.ui-link-inherit {
 .ui-icon-searchfield:after {
 	background-color: #000000 /*{global-icon-color}*/;
 	background-color: rgba(0,0,0,0.4) /*{global-icon-disc}*/;
-//	background-image: url([[pix:theme|icons-18-white]]) /*{global-icon-set}*/;
+	
+	
+	background-image: none; /*{global-icon-set}*/
 	background-repeat: no-repeat;
 	-webkit-border-radius: 				9px;
 	border-radius: 						9px;
+	color: #ffffff;
+	text-indent: 2px;
+	line-height: 20px;
+	
 }
 
 /* Alt icon color
@@ -415,6 +421,7 @@ a.ui-link-inherit {
 	background-color: 						rgba(255,255,255,.3);
 //	background-image: url([[pix:theme|icons-18-black]]);
 	background-repeat: no-repeat;
+	color: #000000;
 }
 
 /* No disc
@@ -431,28 +438,32 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 
 /* plus minus */
+
+
+.ui-icon-minus,
 .ui-icon-plus {
-	background-position: 	-1px -1px;
-}
-.ui-icon-minus {
-	background-position: 	-37px -1px;
+	font-size: 14px;
 }
 /* delete/close */
 .ui-icon-delete {
-	background-position: 	-73px -1px;
+	font-size: 12px;
+	line-height: 19px;
+	text-indent: 2px;
 }
 /* arrows */
 .ui-icon-arrow-r {
 	background-position: 	-108px -1px;
 }
-.ui-icon-arrow-l {
-	background-position: 	-144px -1px;
-}
+
 .ui-icon-arrow-u {
 	background-position: 	-180px -1px;
 }
-.ui-icon-arrow-d {
-	background-position: 	-216px -1px;
+.ui-icon-arrow-d,
+.ui-icon-arrow-r,
+.ui-icon-arrow-l {
+	font-size: 13px;
+	text-indent: 2px;
+	line-height: 20px;
 }
 /* misc */
 .ui-icon-check {
@@ -525,7 +536,7 @@ a.ui-link-inherit {
 	.ui-icon-grid, .ui-icon-star, .ui-icon-alert, .ui-icon-info, .ui-icon-home, .ui-icon-bars, .ui-icon-edit,
 	.ui-icon-search, .ui-icon-searchfield:after, 
 	.ui-icon-checkbox-off, .ui-icon-checkbox-on, .ui-icon-radio-off, .ui-icon-radio-on {
-		background-image: url([[pix:theme|icons-36-white]]);
+		background-image: none;
 		-moz-background-size: 864px 18px;
 		-o-background-size: 864px 18px;
 		-webkit-background-size: 864px 18px;
@@ -587,8 +598,7 @@ a.ui-link-inherit {
 	.ui-icon-home {
 		background-position: 	-575px 50%;
 	}
-	.ui-icon-search,
-	.ui-icon-searchfield:after {
+	.ui-icon-search{
 		background-position: 	-611px 50%;
 	}
 	.ui-icon-checkbox-on {
