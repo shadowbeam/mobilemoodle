@@ -112,25 +112,27 @@ if (isloggedin()) { ?>
 						</ul>
 					<?php   } ?>
 					
+					
 					<!-- For Course page -->
-					<?php if ($PAGE->pagetype == 'course-view-topics' || $mypagetype == 'course-view-weeks'){ ?>
-						<div class="course-info ui-grid-a">
-						
+					<?php if ($PAGE->pagetype == 'course-view-topics' || $PAGE->pagetype == 'course-view-weeks'){ ?>
+					
+					<div class="course-info ui-grid-a ui-responsive">
 						<div class="ui-block-a">
-							<h1><?php echo $PAGE->heading ?></h1>
-							<span><?php echo $PAGE->course->summary; ?></span>
-							
+	
+								<h1><?php echo $PAGE->heading ?></h1>
+								<span><?php echo $PAGE->course->summary; ?></span>
+								
+								<a data-inline="true" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
 						</div>
-						
-						<div id="ui-block-b">							
-							<a data-inline="true" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
+						<div class="ui-block-b">
+							<div data-role="collapsible-set" data-theme="a">
 							
-								<div data-role="collapsible-set">
-									<?php echo $OUTPUT->blocks_for_region('side-post') ?>
-								</div>
+								<?php echo $OUTPUT->blocks_for_region('side-post') ?>
 							</div>
-
 						</div>
+					</div><!-- /grid-a -->
+					
+											</div>
 					<?php } ?>
 					
 

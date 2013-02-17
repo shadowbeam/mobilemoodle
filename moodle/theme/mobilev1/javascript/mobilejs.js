@@ -144,8 +144,8 @@ else if ($('ul.weeks').length > 0) {
 	$('.course-content li.section.main').not('[id="section-0"]').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','d');
 		
 	
-	$('.course-content li.section.main:odd').addClass('ui-block-b');
-	$('.course-content li.section.main:even').addClass('ui-block-a');
+	$('.course-content li.section.main:even').addClass('ui-block-b');
+	$('.course-content li.section.main:odd').addClass('ui-block-a');
 		
 	//assign listviews
 	$('ul.section').attr('data-role', 'listview');
