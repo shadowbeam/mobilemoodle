@@ -34,7 +34,8 @@ you can use the generic selector below, but it's slower:
  .ui-icon-arrow-r:before,
  .ui-icon-delete:before,
  .ui-icon-searchfield:after,
- .ui-icon-checkbox-on:before
+ .ui-icon-checkbox-on:before,
+ .icon-arrow-left:before
  
  {
 	font-family: 'icomoon';
@@ -117,7 +118,8 @@ you can use the generic selector below, but it's slower:
 .ui-icon-arrow-r:before {
 	content: "\21";
 }
-.icon-left:before {
+.icon-left:before,
+.icon-arrow-left:before {
 	content: "\29";
 }
 .icon-down:before,
