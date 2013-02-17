@@ -270,7 +270,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
             $fullname = fullname($USER, true);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
             if ($withlinks) {
-                $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\">$fullname</a>";
+                $username = "<a class='username' href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\">$fullname</a>";
             } else {
                 $username = $fullname;
             }

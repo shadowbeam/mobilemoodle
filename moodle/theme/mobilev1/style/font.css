@@ -33,7 +33,8 @@ you can use the generic selector below, but it's slower:
  .ui-icon-arrow-d:before,
  .ui-icon-arrow-r:before,
  .ui-icon-delete:before,
- .ui-icon-searchfield:after
+ .ui-icon-searchfield:after,
+ .ui-icon-checkbox-on:before
  
  {
 	font-family: 'icomoon';
@@ -43,7 +44,8 @@ you can use the generic selector below, but it's slower:
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
-.icon-checkmark:before {
+.icon-checkmark:before,
+.ui-icon-checkbox-on:before {
 	content: "\2c";
 }
 .icon-reload-alt:before {
