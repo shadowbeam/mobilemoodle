@@ -119,7 +119,7 @@ if (isloggedin()) { ?>
 					<div class="course-info ui-grid-a ui-responsive">
 						<div class="ui-block-a">
 	
-								<h1><?php echo $PAGE->heading ?></h1>
+								<!--<h1><?php echo $PAGE->heading ?></h1>-->
 								<span><?php echo $PAGE->course->summary; ?></span>
 								
 								<a data-inline="true" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
