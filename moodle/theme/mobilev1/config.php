@@ -154,10 +154,12 @@ $THEME->layouts = array(
 // Add the required JavaScript to the page
 $THEME->javascripts = array(
     'jquery',
+	'mdrnzr.js',
 	'mobilejs',
 //'jquery-1.7.1.min',
 //   'jquery.mobile-1.1.1',
-    'jquery.mobile-1.3.0-rc.1.min'
+    'jquery.mobile-1.3.0-rc.1.min',
+	
 
     
 );

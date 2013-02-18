@@ -1,6 +1,4 @@
-/* @override 
-	http://localhost:8888/moodle/theme/styles_debug.php?sheet=moodle&theme=mobilev1&type=theme */
-
+/* 
 /*
 * jQuery Mobile Git Build: SHA1: 56a6976b89feddf34e163c3fcc7196ae0a44c1a0 <> Date: Mon Feb 4 08:28:28 2013 -0800
 * http://jquerymobile.com
@@ -51,6 +49,8 @@
 	color: #2489ce /*{a-bar-link-active}*/;
 }
 
+.ui-page { -webkit-backface-visibility: hidden; }
+
 .ui-bar-a,
 .ui-bar-a input,
 .ui-bar-a select,
@@ -71,6 +71,9 @@
 	background-image:      -o-linear-gradient( #353635 /*{a-body-background-start}*/, #404140 /*{a-body-background-end}*/); /* Opera 11.10+ */
 	background-image:         linear-gradient( #353635 /*{a-body-background-start}*/, #404140 /*{a-body-background-end}*/);
 }
+
+.ui-body-a.ui-panel{border:none;}/*no border for panel*/
+
 .ui-overlay-a {
 	background-image: none;
 	border-width: 0;
@@ -403,32 +406,52 @@ a.ui-link-inherit {
 /* Icons
 -----------------------------------------------------------------------------------------------------------*/
 
-.ui-icon,
-.ui-icon-searchfield:after {
+ .ui-icon,
+ .ui-icon-searchfield:after {
 	background-color: #000000 /*{global-icon-color}*/;
 	background-color: rgba(0,0,0,0.4) /*{global-icon-disc}*/;
 	text-shadow: 0 0 1px rgba(0, 0, 0, 0.55);
 	
-	background-image: none; /*{global-icon-set}*/
 	background-repeat: no-repeat;
 	-webkit-border-radius: 				9px;
 	border-radius: 						9px;
 	color: #ffffff;
 	text-indent: 2px;
 	line-height: 20px;
-	
 }
+
+ .baddevice .ui-icon,
+ .no-fontface .ui-icon,
+ .baddevice .ui-icon-searchfield:after,
+ .no-fontface .ui-icon-searchfield:after{
+	background-image: url([[pix:theme|icons-18-white]]);
+	content:none!important;
+}
+
 
 /* Alt icon color
 -----------------------------------------------------------------------------------------------------------*/
 
-.ui-icon-alt .ui-icon,
-.ui-icon-alt .ui-icon-searchfield:after {
+ .ui-icon-alt .ui-icon,
+ .ui-icon-alt .ui-icon-searchfield:after {
 	background-color: 						#fff;
 	background-color: 						rgba(255,255,255,.3);
-//	background-image: url([[pix:theme|icons-18-black]]);
 	background-repeat: no-repeat;
 	color: #000000;
+}
+
+.baddevice .ui-icon-alt .ui-icon,
+.no-fontface .ui-icon-alt .ui-icon,
+.baddevice .ui-icon-alt .ui-icon-searchfield:after,
+.no-fontface .ui-icon-alt .ui-icon-searchfield:after {
+	background-image: url([[pix:theme|icons-18-black]]);
+}
+
+ .baddevice .ui-icon:before,
+ .no-fontface .ui-icon:before,
+.baddevice .ui-icon-alt .ui-icon:before,
+.no-fontface .ui-icon-alt .ui-icon:before{
+	content:none!important;
 }
 
 /* No disc
@@ -441,14 +464,13 @@ a.ui-link-inherit {
 	background-color: transparent;
 }
 
-/* Icon sprite
+/* Font Icon Styles
 -----------------------------------------------------------------------------------------------------------*/
 
 /* plus minus */
 
-
-.ui-icon-minus,
-.ui-icon-plus {
+ .ui-icon-minus,
+ .ui-icon-plus {
 	font-size: 14px;
 }
 /* delete/close */
@@ -468,6 +490,35 @@ a.ui-link-inherit {
 	font-size: 13px;
 	text-indent: 3px;
 	line-height: 20px;
+}
+
+
+/* Icon sprite
+-----------------------------------------------------------------------------------------------------------*/
+
+/* plus minus */
+.ui-icon-plus {
+	background-position: 	-1px -1px;
+}
+.ui-icon-minus {
+	background-position: 	-37px -1px;
+}
+/* delete/close */
+.ui-icon-delete {
+	background-position: 	-73px -1px;
+}
+/* arrows */
+.ui-icon-arrow-r {
+	background-position: 	-108px -1px;
+}
+.ui-icon-arrow-l {
+	background-position: 	-144px -1px;
+}
+.ui-icon-arrow-u {
+	background-position: 	-180px -1px;
+}
+.ui-icon-arrow-d {
+	background-position: 	-216px -1px;
 }
 /* misc */
 .ui-icon-check {
@@ -507,11 +558,11 @@ a.ui-link-inherit {
 }
 /* checkbox radio */
 .ui-icon-checkbox-on {
-
+	background-position: 	-647px -1px;
 }
 .ui-icon-checkbox-off {
+	background-position: 	-683px -1px;
 }
-
 .ui-icon-radio-on {
 	background-position: 	-718px -1px;
 }
@@ -526,6 +577,8 @@ a.ui-link-inherit {
 .ui-icon-edit {
 	background-position: 	-824px -1px;
 }
+
+
 
 /* HD/"retina" sprite
 -----------------------------------------------------------------------------------------------------------*/
@@ -668,6 +721,13 @@ line-height: normal;
 color: #ffffff;
 opacity: 1;
 }
+
+.baddevice .ui-icon-loading,
+.no-fontface {
+	background: url([[pix:theme|ajax-loader]]);
+	background-size: 46px 46px;
+}
+
 
 /* Button corner class
 -----------------------------------------------------------------------------------------------------------*/

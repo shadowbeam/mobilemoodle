@@ -46,7 +46,9 @@
 	min-width: 3em!important;
 }
 
-div.ui-input-text input.ui-input-text, div.ui-input-text textarea.ui-input-text, .ui-input-search input.ui-input-text{
+div.ui-input-text input.ui-input-text, 
+div.ui-input-text textarea.ui-input-text,
+.ui-input-search input.ui-input-text{
 	padding: .4em .4em .4em .4em!important;
 }
 

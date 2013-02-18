@@ -26,7 +26,7 @@ echo $OUTPUT->doctype(); ?>
 	<div id="<?php p($PAGE->bodyid); ?>" data-role="page" class="general">
 
 		<!-- Panel -->
-		<div data-role="panel" id="panel-wrapper" data-dismissible="false"  data-position="right" data-theme="a"	data-display="reveal">
+		<div data-role="panel" id="panel-wrapper" data-dismissible="false" data-swipe-close="false"  data-position="right" data-theme="a" data-display="reveal">
 		
 			
 						<?php echo $OUTPUT->login_info() ?>
@@ -65,7 +65,7 @@ if (isloggedin()) { ?>
 		<!-- /panel-->
 
 		<!--  header -->
-		<div id="page-header" data-role="header" data-position="">
+		<div id="page-header" data-role="header" data-position="fixed">
 
 			<?php if ($PAGE->heading) { ?>
 
@@ -124,7 +124,7 @@ if (isloggedin()) { ?>
 								
 								<a data-inline="true" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
 						</div>
-						<div class="ui-block-b">
+						<div class="ui-block-b accord">
 							<div data-role="collapsible-set" data-theme="a">
 							
 								<?php echo $OUTPUT->blocks_for_region('side-post') ?>
