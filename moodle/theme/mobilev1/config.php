@@ -38,16 +38,17 @@ $THEME->name = 'mobilev1';
 $THEME->parents = array('base');
 
 $THEME->sheets = array(
-    'pagelayout',   /** Must come first: Page layout **/
+    'pagelayout', 
     'jqmrc',
     //'mobilev1',
     'login',
     'frontpage',
-    'course',
     'profile',
 	'forums',
 	'moodle',
-	'font'
+	'font',
+	'course'
+   
     );
     
     // Exclude parent sheets
@@ -89,8 +90,7 @@ $THEME->layouts = array(
     ),
     'course' => array(
         'file' => 'standard.php',
-        'regions' => array('side-pre', 'side-post'),
-        'defaultregion' => 'side-post'
+        'regions' => array('side-pre', 'side-post')
     ),
     'coursecategory' => array(
         'file' => 'standard.php',

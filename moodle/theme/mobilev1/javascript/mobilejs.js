@@ -13,18 +13,22 @@ $('#course-page-index, #page-site-index').live('pagebeforecreate',function(event
 	$('.section li img.activityicon').addClass("ui-li-icon");
 });
 
-$('.ui-page').live('pageinit',function(event, ui){
+$('div').live('pageinit',function(event, ui){
 
 
-$('#page-header').live('swipeleft', function (event, ui) {
-     $('#panel-wrapper').panel( "open" );
- });
+	$('#page-header').live('swipeleft', function (event, ui) {
+		 $('#panel-wrapper').panel( "open" );
+	 });
 
 	    
 
 });
 
-	
+
+/* General */
+	$('div').live('pagebeforecreate',function(event, ui){
+		$('.ftoggler').attr('data-role', 'list-divider').addClass('ui-bar-a');
+	});
 
 /* Login Page */
 
@@ -171,8 +175,16 @@ else if ($('ul.weeks').length > 0) {
 /* Profile */
 
 $('#page-user-editadvanced, #page-user-profile').live('pagebeforecreate',function(event, ui){
-	$('fieldset').attr('data-role','collapsible');
+	//$('fieldset').attr('data-role','collapsible');
+	$('.info.c1 a').attr('data-role', 'button');
+	
+	
+});
+
+/* Responsive Tables */
+$('#page-user-editadvanced, #page-user-profile, #page-mod-assign-view').live('pagebeforecreate',function(event, ui){
 	$('table').addClass('responsive-tab');
+
 });
 
 /* Forums */
@@ -201,6 +213,8 @@ $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.foru
         $('.forumpost div.row.header, h2.accesshide').addClass("ui-li ui-li-divider ui-btn ui-bar-b");
         $('.options div.commands').attr("data-role", "controlgroup").attr("data-type", "horizontal");
         $('.options div.commands a').attr("data-role", "button").attr("data-inline", "true").attr('data-mini','true');
+		
+		//$('#id_subscribe').attr('data-role', 'slider');
 		
 	/* Attempt to load the reply form in a popup*/
 		$( ".options .commands a" ).bind( "click", function(event, ui) {
@@ -257,10 +271,13 @@ $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.foru
 
 
 /* Grades*/
+
+
 $('#page-course-user').live('pagebeforecreate',function(event, ui){
 	$('th').attr('colspan', '1');
 	$('td.oddd1').remove();
-	//$('table.user-grade').attr('data-role', 'table');
+	$('table.user-grade').addClass('responsive-tab').removeClass('user-grade');
+	$('table td a').attr('data-role', 'button').attr('data-mini', 'true');
 	
 });
 

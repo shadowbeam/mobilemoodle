@@ -23,7 +23,7 @@ echo $OUTPUT->doctype(); ?>
 	<?php $settings = optional_param('mobilev1_settings', false, PARAM_BOOL); ?>
 
 
-	<div id="<?php p($PAGE->bodyid); ?>" data-role="page" class="general">
+	<div id="<?php p($PAGE->bodyid); ?>" class="<?php p($PAGE->pagetype); ?>"data-role="page" class="general">
 
 		<!-- Panel -->
 		<div data-role="panel" id="panel-wrapper" data-dismissible="false" data-swipe-close="false"  data-position="right" data-theme="a" data-display="reveal">
@@ -122,7 +122,7 @@ if (isloggedin()) { ?>
 								<!--<h1><?php echo $PAGE->heading ?></h1>-->
 								<span><?php echo $PAGE->course->summary; ?></span>
 								
-								<a data-inline="true" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
+								<a data-inline="false" style="max-width: 10em;" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
 						</div>
 						<div class="ui-block-b accord">
 							<div data-role="collapsible-set" data-theme="a">
@@ -136,8 +136,7 @@ if (isloggedin()) { ?>
 					<?php } ?>
 					
 
-				<?php	echo $OUTPUT->main_content(); ?>
-					
+				<?php  if(!$settings) echo core_renderer::MAIN_CONTENT_TOKEN; ?>					
 
 				</div>
 

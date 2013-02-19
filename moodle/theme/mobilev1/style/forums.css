@@ -8,12 +8,14 @@
 
 #page-mod-forum-view table.forumheaderlist tr,
 #page-mod-forum-view table.forumheaderlist td,
-#page-mod-forum-view table.forumheaderlist
+#page-mod-forum-view table.forumheaderlist,
+#page-mod-forum-view table.forumheaderlist tbody
 {
 	display: block;
  	border:none;
 	border-style:none;
-	width: auto!important;
+//	width: auto!important;
+
 }
 
 #page-mod-forum-view table.forumheaderlist td.topic{
@@ -108,8 +110,8 @@
 }
 
 .forumpost .row.header{
-	border-top-left-radius:1em;
-	border-top-right-radius:1em; 
+	border-top-left-radius:0.3em;
+	border-top-right-radius:0.3em; 
 }
 
 
@@ -126,26 +128,6 @@
 }
 
 /* @end */
-
-#page-mod-forum-view table.forumheaderlist td.picture,
-#page-mod-forum-view table.forumheaderlist td.author,
-#page-mod-forum-view table.forumheaderlist td.lastpost,
-#page-mod-forum-view table.forumheaderlist td.replies, 
-#page-mod-forum-view  table.forumheaderlist thead,
-
-/*discuss controls*/
-div.discussioncontrols,
-.row.maincontent .left,
-
-#mformforum legend.ftoggler,
-#page-mod-forum-post .fdescription,
-#mformforum label[for="id_subscribe"],
-#mformforum label.accesshide[for="menumessageformat"],
-.fitem_ffilemanager
-{
-	display:none;
- }
- 
 
  
  /* Style */
@@ -164,3 +146,42 @@ div.discussioncontrols,
 	display:block;
 	margin: 1em 0 1em 0;
 }
+
+
+/* Indents */
+
+.path-mod-forum .indent .indent{
+	margin-left:2em;
+}
+
+
+/*Phones*/
+@media only screen and (max-width: 36em){
+	.path-mod-forum   .indent,
+	.path-mod-forum .indent .indent{
+		margin:0;
+	}
+}
+
+/* Hidden */
+
+#page-mod-forum-view table.forumheaderlist td.picture,
+#page-mod-forum-view table.forumheaderlist td.author,
+#page-mod-forum-view table.forumheaderlist td.lastpost,
+#page-mod-forum-view table.forumheaderlist td.replies, 
+#page-mod-forum-view  table.forumheaderlist thead,
+
+
+div.discussioncontrols,
+.forumpost .row.side .left,
+
+#id_error_subject,
+
+#mformforum legend.ftoggler,
+#page-mod-forum-post .fdescription,
+#mformforum label[for="id_subscribe"],
+#mformforum label.accesshide[for="menumessageformat"],
+.fitem_ffilemanager
+{
+	display:none;
+ }

@@ -30,12 +30,17 @@ you can use the generic selector below, but it's slower:
 .ui-icon-minus:before,
 .ui-icon-loading:before, .icon-right:before, .icon-left:before, .icon-down:before, .icon-up:before,
 
+ .ui-icon-arrow-u:before,
+ .ui-icon-arrow-l:before,
  .ui-icon-arrow-d:before,
  .ui-icon-arrow-r:before,
  .ui-icon-delete:before,
  .ui-icon-searchfield:after,
  .ui-icon-checkbox-on:before,
- .icon-arrow-left:before
+ .icon-arrow-left:before,
+ .ui-icon-radio-on:before,
+ .ui-icon-gear:before
+
  
  {
 	font-family: 'icomoon';
@@ -74,6 +79,8 @@ you can use the generic selector below, but it's slower:
 .fontface.no-baddevice .ui-icon-searchfield:after{
 	content: "\34";
 }
+
+.ui-icon-radio-on:before,
 .icon-cd:before {
 	content: "\36";
 }
@@ -89,7 +96,8 @@ you can use the generic selector below, but it's slower:
 .ui-icon-plus:before  {
 	content: "\22";
 }
-.icon-cog:before
+.icon-cog:before,
+.ui-icon-gear:before
 {
 	content: "\25";
 }
@@ -119,14 +127,16 @@ you can use the generic selector below, but it's slower:
 	content: "\21";
 }
 .icon-left:before,
-.icon-arrow-left:before {
+.icon-arrow-left:before,
+.ui-icon-arrow-l:before {
 	content: "\29";
 }
 .icon-down:before,
 .ui-icon-arrow-d:before {
 	content: "\2a";
 }
-.icon-up:before {
+.icon-up:before,
+.ui-icon-arrow-u:before {
 	content: "\2b";
 }
 

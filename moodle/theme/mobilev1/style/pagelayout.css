@@ -54,9 +54,16 @@ div.ui-input-text textarea.ui-input-text,
 
 
 fieldset.clearfix{
-	//overflow:hidden!important;
+	overflow:hidden!important; /* prevent ftoggler and labels expanding over bounds */
 	width: 100%!important; /*fix a page overflow*/
 	
+}
+
+legend.ftoggler{
+display: block;
+width: 100%;
+padding:0.5em;
+margin: 1em 0 1em 0;
 }
 
 /* @group Panel */
@@ -147,7 +154,7 @@ html div.ui-panel-inner{
 	text-align: center;
 }
 
-.ui-panel-content-wrap-open #page-header a.mybtn,
+.ui-page-panel-open #page-header a.mybtn,
 a#back-button:active,
 a#back-button:focus{
 	color: #0077bc;
@@ -178,6 +185,7 @@ td.c0, th{
 	
 }
 
+/* Tablets */
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
@@ -208,15 +216,7 @@ only screen and (max-width: 760px),
 }
 
  /*@end */
-/* @group Icons  */
- 
- 
- 
- 
- 
- 
- 
- /* @end */ 
+
   
  /* @group Profile Info  */
  
@@ -246,3 +246,35 @@ only screen and (max-width: 760px),
  
  /* @end */ 
  
+ /* Report Log */
+	.graph{
+		overflow: scroll;
+	}
+ 
+ 
+ /* Errors */
+ .error .ui-input-text{
+	-moz-box-shadow:  0px 0px 10px red;
+	-webkit-box-shadow:  0px 0px 10px red;
+	box-shadow:  0px 0px 10px red;
+ }
+ 
+  /*Bigger Screens */
+ @media 
+only screen and (min-width: 35em) {
+ 
+	#page-site-index .ui-listview-filter
+	{
+		max-width: 75%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	#page-body{
+		padding-left: 3em;
+		padding-right: 3em;
+	}
+
+}
+ 
+
