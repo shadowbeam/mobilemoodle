@@ -9,7 +9,7 @@ $(document).bind("mobileinit", function(){
 
 /*Course Index*/
 $('#course-page-index, #page-site-index').live('pagebeforecreate',function(event, ui){
-	$('ul.section').attr("data-role", "listview").attr("data-inset", "true");
+	$('ul.section').attr("data-role", "listview").attr("data-inset", "true").attr('data-theme', 'a');
 	$('.section li img.activityicon').addClass("ui-li-icon");
 });
 
@@ -270,13 +270,21 @@ $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.foru
             return this.nodeType == 3; 
         }).remove();
 		
-		$('#id_submitbutton').attr('data-theme', 'b');
+		$('#id_submitbutton').attr('data-theme', 'b'); //do we need?
         
     });
 
 
 /* Grades*/
 
+$('#page-mod-assign-view').live('pagebeforecreate',function(event, ui){
+
+	$('#id_savegrade, #id_submitbutton').attr('data-theme', 'b');
+	$('a:has(img.smallicon)').addClass('edit_button').attr('data-role', 'button').attr('data-theme', 'a').attr('data-inline', 'true').attr('data-mini', 'true');
+});
+
+
+/* User Profile */
 
 $('#page-course-user').live('pagebeforecreate',function(event, ui){
 	$('th').attr('colspan', '1');

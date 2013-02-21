@@ -278,6 +278,8 @@
  }
  
  
+ .wrap .ui-btn-text{white-space:normal;}
+ 
  a.ui-collapsible-heading-toggle.ui-btn-up-b .ui-btn-text a{
 	color:#fff;
  }

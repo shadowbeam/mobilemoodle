@@ -35,6 +35,10 @@ echo $OUTPUT->doctype(); ?>
 			
 					<ul data-role="listview" data-theme='b' class="settingsul">
 
+				<!--	<li data-theme='a' class="Home">
+						<a title="Home" href="<?php echo "$CFG->wwwroot/" ?>"><i class="icon-home"></i>Home</a>
+					</li>-->
+					
 <?php $renderer = $PAGE->get_renderer('theme_mobilev1');
 echo $renderer->navigation_tree($PAGE->navigation );
 ?>

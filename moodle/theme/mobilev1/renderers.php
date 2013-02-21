@@ -51,7 +51,7 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
 				$key = (string)$item->text;
 				
 				/* Don't display these items in the navig. */
-				if($key == 'Current course' || $key == 'My home' || $key == 'My courses')
+				if($key == 'Current course' || $key == 'My home' || $key == 'My private files')
 					continue;
 				
     
@@ -429,8 +429,14 @@ class theme_mobilev1_core_renderer extends core_renderer {
     
       public function block(block_contents $bc, $region) {
             $bc = clone($bc); // Avoid messing up the object passed in.
+			
             $attributes = $bc->attributes;
-            $attributes['data-role'] = 'collapsible';
+			if($attributes['class'] == 'block_course_overview  block')
+				$attributes['data-role'] = $attributes['class'];
+			else
+				$attributes['data-role'] = 'collapsible';
+			
+			
 			$attributes['data-content-theme'] = 'a';
             
             $bc->collapsible = block_contents::NOT_HIDEABLE;
@@ -450,6 +456,23 @@ class theme_mobilev1_core_renderer extends core_renderer {
             return $output;
         }
         
+		 /**
+		 * Produces the content area for a block
+		 *
+		 * @param block_contents $bc
+		 * @return string
+		 */
+		protected function block_content(block_contents $bc) {
+			$output = html_writer::start_tag('div', array('class' => 'content'));
+			if (!$bc->title && !$this->block_controls($bc->controls)) {
+				$output .= html_writer::tag('div', '', array('class'=>'block_action notitle'));
+			}
+			$output .= $bc->content;
+			$output .= $this->block_footer($bc);
+			$output .= html_writer::end_tag('div');
+
+			return $output;
+		}
         
     
 		/*
@@ -573,5 +596,130 @@ class theme_mobilev1_core_renderer extends core_renderer {
         return $navbarcontent;        
 */
     }
+	
+	
+	
 }
+
+include_once($CFG->dirroot . '/blocks/course_overview/renderer.php');
+
+
+/**
+ * Course_overview block rendrer
+ *
+ * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
+ * @editted	   2013 Allan Watson
+ */
+class theme_mobilev1_block_course_overview_renderer extends block_course_overview_renderer {
+
+    /**
+     * Construct contents of course_overview block
+     *
+     * @param array $courses list of courses in sorted order
+     * @param array $overviews list of course overviews
+     * @return string html to be displayed in course_overview block
+     */
+    public function course_overview($courses, $overviews) {
+        $html = '';
+        $config = get_config('block_course_overview');
+
+        $html .= html_writer::start_tag('div', array('id' => 'course_list'));
+        $courseordernumber = 0;
+        $maxcourses = count($courses);
+        // Intialize string/icon etc if user is editing.
+        $url = null;
+        $moveicon = null;
+        $moveup[] = null;
+        $movedown[] = null;
+		
+		/*  user can't edit */
+
+        foreach ($courses as $key => $course) {
+					
+            $html .= html_writer::start_tag('div', array('class' => 'coursebox', 'id'=> "course-{$course->id}", 'data-role'=> 'controlgroup'));
+			
+			
+          //  $html .= html_writer::start_tag('div', array('class' => 'course_title'));
+			
+		/* removed ability to shift courses */
+
+		
+		$attributes = array('title' => s($course->fullname), 'data-role' => 'button', 'data-theme' => 'b', 'data-icon'=>'arrow-r', 'data-iconpos'=>'right');
+            if ($course->id > 0) {
+                $link = html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)), format_string($course->shortname, true, $course->id), $attributes); //becomes a button
+                $html .= $link;
+            } else {
+                $html .= $this->output->heading(html_writer::link(
+                    new moodle_url('/auth/mnet/jump.php', array('hostid' => $course->hostid, 'wantsurl' => '/course/view.php?id='.$course->remoteid)),
+                    format_string($course->shortname, true), $attributes) . ' (' . format_string($course->hostname) . ')', 2, 'title');
+            }
+           // $html .= html_writer::end_tag('div');
+
+            if (!empty($config->showchildren) && ($course->id > 0)) {
+                // List children here.
+                if ($children = block_course_overview_get_child_shortnames($course->id)) {
+                    $html .= html_writer::tag('span', $children, array('class' => 'coursechildren'));
+                }
+            }
+
+            if (isset($overviews[$course->id])) {
+                $html .= $this->activity_display($course->id, $overviews[$course->id]);
+            }
+
+        $html .= html_writer::end_tag('div');
+            $courseordernumber++;
+        }
+        $html .= html_writer::end_tag('div');
+
+        return $html;
+    }
+	
+	 /**
+     * Coustuct activities overview for a course
+     * No need for expanded overviews, keep blocks simple
+	 * 
+     * @param int $cid course id
+     * @param array $overview overview of activities in course
+     * @return string html of activities overview
+	 * 
+	 * @editted 2013 Allan Watson
+     */
+    protected function activity_display($cid, $overview) {
+       // $output = html_writer::start_tag('div', array('class' => 'activity_info'));
+        foreach (array_keys($overview) as $module) {
+           // $output .= html_writer::start_tag('div', array('class' => 'activity_overview'));
+            $url = new moodle_url("/mod/$module/index.php", array('id' => $cid));
+            $modulename = get_string('modulename', $module);
+			
+		//	$linktext = $this->output->pix_icon('icon', $modulename, 'mod_'.$module, array('class'=>'iconlarge'));
+			
+			$linktext = "<i class='icon-info left'></i>"; //replace image with info icon
+			if (get_string_manager()->string_exists("activityoverview", $module)) {
+                $linktext .= get_string("activityoverview", $module);
+            } else {
+                $linktext .= get_string("activityoverview", 'block_course_overview', $modulename);
+            }
+			
+			
+			
+            $icontext = html_writer::link($url, $linktext, array('data-role' => 'button', 'class'=> 'wrap'));
+			
+
+            // Add collapsible region with overview text in it.
+            //$output .= $this->collapsible_region($overview[$module], '', 'region_'.$cid.'_'.$module, $icontext, '', true);
+
+			$output .= $icontext; //display the message you have notifications.
+			
+           // $output .= html_writer::end_tag('div');
+        }
+      //  $output .= html_writer::end_tag('div');
+        return $output;
+    }
+	
+	
+}
+	
+	
 

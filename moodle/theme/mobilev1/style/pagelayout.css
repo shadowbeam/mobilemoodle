@@ -52,6 +52,10 @@ div.ui-input-text textarea.ui-input-text,
 	padding: .4em .4em .4em .4em!important;
 }
 
+.left{float:left;}
+
+
+
 
 fieldset.clearfix{
 	overflow:hidden!important; /* prevent ftoggler and labels expanding over bounds */
@@ -226,7 +230,11 @@ td.c0, th{
 	font-weight: bold;
 	color: #ffffff;
 	text-shadow: 0 0 1px #000000;
-	
+}
+
+table.responsive-tab,
+#page-mod-assign-index table {
+	width:100%;
 }
 
 /* Tablets */
@@ -324,4 +332,10 @@ only screen and (min-width: 35em) {
 
 }
  
+ 
+ /* Grades */
+ 
+ #page-mod-assign-view table .commands {
+	display:none;
+ }
 
