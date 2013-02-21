@@ -3,6 +3,9 @@
 $(document).bind("mobileinit", function(){
 	$.mobile.defaultPageTransition = "slide";
 	
+	
+	
+	
 });
  $(document).bind("vmouseover", function () { });
 
@@ -13,22 +16,21 @@ $('#course-page-index, #page-site-index').live('pagebeforecreate',function(event
 	$('.section li img.activityicon').addClass("ui-li-icon");
 });
 
-$('div').live('pageinit',function(event, ui){
-
-
-	$('#page-header').live('swipeleft', function (event, ui) {
-		 $('#panel-wrapper').panel( "open" );
-	 });
-
-	    
-
-});
 
 
 /* General */
 	$('div').live('pagebeforecreate',function(event, ui){
 		$('.ftoggler').attr('data-role', 'list-divider').addClass('ui-bar-a');
 		$('#id_submitbutton').attr('data-theme', 'b');
+		
+		$('.ui-panel-content-wrap-open').live('swiperight', function (event, ui) {
+		 $('#panel-wrapper').panel( "close" );
+	 });
+	 
+	 $('#page-header').live('swipeleft', function (event, ui) {
+	 	 $('#panel-wrapper').panel( "open" );
+	  });
+		
 		
 	});
 
