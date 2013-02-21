@@ -9,7 +9,7 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
      * @return string
      */
     public function settings_tree(settings_navigation $navigation) {
-        return $this->navigation_node($navigation, array('class' => 'settings', 'data-theme' => 'c'));
+        return $this->navigation_node($navigation, array('class' => 'settings', 'data-theme' => 'c'), true);
 
      
     }
@@ -29,9 +29,10 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
          *
          * @param navigation_node $node
          * @param array $attrs
+         * @param bool for settings
          * @return type
          */
-        protected function navigation_node(navigation_node $node, $attrs = array()) {
+        protected function navigation_node(navigation_node $node, $attrs = array(), $settings = false) {
             $items = $node->children;
             
             $theme = $attrs['data-theme'];
@@ -60,7 +61,7 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
     
 
                 $content = $this->output->render($item);
-                $content .= $this->navigation_node($item, $attrs);
+                $content .= $this->navigation_node($item, $attrs, $settings);
 				
                 
 				
@@ -82,7 +83,8 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
                 return '';
             }
 			
-			$lis = array_reverse($lis); //reverse the array this ordering makes better sense.
+			if(!$settings)
+				$lis = array_reverse($lis); //reverse the array this ordering makes better sense.
 			
             return implode("\n", $lis);
         }
