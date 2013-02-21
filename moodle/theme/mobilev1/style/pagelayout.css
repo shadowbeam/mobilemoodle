@@ -327,4 +327,15 @@ only screen and (min-width: 35em) {
  #page-mod-assign-view table .commands {
 	display:none;
  }
+ 
+ /* Block News Item*/
+.block_news_items li.post .head .date,
+.block_news_items li.post .head .name{
+	display: inline-block;
+}
+
+.block_news_items .footer{
+	margin-top: 1em;
+}
+	
 

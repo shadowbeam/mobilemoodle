@@ -175,7 +175,12 @@ else if ($('ul.weeks').length > 0) {
 	
 	/* edit section */
 	$('a:has(img.iconsmall)').addClass('edit_button').attr('data-role', 'button').attr('data-theme', 'a').attr('data-inline', 'true').attr('data-mini', 'true');
-
+	
+	/* block news items */
+	
+	$('.block a').attr('data-role', 'button').attr('data-theme', 'c').attr('data-inline', 'false').attr('data-mini', 'true');
+	
+	$('.block_news_items ul').attr('data-role', 'listview');
 });
 
 
