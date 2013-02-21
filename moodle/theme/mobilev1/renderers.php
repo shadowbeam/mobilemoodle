@@ -695,7 +695,7 @@ class theme_mobilev1_block_course_overview_renderer extends block_course_overvie
 			
 		//	$linktext = $this->output->pix_icon('icon', $modulename, 'mod_'.$module, array('class'=>'iconlarge'));
 			
-			$linktext = "<i class='icon-info left'></i>"; //replace image with info icon
+			$linktext = "<i class='icon-spam left'></i>"; //replace image with info icon
 			if (get_string_manager()->string_exists("activityoverview", $module)) {
                 $linktext .= get_string("activityoverview", $module);
             } else {

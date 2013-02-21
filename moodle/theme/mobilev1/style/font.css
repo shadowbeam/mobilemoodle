@@ -25,7 +25,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
-.icon-checkmark:before, .icon-reload-alt:before, .icon-undo:before, .icon-redo:before, .icon-grid:before, .icon-star:before, .icon-spam:before, .icon-info:before, .icon-search:before, .icon-cd:before, .icon-minus:before, .icon-close:before, .icon-plus:before, .icon-cog:before, .icon-enter:before, .icon-exit:before, .icon-home:before, .icon-file:before, .icon-menu:before, .icon-spinner:before, .icon-right:before, .icon-left:before, .icon-down:before, .icon-up:before,
+.icon-checkmark:before, .icon-reload-alt:before, .icon-undo:before, .icon-redo:before, .icon-grid:before, .icon-star:before, .icon-spam:before, .icon-info:before, .icon-search:before, .icon-cd:before, .icon-minus:before, .icon-close:before, .icon-plus:before, .icon-cog:before, .icon-enter:before, .icon-exit:before, .icon-home:before, .icon-file:before, .icon-menu:before, .icon-spinner:before, .icon-right:before, .icon-left:before, .icon-down:before, .icon-up:before, .icon-arrow-left:before, .icon-alarm:before, .icon-spell-check:before, .icon-flag:before, .icon-user:before, .icon-bubbles:before, .icon-bubble:before, .icon-warning:before, .icon-calendar:before,
 
  .ui-icon-loading:before,
  .ui-icon-plus:before,
@@ -107,7 +107,8 @@ you can use the generic selector below, but it's slower:
 .icon-exit:before {
 	content: "\6c";
 }
-.icon-home:before {
+.icon-home:before,
+li.My.courses .ui-btn-text a:before {
 	content: "\68";
 }
 .icon-file:before {
@@ -127,7 +128,6 @@ you can use the generic selector below, but it's slower:
 	content: "\21";
 }
 .icon-left:before,
-.icon-arrow-left:before,
 .ui-icon-arrow-l:before {
 	content: "\29";
 }
@@ -139,6 +139,39 @@ you can use the generic selector below, but it's slower:
 .ui-icon-arrow-u:before {
 	content: "\2b";
 }
+
+.icon-arrow-left:before {
+	content: "\35";
+}
+.icon-alarm:before {
+	content: "\37";
+}
+.icon-spell-check:before,
+li.Grade .ui-btn-text a:before {
+	content: "\39";
+}
+.icon-flag:before {
+	content: "\3a";
+}
+.icon-user:before {
+	content: "\3b";
+}
+.icon-bubbles:before {
+	content: "\3c";
+}
+.icon-bubble:before,
+li.Messages .ui-btn-text a:before {
+	content: "\3d";
+}
+.icon-warning:before {
+	content: "\38";
+}
+.icon-calendar:before,
+li.Calendar .ui-btn-text a:before
+ {
+	content: "\3e";
+}
+
 
 @-webkit-keyframes rotating {
     from{

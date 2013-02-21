@@ -106,14 +106,9 @@ html div.ui-panel-inner{
 	margin: 0;
 }
 
-#panel-wrapper a [class*="icon-"]{
-	float: right;
-	padding-left: 0.5em;
-}
 
 /* icons for panels */
-li.My.courses .ui-btn-text a:before
-{	
+#panel-wrapper li .ui-btn-text a:before{	
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -121,15 +116,9 @@ li.My.courses .ui-btn-text a:before
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	margin-right:0.5em;
+	float: left;
 }
 
-li.My.courses .ui-btn-text a:before{
-	content: "\68";
-}
-
-li.Messages .ui-btn-text a:before{
-	content: "\68";
-}
 
 li.View.profile,
 li.My.profile{
