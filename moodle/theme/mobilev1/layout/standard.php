@@ -121,12 +121,12 @@ if (isloggedin()) { ?>
 					 else if ($PAGE->pagetype == 'course-view-topics' || $PAGE->pagetype == 'course-view-weeks'){ ?>
 					
 					<div class="course-info ui-grid-a ui-responsive">
-						<div class="ui-block-a">
+						<div style="text-align: center; margin-top: 0.5em;" class="ui-block-a ui-bar-c ui-shadow ui-btn-corner-all ui-btn-block">
 	
 								<!--<h1><?php echo $PAGE->heading ?></h1>-->
 								<span><?php echo $PAGE->course->summary; ?></span>
 								
-								<a data-inline="false" style="max-width: 10em;" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>">Grades</a>
+								<a data-inline="false" style="max-width: 10em;" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>"><i class="left icon-spell-check"></i>Grades</a>
 						</div>
 						<div class="ui-block-b accord">
 							<div data-role="collapsible-set" data-theme="a">

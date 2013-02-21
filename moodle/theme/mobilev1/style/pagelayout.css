@@ -142,7 +142,7 @@ li.My.profile{
 }
 
 #page-course-index .summary{
-	padding: 0 2em 1em 1em
+	display: none;
 }
 
 /* @end */
