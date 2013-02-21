@@ -44,31 +44,46 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
             // array of nested li elements
             $lis = array();
             foreach ($items as $item) {
-                if (!$item->display) {
+			
+                if (!$item->display) 
                     continue;
-                }
+                
+				$key = (string)$item->text;
+				
+				/* Don't display these items in the navig. */
+				if($key == 'Current course' || $key == 'My home' || $key == 'My courses')
+					continue;
+				
     
                 $isbranch = ($item->children->count() > 0 || $item->nodetype == navigation_node::NODETYPE_BRANCH);
                 $item->hideicon = true;
     
+
                 $content = $this->output->render($item);
                 $content .= $this->navigation_node($item, $attrs);
+				
                 
+				
                 
-    			if($content != '' && $content != 'General'){
-	                if ($isbranch && !(is_string($item->action) || empty($item->action))) {
-	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b', 'class' => (string)$item->key));
-	                } else if($isbranch) {
-	                    $content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b'));
-	                } else {
-	                    $content = html_writer::tag('li', $content, array('data-theme' => $theme, 'class' => (string)$item->text));
-	                }
+    			if($content != '' && $content != 'General' ){
+				
+						if ($isbranch ) {
+							$content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b', 'class' => $key));
+						} 
+						 else {
+							$content = html_writer::tag('li', $content, array('data-theme' => $theme, 'class' => $key));
+						}
+					
+					
 	                $lis[] = $content;
 	            }
             }
             if (!count($lis)) {
                 return '';
             }
+			
+			$lis = array_reverse($lis); //reverse the array this ordering makes better sense.
+			
             return implode("\n", $lis);
         }
     

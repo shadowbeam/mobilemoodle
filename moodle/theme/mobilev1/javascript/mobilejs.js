@@ -28,6 +28,8 @@ $('div').live('pageinit',function(event, ui){
 /* General */
 	$('div').live('pagebeforecreate',function(event, ui){
 		$('.ftoggler').attr('data-role', 'list-divider').addClass('ui-bar-a');
+		$('#id_submitbutton').attr('data-theme', 'b');
+		
 	});
 
 /* Login Page */
@@ -168,6 +170,9 @@ else if ($('ul.weeks').length > 0) {
 		$.mobile.changePage( link, { transition: "slide"} );
 
 	});
+	
+	/* edit section */
+	$('a:has(img.iconsmall)').addClass('edit_button').attr('data-role', 'button').attr('data-theme', 'a').attr('data-inline', 'true').attr('data-mini', 'true');
 
 });
 

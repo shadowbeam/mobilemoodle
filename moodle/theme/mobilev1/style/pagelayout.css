@@ -66,7 +66,10 @@ padding:0.5em;
 margin: 1em 0 1em 0;
 }
 
-/* @group Panel */
+/* 
+ * @group Panel 
+ * ---------------------------------------------------------------------
+ */
 
 /*make the page not the panel do the overlay shadow*/
 .ui-panel-content-wrap-display-reveal,
@@ -83,12 +86,15 @@ html .ui-panel-position-right.ui-panel-display-reveal
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	
 } 
 
 
 html div.ui-panel-inner{
 	padding: 0;
+}
+
+#panel-wrapper li a{
+	//text-transform: capitalize;
 }
 
 /* protect list from overflowing panel*/
@@ -101,9 +107,38 @@ html div.ui-panel-inner{
 	padding-left: 0.5em;
 }
 
+/* icons for panels */
+li.My.courses .ui-btn-text a:before
+{	
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	margin-right:0.5em;
+}
+
+li.My.courses .ui-btn-text a:before{
+	content: "\68";
+}
+
+li.Messages .ui-btn-text a:before{
+	content: "\68";
+}
+
+li.View.profile,
+li.My.profile{
+	display:none;
+}
+
+
 /* @end */
 
-/* @group Courses */
+/* 
+ * @group Courses 
+ * ---------------------------------------------------------------------
+ */
 
 #page-body .block_course_overview .content{
 	margin: 0;
@@ -120,7 +155,10 @@ html div.ui-panel-inner{
 /* @end */
 
 
-/* @group Header */
+/* 
+ * @group Header 
+ * ---------------------------------------------------------------------
+ */
 
 #page-header h1.headermain{
 	float: none;
@@ -164,7 +202,10 @@ a#back-button:focus{
 /* @end */
 
 
-/* @group Popup */
+/*
+ * @group Popup 
+ * ---------------------------------------------------------------------
+ */
 
 .ui-popup-screen.in{
 	background-color: #000;
@@ -174,7 +215,10 @@ a#back-button:focus{
 /* @end */
 
 
-/* @group Tables Group */
+/* 
+ * @group Tables Group 
+ * ---------------------------------------------------------------------
+ */
 
 
 td.c0, th{
@@ -218,7 +262,10 @@ only screen and (max-width: 760px),
  /*@end */
 
   
- /* @group Profile Info  */
+ /* 
+  * @group Profile Info  
+  * ---------------------------------------------------------------------
+  */
  
  
   .user-info{
@@ -271,8 +318,8 @@ only screen and (min-width: 35em) {
 	}
 	
 	#page-body{
-		padding-left: 3em;
-		padding-right: 3em;
+		//padding-left: 3em;
+		//padding-right: 3em;
 	}
 
 }

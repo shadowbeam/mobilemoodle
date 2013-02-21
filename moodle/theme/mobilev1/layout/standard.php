@@ -110,11 +110,11 @@ if (isloggedin()) { ?>
 								echo $renderer->settings_tree($PAGE->settingsnav);	
 							?>
 						</ul>
-					<?php   } ?>
+					<?php   }
 					
 					
-					<!-- For Course page -->
-					<?php if ($PAGE->pagetype == 'course-view-topics' || $PAGE->pagetype == 'course-view-weeks'){ ?>
+					/* For Course page */
+					 else if ($PAGE->pagetype == 'course-view-topics' || $PAGE->pagetype == 'course-view-weeks'){ ?>
 					
 					<div class="course-info ui-grid-a ui-responsive">
 						<div class="ui-block-a">

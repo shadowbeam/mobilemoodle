@@ -25,11 +25,11 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
-.icon-checkmark:before, .icon-reload-alt:before, .icon-undo:before, .icon-redo:before, .icon-grid:before, .icon-star:before, .icon-spam:before, .icon-info:before, .icon-search:before, .icon-cd:before, .icon-minus:before, .icon-close:before, .icon-plus:before, .icon-cog:before, .icon-enter:before, .icon-exit:before, .icon-home:before, .icon-file:before, .icon-menu:before, .icon-spinner:before,
-.ui-icon-plus:before,
-.ui-icon-minus:before,
-.ui-icon-loading:before, .icon-right:before, .icon-left:before, .icon-down:before, .icon-up:before,
+.icon-checkmark:before, .icon-reload-alt:before, .icon-undo:before, .icon-redo:before, .icon-grid:before, .icon-star:before, .icon-spam:before, .icon-info:before, .icon-search:before, .icon-cd:before, .icon-minus:before, .icon-close:before, .icon-plus:before, .icon-cog:before, .icon-enter:before, .icon-exit:before, .icon-home:before, .icon-file:before, .icon-menu:before, .icon-spinner:before, .icon-right:before, .icon-left:before, .icon-down:before, .icon-up:before,
 
+ .ui-icon-loading:before,
+ .ui-icon-plus:before,
+ .ui-icon-minus:before,
  .ui-icon-arrow-u:before,
  .ui-icon-arrow-l:before,
  .ui-icon-arrow-d:before,

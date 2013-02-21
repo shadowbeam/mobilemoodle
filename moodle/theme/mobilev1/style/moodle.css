@@ -166,10 +166,6 @@
 	text-decoration: none;
 }
 
-
-/* B
------------------------------------------------------------------------------------------------------------*/
-
 /* B
 -----------------------------------------------------------------------------------------------------------*/
 .ui-bar-b {
@@ -271,20 +267,21 @@
 
 .ui-btn-up-b,
 .ui-btn-up-b:hover  {
-background: rgb(110,169,204);
-background: -moz-linear-gradient(top,  rgba(110,169,204,1) 0%, rgba(61,151,204,1) 50%, rgba(40,144,204,1) 51%, rgba(37,131,186,1) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(110,169,204,1)), color-stop(50%,rgba(61,151,204,1)), color-stop(51%,rgba(40,144,204,1)), color-stop(100%,rgba(37,131,186,1)));
-background: -webkit-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
-background: -o-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
-background: -ms-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
-background: linear-gradient(to bottom,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ea9cc', endColorstr='#2583ba',GradientType=0 );
-
+	background: rgb(110,169,204);
+	background: -moz-linear-gradient(top,  rgba(110,169,204,1) 0%, rgba(61,151,204,1) 50%, rgba(40,144,204,1) 51%, rgba(37,131,186,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(110,169,204,1)), color-stop(50%,rgba(61,151,204,1)), color-stop(51%,rgba(40,144,204,1)), color-stop(100%,rgba(37,131,186,1)));
+	background: -webkit-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
+	background: -o-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
+	background: linear-gradient(to bottom,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ea9cc', endColorstr='#2583ba',GradientType=0 );
  }
+ 
  
  a.ui-collapsible-heading-toggle.ui-btn-up-b .ui-btn-text a{
 	color:#fff;
  }
+ 
  
  
 .ui-btn-up-b:visited,
@@ -297,9 +294,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ea9cc', end
 .ui-btn-hover-b a.ui-link-inherit {
 	color: 					#ffffff /*{b-bhover-color}*/;
 }
-.ui-btn-down-b {
+
+ .ui-btn-down-b ,
+ .ui-btn-down-b :hover {
+	background: rgb(110,169,204);
+	background: -moz-linear-gradient(top,  rgba(110,169,204,1) 0%, rgba(61,151,204,1) 50%, rgba(40,144,204,1) 51%, rgba(37,131,186,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(110,169,204,1)), color-stop(50%,rgba(61,151,204,1)), color-stop(51%,rgba(40,144,204,1)), color-stop(100%,rgba(37,131,186,1)));
+	background: -webkit-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
+	background: -o-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
+	background: linear-gradient(to bottom,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ea9cc', endColorstr='#2583ba',GradientType=0 );
+	
+	-moz-box-shadow: inset 0px 0px 12px 			rgba(0,0,0);
+	-webkit-box-shadow: inset 0px 0px 12px 		rgba(0,0,0);
+	box-shadow: inset 0px 0px 12px 				rgba(0,0,0);
 	opacity: 0.75;
-}
+
+ }
+
 .ui-btn-down-b:visited,
 .ui-btn-down-b:hover,
 .ui-btn-down-b a.ui-link-inherit {
@@ -328,8 +341,10 @@ li.ui-btn-up-c{
 
 }
 
-
-
+.ui-body-c{
+	background-color:#fff;
+	
+}
 
 /* Structure */
 
@@ -338,15 +353,6 @@ li.ui-btn-up-c{
 
 a.ui-link-inherit {
 	text-decoration: none !important;
-}
-
-.contentafterlink{
-	padding: 10px;
-	border-radius: 0;
-	margin-top: 10px;
-	float: left;
-	max-width: 100%;
-	cursor: default;
 }
 
 /* Active class used as the "on" state across all themes
@@ -725,7 +731,7 @@ background-image:         linear-gradient( #434443 /*{a-bup-background-start}*/,
 }
 .ui-icon-checkbox-off,
 .ui-icon-radio-off {
-	background-color: transparent;	
+	background-color: #0071bc;	
 }
 .ui-checkbox-on .ui-icon,
 .ui-radio-on .ui-icon {
@@ -847,4 +853,3 @@ background-image:         linear-gradient( #434443 /*{a-bup-background-start}*/,
 	outline-width: 1px;
 	outline-style: auto;
 }
-			
