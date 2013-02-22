@@ -106,6 +106,11 @@ html div.ui-panel-inner{
 	margin: 0;
 }
 
+#panel-wrapper .ui-btn i{
+	float:right;
+	
+}
+
 
 /* icons for panels */
 #panel-wrapper li .ui-btn-text a:before{	
@@ -226,10 +231,9 @@ table.responsive-tab,
 	width:100%;
 }
 
-/* Tablets */
+/* For phones */
 @media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+only screen and (max-width: 760px) {
 
 	/* Force table to not be like tables anymore */
 	table.responsive-tab,
@@ -239,6 +243,7 @@ only screen and (max-width: 760px),
 	.responsive-tab td,
 	.responsive-tab tr { 
 		display: block;
+		text-align:center;
 	}
 	
 	.responsive-tab tr { border: 1px solid #676767; }
@@ -324,7 +329,10 @@ only screen and (min-width: 35em) {
  
  /* Grades */
  
- #page-mod-assign-view table .commands {
+ 
+ #page-mod-assign-view table .commands,
+ #page-mod-assign-view .helplink
+ {
 	display:none;
  }
  

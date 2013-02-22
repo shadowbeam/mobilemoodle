@@ -288,6 +288,9 @@ $('#page-mod-assign-view').live('pagebeforecreate',function(event, ui){
 
 	$('#id_savegrade, #id_submitbutton').attr('data-theme', 'b');
 	$('a:has(img.smallicon)').addClass('edit_button').attr('data-role', 'button').attr('data-theme', 'a').attr('data-inline', 'true').attr('data-mini', 'true');
+	
+	$('.submissionlinks a').attr('data-role', 'button').attr('data-theme', 'b');
+
 });
 
 
@@ -304,7 +307,14 @@ $('#page-course-user').live('pagebeforecreate',function(event, ui){
 
 /* Resource */
 $('#page-mod-resource-view').live('pagebeforecreate',function(event, ui){
-	$('#resourceobject').remove();
+	//$('#resourceobject').remove();
+	var c = $("#resourceobject").html();
+	//$("#resourceobject").hide();
+	//$('.resourcecontent').append(c);
+	
+//	var p = $('param').attr('value');
+//	alert(p);
+//	$('.resourceontent').load(p);
 });
 
 

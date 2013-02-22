@@ -2,6 +2,54 @@
 
 class theme_mobilev1_renderer extends plugin_renderer_base {
 
+   /**
+     * Implementation of user image rendering.
+     *
+     * @param help_icon $helpicon A help icon instance
+     * @return string HTML fragment
+     */
+    protected function render_help_icon(help_icon $helpicon) {
+        global $CFG;
+
+        // first get the help image icon
+        $src = $this->pix_url('help');
+
+        $title = get_string($helpicon->identifier, $helpicon->component);
+
+        if (empty($helpicon->linktext)) {
+            $alt = get_string('helpprefix2', '', trim($title, ". \t"));
+        } else {
+            $alt = get_string('helpwiththis');
+        }
+
+        $attributes = array('src'=>$src, 'alt'=>$alt, 'class'=>'iconhelp');
+        $output = html_writer::empty_tag('img', $attributes);
+
+        // add the link text if given
+        if (!empty($helpicon->linktext)) {
+            // the spacing has to be done through CSS
+            $output .= $helpicon->linktext;
+        }
+
+        // now create the link around it - we need https on loginhttps pages
+        $url = new moodle_url($CFG->httpswwwroot.'/help.php', array('component' => $helpicon->component, 'identifier' => $helpicon->identifier, 'lang'=>current_language()));
+
+        // note: this title is displayed only if JS is disabled, otherwise the link will have the new ajax tooltip
+        $title = get_string('helpprefix2', '', trim($title, ". \t"));
+
+        $attributes = array('href'=>$url, 'title'=>$title, 'aria-haspopup' => 'true', 'class' => 'tooltip');
+        $output = html_writer::tag('a', $output, $attributes);
+
+        $this->page->requires->js_init_call('M.util.help_icon.setup');
+        $this->page->requires->string_for_js('close', 'form');
+
+        // and finally span
+        return html_writer::tag('span', $output, array('class' => 'H'));
+    }
+
+	
+
+
     /**
      * Produces the settings tree
      *
@@ -239,6 +287,53 @@ protected function navigation_node($items, $attrs=array(), $expansionlimit=null,
 }
 
 class theme_mobilev1_core_renderer extends core_renderer {
+ 
+    /**
+     * Implementation of user image rendering.
+     *
+     * @param help_icon $helpicon A help icon instance
+     * @return string HTML fragment
+     */
+    protected function render_help_icon(help_icon $helpicon) {
+        global $CFG;
+
+        // first get the help image icon
+        //$src = $this->pix_url('help');
+
+        $title = get_string($helpicon->identifier, $helpicon->component);
+
+        if (empty($helpicon->linktext)) {
+            $alt = get_string('helpprefix2', '', trim($title, ". \t"));
+        } else {
+            $alt = get_string('helpwiththis');
+        }
+
+       // $attributes = array('src'=>$src, 'alt'=>$alt, 'class'=>'ICONHELP');
+      //  $output = html_writer::empty_tag('img', $attributes);
+		$output = "?";
+        // add the link text if given
+        if (!empty($helpicon->linktext)) {
+            // the spacing has to be done through CSS
+            $output .= $helpicon->linktext;
+        }
+
+        // now create the link around it - we need https on loginhttps pages
+        $url = new moodle_url($CFG->httpswwwroot.'/help.php', array('component' => $helpicon->component, 'identifier' => $helpicon->identifier, 'lang'=>current_language()));
+
+        // note: this title is displayed only if JS is disabled, otherwise the link will have the new ajax tooltip
+        $title = get_string('helpprefix2', '', trim($title, ". \t"));
+
+        $attributes = array('href'=>$url, 'title'=>$title, 'aria-haspopup' => 'true', 'class' => 'tooltip');
+        $output = html_writer::tag('a', $output, array('class' => 'helplink', 'data-role'=> 'button', 'data-inline' => 'true', 'data-mini' => 'true'));
+
+        $this->page->requires->js_init_call('M.util.help_icon.setup');
+        $this->page->requires->string_for_js('close', 'form');
+
+        // and finally span
+      //  return html_writer::tag('span', $output, array('class' => 'helplink', );
+        return $output;
+    }
+ 
  
   /**
    * Override the need to have body content
@@ -573,7 +668,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
 			$content = $htmlblocks[$last-2];
 			$url = (string)$content->action;
 			if($url = $this->page->url){
-				$url = "' onclick='history.back(-1)'"; //if the same page defualt to back button using js
+				$url = "'onclick='history.back(-1)'"; //if the same page defualt to back button using js
 			}
 			return "<a id='back-button' data-direction='reverse' data-back='true' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='" .  $url . "'></a>";
 		}
