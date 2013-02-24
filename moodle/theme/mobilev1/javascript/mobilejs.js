@@ -264,7 +264,10 @@ $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.foru
 			//$.mobile.loadPage(link);
 			
 			
+			$('.forumpost').click(function() {
 			
+				alert('show replies');
+			});
 
 			
 		});

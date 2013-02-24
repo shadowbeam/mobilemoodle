@@ -69,7 +69,7 @@ if (isloggedin()) { ?>
 		<!-- /panel-->
 
 		<!--  header -->
-		<div id="page-header" data-role="header" data-position="fixed">
+		<div id="page-header" data-role="header" data-position="fixed" data-tap-toggle="false">
 
 			<?php if ($PAGE->heading) { ?>
 
