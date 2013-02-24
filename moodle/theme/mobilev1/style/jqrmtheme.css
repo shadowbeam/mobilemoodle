@@ -645,6 +645,22 @@ a.ui-link-inherit {
 }
 
 
+
+/* Profile Icon */
+.baddevice .defaultuserpic,
+.no-fontface .defaultuserpic{
+	background-image: url([[pix:theme|user100]]);
+	background-size:100%;
+	background-repeat:no-repeat;
+}
+
+.baddevice .defaultuserpic:before,
+.no-fontface .defaultuserpic:before{
+	content:none!important;
+	
+}
+
+
 /* Alt icon color
 -----------------------------------------------------------------------------------------------------------*/
 

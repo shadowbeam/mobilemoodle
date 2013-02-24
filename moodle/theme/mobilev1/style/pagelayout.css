@@ -97,9 +97,6 @@ html div.ui-panel-inner{
 	padding: 0;
 }
 
-#panel-wrapper li a{
-	//text-transform: capitalize;
-}
 
 /* protect list from overflowing panel*/
 .ui-panel-display-reveal .ui-panel-inner > .ui-listview{
@@ -123,6 +120,22 @@ html div.ui-panel-inner{
 	margin-right:0.5em;
 	float: left;
 }
+
+.defaultuserpic{
+	color: #000000;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.73);
+	text-align: center;
+}
+
+/* User Picture */
+#panel-wrapper .defaultuserpic{
+	font-size: 30px;
+	width: 35px;
+	height: 35px;
+	float: left;
+}
+
 
 
 li.View.profile,
@@ -271,8 +284,8 @@ only screen and (max-width: 760px) {
  
  
   .user-info{
- 	text-align: center;
  	padding: 0.5em 1em 0.5em 1em;
+ 	overflow: hidden;
  }
   .user-info a{
  	display: inline-block;
@@ -284,13 +297,13 @@ only screen and (max-width: 760px) {
  	
  }
  
-  .user-info img{
- 	width: 35px;
- 	height: 35px;
+  .user-info img,
+  .defaultuserpic{
+
  	background-color: rgba(255, 255, 255, 0.45);
  	border: 1px solid #252525;
  	-webkit-border-radius: 5px;
- 	margin-right: 1em;
+ 	margin-right: 0.25em;
  }
  
  /* @end */ 

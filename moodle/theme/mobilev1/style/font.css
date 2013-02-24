@@ -39,7 +39,8 @@ you can use the generic selector below, but it's slower:
  .ui-icon-checkbox-on:before,
  .icon-arrow-left:before,
  .ui-icon-radio-on:before,
- .ui-icon-gear:before
+ .ui-icon-gear:before,
+ .defaultuserpic:before
 
  
  {
@@ -153,7 +154,8 @@ li.Grade .ui-btn-text a:before {
 .icon-flag:before {
 	content: "\3a";
 }
-.icon-user:before {
+.icon-user:before,
+.defaultuserpic:before {
 	content: "\3b";
 }
 .icon-bubbles:before {
