@@ -39,13 +39,12 @@ $THEME->parents = array('base');
 
 $THEME->sheets = array(
     'pagelayout', 
-    'jqmrc',
-    //'mobilev1',
+	'jqrmstructure',
+	'jqrmtheme',
     'login',
     'frontpage',
     'profile',
 	'forums',
-	'moodle',
 	'font',
 	'course'
    
@@ -156,11 +155,6 @@ $THEME->javascripts = array(
     'jquery',
 	'mdrnzr',
 	'mobilejs',
-//'jquery-1.7.1.min',
-//   'jquery.mobile-1.1.1',
-    'jquery.mobile-1.3.0-rc.1.min',
-	
-
-    
+	'jquery.mobile-1.3.0.min'
 );
 $THEME->javascripts_footer = array();

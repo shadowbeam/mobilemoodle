@@ -150,7 +150,7 @@ else if ($('ul.weeks').length > 0) {
 	$('.mod-indent .activityinstance a').unwrap().unwrap();
 	
 	//create the collapsible headers
-	$('.course-content li.section.main').not('[id="section-0"]').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','d');
+	$('.course-content li.section.main').not('[id="section-0"]').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','c');
 		
 	
 	$('.course-content li.section.main:even').addClass('ui-block-b');
