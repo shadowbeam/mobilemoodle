@@ -264,14 +264,18 @@ $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.foru
 			//$.mobile.loadPage(link);
 			
 			
-			$('.forumpost').click(function() {
 			
-				alert('show replies');
-			});
 
 			
 		});
+		
+	$('.indent .indent').hide();
 	
+	$('.indent .forumpost').click(function() {
+	
+		alert('show replies');
+		$(this).closest('.indent').find('.indent:first').show();
+	});
 		
       //  $('.forumpost div.author a').attr("data-inline", "true");
       
