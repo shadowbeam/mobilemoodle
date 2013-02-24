@@ -268,7 +268,13 @@
 
 .ui-btn-up-b,
 .ui-btn-up-b:hover  {
-	background: rgb(110,169,204);
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 1px 0 #194b7e;
+	border: 1px solid #044062;
+	font-weight: bold;
+	background: #194b7e;
+	
 	background: -moz-linear-gradient(top,  rgba(110,169,204,1) 0%, rgba(61,151,204,1) 50%, rgba(40,144,204,1) 51%, rgba(37,131,186,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(110,169,204,1)), color-stop(50%,rgba(61,151,204,1)), color-stop(51%,rgba(40,144,204,1)), color-stop(100%,rgba(37,131,186,1)));
 	background: -webkit-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
@@ -292,7 +298,7 @@
  
 .ui-btn-up-b:visited,
 .ui-btn-up-b a.ui-link-inherit {
-	color: 					#ffffff /*{b-bup-color}*/;
+	color: #ffffff;
 }
 
 .ui-btn-hover-b:visited,
@@ -302,22 +308,17 @@
 }
 
  .ui-btn-down-b ,
- .ui-btn-down-b :hover {
-	background: rgb(110,169,204);
-	background: -moz-linear-gradient(top,  rgba(110,169,204,1) 0%, rgba(61,151,204,1) 50%, rgba(40,144,204,1) 51%, rgba(37,131,186,1) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(110,169,204,1)), color-stop(50%,rgba(61,151,204,1)), color-stop(51%,rgba(40,144,204,1)), color-stop(100%,rgba(37,131,186,1)));
-	background: -webkit-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
-	background: -o-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
-	background: -ms-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
-	background: linear-gradient(to bottom,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
+ .ui-btn-down-b:hover {
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 1px 0 #194b7e;
+	border: 1px solid #044062;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ea9cc', endColorstr='#2583ba',GradientType=0 );
-	
-	-moz-box-shadow: inset 0px 0px 12px 			rgba(0,0,0);
-	-webkit-box-shadow: inset 0px 0px 12px 		rgba(0,0,0);
-	box-shadow: inset 0px 0px 12px 				rgba(0,0,0);
-	opacity: 0.75;
-
- }
+	-moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.49);
+	-webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.49);
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.49);
+	background-color: #008dc5;
+}
 
 .ui-btn-down-b:visited,
 .ui-btn-down-b:hover,
@@ -388,6 +389,8 @@
 	color: #333;
 	text-shadow: 0 1px 0 #fff;
 	background: #f9f9f9;
+	background-color:#fff;	
+	
 	background-image: -webkit-gradient(linear,left top,left bottom,from( #f9f9f9 ),to( #eee ));
 	background-image: -webkit-linear-gradient( #f9f9f9,#eee );
 	background-image: -moz-linear-gradient( #f9f9f9,#eee );
