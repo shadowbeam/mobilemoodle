@@ -274,7 +274,10 @@ $('div#page-mod-forum-discuss, #page-mod-forum-discuss div.generalpage, div.foru
 	$('.indent .forumpost').click(function() {
 	
 		alert('show replies');
-		$(this).closest('.indent').find('.indent:first').show();
+		var rpls = $(this).closest('.indent').find('.indent:first').html();
+		$('body').append('<div id="dialog-replies" data-close-button="right" data-role="dialog"><div data-role="header"><h1>Replies</h1></div><div data-role="content"' + rpls + '</div></div>');
+		$.mobile.changePage( $('#dialog-replies'), { transition: "pop"} );
+		
 	});
 		
       //  $('.forumpost div.author a').attr("data-inline", "true");
