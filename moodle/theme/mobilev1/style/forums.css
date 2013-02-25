@@ -134,7 +134,9 @@
 	border-top-left-radius: 0!important;
 	border-top-right-radius: 0!important;
 	border-top: none;
+	min-width: 5em!important;
 }
+
 
 /* @end */
 
@@ -199,7 +201,6 @@
 	text-align: center;
 	color: #fff;
 	
-	
 }
 
 
@@ -221,7 +222,8 @@ div.discussioncontrols,
 #page-mod-forum-post .fdescription,
 #mformforum label[for="id_subscribe"],
 #mformforum label.accesshide[for="menumessageformat"],
-.fitem_ffilemanager
+.fitem_ffilemanager,
+ .forumpost .row.maincontent .left
 {
 	display:none;
  }

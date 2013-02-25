@@ -2,14 +2,10 @@
 //must bind the global settings before jquerymobile is loaded
 $(document).bind("mobileinit", function(){
 	$.mobile.defaultPageTransition = "slide";
-	
-	
-	
-	
+
 });
  $(document).bind("vmouseover", function () { });
-
-
+ 
 /*Course Index*/
 $('#course-page-index, #page-site-index').live('pagebeforecreate',function(event, ui){
 	$('ul.section').attr("data-role", "listview").attr("data-inset", "true").attr('data-theme', 'a');
@@ -227,7 +223,9 @@ $('tr.discussion').each(function(index) {
  //forum discussion page only stuff
 $('#page-mod-forum-discuss, .forumtype-single, #page-mod-forum-post, #page-mod-forum-user').live('pagebeforecreate',function(event, ui){
         //actual forum posting
-        $('.forumpost div.row.header, h2.accesshide').addClass("ui-li ui-li-divider ui-btn ui-bar-b");
+        $('.forumpost:not(.starter) div.row.header, h2.accesshide').addClass("ui-li ui-li-divider ui-btn ui-bar-b");
+        $('.forumpost.starter div.row.header, h2.accesshide').addClass("ui-li ui-li-divider ui-btn ui-bar-a");
+        
         $('.options div.commands').attr("data-role", "controlgroup").attr("data-type", "horizontal");
         $('.options div.commands a').attr("data-role", "button").attr("data-inline", "true").attr('data-mini','true');
 		
@@ -292,23 +290,43 @@ $('#page-mod-forum-discuss, .forumtype-single, #page-mod-forum-post, #page-mod-f
         
     });
     
-$('#page-mod-forum-discuss, .forumtype-single, #page-mod-forum-post, #page-mod-forum-user, #dialog-replies').live('pagebeforecreate',function(event, ui){
+$('#page-mod-forum-discuss, .forumtype-single, #page-mod-forum-post, #page-mod-forum-user, #dialog-replies, .dialog-replies').live('pagebeforecreate',function(event, ui){
+	
+	/* Attempt to load the reply form in a popup*/
+			$( ".options .commands a" ).bind( "click", function(event, ui) {
+				event.preventDefault();
+				event.stopPropagation;
+			
+				var link = $(this).attr('href');
+					//this ignores the hash and simply loads the page
+					$.mobile.changePage( link, { transition: "slideup"} );
+					
+			});
 	
 	$('.indent .indent').hide();
 	
-	$('.forumpost').click(function() {
-	
-		alert('show replies');
-		
-		var rpls = $(this).closest('.indent').find('.indent:first').html();
+	$('.forumpost:not(.starter)').live('swiperight', function (event, ui) {
+
+		event.stopImmediatePropagation(); //prevent double firing
+		/* Get id from the previous anchor link */
 		var id = 'dialog-replies-' + $(this).prev().attr('id');
-		alert(id);
 		
-		$('body').append('<div id="' + id + '" data-close-button="right" data-role="dialog"><div data-role="header"><h1>Replies</h1></div><div data-role="content"' + rpls + '</div></div>');
-		$.mobile.changePage( $('#' + id), { transition: "pop"} );
+		/* if dialog already exists */
+		if($('#' + id).length > 0){
+			$.mobile.changePage( $('#' + id), { transition: "pop"} );
+		}
+		
+		else{
+			var rpls = $(this).parent().find('.indent:first').html();
+			if(rpls != null){
+				$('body').append('<div id="' + id + '" data-close-button="right" data-role="dialog" class="dialog-replies"><div data-role="header"><h1>Replies</h1></div><div data-role="content"><div class="forumpost firspost">' + $(this).html() + '</div>' + rpls + '</div></div>');
+				$.mobile.changePage( $('#' + id), { transition: "pop"} );
+			}
+		}
 		
 	});
 });
+
 
 
 /* Grades*/
