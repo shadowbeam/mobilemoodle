@@ -267,11 +267,7 @@ $('#page-mod-forum-discuss, .forumtype-single, #page-mod-forum-post, #page-mod-f
 			
 			//link.replace('#mformforum,','');
 			//$.mobile.loadPage(link);
-			
-			
-			
-
-			
+						
 		});
 		
 	
@@ -284,6 +280,15 @@ $('#page-mod-forum-discuss, .forumtype-single, #page-mod-forum-post, #page-mod-f
         }).remove();
 		
 		$('#id_submitbutton').attr('data-theme', 'b'); //do we need?
+		
+		/* paging buttons */
+		$('.paging a').attr('class', 'ui-li ui-li-static ui-btn-up-c');
+		
+		$( ".paging a" ).hover(function() {
+		       $( this ).addClass( "ui-btn-up-b" ).removeClass( "ui-btn-up-c" );
+		   }, function() {
+		       $( this ).removeClass( "ui-btn-up-b" ).addClass( "ui-btn-up-c" );
+		   });
         
     });
     

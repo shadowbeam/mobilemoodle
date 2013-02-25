@@ -172,6 +172,37 @@
 	}
 }
 
+/* Paging Buttons */
+
+.paging{
+	height: 3em;
+	
+}
+.paging .ui-li.ui-li-static.ui-btn-up-c {
+    height: 3em;
+    min-width: 2em;    
+    display: inline-block;
+    padding: 0 3px;
+    font-size: 10px;
+    line-height: 3em;
+    text-align: center;
+  
+}
+
+.paging .ui-li.ui-li-static.ui-btn-up-b{
+	height: 3em;
+	 min-width: 2em; 
+	display: inline-block;
+	padding: 0 3px;
+	font-size: 10px;
+	line-height: 3em;
+	text-align: center;
+	color: #fff;
+	
+	
+}
+
+
 /* Hidden */
 
 #page-mod-forum-view table.forumheaderlist td.picture,
