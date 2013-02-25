@@ -110,7 +110,7 @@
 	border: 1px solid #000000 /*{a-bup-border}*/;
 	background: #3d3e3d /*{a-bup-background-color}*/;
 	font-weight: bold;
-	color: #ffffff /*{a-bup-color}*/;
+	color: #ffffff ;/*{a-bup-color}*/
 	text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #444444 /*{a-bup-shadow-color}*/;
 	background-image: -webkit-gradient(linear, left top, left bottom, from( #434443 /*{a-bup-background-start}*/), to( #363736 /*{a-bup-background-end}*/)); /* Saf4+, Chrome */
 	background-image: -webkit-linear-gradient( #434443 /*{a-bup-background-start}*/, #363736 /*{a-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
@@ -159,12 +159,13 @@
 .ui-btn-down-a a.ui-link-inherit {
 	color: #ffffff /*{a-bdown-color}*/;
 }
+
 .ui-btn-up-a,
 .ui-btn-hover-a,
 .ui-btn-down-a {
 	         font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 	text-decoration: none;
-	color: #154f70;
+
 }
 
 
