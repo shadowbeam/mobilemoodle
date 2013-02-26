@@ -302,32 +302,34 @@ $('#page-mod-forum-discuss, .forumtype-single, #page-mod-forum-post, #page-mod-f
 					$.mobile.changePage( link, { transition: "slideup"} );
 					
 			});
-	
-	$('.indent .indent').hide();
-	
-	$('.forumpost:not(.starter)').live('swiperight', function (event, ui) {
-
-		event.stopImmediatePropagation(); //prevent double firing
-		/* Get id from the previous anchor link */
-		var id = 'dialog-replies-' + $(this).prev().attr('id');
-		
-		/* if dialog already exists */
-		if($('#' + id).length > 0){
-			$.mobile.changePage( $('#' + id), { transition: "pop"} );
-		}
-		
-		else{
-			var rpls = $(this).parent().find('.indent:first').html();
-			if(rpls != null){
-				$('body').append('<div id="' + id + '" data-close-button="right" data-role="dialog" class="dialog-replies"><div data-role="header"><h1>Replies</h1></div><div data-role="content"><div class="forumpost firspost">' + $(this).html() + '</div>' + rpls + '</div></div>');
-				$.mobile.changePage( $('#' + id), { transition: "pop"} );
-			}
-		}
-		
-	});
 });
 
+$('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smallscreen #page-mod-forum-post,.smallscreen #page-mod-forum-user,.smallscreen #dialog-replies, .smallscreen .dialog-replies').live('pagebeforecreate',function(event, ui){
+	
+	$('.indent .indent').hide();
+		
+		$('.forumpost:not(.starter)').live('swiperight', function (event, ui) {
+	
+			event.stopImmediatePropagation(); //prevent double firing
+			/* Get id from the previous anchor link */
+			var id = 'dialog-replies-' + $(this).prev().attr('id');
+			
+			/* if dialog already exists */
+			if($('#' + id).length > 0){
+				$.mobile.changePage( $('#' + id), { transition: "pop"} );
+			}
+			
+			else{
+				var rpls = $(this).parent().find('.indent:first').html();
+				if(rpls != null){
+					$('body').append('<div id="' + id + '" data-close-button="right" data-role="dialog" class="dialog-replies"><div data-role="header"><h1>Replies</h1></div><div data-role="content"><div class="forumpost firspost">' + $(this).html() + '</div>' + rpls + '</div></div>');
+					$.mobile.changePage( $('#' + id), { transition: "pop"} );
+				}
+			}
+			
+		});
 
+});
 
 /* Grades*/
 

@@ -167,7 +167,7 @@
 
 
 /*Phones*/
-@media only screen and (max-width: 36em){
+@media only screen and (max-width: 30em){
 	.path-mod-forum   .indent,
 	.path-mod-forum .indent .indent{
 		margin:0;
