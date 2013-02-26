@@ -110,7 +110,8 @@ you can use the generic selector below, but it's slower:
 	content: "\6c";
 }
 .icon-home:before,
-li.My.courses .ui-btn-text a:before {
+li.My.courses .ui-btn-text a:before,
+li.Courses .ui-btn-text a:before  {
 	content: "\48";
 }
 .icon-file:before {
@@ -164,7 +165,7 @@ li.Discussions .ui-btn-text a:before {
 	content: "\44";
 }
 .icon-bubble:before,
-li.Messages .ui-btn-text a:before {
+li.Posts .ui-btn-text a:before {
 	content: "\3d";
 }
 .icon-warning:before {
@@ -179,10 +180,12 @@ li.Calendar .ui-btn-text a:before
 .icon-tag:before {
 	content: "\40";
 }
-.icon-envelope:before {
+.icon-envelope:before,
+li.Messages .ui-btn-text a:before  {
 	content: "\3f";
 }
-.icon-pencil:before {
+.icon-pencil:before,
+li.Add.a.new.entry .ui-btn-text a:before  {
 	content: "\41";
 }
 

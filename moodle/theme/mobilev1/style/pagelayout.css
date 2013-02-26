@@ -108,12 +108,12 @@ html div.ui-panel-inner{
 	
 }
 
-#pannel-wrapper #logout-btn,
-#pannel-wrapper #settings-btn{
+#panel-wrapper #logout-btn,
+#panel-wrapper #settings-btn{
 	max-width: 90%;
 	margin-left: auto;
 	margin-right: auto;
-	}
+	
 }
 
 /* icons for panels */
