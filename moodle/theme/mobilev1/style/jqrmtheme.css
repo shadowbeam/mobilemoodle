@@ -637,12 +637,11 @@ a.ui-link-inherit {
  .baddevice .ui-icon-searchfield:after,
  .no-fontface .ui-icon-searchfield:after{
 	background-image: url([[pix:theme|icons-18-white]]);
-	content:none!important;
 }
 
 
 
-/* Profile Icon */
+/* Baddevice/No Font Face Support */
 .baddevice .defaultuserpic,
 .no-fontface .defaultuserpic{
 	background-image: url([[pix:theme|user100]]);
@@ -650,10 +649,37 @@ a.ui-link-inherit {
 	background-repeat:no-repeat;
 }
 
+.baddevice .ui-icon,
+.no-fontface .ui-icon,
+.baddevice .ui-icon-searchfield:after,
+.no-fontface .ui-icon-searchfield:after,
 .baddevice .defaultuserpic:before,
-.no-fontface .defaultuserpic:before{
+.no-fontface .defaultuserpic:before,
+.baddevice .ui-icon:before,
+.no-fontface .ui-icon:before,
+.baddevice .ui-icon-alt .ui-icon:before,
+.no-fontface .ui-icon-alt .ui-icon:before,
+.no-fontface .mybtn:before,
+.baddevice .mybtn:before{
 	content:none!important;
-	
+}
+
+.no-fontface .mybtn,
+.baddevice .mybtn{
+	width: 25px;
+	height: 25px;
+	background-size:100%;
+	background-repeat:no-repeat;
+}
+
+.no-fontface .ion-menu,
+.baddevice .icon-menu{
+	background-image: url([[pix:theme|menu]]);
+}
+
+.no-fontface #back-button,
+.baddevice #back-button{
+	background-image: url([[pix:theme|arrow-left]]);
 }
 
 
@@ -675,12 +701,7 @@ a.ui-link-inherit {
 	background-image: url([[pix:theme|icons-18-black]]);
 }
 
- .baddevice .ui-icon:before,
- .no-fontface .ui-icon:before,
-.baddevice .ui-icon-alt .ui-icon:before,
-.no-fontface .ui-icon-alt .ui-icon:before{
-	content:none!important;
-}
+
 
 /* No disc
 -----------------------------------------------------------------------------------------------------------*/
