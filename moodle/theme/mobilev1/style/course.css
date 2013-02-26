@@ -1,0 +1,111 @@
+#page-course-view-weeks .course-content .ui-link-inherit,
+ #page-course-view-topics .course-content .ui-link-inherit{
+	margin-left: 0;
+	margin-right: 0;
+	position: relative;
+	min-height: auto;
+	padding: 0 60px 0 10px;
+}
+
+//changed changed 
+ #page-course-view-topics .course-content img.ui-li-thumb,
+ #page-course-view-weeks .course-content img.ui-li-thumb{
+	position: relative;
+	margin: 10px;
+}
+
+  #page-course-view-topics .course-content .instancename,
+  #page-course-view-weeks .course-content .instancename{
+	line-height: 50px;
+}
+
+.summary  img:not(.iconsmall){
+	max-width: 100%!important;
+	padding: 1px;
+	border: 1px solid #021a40!important;
+	background-color:#fff;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* spacing on course page */
+.course-content{
+	margin-top: 2em;
+}
+
+
+.course-content .accesshide{
+	display: none;
+}
+
+.course-content li.section{
+	list-style-type:none;
+}
+
+
+@media all and (min-width: 35em){
+
+	.course-content li.section.ui-block-a {
+		padding-right: 10px;
+	}
+	
+	.course-content li.section.ui-block-b,
+	.accord.ui-block-b	{
+		padding-left: 10px;
+	}
+	
+	.course-content #section-0{
+		width: 100%;
+		padding-left: 0px;
+	}
+
+}
+
+/* Course Info */
+.course-info .ui-block-a .inner{
+	padding: 0.5em;
+	min-height: 5em;
+}
+
+.course-info .ui-block-a{
+	text-align: center;
+	margin-top: 0.5em;
+}
+
+/* Editting */
+
+.course-content img.iconsmall{
+	width:15px;
+	height:15px;
+	
+}
+
+a.edit_button .ui-btn-inner{
+	padding:0.5em;
+}
+
+.course-content .contentafterlink,
+.course-content .commands{
+	max-width: 100%;
+	cursor: default;
+	padding: 15px 40px 15px 15px;
+	white-space:normal;
+}
+
+.summary a.edit_button{
+	margin-bottom:2em; /* space for edit buttons in ul */
+}
+
+
+.course-content a.editing_update, /* Same as editing_title */
+.course-content a.editing_moveright, 
+.course-content a.editing_moveleft,
+.course-content a.editing_move, /* no moving controls */
+.course-content a.editing_groupsnone, /* no moving controls */
+.addresourcemodchooser, /* can't add new resources */
+.addresourcedropdown /* can't add new resources */
+
+{
+	display:none;
+}
