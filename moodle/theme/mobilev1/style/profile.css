@@ -12,14 +12,11 @@
 .userprofile .descriptionbox table td,
 .userprofile .descriptionbox table th{
 	border: none;
-	
 }
 
 #page-user-editadvanced fieldset#moodle{
 	width: 100%
 }
-
-
 
 .profilepicture .defaultuserpic{
 	width: 100px;
@@ -30,6 +27,54 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+ /* 
+  * @group Profile Info  
+  * ---------------------------------------------------------------------
+  */
+  
+  .user-info{
+ 	padding: 0.5em 1em 0.5em 1em;
+ 	overflow: hidden;
+ }
+  .user-info a{
+ 	display: inline-block;
+ }
+ 
+ .user-info a.username{
+ 	line-height: 40px;
+ 	vertical-align: text-bottom;
+ 	
+ }
+ 
+  .user-info img,
+  .defaultuserpic{
+ 	background-color: rgba(255, 255, 255, 0.45);
+ 	border: 1px solid #252525;
+ 	-webkit-border-radius: 5px;
+ 	margin-right: 0.25em;
+	height: 35px;
+	width:35px;
+	font-size:35px;
+ }
+ 
+ /* @end */ 
+
+/* Buttons */
+.userprofile .messagebox a,
+.userprofile .fullprofilelink a{
+	max-width: 20em;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+.userprofile .messagebox ,
+.userprofile .fullprofilelink {
+	text-align:center;
+}
+
+
 
 /*#page-user-editadvanced legend{
 	background-color: #000;

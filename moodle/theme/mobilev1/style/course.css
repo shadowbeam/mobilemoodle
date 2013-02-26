@@ -7,7 +7,7 @@
 	padding: 0 60px 0 10px;
 }
 
-//changed changed 
+
  #page-course-view-topics .course-content img.ui-li-thumb,
  #page-course-view-weeks .course-content img.ui-li-thumb{
 	position: relative;
@@ -61,6 +61,11 @@
 	}
 
 }
+
+/*expandable link colours must be blue*/
+a.ui-btn-up-b .ui-btn-inner .ui-btn-text a{
+	color: #fff;
+ }
 
 /* Course Info */
 .course-info .ui-block-a .inner{

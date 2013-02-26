@@ -161,15 +161,17 @@
 
 /* Indents */
 
-.path-mod-forum .indent .indent{
+.path-mod-forum .indent .indent,
+.indent, .indent{
 	margin-left:2em;
 }
 
 
 /*Phones*/
 @media only screen and (max-width: 30em){
-	.path-mod-forum   .indent,
-	.path-mod-forum .indent .indent{
+	 .path-mod-forum  .indent,
+	.path-mod-forum .indent .indent,
+	.indent{
 		margin:0;
 	}
 }
@@ -200,7 +202,6 @@
 	line-height: 3em;
 	text-align: center;
 	color: #fff;
-	
 }
 
 
@@ -223,7 +224,8 @@ div.discussioncontrols,
 #mformforum label[for="id_subscribe"],
 #mformforum label.accesshide[for="menumessageformat"],
 .fitem_ffilemanager,
- .forumpost .row.maincontent .left
-{
+ .forumpost .row.maincontent .left,
+ #page-mod-forum-user  .footer a /* See this post in context */
+ {
 	display:none;
- }
+}

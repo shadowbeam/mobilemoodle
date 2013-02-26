@@ -747,10 +747,12 @@ class theme_mobilev1_core_renderer extends core_renderer {
 		if($last >1){
 			$content = $htmlblocks[$last-2];
 			$url = (string)$content->action;
-			if($url = $this->page->url){
-				$url = "'onclick='history.back(-1)'"; //if the same page defualt to back button using js
+			if($url == $this->page->url){ //if the same page try another level up
+			
+				$content = $htmlblocks[$last-3];
+				$url = (string)$content->action;
 			}
-			return "<a id='back-button' data-direction='reverse' data-back='true' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='" .  $url . "'></a>";
+			return "<a id='back-button' data-direction='reverse' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='" .  $url . "'></a>";
 		}
 		else
 			return ''; 

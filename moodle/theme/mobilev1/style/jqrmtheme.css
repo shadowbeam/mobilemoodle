@@ -269,14 +269,13 @@
  
 
 .ui-btn-up-b,
-.ui-btn-up-b:hover  {
+ .ui-btn-down-b{
 	font-weight: bold;
 	color: #fff;
 	text-shadow: 0 1px 0 #194b7e;
 	border: 1px solid #044062;
 	font-weight: bold;
 	background: #194b7e;
-	
 	background: -moz-linear-gradient(top,  rgba(110,169,204,1) 0%, rgba(61,151,204,1) 50%, rgba(40,144,204,1) 51%, rgba(37,131,186,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(110,169,204,1)), color-stop(50%,rgba(61,151,204,1)), color-stop(51%,rgba(40,144,204,1)), color-stop(100%,rgba(37,131,186,1)));
 	background: -webkit-linear-gradient(top,  rgba(110,169,204,1) 0%,rgba(61,151,204,1) 50%,rgba(40,144,204,1) 51%,rgba(37,131,186,1) 100%);
@@ -309,17 +308,12 @@
 	color: 					#ffffff /*{b-bhover-color}*/;
 }
 
- .ui-btn-down-b ,
- .ui-btn-down-b:hover {
-	font-weight: bold;
-	color: #fff;
-	text-shadow: 0 1px 0 #194b7e;
-	border: 1px solid #044062;
+ .ui-btn-down-b {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ea9cc', endColorstr='#2583ba',GradientType=0 );
 	-moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.49);
 	-webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.49);
-	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.49);
-	background-color: #008dc5;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.49)!important;
+	
 }
 
 .ui-btn-down-b:visited,
