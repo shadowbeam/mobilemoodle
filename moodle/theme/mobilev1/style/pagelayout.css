@@ -108,6 +108,13 @@ html div.ui-panel-inner{
 	
 }
 
+#pannel-wrapper #logout-btn,
+#pannel-wrapper #settings-btn{
+	max-width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	}
+}
 
 /* icons for panels */
 #panel-wrapper li .ui-btn-text a:before{	
@@ -119,6 +126,7 @@ html div.ui-panel-inner{
 	-webkit-font-smoothing: antialiased;
 	margin-right:0.5em;
 	float: left;
+	text-shadow: 0  1px 0 #000;
 }
 
 .defaultuserpic{
@@ -135,7 +143,6 @@ html div.ui-panel-inner{
 	height: 35px;
 	float: left;
 }
-
 
 
 li.View.profile,

@@ -48,7 +48,7 @@ echo $renderer->navigation_tree($PAGE->navigation );
 			<!-- If Logged in -->
 			<?php
 if (isloggedin()) { ?>
-<a data-role="button" data-theme="b" data-inline="false" data-rel="popup" href="#logoutpopup">
+<a id="logout-btn" data-role="button" data-theme="b" data-inline="false" data-rel="popup" href="#logoutpopup">
 
 <?php echo  get_string('logout'); ?>
 <i class="icon-exit mybtn"></i>

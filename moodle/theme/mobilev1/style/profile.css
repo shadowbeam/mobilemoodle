@@ -49,14 +49,22 @@
  
   .user-info img,
   .defaultuserpic{
- 	background-color: rgba(255, 255, 255, 0.45);
- 	border: 1px solid #252525;
  	-webkit-border-radius: 5px;
  	margin-right: 0.25em;
 	height: 35px;
 	width:35px;
-	font-size:35px;
- }
+	font-size: 35px;
+	background-repeat: repeat-x;
+	background-image: -webkit-linear-gradient(top, #0077bc, #154f70);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0077bc), to(#154f70));
+	background-image: -moz-linear-gradient(top, #0077bc, #154f70);
+	background-image: -o-linear-gradient(top, #0077bc, #154f70);
+	background-image: linear-gradient(top, #0077bc,#154f70);
+	border: 1px solid #00354b;
+	background-color: #154f70;
+//	text-shadow: 0  1px 0 #fff;	
+	
+}
  
  /* @end */ 
 

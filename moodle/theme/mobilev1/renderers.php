@@ -553,14 +553,14 @@ class theme_mobilev1_core_renderer extends core_renderer {
             	
 				$userpic = new user_picture($USER, array('size'=>25));
                 $loggedinas =  $username;
-                //TODO add a profile picture icon 
+
                  $loggedinas = '<div class="user-info ui-btn-right">' . $this->render($userpic) .$loggedinas.'</div>';
            
             }
         } else {
 //            $loggedinas = get_string('loggedinnot', 'moodle');
             if (!$loginpage && $withlinks) {
-                $loggedinas .= " <a data-role='button' class='ui-btn-right' data-inline='true' href=\"$loginurl\">".get_string('login').'</a>';
+                $loggedinas .= " <a data-role='button' data-theme='b' class='ui-btn-right' data-inline='true' href=\"$loginurl\">".get_string('login').'</a>';
             }
         }
 
@@ -716,7 +716,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
      	$urlsettings = new moodle_url($this->page->url, array('mobilev1_settings' => 'true'));
      	 $urlsettings->out();
      	 
-     	return '<a data-role="button" data-theme="b" data-inline="false" href="' . $urlsettings->out(). '">Settings<i class="icon-cog"></i></a>';
+     	return '<a id="settings-btn" data-role="button" data-theme="b" data-inline="false" href="' . $urlsettings->out(). '">Settings<i class="icon-cog"></i></a>';
          			
      			
      }
