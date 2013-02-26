@@ -322,7 +322,12 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
 			else{
 				var rpls = $(this).parent().find('.indent:first').html();
 				if(rpls != null){
-					$('body').append('<div id="' + id + '" data-close-button="right" data-role="dialog" class="dialog-replies"><div data-role="header"><h1>Replies</h1></div><div data-role="content"><div class="forumpost firspost">' + $(this).html() + '</div>' + rpls + '</div></div>');
+					$('body').append('<div id="' + id + '"data-role="page" class="dialog-replies"><div data-role="header"><h1>Replies</h1></div><div data-role="content"><div class="forumpost starter">' + $(this).html() + '</div>' + rpls + '</div></div>');
+					
+					//initialise the page
+					$.mobile.initializePage();
+					
+					//change to page
 					$.mobile.changePage( $('#' + id), { transition: "pop"} );
 				}
 			}
