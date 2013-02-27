@@ -103,6 +103,25 @@ a.edit_button .ui-btn-inner{
 }
 
 
+/* Single Section Course-view-topics */
+.single-section .content,
+.single-section .ui-listview{
+	width:100%;
+	margin:0;
+}
+
+.single-section .mdl-align.title{
+	text-align:center;
+	font-size:20px;
+	font-weight:bold;
+}
+.single-section .mdl-right{
+	float:right;
+}
+
+
+
+
 .course-content a.editing_update, /* Same as editing_title */
 .course-content a.editing_moveright, 
 .course-content a.editing_moveleft,

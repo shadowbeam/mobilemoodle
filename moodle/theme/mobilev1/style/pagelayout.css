@@ -42,7 +42,7 @@
 }
 
 /*button override for JQuery*/
-#page-header .ui-btn-inner{
+#page-header .mybtn.ui-btn-inner{
 	min-width: 3em!important;
 }
 

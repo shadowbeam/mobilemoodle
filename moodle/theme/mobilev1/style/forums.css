@@ -87,6 +87,9 @@
 
 .row.maincontent .content{
 	padding: 1em;
+	background-color:#fff;
+	text-shadow:none;
+	color:#000;
 }
 
 .forumpost{
@@ -204,6 +207,24 @@
 	color: #fff;
 }
 
+/* Replies */
+.forumpost .rply-count{
+	float: right;
+	padding: 0.5em 0.75em 0.5em 0.75em;
+	border-radius: 10em;
+}
+
+.forumpost .content:after{
+		content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+
+
 
 /* Hidden */
 
@@ -212,7 +233,6 @@
 #page-mod-forum-view table.forumheaderlist td.lastpost,
 #page-mod-forum-view table.forumheaderlist td.replies, 
 #page-mod-forum-view  table.forumheaderlist thead,
-
 
 div.discussioncontrols,
 .forumpost .row.side .left,
@@ -225,7 +245,9 @@ div.discussioncontrols,
 #mformforum label.accesshide[for="menumessageformat"],
 .fitem_ffilemanager,
  .forumpost .row.maincontent .left,
- #page-mod-forum-user  .footer a /* See this post in context */
+ #page-mod-forum-user  .footer a, /* See this post in context */
+ .forumpost.starter .rply-count /* no reply count for starter */ 
+ 
  {
 	display:none;
 }

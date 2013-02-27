@@ -76,16 +76,29 @@ $('#page-course-view-topics, #page-course-view-weeks').live('pagebeforecreate',f
 var innercontent;
 
 if($('ul.topics').length > 0){
-	innercontent = $('ul.topics').html();
-	$('ul.topics').wrap('<div class="courseformat"/>').remove();
+	innercontent = $('ul.topics:not(.single-section ul.topics)').html();
+	var singlecontent = $('.single-section ul.topics').html();
+	
+	$('ul.topics:not(.single-section ul.topics)').wrap('<div class="courseformat"/>');
+	$('.single-section ul.topics').wrap('<div class="courseformat-single"/>');
+	
+	$('.courseformat ul.topics').remove();
+	$('.courseformat-single ul.topics').remove();
+	
+	$('div.courseformat').html(innercontent).addClass('ui-grid-a ui-responsive');
+	$('div.courseformat-single').html(singlecontent).addClass('ui-grid-a ui-responsive');
 }
 
 else if ($('ul.weeks').length > 0) {
 	innercontent = $('ul.weeks').html();
 	$('ul.weeks').wrap('<div class="courseformat"/>').remove();
+	$('div.courseformat').html(innercontent).addClass('ui-grid-a ui-responsive');
+
 }
 
-	$('div.courseformat').html(innercontent).addClass('ui-grid-a ui-responsive');
+	/* Single Section */
+	$('.single-section .section-navigation a').attr('data-role', 'button').attr('data-inline', 'true').attr('data-mini', 'true');
+	$('.single-section li.section .content').unwrap();	
 
 	//create labels
 	$('li.label').attr('data-role','list-divider').attr('data-theme', 'a');	
@@ -93,7 +106,7 @@ else if ($('ul.weeks').length > 0) {
 	//unwrap h3s so they become collapsible headers
 	$('.sectionname').unwrap();
 	
-	$('.section .content h3').unwrap();
+	$('.courseformat .section .content h3').unwrap();
 
 	//remove unneeded sides
 	$('.left.side, .right.side').remove();
@@ -105,9 +118,7 @@ else if ($('ul.weeks').length > 0) {
 	$('.course-content li.section.main').not('[id="section-0"]').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','c');
 		
 	
-	$('.course-content li.section.main:even').addClass('ui-block-b');
-	$('.course-content li.section.main:odd').addClass('ui-block-a');
-		
+	
 	//assign listviews
 	$('ul.section').attr('data-role', 'listview');
 	$('#section-0 ul.section ').attr('data-inset', 'true');
@@ -139,6 +150,9 @@ else if ($('ul.weeks').length > 0) {
 		$('.course-info').hide();
 		$('.userprofile table').addClass('responsive-tab');		
 	}
+	
+	$('.course-content .courseformat li.section.main:even').addClass('ui-block-b');
+	$('.course-content .courseformat li.section.main:odd').addClass('ui-block-a');
 });
 
 
@@ -233,6 +247,23 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
     
 $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user, .dialog-replies').live('pagebeforecreate',function(event, ui){
 		
+	if($('.rply-count').length == 0){
+
+		$('.forumpost').each(function(){
+			var count = 0;
+			var parent = $(this).parent();
+			if(parent.attr('class') == 'indent'){
+				parent.children('.indent').each(function(){
+					count += $(this).children('.forumpost').size();
+				});
+				
+				$(this).find('.content').prepend('<div class="ui-bar-b rply-count clearfix">' + count + '</div>');
+				
+			}
+		});
+	}
+		
+		
 	/* Force links to load, without the # */
 			$( ".options .commands a" ).bind( "click", function(event, ui) {
 				event.preventDefault();
@@ -248,10 +279,11 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user, .dialog-
 
 $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smallscreen #page-mod-forum-post,.smallscreen #page-mod-forum-user,.smallscreen #dialog-replies, .smallscreen .dialog-replies').live('pagebeforecreate',function(event, ui){
 	
+	
 	$('.indent .indent').hide();
 		
 		$('.forumpost:not(.starter)').live('swiperight', function (event, ui) {
-	
+		
 			event.stopImmediatePropagation(); //prevent double firing
 			/* Get id from the previous anchor link */
 			var id = 'dialog-replies-' + $(this).prev().attr('id');
@@ -261,20 +293,27 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
 				$.mobile.changePage( $('#' + id), { transition: "pop"} );
 			}
 			
+			
+			
 			else{
-				var rpls = $(this).parent().find('.indent:first').html();
+				var rpls;
+				$(this).parent().children('.indent').each(function(){
+					rpls += $(this).html();
+				});
+				
+				
 				if(rpls != null){
-					$('body').append('<div id="' + id + '"data-role="page" class="dialog-replies"><div data-role="header"><a id="back-button" data-direction="reverse" data-rel="back" data-transition="pop"  class="icon-arrow-left mybtn ui-btn-left"></a><h1>Replies</h1></div><div data-role="content"><div class="forumpost starter">' + $(this).html() + '</div>' + rpls + '</div></div>');
+					$('body').append('<div id="' + id + '"data-role="page" data-theme="a" class="dialog-replies"><div id="page-header" data-role="header"><div><a id="back-button" data-direction="reverse" data-transition="slide"  class="icon-close mybtn ui-btn-left" data-rel="back" href="#"></a></div><h1>Replies</h1></div><div data-role="content"><div class="forumpost starter">' + $(this).html() + '</div>' + rpls + '</div></div>');
 					
 					//initialise the page
 					$.mobile.initializePage();
 					//change to page
 					$.mobile.changePage( $('#' + id), { transition: "pop"} );
+					$('.indent .indent').hide();
 				}
 			}
 			
 		});
-
 });
 
 /* Grades*/
