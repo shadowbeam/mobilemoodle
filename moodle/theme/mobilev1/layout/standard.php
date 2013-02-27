@@ -9,6 +9,8 @@ echo $OUTPUT->doctype(); ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 <link rel="apple-touch-icon-precomposed" href="<?php echo $OUTPUT->pix_url('touch-icon-iphone', 'theme')?>" />
+<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-iphone-retina', 'theme')?>" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
 
 <title><?php echo $PAGE->title ?></title>
 <?php echo $OUTPUT->standard_head_html() ?>
