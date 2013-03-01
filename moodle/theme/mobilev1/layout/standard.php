@@ -133,7 +133,9 @@ if (isloggedin()) { ?>
 								<span><?php echo $PAGE->course->summary; ?></span>
 								
 								<a data-inline="false" style="max-width: 10em;" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>"><i class="left icon-spell-check"></i>Grades</a>
-						</div>
+								<?php echo $OUTPUT->edit_button($PAGE->url);?>
+								
+							</div>
 						</div>
 						<div class="ui-block-b accord">
 							<div data-role="collapsible-set" data-theme="a">
@@ -165,12 +167,8 @@ if (isloggedin()) { ?>
 				<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" data-corners="true">Cancel</a>
 			
 				<a href="<?php echo $logout ?>	" data-ajax="false" data-role="button" data-inline="true" data-transition="flow" data-theme="b" data-corners="true"  >Logout</a> 
-				
 			</div>
-			
-			<div data-role="popup" id="freepopup">
-				<p>This is a completely basic popup, no options set.<p>
-			</div>
+						
 					
 		</div>
 		

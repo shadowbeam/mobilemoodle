@@ -705,6 +705,32 @@ class theme_mobilev1_core_renderer extends core_renderer {
       	
       	return $link;
       
+      } 
+
+	  /**
+      * Creates a grade button for the current course
+      * @return string
+      */
+      
+      public function edit_page_link() {
+      global $USER, $CFG;
+   		$context = $this->page->context;
+   		
+      	$coursecontext = $context->get_course_context();
+      	
+      	$categoryid = null;
+      	
+      	if ($coursecontext) { 
+      		$courseid = $coursecontext->instanceid;
+      	}
+		
+      	$userid = $USER->id;
+		$sessk = $USER->sesskey;
+      	
+      	$link = "$CFG->wwwroot/course/view.php?id=$courseid&amp;sesskey=$sessk&amp;edit=on";
+		
+      	return $link;
+      
       }
         
         /**

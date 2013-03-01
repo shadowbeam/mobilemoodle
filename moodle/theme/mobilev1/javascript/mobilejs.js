@@ -2,7 +2,8 @@
 //must bind the global settings before jquerymobile is loaded
 $(document).bind("mobileinit", function(){
 	$.mobile.defaultPageTransition = "slide";
-
+	$.mobile.touchOverflowEnabled = true;
+	$.mobile.page.prototype.options.domCache = true;
 });
  $(document).bind("vmouseover", function () { });
  
@@ -178,7 +179,9 @@ $('#page-user-editadvanced, #page-user-profile, #page-mod-assign-view').live('pa
 $('#page-mod-forum-view').live('pagebeforecreate',function(event, ui){
 $('tr.discussion').each(function(index) {
 	var rply = $(this).find('td.replies a').html();
-	$(this).find('td.topic a').append('<span class="reply-count">' + rply + '</span>');
+	
+		$(this).find('td.topic a').append('<span class="reply-count">' + rply + '</span>');
+	
 	
 	$(this).live('swiperight', function (event, ui) {
 		$(this).find('.picture, .author, .lastpost').addClass('displayinline');
@@ -256,8 +259,8 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user, .dialog-
 				parent.children('.indent').each(function(){
 					count += $(this).children('.forumpost').size();
 				});
-				
-				$(this).find('.content').prepend('<div class="ui-bar-b rply-count clearfix">' + count + '</div>');
+				if(count > 0)
+					$(this).find('.content').prepend('<div data-role="button" data-mini="true" data-theme="b" class=" rply-count clearfix">' + count + '</div>');
 				
 			}
 		});
@@ -273,37 +276,53 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user, .dialog-
 					//this ignores the hash and simply loads the page
 					$.mobile.changePage( link, { transition: "slideup"} );
 			});
+			
+			
 });
 
 /* Small Screen Forums */
 
 $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smallscreen #page-mod-forum-post,.smallscreen #page-mod-forum-user,.smallscreen #dialog-replies, .smallscreen .dialog-replies').live('pagebeforecreate',function(event, ui){
 	
+	$('.forumpost:not(.starter)').click(function(event, ui){
+			$(this).find('.commands').toggleClass('showcontrols');
+		});
 	
 	$('.indent .indent').hide();
+
 		
 		$('.forumpost:not(.starter)').live('swiperight', function (event, ui) {
+			popupReply($(this), event);
+		});
 		
+		$('.rply-count').live('tap, click', function (event, ui) {
+			$(this).parent('.forumpost').hide();
+			popupReply($(this).parent('.forumpost'), event);
+		});
+});
+
+/*
+ * Function for popping up a reply
+ */
+function popupReply($this, event){
+
 			event.stopImmediatePropagation(); //prevent double firing
 			/* Get id from the previous anchor link */
-			var id = 'dialog-replies-' + $(this).prev().attr('id');
+			var id = 'dialog-replies-' + $this.prev().attr('id');
 			
 			/* if dialog already exists */
 			if($('#' + id).length > 0){
 				$.mobile.changePage( $('#' + id), { transition: "pop"} );
 			}
 			
-			
-			
 			else{
 				var rpls;
-				$(this).parent().children('.indent').each(function(){
+				$this.parent().children('.indent').each(function(){
 					rpls += $(this).html();
 				});
 				
-				
 				if(rpls != null){
-					$('body').append('<div id="' + id + '"data-role="page" data-theme="a" class="dialog-replies"><div id="page-header" data-role="header"><div><a id="back-button" data-direction="reverse" data-transition="slide"  class="icon-close mybtn ui-btn-left" data-rel="back" href="#"></a></div><h1>Replies</h1></div><div data-role="content"><div class="forumpost starter">' + $(this).html() + '</div>' + rpls + '</div></div>');
+					$('body').append('<div id="' + id + '"data-role="page" data-theme="a" class="dialog-replies"><div id="page-header" data-role="header"><div><a id="back-button" data-direction="reverse" data-transition="slide"  class="icon-close mybtn ui-btn-left" data-rel="back" href="#"></a></div><h1>Replies</h1></div><div data-role="content"><div class="forumpost starter">' + $this.html() + '</div>' + rpls + '</div></div>');
 					
 					//initialise the page
 					$.mobile.initializePage();
@@ -311,10 +330,8 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
 					$.mobile.changePage( $('#' + id), { transition: "pop"} );
 					$('.indent .indent').hide();
 				}
-			}
-			
-		});
-});
+			}	
+}
 
 /* Grades*/
 
@@ -341,17 +358,17 @@ $('#page-course-user').live('pagebeforecreate',function(event, ui){
 
 /* Resource */
 $('#page-mod-resource-view').live('pagebeforecreate',function(event, ui){
-	//$('#resourceobject').remove();
-	var c = $("#resourceobject").attr('data');
-	alert(c);
-	$("#resourceobject").hide();
-	//$('.resourcecontent').append(c);
-	
-	$('.resourcecontent').load(c);
-	
-//	var p = $('param').attr('value');
-//	alert(p);
-//	$('.resourceontent').load(p);
+
+    var $this = $('iframe, object');
+	$this.css({ width: '100%', height: '100%'});
+				
+	$('.resourcecontent').attr('style', '-webkit-overflow-scrolling: touch;').css({
+        width: $this.attr('width'),
+        height: $this.attr('height'),
+        overflow: 'auto'                    
+     });
+
+
 });
 
 

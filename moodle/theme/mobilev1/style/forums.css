@@ -177,6 +177,15 @@
 	.indent{
 		margin:0;
 	}
+	
+	 .smallscreen .forumpost .commands {
+		display:none;
+	 }/* hide controls until tapped */
+	 
+	 .smallscreen .forumpost .showcontrols{
+		display:block!important;
+	 }
+	 
 }
 
 /* Paging Buttons */
@@ -210,7 +219,7 @@
 /* Replies */
 .forumpost .rply-count{
 	float: right;
-	padding: 0.5em 0.75em 0.5em 0.75em;
+	//padding: 0.5em 0.75em 0.5em 0.75em;
 	border-radius: 10em;
 }
 
@@ -222,6 +231,7 @@
 	line-height: 0;
 	height: 0;
 }
+
 
 
 
@@ -247,7 +257,7 @@ div.discussioncontrols,
  .forumpost .row.maincontent .left,
  #page-mod-forum-user  .footer a, /* See this post in context */
  .forumpost.starter .rply-count /* no reply count for starter */ 
- 
+
  {
 	display:none;
 }

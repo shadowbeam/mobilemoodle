@@ -89,7 +89,7 @@ $THEME->layouts = array(
     ),
     'course' => array(
         'file' => 'standard.php',
-        'regions' => array('side-pre', 'side-post')
+        'regions' => array('side-pre', 'side-post'),
     ),
     'coursecategory' => array(
         'file' => 'standard.php',
@@ -142,11 +142,12 @@ $THEME->layouts = array(
         'regions' => array(),
         'options' => array('nofooter'=>false, 'nonavbar'=>true),
     ),
-    'print' => array(
+
+	
+    'report' => array(
         'file' => 'standard.php',
-        'regions' => array(),
-        'options' => array('nofooter'=>false, 'nonavbar'=>false),
-    ),
+        'regions' => array()
+	),
 );
 
 
