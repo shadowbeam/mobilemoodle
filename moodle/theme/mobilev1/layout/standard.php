@@ -6,6 +6,22 @@ echo $OUTPUT->doctype(); ?>
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
 
+<?php $themeurl = $CFG->httpswwwroot.'/theme/'.current_theme();?>
+
+<style>
+@font-face {
+	font-family: 'icomoon';
+	src:url('<?php echo $themeurl; ?>/fonts/icomoon.eot');
+	src:url('<?php echo $themeurl; ?>/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('<?php echo $themeurl; ?>/fonts/icomoon.woff') format('woff'),
+		url('<?php echo $themeurl; ?>/fonts/icomoon.ttf') format('truetype'),
+		url('<?php echo $themeurl; ?>/fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+</style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 <link rel="apple-touch-icon-precomposed" href="<?php echo $OUTPUT->pix_url('touch-icon-iphone', 'theme')?>" />
