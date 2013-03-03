@@ -151,6 +151,8 @@ $THEME->layouts = array(
 	),
 );
 
+$THEME->csspostprocess = 'mytheme_csspostprocess';
+
 
 // Add the required JavaScript to the page
 $THEME->javascripts = array(

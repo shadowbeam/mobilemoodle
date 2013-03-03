@@ -13,9 +13,17 @@ $(document).bind("mobileinit", function(){
 $('#course-page-index, #page-site-index').live('pagebeforecreate',function(event, ui){
 	$('ul.section').attr("data-role", "listview").attr("data-inset", "true").attr('data-theme', 'a');
 	$('.section li img.activityicon').addClass("ui-li-icon");
+	
+	/*remove unnecessary pages*/
+	$('.ui-page:not(.ui-page.ui-page-active)').each(function(){
+			$(this).remove();
+		});
+	
 });
 
-
+$('#course-page-index, #page-site-index').live('pageinit',function(event, ui){
+		
+});
 
 /* General */
 	$('div').live('pagebeforecreate',function(event, ui){
