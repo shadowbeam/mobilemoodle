@@ -80,7 +80,7 @@ $('div#page-site-index, #page-course-index').live('pagebeforecreate',function(ev
 
 /* Course */
 
-$('#page-course-view-topics, #page-course-view-weeks').live('pagebeforecreate',function(event, ui){
+$('.course-view-topics, .course-view-weeks').live('pagebeforecreate',function(event, ui){
 
 var innercontent;
 
