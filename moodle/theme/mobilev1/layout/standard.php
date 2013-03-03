@@ -7,11 +7,32 @@ echo $OUTPUT->doctype(); ?>
 <head>
 
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=320.1" />
+
+
 
 <link rel="apple-touch-icon-precomposed" href="<?php echo $OUTPUT->pix_url('touch-icon-iphone', 'theme')?>" />
+
+<!-- iPhone -->
+<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-iphone', 'theme')?>" media="(device-width: 320px)" rel="apple-touch-startup-image">
+
+<!-- iPhone (Retina) -->
 <link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-iphone-retina', 'theme')?>" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
+<!-- iPad (portrait)   -->   
+<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-ipad-portrait', 'theme')?>" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" rel="apple-touch-startup-image">
+
+<!-- iPad (landscape) -->
+<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-ipad-landscape', 'theme')?>" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" rel="apple-touch-startup-image">
+
+<!-- iPad (Retina, portrait) -->
+<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-ipad-retina-portrait', 'theme')?>" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+<!-- iPad (Retina, landscape) -->
+<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-ipad-retina-landscape', 'theme')?>" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+<!-- iPhone 5 (Retina) -->
+<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-iphone5', 'theme')?>" rel="apple-touch-startup-image" sizes="640x1096">
 
 
 <title><?php echo $PAGE->title ?></title>
