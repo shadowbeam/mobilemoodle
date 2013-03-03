@@ -46,7 +46,8 @@ $THEME->sheets = array(
     'profile',
 	'forums',
 	'font',
-	'course'
+	'course',
+	'add2home'
    
     );
     
@@ -159,6 +160,7 @@ $THEME->javascripts = array(
     'jquery',
 	'mdrnzr',
 	'mobilejs',
-	'jquery.mobile-1.3.0.min'
+	'jquery.mobile-1.3.0.min',
+	'add2home'
 );
 $THEME->javascripts_footer = array();

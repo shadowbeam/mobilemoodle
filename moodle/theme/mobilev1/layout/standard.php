@@ -9,6 +9,7 @@ echo $OUTPUT->doctype(); ?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=320.1" />
 
+<meta name="apple-mobile-web-app-capable" content="yes">
 
 
 <link rel="apple-touch-icon-precomposed" href="<?php echo $OUTPUT->pix_url('touch-icon-iphone', 'theme')?>" />
@@ -38,7 +39,6 @@ echo $OUTPUT->doctype(); ?>
 <title><?php echo $PAGE->title ?></title>
 <?php echo $OUTPUT->standard_head_html() ?>
 
-<meta name="apple-mobile-web-app-capable" content="yes">
 
 </head>
 

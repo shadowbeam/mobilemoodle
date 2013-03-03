@@ -1,3 +1,8 @@
+/* Add to Home */
+var addToHomeConfig = {
+	message: 'This is a custom message. Your device is an <strong>%device</strong>. The action icon is %icon.'
+};
+
 
 //must bind the global settings before jquerymobile is loaded
 $(document).bind("mobileinit", function(){
