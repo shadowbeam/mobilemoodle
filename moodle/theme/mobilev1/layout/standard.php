@@ -46,6 +46,7 @@ echo $OUTPUT->doctype(); ?>
 <body class="<?php p($PAGE->bodyclasses); ?>">
 
 	<?php $settings = optional_param('mobilev1_settings', false, PARAM_BOOL); ?>
+	
 
 
 	<div id="<?php p($PAGE->bodyid); ?>" class="<?php p($PAGE->pagetype); ?>"data-role="page" class="general">
@@ -146,15 +147,28 @@ if (isloggedin()) { ?>
 					 else if ($PAGE->pagetype == 'course-view-topics' || $PAGE->pagetype == 'course-view-weeks'){ ?>
 					
 					<div class="course-info ui-grid-a ui-responsive">
-						<div style="	border: 1px solid #cbcccb;" class="ui-block-a ui-bar-c ui-shadow ui-btn-corner-all ui-btn-block">
+						<div id="blurb" class="ui-block-a ui-bar-c ui-shadow ui-btn-corner-all ui-btn-block">
 						
 						<div class="inner">
 	
 								<!--<h1><?php echo $PAGE->heading ?></h1>-->
 								<span><?php echo $PAGE->course->summary; ?></span>
 								
-								<a data-inline="false" style="max-width: 10em;" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>"><i class="left icon-spell-check"></i>Grades</a>
-								<?php echo $OUTPUT->edit_button($PAGE->url);?>
+								<div data-role="controlgroup">
+								<a data-inline="false" data-role="button" href="<?php echo $OUTPUT->grades_link(); ?>"><i class="left icon-spell-check"></i>Grades</a>
+								<?php 	
+									/* Assume a teacher */
+									if ($PAGE->user_allowed_editing()) {
+										echo $OUTPUT->course_settings_button($PAGE->url);
+
+										echo $OUTPUT->edit_button($PAGE->url);
+										
+										//echo $OUTPUT->user_role();
+										
+									}
+					
+								?>
+								</div>
 								
 							</div>
 						</div>

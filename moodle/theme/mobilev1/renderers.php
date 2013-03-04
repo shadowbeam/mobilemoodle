@@ -1,6 +1,9 @@
 <?php
 
 class theme_mobilev1_renderer extends plugin_renderer_base {
+	
+
+
 
    /**
      * Implementation of user image rendering.
@@ -288,6 +291,76 @@ protected function navigation_node($items, $attrs=array(), $expansionlimit=null,
 
 class theme_mobilev1_core_renderer extends core_renderer {
 
+	public function user_role() {
+		global $COURSE, $USER;
+		
+		$context = get_context_instance (CONTEXT_SYSTEM);
+		$roles = get_user_roles($context, $USER->id, false);
+		$role = key($roles);
+		$roleid = "User role: " + $roles[$role]->roleid;
+		
+		return  $roleid;
+	
+	}
+
+
+    /**
+     * Renders a single button widget.
+     *
+     * This will return HTML to display a form containing a single button.
+     *
+     * @param single_button $button
+     * @return string HTML fragment
+     */
+
+protected function render_single_button(single_button $button) {
+        $attributes = array('type'     => 'submit',
+                            'value'    => $button->label,
+                            'disabled' => $button->disabled ? 'disabled' : null,
+                            'title'    => $button->tooltip,
+							'data-theme' => 'b',
+							'data-role' => 'button');
+						
+        if ($button->actions) {
+            $id = html_writer::random_id('single_button');
+            $attributes['id'] = $id;
+            foreach ($button->actions as $action) {
+                $this->add_action_handler($action, $id);
+            }
+        }
+
+        // first the input element
+        $output = html_writer::empty_tag('input', $attributes);
+
+        // then hidden fields
+        $params = $button->url->params();
+        if ($button->method === 'post') {
+            $params['sesskey'] = sesskey();
+        }
+        foreach ($params as $var => $val) {
+            $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => $var, 'value' => $val));
+        }
+
+        // then div wrapper for xhtml strictness
+        $output = html_writer::tag('div', $output);
+
+        // now the form itself around it
+        if ($button->method === 'get') {
+            $url = $button->url->out_omit_querystring(true); // url without params, the anchor part allowed
+        } else {
+            $url = $button->url->out_omit_querystring();     // url without params, the anchor part not allowed
+        }
+        if ($url === '') {
+            $url = '#'; // there has to be always some action
+        }
+        $attributes = array('method' => $button->method,
+                            'action' => $url,
+                            'id'     => $button->formid);
+        $output = html_writer::tag('form', $output, $attributes);
+
+        // and finally one more wrapper with class
+        return html_writer::tag('div', $output, array('class' => $button->class));
+    }
 
   /**
      * Internal implementation of user image rendering.
@@ -706,35 +779,13 @@ class theme_mobilev1_core_renderer extends core_renderer {
       	return $link;
       
       } 
-
-	  /**
-      * Creates a grade button for the current course
-      * @return string
-      */
-      
-      public function edit_page_link() {
-      global $USER, $CFG;
-   		$context = $this->page->context;
-   		
-      	$coursecontext = $context->get_course_context();
-      	
-      	$categoryid = null;
-      	
-      	if ($coursecontext) { 
-      		$courseid = $coursecontext->instanceid;
-      	}
-		
-      	$userid = $USER->id;
-		$sessk = $USER->sesskey;
-      	
-      	$link = "$CFG->wwwroot/course/view.php?id=$courseid&amp;sesskey=$sessk&amp;edit=on";
-		
-      	return $link;
-      
-      }
+  
+	  
+	
         
         /**
-         * Generates Settings Button
+         * Generates Settings Button for menu
+		 * @author: Allan Watson 2013
          */
      
      public function settings_button() {
@@ -742,11 +793,29 @@ class theme_mobilev1_core_renderer extends core_renderer {
      	$urlsettings = new moodle_url($this->page->url, array('mobilev1_settings' => 'true'));
      	 $urlsettings->out();
      	 
-     	return '<a id="settings-btn" data-role="button" data-theme="b" data-inline="false" href="' . $urlsettings->out(). '">Settings<i class="icon-cog"></i></a>';
-         			
-     			
+     	return '<a id="settings-btn" data-role="button"  data-theme="b" data-inline="false" href="' . $urlsettings->out(). '">Settings<i class="icon-cog"></i></a>';
+		
      }
-     
+	 
+	 /**
+	  * Create course settings button 
+	  * @author: Allan Watson 2013
+	  */
+	   
+	 public function course_settings_button() {
+	 
+		global $USER, $CFG;
+   		$context = $this->page->context;
+      	$coursecontext = $context->get_course_context();
+      	$courseid = $coursecontext->instanceid;
+      	
+	
+     	$urlsettings = "$CFG->wwwroot/course/edit.php?id=$courseid"; 
+     	 
+     	return '<a id="settings-btn" data-role="button" data-inline="false" data-theme="c" href="' . $urlsettings . '"><i class="left icon-cog"></i>Course Settings</a>';
+		
+     }
+	      
 		
 	 /**
      * Creates a link back to the upper page in the hierarchy
@@ -927,4 +996,12 @@ class theme_mobilev1_block_course_overview_renderer extends block_course_overvie
 }
 	
 	
+include_once($CFG->dirroot . '/course/renderer.php');
 
+class theme_mobilev1_core_course_renderer extends core_course_renderer {
+	
+	/* Remove the ability to add activities to courses*/
+    public function course_modchooser($modules, $course) {
+		return '';
+	}
+}

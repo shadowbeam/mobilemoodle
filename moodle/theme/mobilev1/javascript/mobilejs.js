@@ -105,7 +105,7 @@ else if ($('ul.weeks').length > 0) {
 }
 
 	/* Single Section */
-	$('.single-section .section-navigation a').attr('data-role', 'button').attr('data-inline', 'true').attr('data-mini', 'true');
+	$('.single-section .section-navigation a:not(.ui-btn)').attr('data-role', 'button').attr('data-inline', 'true').attr('data-mini', 'true');
 	$('.single-section li.section .content').unwrap();	
 
 	//create labels
@@ -149,7 +149,7 @@ else if ($('ul.weeks').length > 0) {
 	
 	/* block news items */
 	
-	$('.block a').attr('data-role', 'button').attr('data-theme', 'c').attr('data-inline', 'false').attr('data-mini', 'true');
+	$('.block a:not(.comment-message-meta a)').attr('data-role', 'button').attr('data-theme', 'c').attr('data-inline', 'false').attr('data-mini', 'true');
 	
 	$('.block_news_items ul').attr('data-role', 'listview');
 
@@ -161,6 +161,8 @@ else if ($('ul.weeks').length > 0) {
 	
 	$('.course-content .courseformat li.section.main:even').addClass('ui-block-b');
 	$('.course-content .courseformat li.section.main:odd').addClass('ui-block-a');
+	
+	$('#changenumsections').find('.increase-sections, .reduce-sections').attr('data-role', 'button').attr('data-inline', 'true').attr('data-theme', 'a');
 });
 
 
@@ -255,6 +257,7 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
         
     });
     
+	/* Replies */
 $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user, .dialog-replies').live('pagebeforecreate',function(event, ui){
 		
 	if($('.rply-count').length == 0){
@@ -287,25 +290,29 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user, .dialog-
 			
 });
 
-/* Small Screen Forums */
+/* 
+ * Small Screen Forums 
+ */
 
 $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smallscreen #page-mod-forum-post,.smallscreen #page-mod-forum-user,.smallscreen #dialog-replies, .smallscreen .dialog-replies').live('pagebeforecreate',function(event, ui){
 	
+	/* Show controls for post after tap*/
 	$('.forumpost:not(.starter)').click(function(event, ui){
 			$(this).find('.commands').toggleClass('showcontrols');
 		});
 	
+	/* Conceal indentation*/
 	$('.indent .indent').hide();
 
-		
-		$('.forumpost:not(.starter)').live('swiperight', function (event, ui) {
-			popupReply($(this), event);
-		});
-		
-		$('.rply-count').live('tap, click', function (event, ui) {
-			$(this).parent('.forumpost').hide();
-			popupReply($(this).parent('.forumpost'), event);
-		});
+	/* Swiping over the post shows replies */	
+	$('.forumpost:not(.starter)').live('swiperight swipeleft', function (event, ui) {
+		popupReply($(this), event);
+	});
+	
+	/* Clicking the reply button pops up new posts */
+	$('.rply-count').click(function (event) {
+		popupReply($(this).parents('.forumpost'), event);
+	});
 });
 
 /*
@@ -313,31 +320,34 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
  */
 function popupReply($this, event){
 
-			event.stopImmediatePropagation(); //prevent double firing
-			/* Get id from the previous anchor link */
-			var id = 'dialog-replies-' + $this.prev().attr('id');
+	event.stopImmediatePropagation(); //prevent double firing
+	
+	/* Get id from the previous anchor link */
+	var id = 'dialog-replies-' + $this.prev().attr('id');
+		
+	/* if dialog already exists */
+	if($('#' + id).length > 0){	
+		$.mobile.changePage( $('#' + id), { transition: "fade"} );
+	}
 			
-			/* if dialog already exists */
-			if($('#' + id).length > 0){
-				$.mobile.changePage( $('#' + id), { transition: "pop"} );
-			}
+	else{
+		var rpls = '';
+		$this.parent().children('.indent').each(function(){
+			var childpost = $(this).html();
+			if(typeof(childpost) !== 'undefined')
+				rpls += childpost;
+		});
+		
+		if(rpls != null){
+			$('body').append('<div id="' + id + '"data-role="page" data-theme="a" class="dialog-replies"><div id="page-header" data-role="header"><div><a id="back-button" data-direction="reverse" data-transition="slide"  class="icon-close mybtn ui-btn-left" data-rel="back" href="#"></a></div><h1>Replies</h1></div><div data-role="content"><div class="forumpost starter">' + $this.html() + '</div>' + rpls + '</div></div>');
 			
-			else{
-				var rpls;
-				$this.parent().children('.indent').each(function(){
-					rpls += $(this).html();
-				});
-				
-				if(rpls != null){
-					$('body').append('<div id="' + id + '"data-role="page" data-theme="a" class="dialog-replies"><div id="page-header" data-role="header"><div><a id="back-button" data-direction="reverse" data-transition="slide"  class="icon-close mybtn ui-btn-left" data-rel="back" href="#"></a></div><h1>Replies</h1></div><div data-role="content"><div class="forumpost starter">' + $this.html() + '</div>' + rpls + '</div></div>');
-					
-					//initialise the page
-					$.mobile.initializePage();
-					//change to page
-					$.mobile.changePage( $('#' + id), { transition: "pop"} );
-					$('.indent .indent').hide();
-				}
-			}	
+			//initialise the page
+			$.mobile.initializePage();
+			//change to page
+			$.mobile.changePage( $('#' + id), { transition: "fade"} );
+			$('.indent .indent').hide();
+		}
+	}	
 }
 
 /* Grades*/

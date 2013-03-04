@@ -43,6 +43,10 @@
 	list-style-type:none;
 }
 
+li.activity.ui-li-divider{
+	padding-top:2em;
+}
+
 
 @media all and (min-width: 35em){
 
@@ -68,14 +72,20 @@ a.ui-btn-up-b .ui-btn-inner .ui-btn-text a{
  }
 
 /* Course Info */
-.course-info .ui-block-a .inner{
+.course-info #blurb.ui-block-a .inner{
 	padding: 0.5em;
 	min-height: 5em;
+	border: 1px solid #cbcccb;
 }
 
+.course-info #blurb.ui-block-a .ui-btn{
+	margin-left:auto;
+	margin-right:auto;
+}
 .course-info .ui-block-a{
 	text-align: center;
 	margin-top: 0.5em;
+
 }
 
 /* Editting */
@@ -119,6 +129,37 @@ a.edit_button .ui-btn-inner{
 	float:right;
 }
 
+#changenumsections{
+	text-align:center;
+}
+
+#changenumsections:after{
+	content: "Change the number of sections";
+	display:block;
+	
+}
+
+.block_comments ul{
+	list-style-type:none;
+	margin: 0;
+}
+
+.block_comments .comment-message-meta .userpicture{
+width: 1.5em;
+height: 1.5em;
+font-size: 20px;
+float: left;
+}
+
+.block_comments .comment-message{
+	clear:both;	
+}
+
+.block_comments .comment-delete{
+max-width: 4.5em;
+float: right;
+
+}
 
 
 
