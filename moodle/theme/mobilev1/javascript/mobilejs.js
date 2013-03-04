@@ -33,8 +33,8 @@ $('#course-page-index, #page-site-index').live('pagebeforecreate',function(event
 		 $('#panel-wrapper').panel( "close" );
 	 });
 	 
-	 $('#page-header').live('swipeleft', function (event, ui) {
-	 	 $('#panel-wrapper').panel( "open" );
+	 $('.ui-page-active #page-header').live('swipeleft', function (event, ui) {
+	 	 $('.ui-page-active #panel-wrapper').panel( "open" );
 	  });
 		
 		
@@ -304,10 +304,12 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
 	/* Conceal indentation*/
 	$('.indent .indent').hide();
 
-	/* Swiping over the post shows replies */	
-	$('.forumpost:not(.starter)').live('swiperight swipeleft', function (event, ui) {
-		popupReply($(this), event);
-	});
+/* Causes issues when scrolling */
+//	 Swiping over the post shows replies 	
+//	$('.forumpost:not(.starter)').live('swiperight swipeleft', function (event, ui) {
+//		if($(this).contains('.rply-count'))
+//			popupReply($(this), event);
+//	});
 	
 	/* Clicking the reply button pops up new posts */
 	$('.rply-count').click(function (event) {
