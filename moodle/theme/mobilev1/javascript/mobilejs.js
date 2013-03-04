@@ -342,7 +342,7 @@ function popupReply($this, event){
 			$('body').append('<div id="' + id + '"data-role="page" data-theme="a" class="dialog-replies"><div id="page-header" data-role="header"><div><a id="back-button" data-direction="reverse" data-transition="slide"  class="icon-close mybtn ui-btn-left" data-rel="back" href="#"></a></div><h1>Replies</h1></div><div data-role="content"><div class="forumpost starter">' + $this.html() + '</div>' + rpls + '</div></div>');
 			
 			//initialise the page
-			$.mobile.initializePage();
+		//	$.mobile.initializePage();
 			//change to page
 			$.mobile.changePage( $('#' + id), { transition: "fade"} );
 			$('.indent .indent').hide();
