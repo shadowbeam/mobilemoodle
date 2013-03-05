@@ -317,6 +317,9 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
 	
 	/* Show controls for post after tap*/
 	$('.forumpost').click(function(event, ui){
+			event.preventDefault();
+			event.stopImmediatePropagation();
+			alert('');
 			$(this).find('.commands').toggleClass('showcontrols');
 		});
 	
@@ -326,7 +329,6 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
 /* Causes issues when scrolling */
 	 //Swiping over the post shows replies 	
 	$('.forumpost.has-replies').live('swiperight swipeleft', function (event, ui) {
-		if($(this).contains('.rply-count'))
 			popupReply($(this), event);
 	});
 	
