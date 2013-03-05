@@ -319,7 +319,6 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
 	$('.forumpost').click(function(event, ui){
 			event.preventDefault();
 			event.stopImmediatePropagation();
-			alert('');
 			$(this).find('.commands').toggleClass('showcontrols');
 		});
 	
