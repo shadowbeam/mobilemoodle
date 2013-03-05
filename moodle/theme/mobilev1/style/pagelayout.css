@@ -26,7 +26,9 @@
  *   content-only       = Content
  *
  ****/
- 
+ .ui-mobile, .ui-mobile body{
+ height:100%!important;
+ }
 
 #page-my-index  .collapsibleregioninner{display:none;}
 
@@ -355,6 +357,11 @@ only screen and (min-width: 35em) {
 	display:none;
  }
  
+ 
+ /*Resource Page*/
+ #page-mod-resource-view #page-body{
+ height: 100%;
+ }
 
  
  /* Block News Item*/
@@ -367,6 +374,24 @@ only screen and (min-width: 35em) {
 	margin-top: 1em;
 }
 	
+/* Tutorials */
+
+.tut{
+	position: absolute;
+	color:#fff;
+	text-shadow:none;
+	font-size:2em;
+	z-index:1199;
+}
+
+#tut-index-welcome{
+	top: 5em
+	;
+	left:0px;
+	text-align:center;
+	width:100%;
+}
+
 
 
 

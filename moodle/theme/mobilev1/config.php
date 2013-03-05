@@ -104,7 +104,7 @@ $THEME->layouts = array(
     ),
     'frontpage' => array(
         'file' => 'standard.php',
-        'regions' => array('side-pre', 'side-post'),
+        'regions' => array('side-pre', 'side-post', 'center-pre'),
         'defaultregion' => 'side-post',
     ),
     'admin' => array(
@@ -159,6 +159,7 @@ $THEME->javascripts = array(
     'jquery',
 	'mdrnzr',
 	'mobilejs',
-	'jquery.mobile-1.3.0.min'
+	'jquery.mobile-1.3.0.min',
+	'help'
 );
 $THEME->javascripts_footer = array();

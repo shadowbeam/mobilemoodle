@@ -52,7 +52,7 @@ echo $OUTPUT->doctype(); ?>
 	<div id="<?php p($PAGE->bodyid); ?>" class="<?php p($PAGE->pagetype); ?>"data-role="page" class="general">
 
 		<!-- Panel -->
-		<div data-role="panel" id="panel-wrapper" data-dismissible="false" data-swipe-close="false"  data-position="right" data-theme="a" data-display="reveal">
+		<div data-role="panel" id="panel-wrapper" data-dismissible="true" data-swipe-close="true"  data-position="right" data-theme="a" data-display="reveal">
 		
 			
 						<?php echo $OUTPUT->login_info() ?>
@@ -196,17 +196,18 @@ if (isloggedin()) { ?>
 			$logout = "$CFG->wwwroot/login/logout.php?sesskey=$USER->sesskey"; ?>
 			
 			<div data-role="popup" id="logoutpopup" data-position-to="window">
-			<div data-role="header" data-them="a">
-			<h1 role="heading">Logout?</h1>
-			</div>				<p>Are you sure you want to logout?<p>
+			<div data-role="header" data-them="a"><h1 role="heading">Logout?</h1></div>		
+				<p>Are you sure you want to logout?<p>
 				<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" data-corners="true">Cancel</a>
 			
 				<a href="<?php echo $logout ?>	" data-ajax="false" data-role="button" data-inline="true" data-transition="flow" data-theme="b" data-corners="true"  >Logout</a> 
 			</div>
+			
+
 						
 					
 		</div>
-		
+	
 		
 
 
