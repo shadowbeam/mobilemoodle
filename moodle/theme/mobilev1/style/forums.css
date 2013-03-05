@@ -178,9 +178,9 @@
 		margin:0;
 	}
 	
-	 .smallscreen .forumpost .commands {
+	 /*.smallscreen .forumpost .commands {
 		display:none;
-	 }/* hide controls until tapped */
+	 } hide controls until tapped */
 	 
 	 .smallscreen .forumpost .showcontrols{
 		display:block!important;
@@ -256,8 +256,8 @@ div.discussioncontrols,
 .fitem_ffilemanager,
  .forumpost .row.maincontent .left,
  #page-mod-forum-user  .footer a, /* See this post in context */
- .forumpost.starter .rply-count /* no reply count for starter */ 
-
+ .forumpost.starter .rply-count, /* no reply count for starter */ 
+.forumpost .forum-post-rating
  {
 	display:none;
 }

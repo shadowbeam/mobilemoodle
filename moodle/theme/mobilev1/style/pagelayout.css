@@ -392,7 +392,14 @@ only screen and (min-width: 35em) {
 	width:100%;
 }
 
+#general-popup img{
+	max-width: 100%;
+}
 
-
+#general-popup .pop-contents{
+	color: #fff;
+	text-shadow: 0 1px #000;
+	text-align: center;
+}
 
 	

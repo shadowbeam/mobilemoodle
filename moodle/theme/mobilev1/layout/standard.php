@@ -196,11 +196,24 @@ if (isloggedin()) { ?>
 			$logout = "$CFG->wwwroot/login/logout.php?sesskey=$USER->sesskey"; ?>
 			
 			<div data-role="popup" id="logoutpopup" data-position-to="window">
-			<div data-role="header" data-them="a"><h1 role="heading">Logout?</h1></div>		
+			<div data-role="header" data-them="a"><h1 role="heading">Logout?</h1>
+			
+			</div>		
 				<p>Are you sure you want to logout?<p>
 				<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" data-corners="true">Cancel</a>
 			
 				<a href="<?php echo $logout ?>	" data-ajax="false" data-role="button" data-inline="true" data-transition="flow" data-theme="b" data-corners="true"  >Logout</a> 
+			</div>
+			
+			<div data-role="popup" data-overlay-theme="a" data-theme="none" id="general-popup" data-shadow="false"  data-theme="none" data-position-to="window">
+			
+					
+					<div class="pop-contents">
+					
+					</div>
+					
+				<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" data-corners="true">Close</a>
+	
 			</div>
 			
 
@@ -216,6 +229,6 @@ if (isloggedin()) { ?>
 	</div>
 	
 
-	
+	<div id="moodle-url" url="<?php echo($CFG->wwwroot) ?>"></div>
 </body>
 </html>

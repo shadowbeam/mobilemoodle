@@ -302,8 +302,6 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user, .dialog-
 					//this ignores the hash and simply loads the page
 					$.mobile.changePage( link, { transition: "slideup"} );
 			});
-			
-			
 });
 
 /* 
@@ -312,15 +310,14 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user, .dialog-
 
 $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smallscreen #page-mod-forum-post,.smallscreen #page-mod-forum-user,.smallscreen #dialog-replies, .smallscreen .dialog-replies').live('pagebeforecreate',function(event, ui){
 	
-		/* Check first time visitor*/
-		check_index_tut();
+		
 	
-	/* Show controls for post after tap*/
+	/* Show controls for post after tap
 	$('.forumpost').click(function(event, ui){
 			event.preventDefault();
 			event.stopImmediatePropagation();
 			$(this).find('.commands').toggleClass('showcontrols');
-		});
+		});*/
 	
 	/* Conceal indentation*/
 	$('.indent .indent').hide();
@@ -335,6 +332,9 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
 	$('.rply-count').click(function (event) {
 		popupReply($(this).parents('.forumpost'), event);
 	});
+}).live('pageshow',function(event, ui) {
+	/* Check first time visitor*/
+	check_index_tut();
 });
 
 /*
