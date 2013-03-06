@@ -10,6 +10,8 @@ echo $OUTPUT->doctype(); ?>
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
 
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->pix_url('favicon', 'theme')?>" />
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=320.1" />
 

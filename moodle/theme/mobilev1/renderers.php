@@ -875,7 +875,7 @@ protected function render_single_button(single_button $button) {
 			return "<a id='back-button' data-direction='reverse' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='" .  $url . "'></a>";
 		}
 		else
-			return "<a id='back-button' data-rel='back' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='#'></a>"; 
+			return "";//no back button 
 		
 		
 		//return $content;
