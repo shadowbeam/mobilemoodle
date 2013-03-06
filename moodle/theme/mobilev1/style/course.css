@@ -155,11 +155,7 @@ float: left;
 	clear:both;	
 }
 
-.block_comments .comment-delete{
-max-width: 4.5em;
-float: right;
 
-}
 
 
 
@@ -169,8 +165,8 @@ float: right;
 .course-content a.editing_move, /* no moving controls */
 .course-content a.editing_groupsnone, /* no moving controls */
 .addresourcemodchooser, /* can't add new resources */
-.addresourcedropdown /* can't add new resources */
-
+.addresourcedropdown, /* can't add new resources */
+.block_comments .comment-delete /*button doesn't work*/
 {
 	display:none;
 }

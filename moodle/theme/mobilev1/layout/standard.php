@@ -1,5 +1,9 @@
 <?php
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
+$hascenterpost = $PAGE->blocks->region_has_content('center-post', $OUTPUT);
+
+$hascenterpost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('center-post', $OUTPUT));
+$showcenterpost = $hassidepost && !$PAGE->blocks->region_completely_docked('center-post', $OUTPUT);
 
 echo $OUTPUT->doctype(); ?>
 
@@ -19,11 +23,13 @@ echo $OUTPUT->doctype(); ?>
 <!-- iPhone (Retina) -->
 <link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-iphone-retina', 'theme')?>" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
+<?php /*
+
 <!-- iPad (portrait)   -->   
-<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-ipad-portrait', 'theme')?>" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" rel="apple-touch-startup-image">
+<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-ipad-portrait', 'theme')?>" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image"/>
 
 <!-- iPad (landscape) -->
-<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-ipad-landscape', 'theme')?>" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" rel="apple-touch-startup-image">
+<link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-ipad-landscape', 'theme')?>" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image"/>
 
 <!-- iPad (Retina, portrait) -->
 <link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-ipad-retina-portrait', 'theme')?>" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
@@ -34,7 +40,7 @@ echo $OUTPUT->doctype(); ?>
 <!-- iPhone 5 (Retina) -->
 <link href="<?php echo $OUTPUT->pix_url('apple-touch-startup-image-iphone5', 'theme')?>" rel="apple-touch-startup-image" sizes="640x1096">
 
-
+*/?>
 <title><?php echo $PAGE->title ?></title>
 <?php echo $OUTPUT->standard_head_html() ?>
 
@@ -131,6 +137,16 @@ if (isloggedin()) { ?>
 
 			<div id="region-main-box">
 
+
+			
+			     <?php if ($hascenterpost) { ?>
+                <div id="region-center-post" class="block-region">
+                    <div class="region-content">
+                        <?php echo $OUTPUT->blocks_for_region('center-post') ?>
+                    </div>
+                </div>
+                <?php } ?>
+			
 				<div class="region-content">
 
 					<!-- For settings page -->
@@ -160,7 +176,7 @@ if (isloggedin()) { ?>
 									/* Assume a teacher */
 									if ($PAGE->user_allowed_editing()) {
 										echo $OUTPUT->course_settings_button($PAGE->url);
-
+										echo $OUTPUT->grader_button($PAGE->url);
 										echo $OUTPUT->edit_button($PAGE->url);
 										
 										//echo $OUTPUT->user_role();
@@ -205,16 +221,7 @@ if (isloggedin()) { ?>
 				<a href="<?php echo $logout ?>	" data-ajax="false" data-role="button" data-inline="true" data-transition="flow" data-theme="b" data-corners="true"  >Logout</a> 
 			</div>
 			
-			<div data-role="popup" data-overlay-theme="a" data-theme="none" id="general-popup" data-shadow="false"  data-theme="none" data-position-to="window">
-			
-					
-					<div class="pop-contents">
-					
-					</div>
-					
-				<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" data-corners="true">Close</a>
-	
-			</div>
+
 			
 
 						
@@ -227,7 +234,8 @@ if (isloggedin()) { ?>
 	</div>
 
 	</div>
-	
+
+	<div data-role="dialog" id="dialog">My dialog</div>
 
 	<div id="moodle-url" url="<?php echo($CFG->wwwroot) ?>"></div>
 </body>

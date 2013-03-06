@@ -291,17 +291,7 @@ protected function navigation_node($items, $attrs=array(), $expansionlimit=null,
 
 class theme_mobilev1_core_renderer extends core_renderer {
 
-	public function user_role() {
-		global $COURSE, $USER;
-		
-		$context = get_context_instance (CONTEXT_SYSTEM);
-		$roles = get_user_roles($context, $USER->id, false);
-		$role = key($roles);
-		$roleid = "User role: " + $roles[$role]->roleid;
-		
-		return  $roleid;
-	
-	}
+
 
 
     /**
@@ -476,8 +466,13 @@ protected function render_single_button(single_button $button) {
         // note: this title is displayed only if JS is disabled, otherwise the link will have the new ajax tooltip
         $title = get_string('helpprefix2', '', trim($title, ". \t"));
 
-        $attributes = array('href'=>$url, 'title'=>$title, 'aria-haspopup' => 'true', 'class' => 'tooltip');
-        $output = html_writer::tag('a', $output, array('class' => 'helplink', 'data-role'=> 'button', 'data-inline' => 'true', 'data-mini' => 'true'));
+        $attributes = array('href'=>$url, 'title'=>$title, 'class' => 'tooltip');
+		
+		$id = html_writer::random_id('helpicon');
+       /* issue with 1.3 */
+	   // $output = html_writer::tag('a', $output, array('class' => 'helpicon', 'id' => $id, 'rel' => 'notexternal', 'data-role'=> 'button', 'data-rel' => 'dialog', 'data-inline' => 'true', 'data-mini' => 'true', 'href'=>'https://devweb2012.cis.strath.ac.uk/~xvb09137/moodle/', 'title'=>$title));
+	    $output = html_writer::tag('a', $output, array('class' => 'helpicon', 'id' => $id,  'data-role'=> 'button', 'data-inline' => 'true', 'data-transition'=>'pop', 'data-mini' => 'true', 'href'=>$url, 'title'=>$title));
+
 
         $this->page->requires->js_init_call('M.util.help_icon.setup');
         $this->page->requires->string_for_js('close', 'form');
@@ -781,7 +776,31 @@ protected function render_single_button(single_button $button) {
       } 
   
 	  
-	
+	 /**
+      * Creates a grading button for the current course
+      * @return string
+      */
+      
+      public function grader_button() {
+      global $USER, $CFG;
+   		$context = $this->page->context;
+   		
+      	$coursecontext = $context->get_course_context();
+      	
+      	$categoryid = null;
+      	
+      	if ($coursecontext) { 
+      		$courseid = $coursecontext->instanceid;
+      	}
+		
+      	$link = "$CFG->wwwroot/grade/report/grader/index.php?id=$courseid";
+      	
+      	return '<a id="grader-btn" data-role="button"  data-theme="c" data-inline="false" href="' . $link. '"><i class="icon-star left"></i>Marking</a>';
+      
+      } 
+	  
+
+  
         
         /**
          * Generates Settings Button for menu
@@ -823,7 +842,13 @@ protected function render_single_button(single_button $button) {
      * @return string
      */
     public function back_button() {
- $items = $this->page->navbar->get_items();
+		$pageid = $this->page->bodyid;
+	
+		if($pageid == 'page-course-user')
+			return "<a id='back-button' data-rel='back' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='#'></a>"; 
+
+		
+		$items = $this->page->navbar->get_items();
 
         // Iterate the navarray and remove unneccessary items
         $itemcount = count($items);
@@ -850,7 +875,7 @@ protected function render_single_button(single_button $button) {
 			return "<a id='back-button' data-direction='reverse' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='" .  $url . "'></a>";
 		}
 		else
-			return ''; 
+			return "<a id='back-button' data-rel='back' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='#'></a>"; 
 		
 		
 		//return $content;

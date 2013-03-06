@@ -224,7 +224,7 @@
 }
 
 .forumpost .content:after{
-		content: ".";
+	content: ".";
 	display: block;
 	clear: both;
 	visibility: hidden;

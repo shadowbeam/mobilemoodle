@@ -245,6 +245,11 @@ a#back-button:focus{
 	font-size: inherit;
 	text-shadow:none;
 }
+
+.gradeparent{
+overflow: scroll;
+}
+
  table#user-grades th.useremail{
 	color:#000!important;
  }
@@ -384,22 +389,26 @@ only screen and (min-width: 35em) {
 	z-index:1199;
 }
 
-#tut-index-welcome{
-	top: 5em
-	;
+#forum-tut-pop{
+	top: 1em;
 	left:0px;
-	text-align:center;
 	width:100%;
-}
-
-#general-popup img{
-	max-width: 100%;
-}
-
-#general-popup .pop-contents{
 	color: #fff;
 	text-shadow: 0 1px #000;
 	text-align: center;
+
+}
+
+#forum-tut-pop a{
+	max-width:5em;
+}
+
+#forum-tut-pop img{
+	max-width: 100%;
+}
+
+#forum-tut-screen{
+	opacity: 0.8;
 }
 
 	

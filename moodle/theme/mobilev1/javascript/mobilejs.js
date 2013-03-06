@@ -8,13 +8,16 @@ $(document).bind("mobileinit", function(){
 	
 });
 
+/*disable the mouseover to improve menu scrolling performance */
  $(document).bind("vmouseover", function () { });
+
  
 /** 
  * Course Index
  */
 $('#course-page-index, #page-site-index, #page-my-index')
 	.live('pagebeforecreate',function(event, ui){
+
 		$('ul.section').attr("data-role", "listview").attr("data-inset", "true").attr('data-theme', 'a');
 		$('.section li img.activityicon').addClass("ui-li-icon");	
 		
@@ -47,7 +50,22 @@ $('#course-page-index, #page-site-index, #page-my-index')
 	 $('.ui-page-active #page-header').live('swipeleft', function (event, ui) {
 	 	 $('.ui-page-active #panel-wrapper').panel( "open" );
 	});
-		
+	
+	var moodle_base_url = $('#moodle-url').attr('url');
+	
+	/* fix for autosubmit selection */
+    $("select.urlselect.autosubmit").live("change",function(event) {
+				event.stopImmediatePropagation();
+
+		sel = $(this).val();
+	
+		url = moodle_base_url + sel;
+        if (sel != "") 
+            $.mobile.changePage(url);
+        
+    });
+	
+
 		
 });
 
@@ -73,8 +91,8 @@ $('.course-view-topics, .course-view-weeks').live('pagebeforecreate',function(ev
 
 	/* Course Profile Hack */
 	if($(this).find('.userprofile').length > 0){
-		$('.course-info').hide();
-		$('.userprofile table').addClass('responsive-tab');		
+		$(this).find('.course-info').hide();
+		$(this).find('.userprofile table').addClass('responsive-tab');		
 	}
 	
 	/* Course Page */
@@ -83,59 +101,59 @@ $('.course-view-topics, .course-view-weeks').live('pagebeforecreate',function(ev
 		var innercontent;
 
 		/* Topics Course Page */
-		if($('ul.topics').length > 0){
-			innercontent = $('ul.topics:not(.single-section ul.topics)').html();
-			var singlecontent = $('.single-section ul.topics').html();
+		if($(this).find('ul.topics').length > 0){
+			innercontent = $(this).find('ul.topics:not(.single-section ul.topics)').html();
+			var singlecontent = $(this).find('.single-section ul.topics').html();
 			
-			$('ul.topics:not(.single-section ul.topics)').wrap('<div class="courseformat"/>');
-			$('.single-section ul.topics').wrap('<div class="courseformat-single"/>');
+			$(this).find('ul.topics:not(.single-section ul.topics)').wrap('<div class="courseformat"/>');
+			$(this).find('.single-section ul.topics').wrap('<div class="courseformat-single"/>');
 			
-			$('.courseformat ul.topics').remove();
-			$('.courseformat-single ul.topics').remove();
+			$(this).find('.courseformat ul.topics').remove();
+			$(this).find('.courseformat-single ul.topics').remove();
 			
-			$('div.courseformat').html(innercontent).addClass('ui-grid-a ui-responsive');
-			$('div.courseformat-single').html(singlecontent).addClass('ui-grid-a ui-responsive');
+			$(this).find('div.courseformat').html(innercontent).addClass('ui-grid-a ui-responsive');
+			$(this).find('div.courseformat-single').html(singlecontent).addClass('ui-grid-a ui-responsive');
 		}
 		
 		/* Weeks Course Page */
-		else if ($('ul.weeks').length > 0) {
+		else if ($(this).find('ul.weeks').length > 0) {
 			innercontent = $('ul.weeks').html();
-			$('ul.weeks').wrap('<div class="courseformat"/>').remove();
-			$('div.courseformat').html(innercontent).addClass('ui-grid-a ui-responsive');
+			$(this).find('ul.weeks').wrap('<div class="courseformat"/>').remove();
+			$(this).find('div.courseformat').html(innercontent).addClass('ui-grid-a ui-responsive');
 
 		}
 
 		/* Single Section */
-		$('.single-section .section-navigation a:not(.ui-btn)').attr('data-role', 'button').attr('data-inline', 'true').attr('data-mini', 'true');
-		$('.single-section li.section .content').unwrap();	
+		$(this).find('.single-section .section-navigation a:not(.ui-btn)').attr('data-role', 'button').attr('data-inline', 'true').attr('data-mini', 'true');
+		$(this).find('.single-section li.section .content').unwrap();	
 
 		/* Columns of resources */
-		$('.course-content .courseformat li.section.main:even').addClass('ui-block-b');
-		$('.course-content .courseformat li.section.main:odd').addClass('ui-block-a');
+		$(this).find('.course-content .courseformat li.section.main:even').addClass('ui-block-b');
+		$(this).find('.course-content .courseformat li.section.main:odd').addClass('ui-block-a');
 		
 		
 		//create labels
-		$('li.label').attr('data-role','list-divider').attr('data-theme', 'a');	
+		$(this).find('li.label').attr('data-role','list-divider').attr('data-theme', 'a');	
 
 		//unwrap h3s so they become collapsible headers
-		$('.courseformat .section .content h3, .sectionname').unwrap();
+		$(this).find('.courseformat .section .content h3, .sectionname').unwrap();
 
 		//remove unneeded div sides
-		$('.left.side, .right.side').remove();
+		$(this).find('.left.side, .right.side').remove();
 		
 		//unwrap links
-		$('.mod-indent .activityinstance a').unwrap().unwrap();
+		$(this).find('.mod-indent .activityinstance a').unwrap().unwrap();
 		
 		//create the collapsible headers
-		$('.course-content li.section.main').not('[id="section-0"]').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','c');
+		$(this).find('.course-content li.section.main').not('[id="section-0"]').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','c');
 			
 		//assign listviews
-		$('ul.section').attr('data-role', 'listview');
-		$('#section-0 ul.section ').attr('data-inset', 'true');
+		$(this).find('ul.section').attr('data-role', 'listview');
+		$(this).find('#section-0 ul.section ').attr('data-inset', 'true');
 			
 		
 		/* Fix for collapsible headings that also act as links */
-		$("h3.section-title:has(a)").bind( "click", function(event, ui) {
+		$(this).find("h3.section-title:has(a)").bind( "click", function(event, ui) {
 				event.preventDefault();
 				event.stopPropagation;
 			var link = ($(this).find('span a').attr('href'));
@@ -144,12 +162,12 @@ $('.course-view-topics, .course-view-weeks').live('pagebeforecreate',function(ev
 		});
 		
 		/* Edit section */
-		$('a:has(img.iconsmall)').addClass('edit_button').attr('data-role', 'button').attr('data-theme', 'a').attr('data-inline', 'true').attr('data-mini', 'true');
-		$('#changenumsections').find('.increase-sections, .reduce-sections').attr('data-role', 'button').attr('data-inline', 'true').attr('data-theme', 'a');
+		$(this).find('a:has(img.iconsmall)').addClass('edit_button').attr('data-role', 'button').attr('data-theme', 'a').attr('data-inline', 'true').attr('data-mini', 'true');
+		$(this).find('#changenumsections').find('.increase-sections, .reduce-sections').attr('data-role', 'button').attr('data-inline', 'true').attr('data-theme', 'a');
 
 		/* Block_News items */
-		$('.block a:not(.comment-message-meta a)').attr('data-role', 'button').attr('data-theme', 'c').attr('data-inline', 'false').attr('data-mini', 'true');		
-		$('.block_news_items ul').attr('data-role', 'listview');
+		$(this).find('.block a:not(.comment-message-meta a)').attr('data-role', 'button').attr('data-theme', 'c').attr('data-inline', 'false').attr('data-mini', 'true');		
+		$(this).find('.block_news_items ul').attr('data-role', 'listview');
 
 
 		
@@ -302,7 +320,7 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user, .dialog-
 					//this ignores the hash and simply loads the page
 					$.mobile.changePage( link, { transition: "slideup"} );
 			});
-});
+})
 
 /* 
  * Small Screen Forums 

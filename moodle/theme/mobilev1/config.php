@@ -85,7 +85,7 @@ $THEME->layouts = array(
     ),
     'standard' => array(
         'file' => 'standard.php',
-        'regions' => array('side-pre', 'side-post'),
+        'regions' => array('side-pre', 'side-post', 'center-pre'),
         'defaultregion' => 'side-post',
     ),
     'course' => array(
@@ -129,7 +129,7 @@ $THEME->layouts = array(
         'options' => array('langmenu'=>false),
     ),
     'popup' => array(
-        'file' => 'standard.php',
+        'file' => 'popup.php',
         'regions' => array(),
         'options' => array('nofooter'=>false),
     ),
@@ -144,6 +144,7 @@ $THEME->layouts = array(
         'options' => array('nofooter'=>false, 'nonavbar'=>true),
     ),
 
+
 	
     'report' => array(
         'file' => 'standard.php',
@@ -157,9 +158,12 @@ $THEME->csspostprocess = 'mytheme_csspostprocess';
 // Add the required JavaScript to the page
 $THEME->javascripts = array(
     'jquery',
+
+//'jquery-1.7.1.min',
 	'mdrnzr',
 	'mobilejs',
 	'jquery.mobile-1.3.0.min',
+	//'jquery.mobile-1.1.1',
 	'help'
 );
 $THEME->javascripts_footer = array();
