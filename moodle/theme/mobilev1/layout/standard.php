@@ -5,12 +5,12 @@ $hascenterpost = $PAGE->blocks->region_has_content('center-post', $OUTPUT);
 $hascenterpost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('center-post', $OUTPUT));
 $showcenterpost = $hassidepost && !$PAGE->blocks->region_completely_docked('center-post', $OUTPUT);
 
+$pagetype = $PAGE->pagetype;
+
 echo $OUTPUT->doctype(); ?>
 
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
-
-    <link rel="shortcut icon" href="<?php echo $OUTPUT->pix_url('favicon', 'theme')?>" />
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=320.1" />
@@ -57,7 +57,7 @@ echo $OUTPUT->doctype(); ?>
 	
 
 
-	<div id="<?php p($PAGE->bodyid); ?>" class="<?php p($PAGE->pagetype); ?>"data-role="page" class="general">
+	<div id="<?php p($PAGE->bodyid); ?>" class="<?php p($pagetype); ?>"data-role="page" class="general">
 
 		<!-- Panel -->
 		<div data-role="panel" id="panel-wrapper" data-dismissible="true" data-swipe-close="true"  data-position="right" data-theme="a" data-display="reveal">
@@ -112,9 +112,11 @@ if (isloggedin()) { ?>
 						
 					<a class="icon-menu mybtn ui-btn-right" href="#panel-wrapper"
 					data-ajax="false"></a>
+					<?php echo $OUTPUT->back_button(); ?>
+					
 				<?php } else { echo $OUTPUT->login_info();} ?>
 				
-				<?php echo $OUTPUT->back_button(); ?>
+				
 				
 
 				
@@ -144,13 +146,22 @@ if (isloggedin()) { ?>
 			     <?php if ($hascenterpost) { ?>
                 <div id="region-center-post" class="block-region">
                     <div class="region-content">
-                        <?php echo $OUTPUT->blocks_for_region('center-post') ?>
+					
+					
+						<?php echo $OUTPUT->blocks_for_region('center-post') ?>
                     </div>
                 </div>
                 <?php } ?>
 			
+			
 				<div class="region-content">
+				
+				<!-- For Forums page -->
+						<?php if($pagetype == "mod-forum-view"){?>
+							<a id="forum-tut-btn" href="#" onclick="open_forum_tut();" data-role="button" data-inline="true" data-mini="true" data-theme="b">Help</a>
 
+						<?php }?>
+				
 					<!-- For settings page -->
 					<?php if($settings){?>
 						<ul data-role="listview">
@@ -162,7 +173,7 @@ if (isloggedin()) { ?>
 					
 					
 					/* For Course page */
-					 else if ($PAGE->pagetype == 'course-view-topics' || $PAGE->pagetype == 'course-view-weeks'){ ?>
+					 else if ($pagetype == 'course-view-topics' || $pagetype == 'course-view-weeks'){ ?>
 					
 					<div class="course-info ui-grid-a ui-responsive">
 						<div id="blurb" class="ui-block-a ui-bar-c ui-shadow ui-btn-corner-all ui-btn-block">

@@ -46,7 +46,9 @@ $THEME->sheets = array(
     'profile',
 	'forums',
 	'font',
-	'course'
+	'course',
+	'messages',
+	'cal'
    
     );
     
@@ -144,8 +146,6 @@ $THEME->layouts = array(
         'options' => array('nofooter'=>false, 'nonavbar'=>true),
     ),
 
-
-	
     'report' => array(
         'file' => 'standard.php',
         'regions' => array()

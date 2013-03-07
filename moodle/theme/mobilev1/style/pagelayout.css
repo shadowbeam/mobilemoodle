@@ -248,6 +248,11 @@ a#back-button:focus{
 
 .gradeparent{
 overflow: scroll;
+ -webkit-overflow-scrolling: touch;
+}
+
+#graded_users_selector {
+	float:none;
 }
 
  table#user-grades th.useremail{
@@ -262,7 +267,7 @@ table#user-grades th{
 	text-shadow: none!important;
 }
 
-td.c0, 
+table#user-grades td.c0, 
 th,
 table#user-grades th
 {
@@ -378,6 +383,16 @@ only screen and (min-width: 35em) {
 .block_news_items .footer{
 	margin-top: 1em;
 }
+
+/* Block Calendar*/
+.block_calendar_upcoming .footer,
+.block_calendar_upcoming hr{
+	display:none;
+}
+
+.block_calendar_upcoming .icon{
+	float:left;
+}
 	
 /* Tutorials */
 
@@ -389,26 +404,5 @@ only screen and (min-width: 35em) {
 	z-index:1199;
 }
 
-#forum-tut-pop{
-	top: 1em;
-	left:0px;
-	width:100%;
-	color: #fff;
-	text-shadow: 0 1px #000;
-	text-align: center;
-
-}
-
-#forum-tut-pop a{
-	max-width:5em;
-}
-
-#forum-tut-pop img{
-	max-width: 100%;
-}
-
-#forum-tut-screen{
-	opacity: 0.8;
-}
 
 	

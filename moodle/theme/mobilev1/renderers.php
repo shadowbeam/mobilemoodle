@@ -142,11 +142,83 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
     
 }
 
+include_once($CFG->dirroot . '/message/renderer.php');
 
+/* Messages Renderer */
+class theme_mobilev1_core_message_renderer extends core_message_renderer {
+    /**
+     * Display the interface to manage message outputs
+     *
+     * @param  array  $processors array of objects containing message processors
+     * @return string The text to render
+     */
+    public function manage_messageoutputs($processors) {
+        global $CFG;
+        // Display the current workflows
+        $table = new html_table();
+        $table->attributes['class'] = 'generaltable';
+        $table->data        = array();
+        $table->head        = array(
+            get_string('name'),
+            get_string('enable'),
+            get_string('settings'),
+        );
+        $table->colclasses = array(
+            'displayname', 'availability', 'settings',
+        );
+
+        foreach ($processors as $processor) {
+            $row = new html_table_row();
+            $row->attributes['class'] = 'messageoutputs';
+
+            // Name
+            $name = new html_table_cell(get_string('pluginname', 'message_'.$processor->name));
+
+            // Enable
+            $enable = new html_table_cell();
+            $enable->attributes['class'] = 'mdl-align';
+            if (!$processor->available) {
+                $enable->text = html_writer::nonempty_tag('span', get_string('outputnotavailable', 'message'), array('class' => 'error'));
+            } else if (!$processor->configured) {
+                $enable->text = html_writer::nonempty_tag('span', get_string('outputnotconfigured', 'message'), array('class' => 'error'));
+            } else if ($processor->enabled) {
+                $url = new moodle_url('/admin/message.php', array('disable' => $processor->id, 'sesskey' => sesskey()));
+                $enable->text = html_writer::link($url, html_writer::empty_tag('img',
+                    array('src'   => $this->output->pix_url('t/hide'),
+                          'class' => 'iconsmall',
+						  'data-role' => 'button',
+                          'title' => get_string('outputenabled', 'message'),
+                          'alt'   => get_string('outputenabled', 'message'),
+                    )
+                ));
+            } else {
+                $name->attributes['class'] = 'dimmed_text';
+                $url = new moodle_url('/admin/message.php', array('enable' => $processor->id, 'sesskey' => sesskey()));
+                $enable->text = html_writer::link($url, html_writer::empty_tag('img',
+                    array('src'   => $this->output->pix_url('t/show'),
+                          'class' => 'iconsmall',
+                          'title' => get_string('outputdisabled', 'message'),
+                          'alt'   => get_string('outputdisabled', 'message'),
+                    )
+                ));
+            }
+            // Settings
+            $settings = new html_table_cell();
+            if ($processor->available && $processor->hassettings) {
+                $settingsurl = new moodle_url('settings.php', array('section' => 'messagesetting'.$processor->name));
+                $settings->text = html_writer::link($settingsurl, get_string('settings', 'message'));
+            }
+
+            $row->cells = array($name, $enable, $settings);
+            $table->data[] = $row;
+        }
+        return html_writer::table($table);
+    }
+
+}
 
 
 include_once($CFG->dirroot . '/blocks/navigation/renderer.php');
-
   
 class theme_mobilev1_block_navigation_renderer extends block_navigation_renderer {
 
@@ -683,6 +755,7 @@ protected function render_single_button(single_button $button) {
 			
 			
 			$attributes['data-content-theme'] = 'a';
+			$attributes['data-theme'] = 'a';
             
             $bc->collapsible = block_contents::NOT_HIDEABLE;
                 
@@ -842,11 +915,13 @@ protected function render_single_button(single_button $button) {
      * @return string
      */
     public function back_button() {
-		$pageid = $this->page->bodyid;
+	/*	$pageid = $this->page->bodyid;
 	
 		if($pageid == 'page-course-user')
 			return "<a id='back-button' data-rel='back' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='#'></a>"; 
 
+			
+			/*
 		
 		$items = $this->page->navbar->get_items();
 
@@ -874,8 +949,9 @@ protected function render_single_button(single_button $button) {
 			}
 			return "<a id='back-button' data-direction='reverse' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='" .  $url . "'></a>";
 		}
-		else
-			return "";//no back button 
+		else*/
+		
+			return "<a id='back-button' data-rel='back' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='$CFG->httpswwwroot'></a>"; 
 		
 		
 		//return $content;

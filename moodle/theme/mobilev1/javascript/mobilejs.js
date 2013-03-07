@@ -23,6 +23,7 @@ $('#course-page-index, #page-site-index, #page-my-index')
 		
 		//must remove this otherwise the link breaks
 		$('ul.teachers').remove();
+		
 	
 		//unwrap the course list
 		$('.unlist div.coursebox, .unlist div.info, .unlist h3.name').contents().unwrap();
@@ -30,19 +31,28 @@ $('#course-page-index, #page-site-index, #page-my-index')
 		//change available courses to listview with filter
 		$('.unlist').attr("data-role", "listview").attr("data-inset", "true").attr("data-filter", "true");
 		
+		
+		
 	}).live('pageshow',function(event, ui){
-
+		
 		/* DOM Management remove all pages when returning to the course page */
-		$('.ui-page:not(.ui-page-active)').each(function(){
-			$(this).remove();
-		});	
+		$.mobile.urlHistory.clearForward();
+		alert( $.mobile.urlHistory.stack.length);
+	
+	
 	});
 
 
 /** 
  * General
  */
- $('div').live('pagebeforecreate',function(event, ui){
+ $('div').live('pageshow',function(event, ui){
+ 
+if($.mobile.urlHistory.stack.length > 5){
+	
+}
+
+ }).live('pagebeforecreate',function(event, ui){
 	$('.ftoggler').attr('data-role', 'list-divider').addClass('ui-bar-a');
 	$('#id_submitbutton').attr('data-theme', 'b');
 		
@@ -54,7 +64,7 @@ $('#course-page-index, #page-site-index, #page-my-index')
 	var moodle_base_url = $('#moodle-url').attr('url');
 	
 	/* fix for autosubmit selection */
-    $("select.urlselect.autosubmit").live("change",function(event) {
+    $("select.urlselect, select.autosubmit").live("change",function(event) {
 				event.stopImmediatePropagation();
 
 		sel = $(this).val();
@@ -64,6 +74,13 @@ $('#course-page-index, #page-site-index, #page-my-index')
             $.mobile.changePage(url);
         
     });
+	
+	/* Calendar block */
+		$('.block_calendar_upcoming .event').attr('data-role', 'button');
+		$('.block_calendar_upcoming .event').tap(function(){
+			var url = $(this).find('a:first').attr('href');
+			$.mobile.changePage(url);
+		});
 	
 
 		
@@ -166,7 +183,7 @@ $('.course-view-topics, .course-view-weeks').live('pagebeforecreate',function(ev
 		$(this).find('#changenumsections').find('.increase-sections, .reduce-sections').attr('data-role', 'button').attr('data-inline', 'true').attr('data-theme', 'a');
 
 		/* Block_News items */
-		$(this).find('.block a:not(.comment-message-meta a)').attr('data-role', 'button').attr('data-theme', 'c').attr('data-inline', 'false').attr('data-mini', 'true');		
+		$(this).find('.block a:not(.comment-message-meta a, .block_calendar_upcoming a)').attr('data-role', 'button').attr('data-theme', 'c').attr('data-inline', 'false').attr('data-mini', 'true');		
 		$(this).find('.block_news_items ul').attr('data-role', 'listview');
 
 
@@ -330,12 +347,12 @@ $('.smallscreen #page-mod-forum-discuss, .smallscreen .forumtype-single, .smalls
 	
 		
 	
-	/* Show controls for post after tap
+	/* Show controls for post after tap */
 	$('.forumpost').click(function(event, ui){
 			event.preventDefault();
 			event.stopImmediatePropagation();
 			$(this).find('.commands').toggleClass('showcontrols');
-		});*/
+		});
 	
 	/* Conceal indentation*/
 	$('.indent .indent').hide();
@@ -403,10 +420,10 @@ $('#page-mod-assign-view').live('pagebeforecreate',function(event, ui){
 /* User Profile */
 
 $('#page-course-user').live('pagebeforecreate',function(event, ui){
-	$('th').attr('colspan', '1');
-	$('td.oddd1').remove();
-	$('table.user-grade').addClass('responsive-tab').removeClass('user-grade');
-	$('table td a').attr('data-role', 'button').attr('data-mini', 'true');
+	$(this).find('th').attr('colspan', '1');
+	$(this).find$('td.oddd1').remove();
+	$(this).find$('table.user-grade').addClass('responsive-tab').removeClass('user-grade');
+	$(this).find$('table td a').attr('data-role', 'button').attr('data-mini', 'true');
 	
 });
 
@@ -422,9 +439,21 @@ $('#page-mod-resource-view').live('pagebeforecreate',function(event, ui){
         height: $this.attr('height'),
         overflow: 'auto'                    
      });
+	 
+});
 
+/* Messages */
+$('#page-message-index').live('pagebeforecreate',function(event, ui){
+	$(this).find('.removecontact a, .blockcontact a, .history a').attr('data-role', 'button').attr('data-mini', 'true').attr('data-inline', 'true');
+	
+	$(this).find('table.message_user_pictures').addClass('responsive-tab');
 
 });
 
+/* Calendar */
+$('#page-calendar-view').live('pagebeforecreate',function(event, ui){
+	$(this).find('.calendarmonth td .day a').attr('data-role', 'button').attr('data-mini', 'true').attr('data-inline', 'true').attr('data-theme', 'b');
+	
 
+});
 
