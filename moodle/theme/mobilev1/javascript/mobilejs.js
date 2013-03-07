@@ -11,11 +11,12 @@ $(document).bind("mobileinit", function(){
 /*disable the mouseover to improve menu scrolling performance */
  $(document).bind("vmouseover", function () { });
 
+
  
 /** 
  * Course Index
  */
-$('#course-page-index, #page-site-index, #page-my-index')
+$('#course-page-index, #page-site-index, #page-my-index, #page-course-index')
 	.live('pagebeforecreate',function(event, ui){
 
 		$('ul.section').attr("data-role", "listview").attr("data-inset", "true").attr('data-theme', 'a');
@@ -36,8 +37,11 @@ $('#course-page-index, #page-site-index, #page-my-index')
 	}).live('pageshow',function(event, ui){
 		
 		/* DOM Management remove all pages when returning to the course page */
-		$.mobile.urlHistory.clearForward();
-		alert( $.mobile.urlHistory.stack.length);
+		$('.ui-page:not(.ui-page.ui-page-active)').each(function(){
+			  	
+		     $(this).remove();
+			  	
+		   });
 	
 	
 	});
@@ -47,10 +51,10 @@ $('#course-page-index, #page-site-index, #page-my-index')
  * General
  */
  $('div').live('pageshow',function(event, ui){
- 
-if($.mobile.urlHistory.stack.length > 5){
-	
-}
+
+	//clear forward 
+	$.mobile.urlHistory.clearForward();
+
 
  }).live('pagebeforecreate',function(event, ui){
 	$('.ftoggler').attr('data-role', 'list-divider').addClass('ui-bar-a');
@@ -165,7 +169,7 @@ $('.course-view-topics, .course-view-weeks').live('pagebeforecreate',function(ev
 		$(this).find('.course-content li.section.main').not('[id="section-0"]').attr('data-role', 'collapsible').attr('data-collapsed', 'false').attr('data-theme', 'b').attr('data-content-theme','c');
 			
 		//assign listviews
-		$(this).find('ul.section').attr('data-role', 'listview');
+		$(this).find('ul.section').attr('data-role', 'listview').attr('data-shadow', 'false');
 		$(this).find('#section-0 ul.section ').attr('data-inset', 'true');
 			
 		
@@ -421,9 +425,9 @@ $('#page-mod-assign-view').live('pagebeforecreate',function(event, ui){
 
 $('#page-course-user').live('pagebeforecreate',function(event, ui){
 	$(this).find('th').attr('colspan', '1');
-	$(this).find$('td.oddd1').remove();
-	$(this).find$('table.user-grade').addClass('responsive-tab').removeClass('user-grade');
-	$(this).find$('table td a').attr('data-role', 'button').attr('data-mini', 'true');
+	$(this).find('td.oddd1').remove();
+	$(this).find('table.user-grade').addClass('responsive-tab').removeClass('user-grade');
+	$(this).find('table td a').attr('data-role', 'button').attr('data-mini', 'true');
 	
 });
 

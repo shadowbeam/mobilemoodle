@@ -1,6 +1,5 @@
 <?php
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
-$hascenterpost = $PAGE->blocks->region_has_content('center-post', $OUTPUT);
 
 $pagetype = $PAGE->pagetype;
 
@@ -13,7 +12,7 @@ echo $OUTPUT->doctype(); ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=320.1" />
 
 
-+    <link rel="shortcut icon" href="<?php echo $OUTPUT->pix_url('favicon', 'theme')?>" />
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->pix_url('favicon', 'theme')?>" />
 
 <link rel="apple-touch-icon-precomposed" href="<?php echo $OUTPUT->pix_url('touch-icon-iphone', 'theme')?>" />
 

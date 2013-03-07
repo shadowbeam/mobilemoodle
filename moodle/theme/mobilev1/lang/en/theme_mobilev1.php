@@ -28,6 +28,4 @@ $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 $string['choosereadme'] = 'A mobile optimised theme';
 
-
-
 ?>
