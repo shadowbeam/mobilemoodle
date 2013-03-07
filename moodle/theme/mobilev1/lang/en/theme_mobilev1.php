@@ -27,7 +27,6 @@ $string['pluginname'] = 'mobilev1';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 $string['choosereadme'] = 'A mobile optimised theme';
-$string['region-center-post'] = 'Top Center';
 
 
 

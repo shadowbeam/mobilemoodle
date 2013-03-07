@@ -87,7 +87,7 @@ $THEME->layouts = array(
     ),
     'standard' => array(
         'file' => 'standard.php',
-        'regions' => array('side-pre', 'side-post', 'center-pre'),
+        'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
     ),
     'course' => array(
@@ -106,7 +106,7 @@ $THEME->layouts = array(
     ),
     'frontpage' => array(
         'file' => 'standard.php',
-        'regions' => array('side-pre', 'side-post', 'center-pre'),
+        'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
     ),
     'admin' => array(
