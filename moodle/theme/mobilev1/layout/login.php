@@ -94,13 +94,6 @@ echo $OUTPUT->doctype(); ?>
 			global $USER;
 			$logout = "$CFG->wwwroot/login/logout.php?sesskey=$USER->sesskey"; ?>
 			
-
-			
-
-			
-
-						
-					
 		</div>
 	
 		

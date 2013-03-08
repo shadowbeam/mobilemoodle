@@ -51,6 +51,7 @@ echo $OUTPUT->doctype(); ?>
 <body class="<?php p($PAGE->bodyclasses); ?>">
 
 	<?php $settings = optional_param('mobilev1_settings', false, PARAM_BOOL); ?>
+	<?php $blocks = optional_param('mobilev1_blocks', false, PARAM_BOOL); ?>
 	
 
 
@@ -172,6 +173,7 @@ if (isloggedin()) { ?>
 								<?php 	
 									/* Assume a teacher */
 									if ($PAGE->user_allowed_editing()) {
+										
 										echo $OUTPUT->course_settings_button($PAGE->url);
 										echo $OUTPUT->grader_button($PAGE->url);
 										echo $OUTPUT->edit_button($PAGE->url);

@@ -24,6 +24,7 @@
 	display: block;
 }
 
+
 .forumpost .defaultuserpic{
 	width: 35px;
 	height: 35px;
@@ -297,7 +298,10 @@ div.discussioncontrols,
  .forumpost .row.maincontent .left,
  #page-mod-forum-user  .footer a, /* See this post in context */
  .forumpost.starter .rply-count, /* no reply count for starter */ 
-.forumpost .forum-post-rating
+.forumpost .forum-post-rating,
+
+html.smallscreen .indent .indent,
+html.smallscreen .dialog-replies .indent
  {
 	display:none;
 }

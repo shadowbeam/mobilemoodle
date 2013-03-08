@@ -675,28 +675,14 @@ protected function render_single_button(single_button $button) {
                     $username .= " from {$idprovider->name}";
                 }
             } 
-            if (isguestuser()) {
-              //  $loggedinas = $realuserinfo.get_string('loggedinasguest');
-                if (!$loginpage && $withlinks) {
-                    $loggedinas .= " <a href=\"$loginurl\">".get_string('login').'</a>';
-                }
-            } else if (is_role_switched($course->id)) { // Has switched roles
-                $rolename = '';
-                if ($role = $DB->get_record('role', array('id'=>$USER->access['rsw'][$context->path]))) {
-                    $rolename = ': '.format_string($role->name);
-                }
-                $loggedinas = get_string('loggedinas', 'moodle', $username).$rolename;
-                if ($withlinks) {
-                    $loggedinas .= " (<a href=\"$CFG->wwwroot/course/view.php?id=$course->id&amp;switchrole=0&amp;sesskey=".sesskey()."\">".get_string('switchrolereturn').'</a>)';
-                }
-            } else {
+
             	
 				$userpic = new user_picture($USER, array('size'=>25));
                 $loggedinas =  $username;
 
                  $loggedinas = '<div class="user-info ui-btn-right">' . $this->render($userpic) .$loggedinas.'</div>';
            
-            }
+            
         } else {
 //            $loggedinas = get_string('loggedinnot', 'moodle');
             if (!$loginpage && $withlinks) {

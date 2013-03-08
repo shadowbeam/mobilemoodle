@@ -36,6 +36,9 @@
 #page-content #region-main-wrap {float:none;position:relative;right:0;width:100%;}
 #page-content {clear:both;float:none;overflow:hidden;position:relative;width:100%;min-width:0px;}
 
+#page-course-index .courseboxes{
+	margin-top: 2em;
+}
 
 
 .skip-bloc,

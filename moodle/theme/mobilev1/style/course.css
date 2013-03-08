@@ -119,8 +119,11 @@ a.edit_button .ui-btn-inner{
 	margin:0;
 }
 
-.single-section .mdl-align.title{
+.single-section .mdl-align{
 	text-align:center;
+}
+
+.single-section .mdl-align.title{
 	font-size:20px;
 	font-weight:bold;
 }
