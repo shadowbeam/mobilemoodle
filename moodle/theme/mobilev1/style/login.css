@@ -1,7 +1,6 @@
-/****
+/*
  * Login Page CSS
- * @author Allan Watson
- ****/
+ */
  
  
  #page-login-index .loginbox.twocolumns .loginpanel,
@@ -19,8 +18,13 @@
   }
  
 
-/*JQM override*/
-div.ui-input-text { padding: 0 0 0 0; } 
+/* Form Input */
+
+#page-login-index .loginpanel input#username,
+#page-login-index .loginpanel input#password{
+ 	padding-left: 0!important;
+ 	padding-right: 0!important;
+ }
 
 #page-login-index .loginbox .loginform .form-input {
 	float: none;
@@ -30,15 +34,7 @@ div.ui-input-text { padding: 0 0 0 0; }
 
 #page-login-index .loginbox .loginform .form-input input,
 #page-login-index h2{
-/*	display: block;
-	clear: both;
-	margin-left: auto;
-	margin-right: auto;
-	width: 60%;*/
-	
 	text-align: center;
-
-
 }
 
 #page-login-index .rememberpass #rememberusername{
@@ -46,6 +42,7 @@ div.ui-input-text { padding: 0 0 0 0; }
 	width: auto;
 }
 
+/* Errors */
 
 #page-login-index .forgetpass{
 	text-align: center;
@@ -64,6 +61,8 @@ div.ui-input-text { padding: 0 0 0 0; }
 
 }
 
+/* Hide */
+
 #page-login-index .loginbox .loginpanel .desc,
 #page-login-index .signuppanel,
 #page-login-index .skiplinks,
@@ -72,11 +71,7 @@ div.ui-input-text { padding: 0 0 0 0; }
  {display: none;}
  
  
-#page-login-index .loginpanel input#username,
-#page-login-index .loginpanel input#password{
- 	padding-left: 0!important;
- 	padding-right: 0!important;
- }
+
  
 
 

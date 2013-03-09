@@ -9,47 +9,7 @@
 	font-style: normal;
 }
 
-/** Use the following CSS code if you want to use data attributes for inserting your icons *!/
-[data-icon]:before {
-	font-family: 'icomoon';
-	content: attr(data-icon);
-	speak: none;
-	font-weight: normal;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-}*/
-
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it's slower:
-[class*="icon-"]:before {
-*/
-
-	.icon-grid:before,
-	.icon-star:before,
-	.icon-spam:before,
-	.icon-close:before,
-	.icon-exit:before,
-	.icon-menu:before,
-	.icon-arrow-left:before,
-	.icon-spell-check:before,
-
- .ui-icon-loading:before,
- .ui-icon-plus:before,
- .ui-icon-minus:before,
- .ui-icon-arrow-u:before,
- .ui-icon-arrow-l:before,
- .ui-icon-arrow-d:before,
- .ui-icon-arrow-r:before,
- .ui-icon-delete:before,
- .ui-icon-searchfield:after,
- .ui-icon-checkbox-on:before,
- .icon-arrow-left:before,
- .ui-icon-radio-on:before,
- .ui-icon-gear:before,
- .defaultuserpic:before
-
+	.icon-grid:before,.icon-star:before,.icon-spam:before,.icon-close:before,.icon-exit:before,.icon-menu:before,.icon-arrow-left:before,.icon-spell-check:before,.ui-icon-loading:before,.ui-icon-plus:before,.ui-icon-minus:before,.ui-icon-arrow-u:before,.ui-icon-arrow-l:before,.ui-icon-arrow-d:before,.ui-icon-arrow-r:before,.ui-icon-delete:before,.ui-icon-searchfield:after,.ui-icon-checkbox-on:before,.icon-arrow-left:before,.ui-icon-radio-on:before,.ui-icon-gear:before,.defaultuserpic:before
  
  {
 	font-family: 'icomoon';

@@ -397,15 +397,14 @@ only screen and (min-width: 35em) {
 	float:left;
 }
 	
-/* Tutorials */
 
-.tut{
-	position: absolute;
-	color:#fff;
-	text-shadow:none;
-	font-size:2em;
-	z-index:1199;
+
+
+#page-site-index .summary,
+#page-site-index .skip-block,
+#page-site-index .heading-block header
+{
+	display: none;
 }
-
 
 	

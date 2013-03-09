@@ -273,6 +273,14 @@ html.no-fontface .forumpost .defaultuserpic{
 	display:none;
 }
 
+.tut{
+	position: absolute;
+	color:#fff;
+	text-shadow:none;
+	font-size:2em;
+	z-index:1199;
+}
+
 
 /* Hidden */
 
