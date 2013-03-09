@@ -869,10 +869,22 @@ protected function render_single_button(single_button $button) {
      public function settings_button() {
      
      	$urlsettings = new moodle_url($this->page->url, array('mobilev1_settings' => 'true'));
-     	 $urlsettings->out();
      	 
      	return '<a id="settings-btn" data-role="button"  data-theme="b" data-inline="false" href="' . $urlsettings->out(). '">Settings<i class="icon-cog"></i></a>';
 		
+     }
+     
+     /**
+         * Generates Blocks Button for menu
+     	 * @author: Allan Watson 2013
+         */
+     
+     public function blocks_button() {
+     
+     	$url = new moodle_url($this->page->url, array('mobilev1_blocks' => 'true'));
+     	 
+     	return '<a id="settings-btn" data-role="button"  data-theme="b" data-inline="false" href="' . $url->out(). '">Blocks<i class="icon-grid"></i></a>';
+     	
      }
 	 
 	 /**
@@ -977,13 +989,13 @@ protected function render_single_button(single_button $button) {
 	                if ($bc->attributes['class'] != 'block_settings  block' && $bc->attributes['class'] != 'block_navigation  block') {
 	                    $output .= $this->block($bc, $region);
 	                }
-	            } else if ($bc instanceof block_move_target) {
-	                $output .= $this->block_move_target($bc);
-	            } else {
+	            }
+	            else {
 	                throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
 	            }
 	        }
 	
+			
 	        return $output;
 	    }
 	

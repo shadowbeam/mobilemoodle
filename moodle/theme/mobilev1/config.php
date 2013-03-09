@@ -158,12 +158,8 @@ $THEME->csspostprocess = 'mytheme_csspostprocess';
 // Add the required JavaScript to the page
 $THEME->javascripts = array(
     'jquery',
-
-//'jquery-1.7.1.min',
 	'mdrnzr',
 	'mobilejs',
 	'jquery.mobile-1.3.0.min',
-	//'jquery.mobile-1.1.1',
 	'help'
 );
-$THEME->javascripts_footer = array();

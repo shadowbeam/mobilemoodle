@@ -1,5 +1,7 @@
 <?php
-$hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
+
+$hassidepre = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-pre', $OUTPUT));
+$hassidepost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-post', $OUTPUT));
 
 $pagetype = $PAGE->pagetype;
 
@@ -90,6 +92,10 @@ if (isloggedin()) { ?>
 			<?php if(!$settings){ 	
 				echo $OUTPUT -> settings_button(); 
 			}//ifsettings 
+			
+			if(!$blocks){
+				echo $OUTPUT -> blocks_button(); 
+			}
    }//ifflogged ?>
 
 
@@ -158,9 +164,23 @@ if (isloggedin()) { ?>
 										
 				 else if($blocks){?>
 					<h1>	Blocks</h1>
+					
 
-					<?php echo $OUTPUT->blocks_for_region('side-pre') ?>					
-					<?php   }
+					<?php 
+					if(!$hassidepre && !$hassidepost){
+						echo "No blocks";
+					}
+					else{
+						if($hassidepre){
+							echo $OUTPUT->blocks_for_region('side-pre');
+						}
+						if($hassidepost){
+							echo $OUTPUT->blocks_for_region('side-post'); 
+						}
+					}
+					?>
+									
+			<?php   }
 					
 					
 					/* For Course page */
@@ -196,7 +216,9 @@ if (isloggedin()) { ?>
 						<div class="ui-block-b accord">
 							<div data-role="collapsible-set" data-theme="a">
 							
-								<?php echo $OUTPUT->blocks_for_region('side-post') ?>
+								<?php 
+									if($hassidepost)
+										echo $OUTPUT->blocks_for_region('side-post') ?>
 							</div>
 						</div>
 					</div><!-- /grid-a -->

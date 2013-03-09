@@ -34,6 +34,10 @@
 	margin-top: 2em;
 }
 
+.course-content object{
+	max-width: 100%;
+}
+
 
 .course-content .accesshide{
 	display: none;
