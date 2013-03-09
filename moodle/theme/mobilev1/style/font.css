@@ -25,34 +25,15 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"]:before {
 */
-.icon-checkmark:before,
-.icon-undo:before,
-.icon-grid:before,
-.icon-star:before,
-.icon-spam:before,
-.icon-search:before,
-.icon-cd:before,
-.icon-minus:before,
-.icon-close:before,
-.icon-plus:before,
-.icon-cog:before,
-.icon-exit:before,
-.icon-home:before,
-.icon-file:before, 
-.icon-menu:before,
-.icon-spinner:before,
-.icon-right:before,
-.icon-left:before,
-.icon-down:before,
-.icon-up:before,
-.icon-arrow-left:before,
-.icon-spell-check:before,
-.icon-user:before,
-.icon-bubbles:before,
-.icon-bubble:before,
-.icon-calendar:before,
-.icon-envelope:before,
-.icon-pencil:before,
+
+	.icon-grid:before,
+	.icon-star:before,
+	.icon-spam:before,
+	.icon-close:before,
+	.icon-exit:before,
+	.icon-menu:before,
+	.icon-arrow-left:before,
+	.icon-spell-check:before,
 
  .ui-icon-loading:before,
  .ui-icon-plus:before,
@@ -78,81 +59,74 @@ you can use the generic selector below, but it's slower:
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
-.icon-checkmark:before,
+
 .ui-icon-checkbox-on:before {
 	content: "\2c";
 }
 
-
-
 .icon-grid:before {
 	content: "\23";
 }
+
 .icon-star:before {
 	content: "\2a";
 }
 
-
-.fontface.no-baddevice .icon-search:before,
-.fontface.no-baddevice .ui-icon-searchfield:after{
+.ui-icon-searchfield:after{
 	content: "\34";
 }
 
-.ui-icon-radio-on:before,
-.icon-cd:before {
+.ui-icon-radio-on:before {
 	content: "\6f";
 }
-.icon-minus:before,
 .ui-icon-minus:before  {
 	content: "\2d";
 }
+
 .icon-close:before,
 .ui-icon-delete:before {
 	content: "\78";
 }
-.icon-plus:before,
+
+
 .ui-icon-plus:before  {
 	content: "\22";
 }
-.icon-cog:before,
-.ui-icon-gear:before
-{
+
+
+.ui-icon-gear:before{
 	content: "\25";
 }
 
 .icon-exit:before {
 	content: "\6c";
 }
-.icon-home:before,
+
 li.My.courses .ui-btn-text a:before,
 li.Courses .ui-btn-text a:before  {
 	content: "\48";
 }
 
-
-
 .icon-menu:before {
 	content: "\4d";
 }
-.icon-spinner:before,
+
 .ui-icon-loading:before  {
 	content: "\4f";
-
 }
 
-.icon-right:before,
 .ui-icon-arrow-r:before {
 	content: "\3e";
 }
-.icon-left:before,
+
 .ui-icon-arrow-l:before {
 	content: "\3c";
 }
-.icon-down:before,
+
 .ui-icon-arrow-d:before {
 	content: "\56";
 }
-.icon-up:before,
+
 .ui-icon-arrow-u:before {
 	content: "\4e";
 }
@@ -166,32 +140,27 @@ li.Grade .ui-btn-text a:before {
 	content: "\39";
 }
 
-.icon-user:before,
 .defaultuserpic:before {
 	content: "\3b";
 }
 
-.icon-bubbles:before,
 li.Discussions .ui-btn-text a:before {
 	content: "\44";
 }
-.icon-bubble:before,
+
 li.Posts .ui-btn-text a:before {
 	content: "\3d";
 }
 
-.icon-calendar:before,
 li.Calendar .ui-btn-text a:before
  {
 	content: "\43";
 }
 
-
-.icon-envelope:before,
 li.Messages .ui-btn-text a:before  {
 	content: "\3f";
 }
-.icon-pencil:before,
+
 li.Add.a.new.entry .ui-btn-text a:before  {
 	content: "\41";
 }
@@ -206,6 +175,12 @@ li.Add.a.new.entry .ui-btn-text a:before  {
     }
 }
 
-/*Fix for non supportive browsers*/
-.baddevice
-.no-fontface
+/* Don't show icons for non supportive browsers*/
+.baddevice [class*="icon-"]:before,
+.no-fontface [class*="icon-"]:before,
+.baddevice #panel-wrapper .ui-btn-text a:before, /* no panel icons */
+.no-fontface #panel-wrapper .ui-btn-text a:before
+{
+	display: none;
+}
+

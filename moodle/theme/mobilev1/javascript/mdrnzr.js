@@ -10,5 +10,5 @@ Modernizr.addTest('baddevice', function () {
 });
 
 Modernizr.addTest('smallscreen', function () {
-	return Modernizr.mq('only screen and (max-width: 30em)');
+	return Modernizr.mq('only screen and (max-width: 35em)');
 });

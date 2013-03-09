@@ -870,7 +870,7 @@ protected function render_single_button(single_button $button) {
      
      	$urlsettings = new moodle_url($this->page->url, array('mobilev1_settings' => 'true'));
      	 
-     	return '<a id="settings-btn" data-role="button"  data-theme="b" data-inline="false" href="' . $urlsettings->out(). '">Settings<i class="icon-cog"></i></a>';
+     	return '<a id="settings-btn" data-role="button"  data-theme="b" data-inline="false" href="' . $urlsettings->out(). '">Settings<i class="ui-icon-gear"></i></a>';
 		
      }
      
@@ -902,7 +902,7 @@ protected function render_single_button(single_button $button) {
 	
      	$urlsettings = "$CFG->wwwroot/course/edit.php?id=$courseid"; 
      	 
-     	return '<a id="settings-btn" data-role="button" data-inline="false" data-theme="c" href="' . $urlsettings . '"><i class="left icon-cog"></i>Course Settings</a>';
+     	return '<a id="settings-btn" data-role="button" data-inline="false" data-theme="c" href="' . $urlsettings . '"><i class="left ui-icon-gear"></i>Course Settings</a>';
 		
      }
 
@@ -915,61 +915,10 @@ protected function render_single_button(single_button $button) {
      * @return string
      */
     public function back_button() {
-	/*	$pageid = $this->page->bodyid;
-	
-		if($pageid == 'page-course-user')
-			return "<a id='back-button' data-rel='back' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='#'></a>"; 
 
-			
-			/*
-		
-		$items = $this->page->navbar->get_items();
-
-        // Iterate the navarray and remove unneccessary items
-        $itemcount = count($items);
-	
-        for ($i = 0; $i < $itemcount; $i++) {
-            $item = $items[$i];
-			
-			$item->hideicon = true;
-            if (!empty($item->action)) {
-				$htmlblocks[] = $item;
-            } 
-        }
-		
-		$last = count($htmlblocks);
-		
-		if($last >1){
-			$content = $htmlblocks[$last-2];
-			$url = (string)$content->action;
-			if($url == $this->page->url){ //if the same page try another level up
-			
-				$content = $htmlblocks[$last-3];
-				$url = (string)$content->action;
-			}
-			return "<a id='back-button' data-direction='reverse' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='" .  $url . "'></a>";
-		}
-		else*/
 		
 			return "<a id='back-button' data-rel='back' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='$CFG->httpswwwroot'></a>"; 
 		
-		
-		//return $content;
-        
-		
-		/*
-			if($itemcount > 1){
-				$item = $items[$itemcount - 2];
-				$navbarcontent =  $this->render($item);
-			}
-			else{
-				$navbarcontent = $itemcount;
-			}
-
-		$navbarcontent .= join('', $htmlblocks);
-        // XHTML
-        return $navbarcontent;        
-*/
     }
 	
 	
