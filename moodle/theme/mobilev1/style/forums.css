@@ -1,10 +1,9 @@
 /**
  * Forums CSS
- * @author Allan Watson
- * @theme mobilev1
- * @editted 13/02/13
  */
  
+ 
+/* Topics Page */
 
 #page-mod-forum-view table.forumheaderlist tr,
 #page-mod-forum-view table.forumheaderlist td,
@@ -14,8 +13,6 @@
 	display: block;
  	border:none;
 	border-style:none;
-//	width: auto!important;
-
 }
 
 #page-mod-forum-view table.forumheaderlist td.topic{
@@ -24,35 +21,21 @@
 	display: block;
 }
 
-
-.forumpost .defaultuserpic{
-	width: 35px;
-	height: 35px;
-	font-size: 30px;
-	background-color: transparent;
-	border: none;
-	}
+#page-mod-forum-view table.forumheaderlist td.author:before{
+	content: "Posted by ";
 }
- 
- 
- #page-mod-forum-view table.forumheaderlist td.author:before{
- 	content: "Posted by ";
- }
- 
-  #page-mod-forum-view table.forumheaderlist td.lastpost:before{
- 	content: "Last Post: ";
- }
-	#page-mod-forum-view table.forumheaderlist td.lastpost{
+
+ #page-mod-forum-view table.forumheaderlist td.lastpost:before{
+	content: "Last Post: ";
+}
+
+#page-mod-forum-view table.forumheaderlist td.lastpost{
 	float:right;
-		}
+}
 		
-	/*clear the float from last post*/	
-	#page-mod-forum-view table.forumheaderlist tr.discussion,
-	.forumpost .row.maincontent.clearfix{
-		clear:both;
-	}
+
 	
-	tr.discussion{
+tr.discussion{
 		background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.26, #cbcccb), to(#7a7a7a));
 		background-image: -moz-linear-gradient(90deg, #cbcccb 26%, #7a7a7a 100%);
 		-moz-box-shadow: inset 0 40px 10px rgba(0, 0, 0, 0.61);
@@ -60,25 +43,27 @@
 		box-shadow: inset 0 40px 10px rgba(0, 0, 0, 0.61);
 	}
 	
-#page-mod-forum-view tr.discussion td a{
+	#page-mod-forum-view table.forumheaderlist tr.discussion,
+	.forumpost .row.maincontent.clearfix{
+		clear:both;	
+	}
+	
+	#page-mod-forum-view tr.discussion td a{
 		color: rgb(43, 49, 54);
 	}
 	
 	
-	/*clear fix for tr.discussion */
-	tr.discussion:after,
-	.topic.firstpost.starter:after{
-		content: " . ";
-		clear: both;
-	  display: block;
-	  height: 0;
-	  visibility: hidden;
-	  font-size: 0;
-}
- 
- span.reply-count{
-	float:right;
-}
+		/*clear fix for tr.discussion */
+		tr.discussion:after,
+		.topic.firstpost.starter:after{
+			content: " . ";
+			clear: both;
+		  display: block;
+		  height: 0;
+		  visibility: hidden;
+		  font-size: 0;
+	}
+	
 
 /* class to force display inline */
 .displayinline{
@@ -93,11 +78,23 @@
 	color:#000;
 }
 
+/* Forum Posts*/
+
 .forumpost{
 	overflow:hidden;
 	border: none;
 
 }
+
+.forumpost .defaultuserpic{
+	width: 35px;
+	height: 35px;
+	font-size: 30px;
+	background-color: transparent;
+
+}
+ 
+ 
 
 .forumpost .subject{
 	font-size: 18px;
@@ -109,12 +106,30 @@
 	border: 1px solid #cbcccb;
 }
 
+.forumpost .row.header{
+	border-top-left-radius:0.3em;
+	border-top-right-radius:0.3em; 
+}
 
 
-/* override the main post jumping down*/
-.row.maincontent.clearfix ,
+.forumpost .rply-count{
+	float: right;
+	border-radius: 10em;
+}
+
+.forumpost .content:after{
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+
+.row.maincontent.clearfix,
 .forumpost .row .options{
-	clear: none!important;
+	clear: none!important;/* override the main post jumping down*/
 	margin:0;
 }
 
@@ -122,27 +137,20 @@
 	width: auto;
 }
 
-.forumpost .row.header{
-	border-top-left-radius:0.3em;
-	border-top-right-radius:0.3em; 
-}
-
-
-/* @group Commands */
+/* Commands */
 
 .forumpost .commands{
 	margin: 0;
 }
-/*force buttons to have no top corners*/
+
 .forumpost .commands a{
 	border-top-left-radius: 0!important;
-	border-top-right-radius: 0!important;
+	border-top-right-radius: 0!important;/*force buttons to have no top corners*/
 	border-top: none;
 	min-width: 5em!important;
 }
 
 
-/* @end */
 
  
  /* Style */
@@ -156,9 +164,9 @@
 	margin-bottom:1em;
  }
  
- /* make a title for the reply*/
+
  #page-mod-forum-post h2.accesshide{
-	display:block;
+	display:block; /* title for the reply*/
 	margin: 1em 0 1em 0;
 }
 
@@ -171,7 +179,7 @@
 }
 
 
-/*Phones*/
+/* Small Screens */
 @media only screen and (max-width: 30em){
 	 .path-mod-forum  .indent,
 	.path-mod-forum .indent .indent,
@@ -219,24 +227,9 @@
 	color: #fff;
 }
 
-/* Replies */
-.forumpost .rply-count{
-	float: right;
-	//padding: 0.5em 0.75em 0.5em 0.75em;
-	border-radius: 10em;
-}
-
-.forumpost .content:after{
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
-}
 
 
-/* Forum Tutorial*/
+/* Forum Tutorial */
 
 #forum-tut-pop{
 	top: 0;

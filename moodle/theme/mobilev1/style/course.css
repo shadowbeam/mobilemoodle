@@ -2,8 +2,10 @@
  * Course Page CSS
  * View-Weeks & View-Topics
  */
+ 
+ 
 /* Larger Screens */
-@media all and (min-width: 35em) {
+@media all and (min-width: 30em) {
 	.course-content li.section.ui-block-a {
 	padding-right: 10px;
 }

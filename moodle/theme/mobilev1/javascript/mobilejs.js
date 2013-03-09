@@ -265,6 +265,7 @@ $('#page-mod-forum-view').live('pagebeforecreate',function(event, ui){
  * Forums Inside Topics
  */
 $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('pagebeforecreate',function(event, ui){
+	$this = $(this);
     var $fp = $(this).find('.forumpost');
 	var $fps = $fp.filter('.starter');
 	var $com = $fp.find('.options .commands');
@@ -296,6 +297,7 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
 		$com.contents().filter(function() {
 			return this.nodeType == 3; 
 		}).remove();
+	
 	
 
 	/* Paging Buttons */
@@ -354,8 +356,9 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
 	}
 })
 /* Check when page gets created if the user has been taught about forums */
-.live('pagecreate',function(event, ui) {
-		check_index_tut();
+.live('pageshow',function(event, ui) {
+		if(!has_been_before())
+			open_forum_tut($(this));
 	});
 		
 

@@ -149,7 +149,7 @@ if (isloggedin()) { ?>
 				
 				<!-- For Forums page -->
 						<?php if($pagetype == "mod-forum-view"){?>
-							<a id="forum-tut-btn" href="#" onclick="open_forum_tut();" data-role="button" data-inline="true" data-mini="true" data-theme="b">Help</a>
+							<a id="forum-tut-btn" href="#" onclick="open_forum_tut($('.ui-page-active'));" data-role="button" data-inline="true" data-mini="true" data-theme="b">Help</a>
 
 						<?php }?>
 				
