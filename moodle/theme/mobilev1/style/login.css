@@ -64,27 +64,6 @@ div.ui-input-text { padding: 0 0 0 0; }
 
 }
 
-
-.loginbox .loginform input#username{
-/*	-webkit-border-top-left-radius: 0.5em;
-	-webkit-border-top-right-radius: 0.5em;
-	-moz-box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);
-	-webkit-box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);
-	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);*/
-}
-
-.loginbox .loginform input#password{
-
-/*	-webkit-border-bottom-left-radius: 0.5em;
-	-webkit-border-bottom-right-radius: 0.5em;
-
-
-	
-	-moz-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);
-	-webkit-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);
-	box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.26);*/
-}
-
 #page-login-index .loginbox .loginpanel .desc,
 #page-login-index .signuppanel,
 #page-login-index .skiplinks,

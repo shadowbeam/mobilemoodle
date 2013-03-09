@@ -2,71 +2,68 @@
  * Calendar CSS
  */
  
-  html #page-calendar-view table.calendarmonth{
-	width:100%;
-	 table-layout: fixed;
-  border-collapse: collapse;
-  }
-  
-   #page-calendar-view table.event{
-   width: 100%;
-   }
-   
-   
-   #page-calendar-view .calendarmonth th,
-   #page-calendar-view .calendarmonth td{
+ /* make table responsive */
+#page-calendar-view table.calendarmonth {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+#page-calendar-view table.event {
+	width: 100%;
+}
+
+#page-calendar-view td.today{
+	background-color: rgba(0, 133, 209, 0.55);
+}
+
+/*overflowing Day title clip */
+#page-calendar-view a.arrow_link .ui-btn-inner{
+	text-overflow: clip;
+}
+
+#page-calendar-view .calendarmonth th,
+#page-calendar-view .calendarmonth td {
 	text-overflow: ellipsis;
 	overflow: hidden;
-	text-align:center;
-   }
-   
-  #page-calendar-view  .calendarmonth ul{
-  list-style-type:none;
-  margin:0px;
-  }
-
-  #page-calendar-view  .calendar-controls .hide{
-	display:none;
-  }
-  
-  
-  #page-calendar-view  .calendar-controls  {
 	text-align: center;
-  }
-  #page-calendar-view  .calendar-controls  .current{
-display: inline-block;
-  }
-  
-  #page-calendar-view  .next{
+}
 
-  }
+#page-calendar-view .calendarmonth ul {
+	list-style-type: none;
+	margin: 0px;
+}
 
-  
-  #page-calendar-view  table.calendarmonth tbody td{
-	text-align:center;
+#page-calendar-view .calendar-controls .current {
+	display: inline-block;
+}
 
- }
- 
- /* Small Screen */
+#page-calendar-view table.calendarmonth tbody td,
+#page-calendar-view .calendar-controls {
+	text-align: center;
+}
 
- @media screen  and (max-width:35em){
-	 #page-calendar-view .calendar-controls .arrow_text{
-		display:none;
-	 }
-	 
+#page-calendar-view .calendar-controls .hide {
+	display: none;
+}
 
- 
- #page-calendar-view .calendarmonth .ui-btn{
- margin: 0;
- }
- 
- #page-calendar-view .events-new{
-	display:none;
- }
- 
- }
- 
- html.smallscreen #page-calendar-view .calendarmonth th.header{
-	 max-width: 1em;
+/* Small Screen */
+@media screen and (max-width:35em) {
+	#page-calendar-view .calendar-controls .arrow_text {
+		display: none;
+	}
 	
- }
+	#page-calendar-view .calendarmonth .ui-btn {
+		margin: 0;
+	}
+	
+	#page-calendar-view .events-new {
+		display: none;
+	}
+	
+	#page-calendar-view .calendarmonth th.header {
+		max-width: 1em;
+	}
+
+}
+
