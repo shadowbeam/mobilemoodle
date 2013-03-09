@@ -1,3 +1,6 @@
+/**
+ * Profile
+ */
 
 .userprofile .descriptionbox table{
 	margin-left: auto;
@@ -62,7 +65,6 @@
 	background-image: linear-gradient(top, #0077bc,#154f70);
 	border: 1px solid #00354b;
 	background-color: #154f70;
-//	text-shadow: 0  1px 0 #fff;	
 	
 }
  
@@ -83,14 +85,3 @@
 }
 
 
-
-/*#page-user-editadvanced legend{
-	background-color: #000;
-	display: block;
-	width: 100%;
-	color: #fff;
-	padding: 0.5em 0 .5em 0;
-	text-indent: 1em;
-	text-shadow: 0 /*{a-bar-shadow-x}*!/ -1px /*{a-bar-shadow-y}*!/ 1px /*{a-bar-shadow-radius}*!/ #000 /*{a-bar-shadow-color}*!/;
-	font-size: 17px;
-}*/

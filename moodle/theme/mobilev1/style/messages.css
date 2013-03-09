@@ -1,7 +1,9 @@
 /**
  * Messages CSS
  */
-#page-message-index table{
+ 
+#page-message-index table,
+#page-message-index .messagesend fieldset.hidden{
 	width:100%;
 }
 
@@ -25,10 +27,10 @@
 }
 
 #page-message-index .userpicture{
-margin-left: auto;
-margin-right: auto;
-width:35px!important;
-height:35px!important;
+	margin-left: auto;
+	margin-right: auto;
+	width:35px!important;
+	height:35px!important;
 }
 
 
@@ -37,27 +39,23 @@ height:35px!important;
 	border:none;
 }
 
-#page-message-index .singlemessage .removecontact,
-#page-message-index .singlemessage .history,
-#page-message-index .singlemessage .blockcontact{
-	display:none;
-}
+
 
 #page-message-index .messagehistory .mdl-left{
 	float: none;
 	margin: 0em 0 1em 0;
 }
 
-#page-message-index .hiddenelement{
-	display:none;
-}
 
 #page-message-index .messagehistorytype{
 	text-align:center;
 }
 
 
-
-#page-message-index .messagesend fieldset.hidden{
-	width:100%;
+/* Hide */
+#page-message-index .singlemessage .removecontact,
+#page-message-index .singlemessage .history,
+#page-message-index .singlemessage .blockcontact,
+#page-message-index .hiddenelement{
+	display:none;
 }

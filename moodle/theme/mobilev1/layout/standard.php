@@ -74,12 +74,12 @@ echo $renderer->navigation_tree($PAGE->navigation );
 ?>
 </ul>
 
+<div id="mybtns">
 
 			<!-- If Logged in -->
 			<?php
 if (isloggedin()) { ?>
 <a id="logout-btn" data-role="button" data-theme="b" data-inline="false" data-rel="popup" href="#logoutpopup">
-
 <?php echo  get_string('logout'); ?>
 <i class="icon-exit mybtn"></i>
 </a>
@@ -95,7 +95,7 @@ if (isloggedin()) { ?>
    }//ifflogged ?>
 
 
-
+</div>
 
 
 
