@@ -893,6 +893,8 @@ protected function render_single_button(single_button $button) {
      	return '<a id="settings-btn" data-role="button" data-inline="false" data-theme="c" href="' . $urlsettings . '"><i class="left icon-cog"></i>Course Settings</a>';
 		
      }
+
+
 	      
 		
 	 /**
@@ -958,6 +960,32 @@ protected function render_single_button(single_button $button) {
 */
     }
 	
+	
+	    /**
+	     * Renders the blocks for a block region in the page
+	     *
+	     * @param type $region
+	     * @return string
+	     */
+	    public function blocks_for_region($region) {
+	        $blockcontents = $this->page->blocks->get_content_for_region($region, $this);
+	
+	        $output = '';
+	        foreach ($blockcontents as $bc) {
+	            if ($bc instanceof block_contents) {
+	                // We don't want to print navigation and settings blocks here.
+	                if ($bc->attributes['class'] != 'block_settings  block' && $bc->attributes['class'] != 'block_navigation  block') {
+	                    $output .= $this->block($bc, $region);
+	                }
+	            } else if ($bc instanceof block_move_target) {
+	                $output .= $this->block_move_target($bc);
+	            } else {
+	                throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
+	            }
+	        }
+	
+	        return $output;
+	    }
 	
 	
 }

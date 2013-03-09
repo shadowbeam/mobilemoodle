@@ -155,6 +155,12 @@ if (isloggedin()) { ?>
 							?>
 						</ul>
 					<?php   }
+										
+				 else if($blocks){?>
+					<h1>	Blocks</h1>
+
+					<?php echo $OUTPUT->blocks_for_region('side-pre') ?>					
+					<?php   }
 					
 					
 					/* For Course page */
@@ -199,7 +205,7 @@ if (isloggedin()) { ?>
 					<?php } ?>
 					
 
-				<?php  if(!$settings) echo core_renderer::MAIN_CONTENT_TOKEN; ?>					
+				<?php  if(!$settings && !$blocks) echo core_renderer::MAIN_CONTENT_TOKEN; ?>					
 
 				</div>
 
