@@ -165,11 +165,13 @@ if (isloggedin()) { ?>
 				 else if($blocks){?>
 					<h1>	Blocks</h1>
 					
-
+<div id="blocks-page" class="course-info ui-grid-a ui-responsive">
 					<?php 
 					if(!$hassidepre && !$hassidepost){
 						echo "No blocks";
 					}
+					
+					
 					else{
 						if($hassidepre){
 							echo $OUTPUT->blocks_for_region('side-pre');
@@ -179,6 +181,8 @@ if (isloggedin()) { ?>
 						}
 					}
 					?>
+					
+					</div>
 									
 			<?php   }
 					

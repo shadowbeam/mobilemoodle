@@ -10,6 +10,7 @@ $(document).bind("mobileinit", function(){
 	$.mobile.touchOverflowEnabled = true; //slicker scrolling for devs that support touch-overflow css 
 	$.mobile.page.prototype.options.domCache = true; //enable dom cache 
 	$.mobile.defaultHomeScroll = 0; //prevent small content jumps
+	$.event.special.swipe.verticalDistanceThreshold = 30; //improve swiping when scrolling
 	
 });
 
@@ -23,8 +24,8 @@ $('#page-site-index, #page-course-index')
 	.live('pagebeforecreate',function(event, ui){
 	
 		/* possibly only need this for the local copy of moodle*/
-	//	$(this).find('ul.section').attr("data-role", "listview").attr("data-inset", "true").attr('data-theme', 'a');
-	//	$(this).find('.section li img.activityicon').addClass("ui-li-icon");	
+		$(this).find('ul.section').attr("data-role", "listview").attr("data-inset", "true").attr('data-theme', 'a');
+		$(this).find('.section li img.activityicon').addClass("ui-li-icon");	
 		
 		//must remove this otherwise front page course links break
 		$(this).find('ul.teachers').remove();
@@ -319,7 +320,8 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
 	 * Small Screen Forums
 	 */	
 	if($('html.smallscreen')){
-			
+		
+		
 		/* Show controls for post after tap */
 		$fp.click(function(event, ui){
 			$(this).find('.commands').toggleClass('showcontrols');

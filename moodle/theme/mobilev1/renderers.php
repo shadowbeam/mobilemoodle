@@ -995,7 +995,7 @@ protected function render_single_button(single_button $button) {
 	            }
 	        }
 	
-			
+	
 	        return $output;
 	    }
 	
