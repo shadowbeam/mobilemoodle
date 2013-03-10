@@ -23,6 +23,7 @@
  */
 
 
+/* Allow font directory in css */
 function mytheme_csspostprocess($css, $theme)
 {
     global $CFG;
