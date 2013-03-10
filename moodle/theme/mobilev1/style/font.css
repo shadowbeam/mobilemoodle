@@ -24,6 +24,10 @@
 	content: "\2c";
 }
 
+.icon-spam:before {
+	content: "\32";
+}
+
 .icon-grid:before {
 	content: "\23";
 }
