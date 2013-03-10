@@ -29,7 +29,7 @@
 		if ($('#forum-tut-pop').length == 0){
 			var url = $('#moodle-url').attr('url');
 			
-			$('body').append('<div id="forum-tut-pop" class="tut"><h1>To View Replies <br>Swipe or Tap</h1><div class="forum-tut-contents"><img src="' + url + '/theme/mobilev1/pix/reply.png"></div><h1>To View Post Controls</h1><img src="' + url + '/theme/mobilev1/pix/forum-tut-controls.png"><h1>To View Topic Details</h1><img src="' + url + '/theme/mobilev1/pix/forum-tut-topic.png"><a id="forum-tut-close" onclick="close_forum_tut();" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-block ui-btn-up-b"><span class="ui-btn-inner"><span class="ui-btn-text">Close</span></span></a></div>');
+			$('body').append('<div id="forum-tut-pop" class="tut"><h1>To View Replies</h1><div class="forum-tut-contents"><img src="' + url + '/theme/mobilev1/pix/reply.png"></div><h1>To View Post Controls</h1><img src="' + url + '/theme/mobilev1/pix/forum-tut-controls.png"><a id="forum-tut-close" onclick="close_forum_tut();" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-block ui-btn-up-b"><span class="ui-btn-inner"><span class="ui-btn-text">Close</span></span></a></div>');
 		}
 		
 		else{

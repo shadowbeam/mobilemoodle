@@ -172,11 +172,7 @@ function resource_get_clicktoopen($file, $revision, $extra='') {
     $path = '/'.$file->get_contextid().'/mod_resource/content/'.$revision.$file->get_filepath().$file->get_filename();
     $fullurl = file_encode_url($CFG->wwwroot.'/pluginfile.php', $path, false);
 
- /* @author allanwatson
-  * @edit 7/2/2013
-  */
-    $string =  "<a data-role='button' data-theme='b' target='_blank' href=\"$fullurl\" $extra>Open with Device</a>";
-    $string .= "<a data-role='button' target='_blank' href=\"http://docs.google.com/viewer?url=$fullurl\" $extra>Open with Google Docs</a>";
+    $string = get_string('clicktoopen2', 'resource', "<a href=\"$fullurl\" $extra>$filename</a>");
 
     return $string;
 }
@@ -209,10 +205,13 @@ function resource_print_workaround($resource, $cm, $course, $file) {
 
     resource_print_header($resource, $cm, $course);
     resource_print_heading($resource, $cm, $course, true);
-    resource_print_intro($resource, $cm, $course, true);
+   // resource_print_intro($resource, $cm, $course, true);
 
     $resource->mainfile = $file->get_filename();
     echo '<div class="resourceworkaround">';
+  
+   
+    
     switch (resource_get_final_display_type($resource)) {
         case RESOURCELIB_DISPLAY_POPUP:
             $path = '/'.$file->get_contextid().'/mod_resource/content/'.$resource->revision.$file->get_filepath().$file->get_filename();
@@ -224,19 +223,29 @@ function resource_print_workaround($resource, $cm, $course, $file) {
             $extra = "onclick=\"window.open('$fullurl', '', '$wh'); return false;\"";
             echo resource_get_clicktoopen($file, $resource->revision, $extra);
             break;
-
-        case RESOURCELIB_DISPLAY_NEW:
-            $extra = 'onclick="this.target=\'_blank\'"';
-            echo resource_get_clicktoopen($file, $resource->revision, $extra);
-            break;
-
-        case RESOURCELIB_DISPLAY_DOWNLOAD:
-            echo resource_get_clicktodownload($file, $resource->revision);
-            break;
-
+            
+          
+      
         case RESOURCELIB_DISPLAY_OPEN:
         default:
-            echo resource_get_clicktoopen($file, $resource->revision);
+        
+       /* Edit @allanwatson display helpful buttons  */ 
+   	global $PAGE;
+       	
+     	if($PAGE->theme->name == "mobilev1"){
+     		
+
+             $fullurl = resource_get_doclink($file, $resource->revision);
+              			
+		echo "<a data-ajax='false' data-theme='a' data-role='button' href='" . $fullurl ."' target='_blank'>Open with Device</a>";
+		echo "<a data-ajax='false' data-role='button' href='http://docs.google.com/viewer?url=" .$fullurl ."' target='_blank'>Open in Google Docs Viewer</a>";
+            	
+     	}else{
+   		 echo resource_get_clicktoopen($file, $resource->revision);
+     	}
+            	
+            	
+            
             break;
     }
     echo '</div>';
@@ -474,4 +483,22 @@ function resource_set_mainfile($data) {
         $file = reset($files);
         file_set_sortorder($context->id, 'mod_resource', 'content', 0, $file->get_filepath(), $file->get_filename(), 1);
     }
+}
+
+
+/**
+ * Internal function - get a document path
+ * Added 4/02/20133
+ */
+function resource_get_doclink($file, $revision) {
+    global $CFG;
+
+    $filename = $file->get_filename();
+    $path = '/'.$file->get_contextid().'/mod_resource/content/'.$revision.$file->get_filepath().$file->get_filename();
+    $fullurl = file_encode_url($CFG->wwwroot.'/pluginfile.php', $path, false);
+
+
+
+
+    return $fullurl;
 }

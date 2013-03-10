@@ -232,15 +232,6 @@ $('#page-mod-forum-view').live('pagebeforecreate',function(event, ui){
 		
 		//add the reply counts
 		$(this).find('td.topic a').append('<span class="reply-count">' + rply + '</span>');
-	
-		/* Swipe over the topic to reveal more information */
-		$(this).live('swiperight', function (event, ui) {
-			$(this).find('.picture, .author, .lastpost').addClass('displayinline');
-		});
-	
-		$(this).live('swipeleft', function (event, ui) {
-			$(this).find('.picture, .author, .lastpost').removeClass('displayinline');
-		});
 	});
 	
 	/* Create a group of buttons for the forum topics */

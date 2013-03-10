@@ -33,7 +33,13 @@
 	float:right;
 }
 		
+span.reply-count{
+ float:right;
+}
 
+#page-mod-forum-view td.picture{
+	float: left;
+}
 	
 tr.discussion{
 		background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.26, #cbcccb), to(#7a7a7a));
@@ -284,9 +290,6 @@ html.no-fontface .forumpost .defaultuserpic{
 
 /* Hidden */
 
-#page-mod-forum-view table.forumheaderlist td.picture,
-#page-mod-forum-view table.forumheaderlist td.author,
-#page-mod-forum-view table.forumheaderlist td.lastpost,
 #page-mod-forum-view table.forumheaderlist td.replies, 
 #page-mod-forum-view  table.forumheaderlist thead,
 
