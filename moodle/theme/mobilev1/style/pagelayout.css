@@ -325,20 +325,17 @@ only screen and (min-width: 35em) {
  
 
  
-	#page-site-index #page-body .ui-listview-filter,
-	#page-course-index #page-body .ui-listview-filter,
-	#page-site-index #page-body .ui-listview,
-	#page-course-index #page-body .ui-listview
+	#page-my-index #page-body .region-content,
+	#page-course-index #page-body .region-content,
+	#page-my-index #page-body .ui-listview-filter,
+	#page-course-index #page-body .ui-listview-filter
 	{
 		max-width: 75%;
 		margin-left: auto;
 		margin-right: auto;
 	}
 	
-	 #page-site-index #page-body .ui-listview-filter,
- 	#page-course-index #page-body .ui-listview-filter{
- 		max-width: 55%;
-	 }
+
 
 }
  

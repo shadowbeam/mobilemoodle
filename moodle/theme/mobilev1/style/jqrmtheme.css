@@ -418,12 +418,18 @@ html{
 	background-image: none;
 	border-width: 0;
 }
+
+.ui-body-c input{
+	background-color: #fefefe;
+}
+
 .ui-body-c,
 .ui-body-c input,
 .ui-body-c select,
 .ui-body-c textarea,
 .ui-body-c button {
 	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	
 }
 .ui-body-c .ui-link-inherit {
 	color: 	#333 /*{c-body-color}*/;
