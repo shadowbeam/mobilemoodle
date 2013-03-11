@@ -216,6 +216,11 @@ a#back-button:focus{
  */
 
 /* Grader */ 
+#page-mod-assign-view .no-overflow{
+	overflow: scroll;
+	-webkit-overflow-scrolling: scroll;
+}
+
  table#user-grades {
 	font-size: inherit;
 	text-shadow:none;
@@ -244,7 +249,8 @@ table#user-grades th{
 
 table#user-grades td.c0, 
 th,
-table#user-grades th
+table#user-grades th,
+.gradingsummary table.responsive-tab td.c0
 {
 	background-color: rgb(44, 45, 45);
 	font-weight: bold;
