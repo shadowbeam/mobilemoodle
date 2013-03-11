@@ -239,7 +239,7 @@ overflow: scroll;
 	color:#000!important;
  }
  
- table#user-grades .catlevel1, table#user-grades .r1, .path-grade-report-grader table tr.even td.cell, .path-grade-report-grader table tr.even th{
+ table#user-grades .catlevel1, table#user-grades tr.heading, .path-grade-report-grader table tr.even td.cell{
  background-color: rgb(44, 45, 45);
  }
  
@@ -248,9 +248,10 @@ table#user-grades th{
 }
 
 table#user-grades td.c0, 
-th,
-table#user-grades th,
-.gradingsummary table.responsive-tab td.c0
+tr.heading table#user-grades th,
+.gradingsummary table.responsive-tab td.c0,
+.submissionsummarytable table.responsive-tab td.c0,
+table.responsive-tab th
 {
 	background-color: rgb(44, 45, 45);
 	font-weight: bold;
@@ -382,6 +383,7 @@ only screen and (min-width: 35em) {
 #page-mod-assign-view .helplink,
 .skiplinks,
 .typesummary,
+.menuicon .edit_button,
 
 #page-site-index table, fieldset.coursesearchbox, #page-course-index .summary /*courses*/
 {

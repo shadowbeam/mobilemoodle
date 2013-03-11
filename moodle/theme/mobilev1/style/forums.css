@@ -60,6 +60,10 @@ tr.discussion{
 	
 	
 		/*clear fix for tr.discussion */
+		.forumpost{
+			clear:both;
+		}
+		
 		tr.discussion:after,
 		.topic.firstpost.starter:after{
 			content: " . ";
@@ -196,17 +200,7 @@ html.no-fontface .forumpost .defaultuserpic{
 	.indent{
 		margin:0;
 	}
-	
-	
-	/* hide controls until tapped */
-	.smallscreen .forumpost .commands {
-		display:none;
-	 }
-	 
-	 .smallscreen .forumpost .showcontrols{
-		display:block!important;
-	 }
-	 
+		 
 }
 
 /* Paging Buttons */
@@ -247,7 +241,7 @@ html.no-fontface .forumpost .defaultuserpic{
 	width:100%;
 	height: 100%;
 	overflow: scroll;
-	-webkit-overflow-touch:scroll;
+	-webkit-overflow-scrolling:touch;
 	color: #fff;
 	text-shadow: 0 1px #000;
 	text-align: center;
@@ -275,9 +269,12 @@ html.no-fontface .forumpost .defaultuserpic{
 .smallscreen #forum-tut-btn{
 	display:inline-block;
 }
- #forum-tut-btn{
-	display:none;
+
+
+#forum-tut-btn{
+	display:inline-block;
 }
+
 
 .tut{
 	position: absolute;
@@ -287,9 +284,19 @@ html.no-fontface .forumpost .defaultuserpic{
 	z-index:1199;
 }
 
+	.smallscreen .forumpost .commands {
+		display:none;
+	 } /*hide controls until tapped */
+	 
+	 .smallscreen .forumpost .showcontrols{
+		display:block!important;
+	 }
+
 
 /* Hidden */
-
+html.smallscreen #page-mod-forum-view table.forumheaderlist td.picture,
+html.smallscreen #page-mod-forum-view table.forumheaderlist td.author,
+html.smallscreen #page-mod-forum-view table.forumheaderlist td.lastpost,
 #page-mod-forum-view table.forumheaderlist td.replies, 
 #page-mod-forum-view  table.forumheaderlist thead,
 
@@ -307,7 +314,7 @@ div.discussioncontrols,
  #page-mod-forum-user  .footer a, /* See this post in context */
  .forumpost.starter .rply-count, /* no reply count for starter */ 
 .forumpost .forum-post-rating,
-
+#forum-tut-btn,
 html.smallscreen .indent .indent,
 html.smallscreen .dialog-replies .indent
  {

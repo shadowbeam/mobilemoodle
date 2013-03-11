@@ -10,12 +10,19 @@ $(document).bind("mobileinit", function(){
 	$.mobile.touchOverflowEnabled = true; //slicker scrolling for devs that support touch-overflow css 
 	$.mobile.page.prototype.options.domCache = true; //enable dom cache 
 	$.mobile.defaultHomeScroll = 0; //prevent small content jumps
-	$.event.special.swipe.verticalDistanceThreshold = 30; //improve swiping when scrolling
+	$.event.special.swipe.verticalDistanceThreshold = 20; //prevent swiping when scrolling
 	
 });
 
 /* Disable the mouseover to improve menu scrolling performance */
  $(document).bind("vmouseover", function () { });
+
+
+ 
+ /* Swipe Close Panel */
+ $('.ui-panel-content-wrap-open,.ui-panel-content-fixed-toolbar-open ').live('swiperight', function(event){
+		$('#panel-wrapper.ui-panel-open').panel( "close" ); 
+	});
  
 /** 
  * Course Index
@@ -62,12 +69,18 @@ function clear_inactive_pages(){
  * Calls for every page show and page create
  */
 
+ 
  $('div').live('pageshow',function(event, ui){
 
+
+ 
 	/* clear forward history */
 	$.mobile.urlHistory.clearForward();
 	
  }).live('pagebeforecreate',function(event, ui){
+	
+
+
 	
 	var $this = $(this); //cache this page
 	
@@ -78,6 +91,8 @@ function clear_inactive_pages(){
 	$this.find('#page-header').live('swipeleft', function (event, ui) {
 	 	 $this.find('#panel-wrapper').panel( "open" );
 	});
+	
+	
 	
 	var moodle_base_url = $('#moodle-url').attr('url'); //get base url
 	
@@ -90,7 +105,7 @@ function clear_inactive_pages(){
 		
         if (sel != "") 
             $.mobile.changePage(url); 
-        
+
     });
 	
 	/* Calendar block */
@@ -226,13 +241,25 @@ $('#page-mod-forum-view').live('pagebeforecreate',function(event, ui){
 
 	/* For each discussion row */
 	$(this).find('tr.discussion').each(function(index) {
+		/* Swipe over the topic to reveal more information */
+
+	  /* Swipe over the topic to reveal more information */
+		$(this).live('swiperight', function (event, ui) {
+			$(this).find('.picture, .author, .lastpost').addClass('displayinline');
+		});
 	
+		$(this).live('swipeleft', function (event, ui) {
+			$(this).find('.picture, .author, .lastpost').removeClass('displayinline');
+		});
+		
 		//find the replies for this discussion
 		var rply = $(this).find('td.replies a').html();
 		
 		//add the reply counts
 		$(this).find('td.topic a').append('<span class="reply-count">' + rply + '</span>');
 	});
+	
+	
 	
 	/* Create a group of buttons for the forum topics */
 	var $fhl = $(this).find('table.forumheaderlist');
@@ -312,14 +339,15 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
 	/**
 	 * Small Screen Forums
 	 */	
-	if($('html.smallscreen')){
-		
-		
-		/* Show controls for post after tap */
-		$fp.click(function(event, ui){
+	if($('html.smallscreen') > 0){
+	
+		/* Show controls for post after tap*/
+		$('.forumpost').live('tap', function(event, ui){
+			event.preventDefault();
+			event.stopImmediatePropagation();
 			$(this).find('.commands').toggleClass('showcontrols');
 		});
-		
+	
 		
 		/* If there are no reply buttons */
 		if($fp.find('.rply-count').length == 0){	
@@ -400,10 +428,6 @@ $('#page-mod-assign-view').live('pagebeforecreate',function(event, ui){
 
 });
 
-
-/** 
- * User Grades 
- */
 
 $('#page-course-user').live('pagebeforecreate',function(event, ui){
 	$tab = $(this).find('table.user-grade');

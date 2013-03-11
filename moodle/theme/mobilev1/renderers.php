@@ -2,9 +2,6 @@
 
 class theme_mobilev1_renderer extends plugin_renderer_base {
 	
-
-
-
    /**
      * Implementation of user image rendering.
      *
@@ -50,9 +47,6 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
         return html_writer::tag('span', $output, array('class' => 'H'));
     }
 
-	
-
-
     /**
      * Produces the settings tree
      *
@@ -61,90 +55,90 @@ class theme_mobilev1_renderer extends plugin_renderer_base {
      */
     public function settings_tree(settings_navigation $navigation) {
         return $this->navigation_node($navigation, array('class' => 'settings', 'data-theme' => 'c'), true);
-
-     
     }
     
-        /**
-         * Produces the navigation tree
-         *
-         * @param global_navigation $navigation
-         * @return string
-         */
-        public function navigation_tree(global_navigation $navigation) {
-            return $this->navigation_node($navigation, array('class' => 'nav', 'data-theme' => 'a'));
-        }
+	/**
+	 * Produces the navigation tree
+	 *
+	 * @param global_navigation $navigation
+	 * @return string
+	 */
+	public function navigation_tree(global_navigation $navigation) {
+		return $this->navigation_node($navigation, array('class' => 'nav', 'data-theme' => 'a'));
+	}
     
-        /**
-         * Protected method to render a navigaiton node
-         *
-         * @param navigation_node $node
-         * @param array $attrs
-         * @param bool for settings
-         * @return type
-         */
-        protected function navigation_node(navigation_node $node, $attrs = array(), $settings = false) {
-            $items = $node->children;
-            
-            $theme = $attrs['data-theme'];
-            
-            // exit if empty, we don't want an empty ul element
-            if ($items->count() == 0) {
-                return '';
-            }
-    
-            // array of nested li elements
-            $lis = array();
-            foreach ($items as $item) {
-			
-                if (!$item->display) 
-                    continue;
-                
-				$key = (string)$item->text;
-				
-				/* Don't display these items in the navig. */
-				if($key == 'Current course' || $key == 'My home' || $key == 'My private files')
-					continue;
-				
-    
-                $isbranch = ($item->children->count() > 0 || $item->nodetype == navigation_node::NODETYPE_BRANCH);
-                $item->hideicon = true;
-    
+	/**
+	 * Protected method to render a navigaiton node
+	 *
+	 * @param navigation_node $node
+	 * @param array $attrs
+	 * @param bool for settings
+	 * @return type
+	 */
+	protected function navigation_node(navigation_node $node, $attrs = array(), $settings = false) {
+		$items = $node->children;
+		
+		$theme = $attrs['data-theme'];
+		
+		// exit if empty, we don't want an empty ul element
+		if ($items->count() == 0) {
+			return '';
+		}
 
-                $content = $this->output->render($item);
-                $content .= $this->navigation_node($item, $attrs, $settings);
-				
-                
-				
-                
-    			if($content != '' && $content != 'General' ){
-				
-						if ($isbranch ) {
-							$content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b', 'class' => $key));
-						} 
-						 else {
-							$content = html_writer::tag('li', $content, array('data-theme' => $theme, 'class' => $key));
-						}
-					
-					
-	                $lis[] = $content;
-	            }
-            }
-            if (!count($lis)) {
-                return '';
-            }
+		// array of nested li elements
+		$lis = array();
+		foreach ($items as $item) {
+		
+			if (!$item->display) 
+				continue;
 			
-			if(!$settings)
-				$lis = array_reverse($lis); //reverse the array this ordering makes better sense.
+			$key = (string)$item->text;
 			
-            return implode("\n", $lis);
-        }
-    
+			/* Don't display these items in the navig. */
+			if($key == 'Current course' || $key == 'My home' || $key == 'My private files')
+				continue;
+			
+
+			$isbranch = ($item->children->count() > 0 || $item->nodetype == navigation_node::NODETYPE_BRANCH);
+			$item->hideicon = true;
+
+
+			$content = $this->output->render($item);
+			$content .= $this->navigation_node($item, $attrs, $settings);
+			
+			
+			
+			
+			if($content != '' && $content != 'General' ){
+			
+					if ($isbranch ) {
+						$content = html_writer::tag('li', $content, array('data-role' => 'list-divider', 'data-theme' => 'b', 'class' => $key));
+					} 
+					 else {
+						$content = html_writer::tag('li', $content, array('data-theme' => $theme, 'class' => $key));
+					}
+				
+				
+				$lis[] = $content;
+			}
+		}
+		if (!count($lis)) {
+			return '';
+		}
+		
+		if(!$settings)
+			$lis = array_reverse($lis); //reverse the array this ordering makes better sense.
+		
+		return implode("\n", $lis);
+	}
+
 }
 
 include_once($CFG->dirroot . '/message/renderer.php');
 
-/* Messages Renderer */
+/**
+ * Messages Renderer 
+ */
 class theme_mobilev1_core_message_renderer extends core_message_renderer {
     /**
      * Display the interface to manage message outputs
@@ -222,89 +216,86 @@ include_once($CFG->dirroot . '/blocks/navigation/renderer.php');
   
 class theme_mobilev1_block_navigation_renderer extends block_navigation_renderer {
 
+	/**
+	 * Produces the navigation tree
+	 *
+	 * @param global_navigation $navigation
+	 * @return string
+	 */
+	public function navigation_tree(global_navigation $navigation, $expansionlimit, array $options = array()) {
+		$navigation->add_class('navigation_node');
+		$content = $this->navigation_node(array($navigation), array('class'=>'block_tree list'), $expansionlimit, $options);
+		
+		
+		if (isset($navigation->id) && !is_numeric($navigation->id) && !empty($content)) {
+			$content = $this->output->box($content, 'block_tree_box', $navigation->id);
+		}
+		return "<ul data-role='listview'>" . $content . "</ul>";
+	}
 
-/**
- * Produces the navigation tree
- *
- * @param global_navigation $navigation
- * @return string
- */
-public function navigation_tree(global_navigation $navigation, $expansionlimit, array $options = array()) {
-    $navigation->add_class('navigation_node');
-    $content = $this->navigation_node(array($navigation), array('class'=>'block_tree list'), $expansionlimit, $options);
+	/**
+	 * Produces a navigation node for the navigation tree
+	 *
+	 * @param array $items
+	 * @param array $attrs
+	 * @param int $expansionlimit
+	 * @param array $options
+	 * @param int $depth
+	 * @return string
+	 */
+	protected function navigation_node($items, $attrs=array(), $expansionlimit=null, array $options = array(), $depth=1) {
+
+
+		// exit if empty, we don't want an empty ul element
+		if (count($items)==0) {
+			return '';
+		}
+
+		// array of nested li elements
+		$lis = array();
+		foreach ($items as $item) {
+			if (!$item->display && !$item->contains_active_node()) {
+				continue;
+			}
+			
+			
+			$content = $this->render_navigation_node($item);
+			$title = $item->get_title();
+	   
+			
+			
+			if($item->has_children()){
+				//  $liattrs['data-role'] ='list-divider';
+				  $liattrs['data-theme'] ='b';
+				  $content .=  	$this->navigation_node($item->children, array(), $expansionlimit, $options, $depth+1);
+			}
+
+		 //   $content = html_writer::tag('p', $content, $divattr);
+				 
+			if (!empty($item->preceedwithhr) && $item->preceedwithhr===true) {
+				$content = html_writer::empty_tag('hr') . $content;
+			}
+			$content = html_writer::tag('li', $content, $liattrs);
+			$lis[] = $content;
+		}
+
+			if (count($lis)) {
+				return implode("\n", $lis);
+			} else {
+				return '';
+			}
+	}
     
-    
-    if (isset($navigation->id) && !is_numeric($navigation->id) && !empty($content)) {
-        $content = $this->output->box($content, 'block_tree_box', $navigation->id);
-    }
-    return "<ul data-role='listview'>" . $content . "</ul>";
-}
-
-/**
- * Produces a navigation node for the navigation tree
- *
- * @param array $items
- * @param array $attrs
- * @param int $expansionlimit
- * @param array $options
- * @param int $depth
- * @return string
- */
-protected function navigation_node($items, $attrs=array(), $expansionlimit=null, array $options = array(), $depth=1) {
-
-
-        // exit if empty, we don't want an empty ul element
-        if (count($items)==0) {
-            return '';
-        }
-
-        // array of nested li elements
-        $lis = array();
-        foreach ($items as $item) {
-            if (!$item->display && !$item->contains_active_node()) {
-                continue;
-            }
-            
-            
-            $content = $this->render_navigation_node($item);
-            $title = $item->get_title();
-       
-            
-            
-            if($item->has_children()){
-          		//  $liattrs['data-role'] ='list-divider';
-          		  $liattrs['data-theme'] ='b';
-                  $content .=  	$this->navigation_node($item->children, array(), $expansionlimit, $options, $depth+1);
-            }
-
-           
-         //   $content = html_writer::tag('p', $content, $divattr);
-            
-                 
-            if (!empty($item->preceedwithhr) && $item->preceedwithhr===true) {
-                $content = html_writer::empty_tag('hr') . $content;
-            }
-            $content = html_writer::tag('li', $content, $liattrs);
-            $lis[] = $content;
-        }
-
-        if (count($lis)) {
-            return implode("\n", $lis);
-        } else {
-            return '';
-        }
-    }
-    
-     /**
-         * Renders a navigation node object.
-         *
-         * @param navigation_node $item The navigation node to render.
-         * @return string HTML fragment
-         */
-        protected function render_navigation_node(navigation_node $item) {
-            $content = $item->get_content();
-            $title = $item->get_title();
-            
+	/**
+	 * Renders a navigation node object.
+	 *
+	 * @param navigation_node $item The navigation node to render.
+	 * @return string HTML fragment
+	 */
+	protected function render_navigation_node(navigation_node $item) {
+		$content = $item->get_content();
+		$title = $item->get_title();
+		
 //            if ($item->icon instanceof renderable && !$item->hideicon) {
 //                $icon = $this->render($item->icon);
 //                $content = $icon.$content; // use CSS for spacing of icons
@@ -314,57 +305,51 @@ protected function navigation_node($items, $attrs=array(), $expansionlimit=null,
 //            if ($item->helpbutton !== null) {
 //                $content = trim($item->helpbutton).html_writer::tag('span', $content, array('class'=>'clearhelpbutton', 'tabindex'=>'0'));
 //            }
-            
-            
-            if ($content === '') {
-                return '';
-            }
-            
-            if ($item->action instanceof action_link) {
-                $link = $item->action;
-                if ($item->hidden) {
-                    $link->add_class('dimmed');
-                }
-                
-                if (!empty($content)) {
-                    // Providing there is content we will use that for the link content.
-                    $link->text = $content;
-                }
-                
-                $content = $this->render($link);
-            } else if ($item->action instanceof moodle_url) {
-                $attributes = array();
-                if ($title !== '') {
-                    $attributes['title'] = $title;
-                }
-                if ($item->hidden) {
-                    $attributes['class'] = 'dimmed_text';
-                }
-                $content = html_writer::link($item->action, $content, $attributes);
-    
-            } else if (is_string($item->action) || empty($item->action)) {
-                $attributes = array('tabindex'=>'0'); //add tab support to span but still maintain character stream sequence.
-                if ($title !== '') {
-                    $attributes['title'] = $title;
-                }
-                if ($item->hidden) {
-                    $attributes['class'] = 'dimmed_text';
-                }
-                $content = html_writer::tag('span', $content, $attributes);
-            }
-            return $content;
-        }
-    
-    
-    
+		
+		
+		if ($content === '') {
+			return '';
+		}
+		
+		if ($item->action instanceof action_link) {
+			$link = $item->action;
+			if ($item->hidden) {
+				$link->add_class('dimmed');
+			}
+			
+			if (!empty($content)) {
+				// Providing there is content we will use that for the link content.
+				$link->text = $content;
+			}
+			
+			$content = $this->render($link);
+		} else if ($item->action instanceof moodle_url) {
+			$attributes = array();
+			if ($title !== '') {
+				$attributes['title'] = $title;
+			}
+			if ($item->hidden) {
+				$attributes['class'] = 'dimmed_text';
+			}
+			$content = html_writer::link($item->action, $content, $attributes);
 
-  
+		} else if (is_string($item->action) || empty($item->action)) {
+			$attributes = array('tabindex'=>'0'); //add tab support to span but still maintain character stream sequence.
+			if ($title !== '') {
+				$attributes['title'] = $title;
+			}
+			if ($item->hidden) {
+				$attributes['class'] = 'dimmed_text';
+			}
+			$content = html_writer::tag('span', $content, $attributes);
+		}
+		return $content;
+	}
+    
 }
 
+
 class theme_mobilev1_core_renderer extends core_renderer {
-
-
-
 
     /**
      * Renders a single button widget.
@@ -375,7 +360,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
      * @return string HTML fragment
      */
 
-protected function render_single_button(single_button $button) {
+	protected function render_single_button(single_button $button) {
         $attributes = array('type'     => 'submit',
                             'value'    => $button->label,
                             'disabled' => $button->disabled ? 'disabled' : null,
@@ -424,7 +409,7 @@ protected function render_single_button(single_button $button) {
         return html_writer::tag('div', $output, array('class' => $button->class));
     }
 
-  /**
+	/**
      * Internal implementation of user image rendering.
      *
      * @param user_picture $userpicture
@@ -498,9 +483,6 @@ protected function render_single_button(single_button $button) {
 
         return html_writer::tag('a', $output, $attributes);
     }
-
-
-
 
  
     /**
@@ -688,10 +670,7 @@ protected function render_single_button(single_button $button) {
             if (!$loginpage && $withlinks) {
                 $loggedinas .= " <a data-role='button' data-theme='b' class='ui-btn-right' data-inline='true' href=\"$loginurl\">".get_string('login').'</a>';
             }
-        }
-
-	
-       
+        }      
 
         if (isset($SESSION->justloggedin)) {
             unset($SESSION->justloggedin);
@@ -723,7 +702,6 @@ protected function render_single_button(single_button $button) {
      */
     public function block_controls($controls) {
             return '';
-
     }
     
     /**
@@ -731,108 +709,108 @@ protected function render_single_button(single_button $button) {
      */
     
       public function block(block_contents $bc, $region) {
-            $bc = clone($bc); // Avoid messing up the object passed in.
-			
-            $attributes = $bc->attributes;
-			if($attributes['class'] == 'block_course_overview  block')
-				$attributes['data-role'] = $attributes['class'];
-			else
-				$attributes['data-role'] = 'collapsible';
-			
-			
-			$attributes['data-content-theme'] = 'a';
-			$attributes['data-theme'] = 'a';
-            
-            $bc->collapsible = block_contents::NOT_HIDEABLE;
-                
-            $output .= html_writer::start_tag('div', $attributes );
-            
-            $output.= "<h3>$bc->title</h3>";
+		$bc = clone($bc); // Avoid messing up the object passed in.
 		
+		$attributes = $bc->attributes;
+		if($attributes['class'] == 'block_course_overview  block')
+			$attributes['data-role'] = $attributes['class'];
+		else
+			$attributes['data-role'] = 'collapsible';
+		
+		
+		$attributes['data-content-theme'] = 'a';
+		$attributes['data-theme'] = 'a';
+		
+		$bc->collapsible = block_contents::NOT_HIDEABLE;
 			
-            $output .= $this->block_content($bc);
-    
-            $output .= html_writer::end_tag('div');
-    
-            $output .= $this->block_annotation($bc);
-        
-            $this->init_block_hider_js($bc);
-            return $output;
-        }
-        
-		 /**
-		 * Produces the content area for a block
-		 *
-		 * @param block_contents $bc
-		 * @return string
-		 */
-		protected function block_content(block_contents $bc) {
-			$output = html_writer::start_tag('div', array('class' => 'content'));
-			if (!$bc->title && !$this->block_controls($bc->controls)) {
-				$output .= html_writer::tag('div', '', array('class'=>'block_action notitle'));
-			}
-			$output .= $bc->content;
-			$output .= $this->block_footer($bc);
-			$output .= html_writer::end_tag('div');
+		$output .= html_writer::start_tag('div', $attributes );
+		
+		$output.= "<h3>$bc->title</h3>";
+	
+		
+		$output .= $this->block_content($bc);
 
-			return $output;
+		$output .= html_writer::end_tag('div');
+
+		$output .= $this->block_annotation($bc);
+	
+		$this->init_block_hider_js($bc);
+		return $output;
+    }
+        
+	 /**
+	 * Produces the content area for a block
+	 *
+	 * @param block_contents $bc
+	 * @return string
+	 */
+	protected function block_content(block_contents $bc) {
+		$output = html_writer::start_tag('div', array('class' => 'content'));
+		if (!$bc->title && !$this->block_controls($bc->controls)) {
+			$output .= html_writer::tag('div', '', array('class'=>'block_action notitle'));
 		}
+		$output .= $bc->content;
+		$output .= $this->block_footer($bc);
+		$output .= html_writer::end_tag('div');
+
+		return $output;
+	}
         
     
-		/*
-         * Return the navbar content so that it can be echoed out by the layout
-         *
-         * @return string XHTML navbar
-         */
-        public function navbar() {
-            $items = $this->page->navbar->get_items();
-    
-            $htmlblocks = array();
-            // Iterate the navarray and display each node
-            $itemcount = count($items);
-            $separator = get_separator();
-            for ($i=0;$i < $itemcount;$i++) {
-                $item = $items[$i];
-                $item->hideicon = false;
-                if ($i===0) {
-                    $content = html_writer::tag('li', $this->render($item));
-                } else {
-                    $content = html_writer::tag('li', $separator.$this->render($item));
-                }
-                $htmlblocks[] = $content;
-            }
-    
-            //accessibility: heading for navbar list  (MDL-20446)
-            $navbarcontent = html_writer::tag('span', get_string('pagepath'), array('class'=>'accesshide'));
-            $navbarcontent .= html_writer::tag('ul', join('', $htmlblocks), array('role'=>'navigation'));
-            // XHTML
-            return $navbarcontent;
-        }
+	/*
+	 * Return the navbar content so that it can be echoed out by the layout
+	 *
+	 * @return string XHTML navbar
+	 */
+	public function navbar() {
+		$items = $this->page->navbar->get_items();
+
+		$htmlblocks = array();
+		// Iterate the navarray and display each node
+		$itemcount = count($items);
+		$separator = get_separator();
+		for ($i=0;$i < $itemcount;$i++) {
+			$item = $items[$i];
+			$item->hideicon = false;
+			if ($i===0) {
+				$content = html_writer::tag('li', $this->render($item));
+			} else {
+				$content = html_writer::tag('li', $separator.$this->render($item));
+			}
+			$htmlblocks[] = $content;
+		}
+
+		//accessibility: heading for navbar list  (MDL-20446)
+		$navbarcontent = html_writer::tag('span', get_string('pagepath'), array('class'=>'accesshide'));
+		$navbarcontent .= html_writer::tag('ul', join('', $htmlblocks), array('role'=>'navigation'));
+		// XHTML
+		return $navbarcontent;
+	}
         
         
-     /**
-      * Creates a grade button for the current course
-      * @return string
-      */
-      
-      public function grades_link() {
-      global $USER, $CFG;
-   		$context = $this->page->context;
-   		
-      	$coursecontext = $context->get_course_context();
-      	
-      	$categoryid = null;
-      	
-      	if ($coursecontext) { 
-      		$courseid = $coursecontext->instanceid;
-      	}
-      	$userid = $USER->id;
-      	
-      	$link = "$CFG->wwwroot/course/user.php?mode=grade&id=$courseid&user=$userid";
-      	
-      	return $link;
-      
-      } 
+	/**
+	* Creates a grade button for the current course
+	* @return string
+	*/
+
+	public function grades_link() {
+		global $USER, $CFG;
+		$context = $this->page->context;
+
+		$coursecontext = $context->get_course_context();
+
+		$categoryid = null;
+
+		if ($coursecontext) { 
+			$courseid = $coursecontext->instanceid;
+		}
+		$userid = $USER->id;
+
+		$link = "$CFG->wwwroot/course/user.php?mode=grade&id=$courseid&user=$userid";
+
+		return $link;
+
+	} 
   
 	  
 	 /**
@@ -861,10 +839,10 @@ protected function render_single_button(single_button $button) {
 
   
         
-        /**
-         * Generates Settings Button for menu
-		 * @author: Allan Watson 2013
-         */
+	/**
+	 * Generates Settings Button for menu
+	 * @author: Allan Watson 2013
+	 */
      
      public function settings_button() {
      
@@ -875,9 +853,9 @@ protected function render_single_button(single_button $button) {
      }
      
      /**
-         * Generates Blocks Button for menu
-     	 * @author: Allan Watson 2013
-         */
+	 * Generates Blocks Button for menu
+	 * @author: Allan Watson 2013
+	 */
      
      public function blocks_button() {
      
@@ -916,37 +894,36 @@ protected function render_single_button(single_button $button) {
      */
     public function back_button() {
 
-		
-			return "<a id='back-button' data-rel='back' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='$CFG->httpswwwroot'></a>"; 
+		return "<a id='back-button' data-direction='reverse' data-rel='back' data-transition='slide'  class='icon-arrow-left mybtn ui-btn-left'  href='$CFG->httpswwwroot'></a>"; 
 		
     }
 	
 	
-	    /**
-	     * Renders the blocks for a block region in the page
-	     *
-	     * @param type $region
-	     * @return string
-	     */
-	    public function blocks_for_region($region) {
-	        $blockcontents = $this->page->blocks->get_content_for_region($region, $this);
-	
-	        $output = '';
-	        foreach ($blockcontents as $bc) {
-	            if ($bc instanceof block_contents) {
-	                // We don't want to print navigation and settings blocks here.
-	                if ($bc->attributes['class'] != 'block_settings  block' && $bc->attributes['class'] != 'block_navigation  block') {
-	                    $output .= $this->block($bc, $region);
-	                }
-	            }
-	            else {
-	                throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
-	            }
-	        }
-	
-	
-	        return $output;
-	    }
+	/**
+	 * Renders the blocks for a block region in the page
+	 *
+	 * @param type $region
+	 * @return string
+	 */
+	public function blocks_for_region($region) {
+		$blockcontents = $this->page->blocks->get_content_for_region($region, $this);
+
+		$output = '';
+		foreach ($blockcontents as $bc) {
+			if ($bc instanceof block_contents) {
+				// We don't want to print navigation and settings blocks here.
+				if ($bc->attributes['class'] != 'block_settings  block' && $bc->attributes['class'] != 'block_navigation  block') {
+					$output .= $this->block($bc, $region);
+				}
+			}
+			else {
+				throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
+			}
+		}
+
+
+		return $output;
+	}
 	
 	
 }
