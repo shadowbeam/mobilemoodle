@@ -420,7 +420,7 @@ html{
 }
 
 .ui-body-c.ui-input-text{
-	background-color: #fefefe;
+	background-color: #fefefe!important;
 }
 
 .ui-body-c,
