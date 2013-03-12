@@ -339,7 +339,7 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
 	/**
 	 * Small Screen Forums
 	 */	
-	if($('html.smallscreen') > 0){
+	if($('html.smallscreen').length > 0){
 	
 		/* Show controls for post after tap*/
 		$('.forumpost').live('tap', function(event, ui){

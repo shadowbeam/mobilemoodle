@@ -419,7 +419,7 @@ html{
 	border-width: 0;
 }
 
-.ui-body-c.ui-input-text{
+.ui-body-c.ui-input-text:not(input){
 	background-color: #fefefe!important;
 }
 

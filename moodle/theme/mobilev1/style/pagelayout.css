@@ -251,7 +251,8 @@ table#user-grades td.c0,
 tr.heading table#user-grades th,
 .gradingsummary table.responsive-tab td.c0,
 .submissionsummarytable table.responsive-tab td.c0,
-table.responsive-tab th
+table.responsive-tab th,
+#page-mod-assign-index table th.header
 {
 	background-color: rgb(44, 45, 45);
 	font-weight: bold;
@@ -362,6 +363,10 @@ only screen and (min-width: 35em) {
 
 .block_calendar_upcoming .icon{
 	float:left;
+}
+
+#panel-wrapper .user-info{
+	width:100%;
 }
 	
 
