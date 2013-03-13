@@ -18,12 +18,12 @@
 /**
  * Strings for component 'theme_base', language 'en', branch 'MOODLE_20_STABLE'
  *
- * @package   mobile
+ * @package   mobilemoodle
  * @copyright 2013 Allan Watson
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 $string['pluginname'] = 'mobilemoodle';
-$string['choosereadme'] = 'A mobile optimised theme';
+$string['choosereadme'] = 'A mobile and tablet optimised theme.';
 
 ?>
