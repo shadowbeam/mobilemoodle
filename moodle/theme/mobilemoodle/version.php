@@ -18,13 +18,13 @@
  * Theme version info
  *
  * @package    theme
- * @subpackage mobile
+ * @subpackage mobilemoodle
  * @copyright 2013 Allan Watson
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2013012700; // The current module version (Date: YYYYMMDDXX)
+$plugin->version   = 2013032600; // The current module version (Date: YYYYMMDDXX)
 $plugin->requires  = 2012112900; // Requires this Moodle version
 $plugin->component = 'theme_mobilemoodle'; // Full name of the plugin (used for diagnostics)
