@@ -278,13 +278,30 @@ $('#page-mod-forum-view').live('pagebeforecreate',function(event, ui){
  * .dialog-replies				a small screen dialog
  */
 
+ /**
+  * Dialogs 
+  */
+$('.dialog-replies').live('pagebeforecreate',function(event, ui){
+
+	$(this).find('.commands a')
+			/* force commands to load, even if they have a # in their link */
+			.bind( "click", function(event, ui) {
+				event.preventDefault();
+				event.stopImmediatePropagation();
+			
+				var link = $(this).attr('href');
+				
+				//this ignores the hash and simply loads the page
+				$.mobile.changePage( link, { transition: "slideup"} );
+			});
+});
 
 /** 
  * Forums Inside Topics
  */
 $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('pagebeforecreate',function(event, ui){
 	$this = $(this);
-    var $fp = $(this).find('.forumpost');
+	var $fp = $(this).find('.forumpost');
 	var $fps = $fp.filter('.starter');
 	var $com = $fp.find('.options .commands');
 	
@@ -308,7 +325,6 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
 				
 				//this ignores the hash and simply loads the page
 				$.mobile.changePage( link, { transition: "slideup"} );
-						
 			});
 			  
 		// remove annoying "|" seperators */ 
@@ -342,17 +358,18 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
 	if($('html.smallscreen').length > 0){
 	
 		/* Show controls for post after tap*/
-		$('.forumpost').live('tap', function(event, ui){
-			event.preventDefault();
+		$('.forumpost .maincontent, .forumpost .header').live('tap', function(event, ui){
+		//	event.preventDefault();
 			event.stopImmediatePropagation();
-			$(this).find('.commands').toggleClass('showcontrols');
+			$(this).siblings().find('.commands').toggleClass('showcontrols');
 		});
 	
 		
 		/* If there are no reply buttons */
 		if($fp.find('.rply-count').length == 0){	
+			
 			//for each post
-			$('.forumpost').each(function(){
+			$fp.each(function(){
 				var count = 0;
 				var parent = $(this).parent();
 				if(parent.attr('class') == 'indent'){
