@@ -1,6 +1,6 @@
 <?php
 
-class theme_mobilev1_renderer extends plugin_renderer_base {
+class theme_mobilemoodle_renderer extends plugin_renderer_base {
 	
    /**
      * Implementation of user image rendering.
@@ -139,7 +139,7 @@ include_once($CFG->dirroot . '/message/renderer.php');
 /**
  * Messages Renderer 
  */
-class theme_mobilev1_core_message_renderer extends core_message_renderer {
+class theme_mobilemoodle_core_message_renderer extends core_message_renderer {
     /**
      * Display the interface to manage message outputs
      *
@@ -214,7 +214,7 @@ class theme_mobilev1_core_message_renderer extends core_message_renderer {
 
 include_once($CFG->dirroot . '/blocks/navigation/renderer.php');
   
-class theme_mobilev1_block_navigation_renderer extends block_navigation_renderer {
+class theme_mobilemoodle_block_navigation_renderer extends block_navigation_renderer {
 
 	/**
 	 * Produces the navigation tree
@@ -349,7 +349,7 @@ class theme_mobilev1_block_navigation_renderer extends block_navigation_renderer
 }
 
 
-class theme_mobilev1_core_renderer extends core_renderer {
+class theme_mobilemoodle_core_renderer extends core_renderer {
 
     /**
      * Renders a single button widget.
@@ -846,7 +846,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
      
      public function settings_button() {
      
-     	$urlsettings = new moodle_url($this->page->url, array('mobilev1_settings' => 'true'));
+     	$urlsettings = new moodle_url($this->page->url, array('mobilemoodle_settings' => 'true'));
      	 
      	return '<a id="settings-btn" data-role="button"  data-theme="b" data-inline="false" href="' . $urlsettings->out(). '">Settings<i class="ui-icon-gear"></i></a>';
 		
@@ -859,7 +859,7 @@ class theme_mobilev1_core_renderer extends core_renderer {
      
      public function blocks_button() {
      
-     	$url = new moodle_url($this->page->url, array('mobilev1_blocks' => 'true'));
+     	$url = new moodle_url($this->page->url, array('mobilemoodle_blocks' => 'true'));
      	 
      	return '<a id="settings-btn" data-role="button"  data-theme="b" data-inline="false" href="' . $url->out(). '">Blocks<i class="icon-grid"></i></a>';
      	
@@ -939,7 +939,7 @@ include_once($CFG->dirroot . '/blocks/course_overview/renderer.php');
  * 
  * @editted	   2013 Allan Watson
  */
-class theme_mobilev1_block_course_overview_renderer extends block_course_overview_renderer {
+class theme_mobilemoodle_block_course_overview_renderer extends block_course_overview_renderer {
 
     /**
      * Construct contents of course_overview block
@@ -1051,7 +1051,7 @@ class theme_mobilev1_block_course_overview_renderer extends block_course_overvie
 	
 include_once($CFG->dirroot . '/course/renderer.php');
 
-class theme_mobilev1_core_course_renderer extends core_course_renderer {
+class theme_mobilemoodle_core_course_renderer extends core_course_renderer {
 	
 	/* Remove the ability to add activities to courses*/
     public function course_modchooser($modules, $course) {

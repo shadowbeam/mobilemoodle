@@ -27,8 +27,8 @@ echo $OUTPUT->doctype(); ?>
 
 <body class="<?php p($PAGE->bodyclasses); ?>">
 
-	<?php $settings = optional_param('mobilev1_settings', false, PARAM_BOOL); ?>
-	<?php $blocks = optional_param('mobilev1_blocks', false, PARAM_BOOL); ?>
+	<?php $settings = optional_param('mobilemoodle_settings', false, PARAM_BOOL); ?>
+	<?php $blocks = optional_param('mobilemoodle_blocks', false, PARAM_BOOL); ?>
 
 	<div id="<?php p($PAGE->bodyid); ?>" class="<?php p($pagetype); ?>"data-role="page" class="general">
 
@@ -36,7 +36,7 @@ echo $OUTPUT->doctype(); ?>
 		<div data-role="panel" id="panel-wrapper" data-dismissible="false" data-swipe-close="false"  data-position="right" data-theme="a" data-display="reveal">
 			<?php echo $OUTPUT->login_info() ?>
 			<ul data-role="listview" data-theme='b' class="settingsul">
-				<?php $renderer = $PAGE->get_renderer('theme_mobilev1');
+				<?php $renderer = $PAGE->get_renderer('theme_mobilemoodle');
 				echo $renderer->navigation_tree($PAGE->navigation );
 				?>
 			</ul>
@@ -98,7 +98,7 @@ echo $OUTPUT->doctype(); ?>
 					<!-- For settings page -->
 					<?php if($settings){?>
 						<ul data-role="listview">
-							<?php $renderer = $PAGE->get_renderer('theme_mobilev1');
+							<?php $renderer = $PAGE->get_renderer('theme_mobilemoodle');
 								echo $renderer->settings_tree($PAGE->settingsnav);	
 							?>
 						</ul>

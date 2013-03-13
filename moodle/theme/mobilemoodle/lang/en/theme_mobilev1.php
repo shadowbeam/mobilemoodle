@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,23 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * 
- * @package    theme
- * @subpackage mobilev1
- * @copyright  Allan Watson
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Strings for component 'theme_base', language 'en', branch 'MOODLE_20_STABLE'
+ *
+ * @package   mobile
+ * @copyright 2013 Allan Watson
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-/* Allow font directory in css */
-function mytheme_csspostprocess($css, $theme)
-{
-    global $CFG;
-    $pattern = '/\[\[font\|([^]]+)\]\]/';
-    $replacement = $CFG->wwwroot . '/theme/mobilev1/fonts/$1';
-    $css = preg_replace($pattern, $replacement, $css);
-    return $css;
-}
-
+$string['pluginname'] = 'mobilemoodle';
+$string['choosereadme'] = 'A mobile optimised theme';
 
 ?>

@@ -28,12 +28,12 @@
  * For full information about creating Moodle themes, see:
  *  http://docs.moodle.org/dev/Themes_2.0
  *
- * @package   mobilev1
+ * @package   mobilemoodle
  * @copyright 2013 Allan Watson
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$THEME->name = 'mobilev1';
+$THEME->name = 'mobilemoodle';
 
 $THEME->parents = array('base');
 

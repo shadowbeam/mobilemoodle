@@ -1,5 +1,5 @@
 /**
- * Custom Javascript for mobilev1 moodle theme
+ * Custom Javascript for mobilemoodle moodle theme
  * @author Allan Watson
  * @editted 8/03/2012
  */
