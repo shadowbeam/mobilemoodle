@@ -273,29 +273,37 @@ function resourcelib_embed_general($fullurl, $title, $clicktoopen, $mimetype) {
         $iframe = true;
     }
     
-    /*@edit allanwatson force iframes for mobile */
-    
-    if($PAGE->theme->name == "mobilev1"){
+    /* editted by Allan Watson 2013 
+    * Force iFrames */
+     if($PAGE->theme->name == "mobilemoodle"){
     	$iframe = true;
     }
 
     if ($iframe) {
         $code = <<<EOT
+		
+		<a href="$fullurl" data-role="button" target="_blank">Open in new Browser Window</a>
 <div class="resourcecontent resourcegeneral">
-  <iframe id="resourceobject" src="$fullurl">
+  <iframe id="resourceobject" src="$fullurl" seamless>
     $clicktoopen
   </iframe>
 </div>
 EOT;
     } else {
         $code = <<<EOT
+				
 <div class="resourcecontent resourcegeneral">
+
   <object id="resourceobject" data="$fullurl" type="$mimetype"  width="800" height="600">
     $param
     $clicktoopen
   </object>
 </div>
+
+</div>
+
 EOT;
+
     }
 
     // the size is hardcoded in the boject obove intentionally because it is adjusted by the following function on-the-fly

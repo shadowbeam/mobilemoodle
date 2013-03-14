@@ -232,7 +232,7 @@ function resource_print_workaround($resource, $cm, $course, $file) {
        /* Edit @allanwatson display helpful buttons  */ 
    	global $PAGE;
        	
-     	if($PAGE->theme->name == "mobilev1"){
+     	if($PAGE->theme->name == "mobilemoodle"){
      		
 
              $fullurl = resource_get_doclink($file, $resource->revision);

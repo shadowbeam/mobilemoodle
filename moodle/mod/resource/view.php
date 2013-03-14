@@ -95,8 +95,9 @@ if ($redirect) {
     
     $fullurl = moodle_url::make_file_url('/pluginfile.php', $path, $displaytype == RESOURCELIB_DISPLAY_DOWNLOAD);
 
-	/*@edit only redirect if mobilev1 theme*/
-	if($PAGE->theme->name !== "mobilev1")
+	/*@edit Allan Watson 2013 
+	* only redirect if not mobilemoodle theme*/
+	if($PAGE->theme->name !== "mobilemoodle")
 		redirect($fullurl);
   	
  
