@@ -393,9 +393,11 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
 })
 /* Check when page gets created if the user has been taught about forums */
 .live('pageshow',function(event, ui) {
+	if($('html.smallscreen').length != 0){
 		if(!has_been_before())
 			open_forum_tut($(this));
-	});
+	}
+});
 		
 
 
