@@ -1,0 +1,160 @@
+/**
+ * Course Page CSS
+ * View-Weeks & View-Topics
+ */
+ 
+ 
+/* Larger Screens */
+@media all and (min-width: 35em) {
+	.course-content li.section.ui-block-a {
+	padding-right: 10px;
+}
+
+.course-content li.section.ui-block-b,.accord.ui-block-b {
+	padding-left: 10px;
+}
+
+.course-content #section-0 {
+	width: 100%;
+	padding-left: 0px;
+}
+
+}
+
+/* Course Info */
+.course-info #blurb.ui-block-a .inner {
+	padding: 0.5em;
+	min-height: 5em;
+}
+
+.course-info #blurb.ui-block-a .ui-btn {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.course-info .ui-block-a {
+	text-align: center;
+	margin-top: 0.5em;
+}
+
+/* Sections & Contents */
+#page-course-view-weeks .course-content .ui-link-inherit,#page-course-view-topics .course-content .ui-link-inherit {
+	margin-left: 0;
+	margin-right: 0;
+	position: relative;
+	min-height: auto;
+	padding: 0 60px 0 10px;
+}
+
+#page-course-view-topics .course-content img.ui-li-thumb,#page-course-view-weeks .course-content img.ui-li-thumb {
+	position: relative;
+	margin: 10px;
+}
+
+#page-course-view-topics .course-content .instancename,#page-course-view-weeks .course-content .instancename {
+	line-height: 50px;
+}
+
+.instancename{
+	padding-left: 1.5em;
+}
+
+.section .summary img:not(.iconsmall) {
+	padding: 1px;
+	border: 1px solid #021a40 !important;
+	background-color: #fff;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.course-content {
+	margin-top: 1em;
+}
+
+.course-content .section object,.course-content .section .summary img:not(.iconsmall) {
+	max-width: 100% !important; /*constrain overlfow */
+}
+
+.course-content li.section {
+	list-style-type: none;
+}
+
+li.activity.ui-li-divider {
+	padding-top: 1.5em;
+}
+
+a.ui-btn-up-b .ui-btn-inner .ui-btn-text a {
+	color: #fff; /* expandable link must be white */
+}
+
+/* Single Sections */
+.single-section .content,.single-section .ui-listview {
+	width: 100%;
+	margin: 0;
+}
+
+.single-section .mdl-align {
+	text-align: center;
+}
+
+.single-section .mdl-align.title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.single-section .mdl-right {
+	float: right;
+}
+
+/* Editting */
+.course-content img.iconsmall {
+	width: 15px;
+	height: 15px;
+}
+
+a.edit_button .ui-btn-inner {
+	padding: 0.5em;
+}
+
+.course-content .contentafterlink,.course-content .commands {
+	max-width: 100%;
+	cursor: default;
+	padding: 15px 40px 15px 15px;
+	white-space: normal;
+}
+
+.summary a.edit_button {
+	margin-bottom: 2em; /* space for edit buttons in ul */
+}
+
+#changenumsections {
+	text-align: center;
+}
+
+#changenumsections:after {
+	content: "Change the number of sections";
+	display: block;
+}
+
+/* Comments Block */
+.block_comments ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+.block_comments .comment-message-meta .userpicture {
+	width: 1.5em;
+	height: 1.5em;
+	font-size: 20px;
+	float: left;
+}
+
+.block_comments .comment-message {
+	clear: both;
+}
+
+/* Hidden */
+.course-content a.editing_update,.course-content a.editing_moveright,.course-content a.editing_moveleft,.course-content a.editing_move,.course-content a.editing_groupsnone,.addresourcemodchooser,.addresourcedropdown,.block_comments .comment-delete,.course-content .accesshide {
+	display: none;
+}
