@@ -2,54 +2,12 @@
 
 class theme_mobilemoodle_renderer extends plugin_renderer_base {
 	
-   /**
-     * Implementation of user image rendering.
-     *
-     * @param help_icon $helpicon A help icon instance
-     * @return string HTML fragment
-     */
-    protected function render_help_icon(help_icon $helpicon) {
-        global $CFG;
 
-        // first get the help image icon
-        $src = $this->pix_url('help');
-
-        $title = get_string($helpicon->identifier, $helpicon->component);
-
-        if (empty($helpicon->linktext)) {
-            $alt = get_string('helpprefix2', '', trim($title, ". \t"));
-        } else {
-            $alt = get_string('helpwiththis');
-        }
-
-        $attributes = array('src'=>$src, 'alt'=>$alt, 'class'=>'iconhelp');
-        $output = html_writer::empty_tag('img', $attributes);
-
-        // add the link text if given
-        if (!empty($helpicon->linktext)) {
-            // the spacing has to be done through CSS
-            $output .= $helpicon->linktext;
-        }
-
-        // now create the link around it - we need https on loginhttps pages
-        $url = new moodle_url($CFG->httpswwwroot.'/help.php', array('component' => $helpicon->component, 'identifier' => $helpicon->identifier, 'lang'=>current_language()));
-
-        // note: this title is displayed only if JS is disabled, otherwise the link will have the new ajax tooltip
-        $title = get_string('helpprefix2', '', trim($title, ". \t"));
-
-        $attributes = array('href'=>$url, 'title'=>$title, 'aria-haspopup' => 'true', 'class' => 'tooltip');
-        $output = html_writer::tag('a', $output, $attributes);
-
-        $this->page->requires->js_init_call('M.util.help_icon.setup');
-        $this->page->requires->string_for_js('close', 'form');
-
-        // and finally span
-        return html_writer::tag('span', $output, array('class' => 'H'));
-    }
 
     /**
      * Produces the settings tree
-     *
+     * Based upon blocks/settings/renderer.php
+     * 
      * @param settings_navigation $navigation
      * @return string
      */
@@ -59,7 +17,8 @@ class theme_mobilemoodle_renderer extends plugin_renderer_base {
     
 	/**
 	 * Produces the navigation tree
-	 *
+	 * Based upon blocks/navigation/renderer.php
+	 * 
 	 * @param global_navigation $navigation
 	 * @return string
 	 */
@@ -69,7 +28,8 @@ class theme_mobilemoodle_renderer extends plugin_renderer_base {
     
 	/**
 	 * Protected method to render a navigaiton node
-	 *
+	 * Adapted from lib/outputrenderers.php
+	 *	 
 	 * @param navigation_node $node
 	 * @param array $attrs
 	 * @param bool for settings
@@ -105,9 +65,7 @@ class theme_mobilemoodle_renderer extends plugin_renderer_base {
 
 			$content = $this->output->render($item);
 			$content .= $this->navigation_node($item, $attrs, $settings);
-			
-			
-			
+		
 			
 			if($content != '' && $content != 'General' ){
 			
@@ -134,82 +92,7 @@ class theme_mobilemoodle_renderer extends plugin_renderer_base {
 
 }
 
-include_once($CFG->dirroot . '/message/renderer.php');
 
-/**
- * Messages Renderer 
- */
-class theme_mobilemoodle_core_message_renderer extends core_message_renderer {
-    /**
-     * Display the interface to manage message outputs
-     *
-     * @param  array  $processors array of objects containing message processors
-     * @return string The text to render
-     */
-    public function manage_messageoutputs($processors) {
-        global $CFG;
-        // Display the current workflows
-        $table = new html_table();
-        $table->attributes['class'] = 'generaltable';
-        $table->data        = array();
-        $table->head        = array(
-            get_string('name'),
-            get_string('enable'),
-            get_string('settings'),
-        );
-        $table->colclasses = array(
-            'displayname', 'availability', 'settings',
-        );
-
-        foreach ($processors as $processor) {
-            $row = new html_table_row();
-            $row->attributes['class'] = 'messageoutputs';
-
-            // Name
-            $name = new html_table_cell(get_string('pluginname', 'message_'.$processor->name));
-
-            // Enable
-            $enable = new html_table_cell();
-            $enable->attributes['class'] = 'mdl-align';
-            if (!$processor->available) {
-                $enable->text = html_writer::nonempty_tag('span', get_string('outputnotavailable', 'message'), array('class' => 'error'));
-            } else if (!$processor->configured) {
-                $enable->text = html_writer::nonempty_tag('span', get_string('outputnotconfigured', 'message'), array('class' => 'error'));
-            } else if ($processor->enabled) {
-                $url = new moodle_url('/admin/message.php', array('disable' => $processor->id, 'sesskey' => sesskey()));
-                $enable->text = html_writer::link($url, html_writer::empty_tag('img',
-                    array('src'   => $this->output->pix_url('t/hide'),
-                          'class' => 'iconsmall',
-						  'data-role' => 'button',
-                          'title' => get_string('outputenabled', 'message'),
-                          'alt'   => get_string('outputenabled', 'message'),
-                    )
-                ));
-            } else {
-                $name->attributes['class'] = 'dimmed_text';
-                $url = new moodle_url('/admin/message.php', array('enable' => $processor->id, 'sesskey' => sesskey()));
-                $enable->text = html_writer::link($url, html_writer::empty_tag('img',
-                    array('src'   => $this->output->pix_url('t/show'),
-                          'class' => 'iconsmall',
-                          'title' => get_string('outputdisabled', 'message'),
-                          'alt'   => get_string('outputdisabled', 'message'),
-                    )
-                ));
-            }
-            // Settings
-            $settings = new html_table_cell();
-            if ($processor->available && $processor->hassettings) {
-                $settingsurl = new moodle_url('settings.php', array('section' => 'messagesetting'.$processor->name));
-                $settings->text = html_writer::link($settingsurl, get_string('settings', 'message'));
-            }
-
-            $row->cells = array($name, $enable, $settings);
-            $table->data[] = $row;
-        }
-        return html_writer::table($table);
-    }
-
-}
 
 
 include_once($CFG->dirroot . '/blocks/navigation/renderer.php');
@@ -218,7 +101,7 @@ class theme_mobilemoodle_block_navigation_renderer extends block_navigation_rend
 
 	/**
 	 * Produces the navigation tree
-	 *
+	 * 
 	 * @param global_navigation $navigation
 	 * @return string
 	 */
@@ -230,6 +113,7 @@ class theme_mobilemoodle_block_navigation_renderer extends block_navigation_rend
 		if (isset($navigation->id) && !is_numeric($navigation->id) && !empty($content)) {
 			$content = $this->output->box($content, 'block_tree_box', $navigation->id);
 		}
+		/* return a listview */
 		return "<ul data-role='listview'>" . $content . "</ul>";
 	}
 
@@ -365,8 +249,8 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
                             'value'    => $button->label,
                             'disabled' => $button->disabled ? 'disabled' : null,
                             'title'    => $button->tooltip,
-							'data-theme' => 'b',
-							'data-role' => 'button');
+							'data-theme' => 'b', /* give a theme */
+							'data-role' => 'button'); /* make it a button */
 						
         if ($button->actions) {
             $id = html_writer::random_id('single_button');
@@ -411,7 +295,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
 
 	/**
      * Internal implementation of user image rendering.
-     *
+     * Overriden to output font icons for default user pictures
      * @param user_picture $userpicture
      * @return string
      */
@@ -440,9 +324,11 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
 
         $class = $userpicture->class;
 
+		/* if no picture, the default is a div which then gets caught by css to create icon*/
         if ($user->picture == 0) {
-            $class .= ' defaultuserpic';     
-            $output = html_writer::tag('div', null, array('class'=>$class));       
+            $class .= 'defaultuserpic';     
+            $output = html_writer::tag('div', null, array('class'=>$class));    
+            
         }else{
 	        $src = $userpicture->get_url($this->page, $this);
 	
@@ -487,6 +373,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
  
     /**
      * Implementation of user image rendering.
+     * Recreated to imageless version
      *
      * @param help_icon $helpicon A help icon instance
      * @return string HTML fragment
@@ -539,6 +426,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
  
   /**
    * Override the need to have body content
+   * Commented out the if decision to throw error
    **/
     public function header() {
         global $USER, $CFG;
@@ -601,9 +489,12 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
 
     
    
-/**
+	/**
      * Return the standard string that says whether you are logged in (and switched
-     * roles/logged in as another user).
+     * roles/logged in as another user). 
+     * 
+     * Added the profile picture and created a button 
+     * 
      * @param bool $withlinks if false, then don't include any links in the HTML produced.
      * If not set, the default is the nologinlinks option from the theme config.php file,
      * and if that is not set, then links are included.
@@ -698,7 +589,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
     
     
     /**
-     * No controls
+     * No movement controls for blocks
      */
     public function block_controls($controls) {
             return '';
@@ -737,29 +628,12 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
 		$this->init_block_hider_js($bc);
 		return $output;
     }
-        
-	 /**
-	 * Produces the content area for a block
-	 *
-	 * @param block_contents $bc
-	 * @return string
-	 */
-	protected function block_content(block_contents $bc) {
-		$output = html_writer::start_tag('div', array('class' => 'content'));
-		if (!$bc->title && !$this->block_controls($bc->controls)) {
-			$output .= html_writer::tag('div', '', array('class'=>'block_action notitle'));
-		}
-		$output .= $bc->content;
-		$output .= $this->block_footer($bc);
-		$output .= html_writer::end_tag('div');
-
-		return $output;
-	}
-        
+               
     
 	/*
 	 * Return the navbar content so that it can be echoed out by the layout
-	 *
+	 * 
+	 * Hide the image icons
 	 * @return string XHTML navbar
 	 */
 	public function navbar() {
@@ -771,7 +645,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
 		$separator = get_separator();
 		for ($i=0;$i < $itemcount;$i++) {
 			$item = $items[$i];
-			$item->hideicon = false;
+			$item->hideicon = false; //make sure image icons are hidden
 			if ($i===0) {
 				$content = html_writer::tag('li', $this->render($item));
 			} else {
@@ -790,6 +664,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
         
 	/**
 	* Creates a grade button for the current course
+	* @author: Allan Watson 2013
 	* @return string
 	*/
 
@@ -815,6 +690,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
 	  
 	 /**
       * Creates a grading button for the current course
+	 * @author: Allan Watson 2013
       * @return string
       */
       
@@ -854,7 +730,6 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
      
      /**
 	 * Generates Blocks Button for menu
-	 * @author: Allan Watson 2013
 	 */
      
      public function blocks_button() {
@@ -902,6 +777,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
 	/**
 	 * Renders the blocks for a block region in the page
 	 *
+	 * Removed move controls
 	 * @param type $region
 	 * @return string
 	 */
@@ -1006,7 +882,8 @@ class theme_mobilemoodle_block_course_overview_renderer extends block_course_ove
 	 /**
      * Coustuct activities overview for a course
      * No need for expanded overviews, keep blocks simple
-	 * 
+	 * Added a font icon  
+	 *
      * @param int $cid course id
      * @param array $overview overview of activities in course
      * @return string html of activities overview
