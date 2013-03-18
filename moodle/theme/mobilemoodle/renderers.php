@@ -326,7 +326,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
 
 		/* if no picture, the default is a div which then gets caught by css to create icon*/
         if ($user->picture == 0) {
-            $class .= 'defaultuserpic';     
+            $class .= ' defaultuserpic';     
             $output = html_writer::tag('div', null, array('class'=>$class));    
             
         }else{
