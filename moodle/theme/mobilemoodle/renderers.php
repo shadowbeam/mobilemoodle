@@ -2,8 +2,6 @@
 
 class theme_mobilemoodle_renderer extends plugin_renderer_base {
 	
-
-
     /**
      * Produces the settings tree
      * Based upon blocks/settings/renderer.php

@@ -65,8 +65,7 @@ echo $OUTPUT->doctype(); ?>
 			<?php if ($PAGE->heading) { ?>
 				<div class="headernav">
 					<?php if (isloggedin()) { ?>
-						
-						<a class="icon-menu mybtn ui-btn-right" href="#panel-wrapper" data-ajax="false"></a>
+							<a class="icon-menu mybtn ui-btn-right" href="#panel-wrapper" data-ajax="false"></a>
 						<?php echo $OUTPUT->back_button(); ?>
 					
 					<?php } 

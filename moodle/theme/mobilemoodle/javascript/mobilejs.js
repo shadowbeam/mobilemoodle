@@ -241,7 +241,6 @@ $('#page-mod-forum-view').live('pagebeforecreate',function(event, ui){
 
 	/* For each discussion row */
 	$(this).find('tr.discussion').each(function(index) {
-		/* Swipe over the topic to reveal more information */
 
 	  /* Swipe over the topic to reveal more information */
 		$(this).live('swiperight', function (event, ui) {
@@ -255,7 +254,7 @@ $('#page-mod-forum-view').live('pagebeforecreate',function(event, ui){
 		//find the replies for this discussion
 		var rply = $(this).find('td.replies a').html();
 		
-		//add the reply counts
+		//add the post counts
 		$(this).find('td.topic a').append('<span class="reply-count">' + rply + '</span>');
 	});
 	
@@ -368,13 +367,13 @@ $('#page-mod-forum-discuss, #page-mod-forum-post, #page-mod-forum-user').live('p
 		/* If there are no reply buttons */
 		if($fp.find('.rply-count').length == 0){	
 			
-			//for each post
-			$fp.each(function(){
+			
+			$fp.each(function(){//for each post
 				var count = 0;
 				var parent = $(this).parent();
-				if(parent.attr('class') == 'indent'){
-					parent.children('.indent').each(function(){
-						count += $(this).children('.forumpost').size();
+				if(parent.attr('class') == 'indent'){ //find the indentation wrapper
+					parent.children('.indent').each(function(){ //for each child indent
+						count += $(this).children('.forumpost').size(); //count the forumpost children
 					});
 					if(count > 0)
 						$(this).addClass('has-replies').find('.content').prepend('<div data-role="button" data-mini="true" data-theme="b" class=" rply-count clearfix">' + count + '</div>');
