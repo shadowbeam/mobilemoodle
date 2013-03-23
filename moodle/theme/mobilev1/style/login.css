@@ -1,0 +1,77 @@
+/*
+ * Login Page CSS
+ */
+ 
+ 
+ #page-login-index .loginbox.twocolumns .loginpanel,
+ #page-login-index .loginbox.twocolumns .signuppanel  {
+	 float: none;
+	 width: 100%;
+	 border-right:none;
+	 margin-bottom: 0px;
+	 padding-bottom: 0px;
+ }
+ 
+  #page-login-index .loginbox{
+  	margin: auto;
+  	max-width: 450px;;
+  }
+ 
+
+/* Form Input */
+
+#page-login-index .loginpanel input#username,
+#page-login-index .loginpanel input#password{
+ 	padding-left: 0!important;
+ 	padding-right: 0!important;
+ }
+
+#page-login-index .loginbox .loginform .form-input {
+	float: none;
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+#page-login-index .loginbox .loginform .form-input input,
+#page-login-index h2{
+	text-align: center;
+}
+
+#page-login-index .rememberpass #rememberusername{
+	display: inline-block;
+	width: auto;
+}
+
+/* Errors */
+
+#page-login-index .forgetpass{
+	text-align: center;
+	padding-bottom: 2em;
+	padding-top: 2em;
+}
+
+#page-login-index .loginerrors{
+	text-align: center;
+	border: 2px solid rgba(161, 43, 43, 0.68);
+	-webkit-border-radius: 5px;
+
+	padding: 1em;
+	font-weight: bold;
+	background-color: rgba(196, 109, 109, 0.21);
+
+}
+
+/* Hide */
+
+#page-login-index .loginbox .loginpanel .desc,
+#page-login-index .signuppanel,
+#page-login-index .skiplinks,
+#page-login-index .loginbox .signuppanel .subcontent ol,
+#page-login-index .form-label
+ {display: none;}
+ 
+ 
+
+ 
+
+

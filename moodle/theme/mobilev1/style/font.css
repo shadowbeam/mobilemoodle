@@ -1,0 +1,150 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('[[font|icomoon.eot]]');
+	src:url('[[font|icomoon.eot?#iefix]]') format('embedded-opentype'),
+		url('[[font|icomoon.woff]]') format('woff'),
+		url('[[font|icomoon.ttf]]') format('truetype'),
+		url('[[font|icomoon.svg#icomoon]]') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+	.icon-grid:before,.icon-star:before,.icon-spam:before,.icon-close:before,.icon-exit:before,.icon-menu:before,.icon-arrow-left:before,.icon-spell-check:before,.ui-icon-loading:before,.ui-icon-plus:before,.ui-icon-minus:before,.ui-icon-arrow-u:before,.ui-icon-arrow-l:before,.ui-icon-arrow-d:before,.ui-icon-arrow-r:before,.ui-icon-delete:before,.ui-icon-searchfield:after,.ui-icon-checkbox-on:before,.icon-arrow-left:before,.ui-icon-radio-on:before,.ui-icon-gear:before,.defaultuserpic:before
+ 
+ {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.ui-icon-checkbox-on:before {
+	content: "\2c";
+}
+
+.icon-spam:before {
+	content: "\32";
+}
+
+.icon-grid:before {
+	content: "\23";
+}
+
+.icon-star:before {
+	content: "\2a";
+}
+
+.ui-icon-searchfield:after{
+	content: "\34";
+}
+
+.ui-icon-radio-on:before {
+	content: "\6f";
+}
+.ui-icon-minus:before  {
+	content: "\2d";
+}
+
+.icon-close:before,
+.ui-icon-delete:before {
+	content: "\78";
+}
+
+
+.ui-icon-plus:before  {
+	content: "\22";
+}
+
+
+.ui-icon-gear:before{
+	content: "\25";
+}
+
+.icon-exit:before {
+	content: "\6c";
+}
+
+li.My.courses .ui-btn-text a:before,
+li.Courses .ui-btn-text a:before  {
+	content: "\48";
+}
+
+.icon-menu:before {
+	content: "\4d";
+}
+
+.ui-icon-loading:before  {
+	content: "\4f";
+}
+
+.ui-icon-arrow-r:before {
+	content: "\3e";
+}
+
+.ui-icon-arrow-l:before {
+	content: "\3c";
+}
+
+.ui-icon-arrow-d:before {
+	content: "\56";
+}
+
+.ui-icon-arrow-u:before {
+	content: "\4e";
+}
+
+.icon-arrow-left:before {
+	content: "\5a";
+}
+
+.icon-spell-check:before,
+li.Grade .ui-btn-text a:before {
+	content: "\39";
+}
+
+.defaultuserpic:before {
+	content: "\3b";
+}
+
+li.Discussions .ui-btn-text a:before {
+	content: "\44";
+}
+
+li.Posts .ui-btn-text a:before {
+	content: "\3d";
+}
+
+li.Calendar .ui-btn-text a:before
+ {
+	content: "\43";
+}
+
+li.Messages .ui-btn-text a:before  {
+	content: "\3f";
+}
+
+li.Add.a.new.entry .ui-btn-text a:before  {
+	content: "\41";
+}
+
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+/* Don't show icons for non supportive browsers*/
+.baddevice [class*="icon-"]:before,
+.no-fontface [class*="icon-"]:before,
+.baddevice #panel-wrapper .ui-btn-text a:before, /* no panel icons */
+.no-fontface #panel-wrapper .ui-btn-text a:before
+{
+	display: none;
+}
+
