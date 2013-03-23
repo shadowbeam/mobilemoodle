@@ -26,7 +26,7 @@ class theme_mobilemoodle_renderer extends plugin_renderer_base {
     
 	/**
 	 * Protected method to render a navigaiton node
-	 * Adapted from lib/outputrenderers.php
+	 * Adapted from the blocks/navigation/renderer.php
 	 *	 
 	 * @param navigation_node $node
 	 * @param array $attrs
@@ -88,146 +88,6 @@ class theme_mobilemoodle_renderer extends plugin_renderer_base {
 		return implode("\n", $lis);
 	}
 
-}
-
-
-
-
-include_once($CFG->dirroot . '/blocks/navigation/renderer.php');
-  
-class theme_mobilemoodle_block_navigation_renderer extends block_navigation_renderer {
-
-	/**
-	 * Produces the navigation tree
-	 * 
-	 * @param global_navigation $navigation
-	 * @return string
-	 */
-	public function navigation_tree(global_navigation $navigation, $expansionlimit, array $options = array()) {
-		$navigation->add_class('navigation_node');
-		$content = $this->navigation_node(array($navigation), array('class'=>'block_tree list'), $expansionlimit, $options);
-		
-		
-		if (isset($navigation->id) && !is_numeric($navigation->id) && !empty($content)) {
-			$content = $this->output->box($content, 'block_tree_box', $navigation->id);
-		}
-		/* return a listview */
-		return "<ul data-role='listview'>" . $content . "</ul>";
-	}
-
-	/**
-	 * Produces a navigation node for the navigation tree
-	 *
-	 * @param array $items
-	 * @param array $attrs
-	 * @param int $expansionlimit
-	 * @param array $options
-	 * @param int $depth
-	 * @return string
-	 */
-	protected function navigation_node($items, $attrs=array(), $expansionlimit=null, array $options = array(), $depth=1) {
-
-
-		// exit if empty, we don't want an empty ul element
-		if (count($items)==0) {
-			return '';
-		}
-
-		// array of nested li elements
-		$lis = array();
-		foreach ($items as $item) {
-			if (!$item->display && !$item->contains_active_node()) {
-				continue;
-			}
-			
-			
-			$content = $this->render_navigation_node($item);
-			$title = $item->get_title();
-	   
-			
-			
-			if($item->has_children()){
-				//  $liattrs['data-role'] ='list-divider';
-				  $liattrs['data-theme'] ='b';
-				  $content .=  	$this->navigation_node($item->children, array(), $expansionlimit, $options, $depth+1);
-			}
-
-		 //   $content = html_writer::tag('p', $content, $divattr);
-				 
-			if (!empty($item->preceedwithhr) && $item->preceedwithhr===true) {
-				$content = html_writer::empty_tag('hr') . $content;
-			}
-			$content = html_writer::tag('li', $content, $liattrs);
-			$lis[] = $content;
-		}
-
-			if (count($lis)) {
-				return implode("\n", $lis);
-			} else {
-				return '';
-			}
-	}
-    
-	/**
-	 * Renders a navigation node object.
-	 *
-	 * @param navigation_node $item The navigation node to render.
-	 * @return string HTML fragment
-	 */
-	protected function render_navigation_node(navigation_node $item) {
-		$content = $item->get_content();
-		$title = $item->get_title();
-		
-//            if ($item->icon instanceof renderable && !$item->hideicon) {
-//                $icon = $this->render($item->icon);
-//                $content = $icon.$content; // use CSS for spacing of icons
-//            }
-//            
-//            
-//            if ($item->helpbutton !== null) {
-//                $content = trim($item->helpbutton).html_writer::tag('span', $content, array('class'=>'clearhelpbutton', 'tabindex'=>'0'));
-//            }
-		
-		
-		if ($content === '') {
-			return '';
-		}
-		
-		if ($item->action instanceof action_link) {
-			$link = $item->action;
-			if ($item->hidden) {
-				$link->add_class('dimmed');
-			}
-			
-			if (!empty($content)) {
-				// Providing there is content we will use that for the link content.
-				$link->text = $content;
-			}
-			
-			$content = $this->render($link);
-		} else if ($item->action instanceof moodle_url) {
-			$attributes = array();
-			if ($title !== '') {
-				$attributes['title'] = $title;
-			}
-			if ($item->hidden) {
-				$attributes['class'] = 'dimmed_text';
-			}
-			$content = html_writer::link($item->action, $content, $attributes);
-
-		} else if (is_string($item->action) || empty($item->action)) {
-			$attributes = array('tabindex'=>'0'); //add tab support to span but still maintain character stream sequence.
-			if ($title !== '') {
-				$attributes['title'] = $title;
-			}
-			if ($item->hidden) {
-				$attributes['class'] = 'dimmed_text';
-			}
-			$content = html_writer::tag('span', $content, $attributes);
-		}
-		return $content;
-	}
-    
 }
 
 
@@ -631,7 +491,7 @@ class theme_mobilemoodle_core_renderer extends core_renderer {
 	/*
 	 * Return the navbar content so that it can be echoed out by the layout
 	 * 
-	 * Hide the image icons
+	 * @allanwatson Hidden the image icons
 	 * @return string XHTML navbar
 	 */
 	public function navbar() {
@@ -817,7 +677,6 @@ class theme_mobilemoodle_block_course_overview_renderer extends block_course_ove
 
     /**
      * Construct contents of course_overview block
-     *
      * @param array $courses list of courses in sorted order
      * @param array $overviews list of course overviews
      * @return string html to be displayed in course_overview block

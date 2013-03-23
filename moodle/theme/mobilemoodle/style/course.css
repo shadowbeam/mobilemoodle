@@ -10,7 +10,8 @@
 	padding-right: 10px;
 }
 
-.course-content li.section.ui-block-b,.accord.ui-block-b {
+.course-content li.section.ui-block-b,
+.accord.ui-block-b {
 	padding-left: 10px;
 }
 
